@@ -3,7 +3,7 @@ import {type DefaultTheme, defineConfig} from 'vitepress'
 
 export const zh = defineConfig({
     lang: 'zh-Hans',
-    description: 'AI红队平台',
+    description: 'AI SOC FRAMEWORK',
 
     themeConfig: {
         nav: nav(),
@@ -64,38 +64,9 @@ function nav(): DefaultTheme.NavItem[] {
             link: '/zh/training/index',
             activeMatch: '/zh/training/'
         },
-        // {
-        //     text: '定价',
-        //     link: '/zh/pricing',
-        //     activeMatch: '/zh/pricing'
-        // },
         {
             text: "更新日志",
             items: [
-                // {
-                //     text: '3.1.8 - 新的开始,起"飞"',
-                //     link: '/zh/release/3_1_8_New_Start_To_Fly'
-                // },
-                // {
-                //     text: '3.1.7 - 有 Python 就够了',
-                //     link: '/zh/release/3_1_7_Python_Is_All_Your_Need'
-                // },
-                // {
-                //     text: '3.1.6 - 安全意识培训智能体和分析智能体',
-                //     link: '/zh/release/3_1_6_Awareness_Training_Agent_And_Analysis_Agent'
-                // },
-                // {
-                //     text: '3.1.5 - GitHub Issues 之周',
-                //     link: '/zh/release/3_1_5_Github_issues_week'
-                // },
-                // {
-                //     text: '3.1.4 - 劳动节快乐',
-                //     link: '/zh/release/3_1_4_happy_international_workers_day'
-                // },
-                // {
-                //     text: '3.1.3 - 这不是Bug,这是特性 !',
-                //     link: '/zh/release/3_1_3_It_is_not_a_bug_it_is_a_feature'
-                // },
                 // {
                 //     text: '3.1.2 - 渗透测试智能体和MCP服务器',
                 //     link: '/zh/release/3_1_2_Pentest_Agent_and_MCP_server'
@@ -121,7 +92,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
-            text: '主机操作',
+            text: '框架',
             collapsed: false,
             items: [
                 {text: '主机信息', link: 'information'},
@@ -129,7 +100,15 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
-            text: '平台配置',
+            text: '模块',
+            collapsed: false,
+            items: [
+                {text: '许可管理', link: 'license'},
+                {text: '', link: ''},
+            ]
+        },
+        {
+            text: 'SIRP',
             collapsed: false,
             items: [
                 {text: '许可管理', link: 'license'},

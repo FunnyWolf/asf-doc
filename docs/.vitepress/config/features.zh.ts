@@ -1,28 +1,27 @@
 export const featuresConfig = [
-  {
-    title: '直观的操作界面',
-    details: '提供简洁明了的用户体验，便于快速上手。通过清晰的布局和直观的操作流程，让红队成员能够快速适应并开展工作。',
-    image: '/hero/zh/img_1.png'
-  },
-  {
-    title: '多平台支持',
-    details: '全面支持Windows、Linux、macOS和Android等多个操作系统的红队评估工作。无论目标环境如何，都能完美适配。',
-    image: '/hero/zh/img_2.png'
-  },
-  {
-    title: 'AI 智能体',
-    details: '内置大型语言模型智能体，提供智能化的决策支持和自动化处理能力，让红队工作更加高效。',
-    image: '/hero/zh/img_3.png'
-  },
-  {
-    title: '丰富的内置模块',
-    details: '超过100个后渗透模块，全面覆盖MITRE ATT&CK框架各个阶段，满足各类渗透测试场景需求。',
-    image: '/hero/zh/img_4.png'
-  },
-  {
-    title: '自动化工作流',
-    details: '强大的自动化编排和通知机制，支持全天候监控目标状态，提高红队工作效率。',
-    image: '/hero/zh/img_5.png'
-  },
-
+    {
+        title: '功能完善的自动化框架',
+        details: 'Webhook告警接收,Redis告警队列,流式告警处理,Playbook编排',
+        image: '/hero/zh/img_2.png'
+    },
+    {
+        title: '完全使用Python编写',
+        details: '框架和模块均使用Python编写,易于二次开发和定制',
+        image: '/hero/zh/img_3.png'
+    },
+    {
+        title: '多种AI Agent模板',
+        details: '平台内置LangGraph/Dify等Agent框架编写的自动化模块模板',
+        image: '/hero/zh/img_1.png'
+    },
+    {
+        title: '开发人员友好',
+        details: '框架针对Python开发进行了大量优化,开发人员可选择熟悉的IDE进行模块开发,并预留独立的模块调试接口',
+        image: '/hero/zh/img_5.png'
+    },
+    {
+        title: '内置SIRP平台',
+        details: '内置基于Nocoly开发的SIRP平台,无需编码即可定制化开发UI',
+        image: '/hero/zh/img_4.png'
+    },
 ]
