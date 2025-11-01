@@ -52,7 +52,6 @@ defineProps({
   justify-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
   background-size: 200% 200%;
   animation: gradientBg 30s ease infinite;
   backdrop-filter: blur(10px);
@@ -286,15 +285,15 @@ defineProps({
 .preview-image {
   position: absolute;
   inset: 0;
-  padding: 0 1rem;
   overflow: hidden;
+  padding: 0;
 }
 
 .preview-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
   border-radius: 16px 16px 0 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
