@@ -9,15 +9,13 @@ export const zh = defineConfig({
         nav: nav(),
 
         sidebar: {
-            '/zh/guide/': {base: '/zh/guide/', items: sidebarGuide()},
-            '/zh/module/': {base: '/zh/module/', items: sidebarModule()},
-            '/zh/training/': {base: '/zh/training/', items: sidebarTraining()},
-            '/zh/policies/': {base: '/zh//policies/', items: sidebarPolicies()}
+            '/zh/asf/': {base: '/zh/asf/', items: sidebarASF()},
+            '/zh/sirp/': {base: '/zh/sirp/', items: sidebarSIRP()},
         },
 
         footer: {
             message: '<a href="./policies/terms_of_service">Terms</a> · <a href="./policies/privacy_policy">Privacy</a>',
-            copyright: `版权所有 © 2020-${new Date().getFullYear()} Viper Red Team Platform`
+            copyright: `版权所有 © 2020-${new Date().getFullYear()} AI SOC FRAMEWORK`
         },
 
         docFooter: {
@@ -50,150 +48,94 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: '指南',
-            link: '/zh/guide/welcome_to_viper',
-            activeMatch: '/zh/guide/'
-        },
-        {
-            text: '模块',
-            link: '/zh/module/index',
-            activeMatch: '/zh/module/'
-        },
-        {
-            text: '教程',
-            link: '/zh/training/index',
-            activeMatch: '/zh/training/'
-        },
-        {
-            text: "更新日志",
-            items: [
-                // {
-                //     text: '3.1.2 - 渗透测试智能体和MCP服务器',
-                //     link: '/zh/release/3_1_2_Pentest_Agent_and_MCP_server'
-                // },
-                {
-                    text: '3.1.1 - 混乱是阶梯',
-                    link: '/zh/release/3_1_1_Chaos_is_a_ladder'
-                },
-
-            ]
-        }
-    ]
-}
-
-function sidebarGuide(): DefaultTheme.SidebarItem[] {
-    return [
-        {
-            text: '简介',
-            collapsed: false,
-            items: [
-                {text: '欢迎使用', link: 'welcome_to_viper'},
-                {text: '快速开始', link: 'getting_start'},
-            ]
-        },
-        {
-            text: '框架',
-            collapsed: false,
-            items: [
-                {text: '主机信息', link: 'information'},
-                {text: '', link: ''},
-            ]
-        },
-        {
-            text: '模块',
-            collapsed: false,
-            items: [
-                {text: '许可管理', link: 'license'},
-                {text: '', link: ''},
-            ]
+            text: 'AI SOC FRAMEWORK',
+            link: '/zh/asf/index/',
+            activeMatch: '/zh/asf/'
         },
         {
             text: 'SIRP',
-            collapsed: false,
-            items: [
-                {text: '许可管理', link: 'license'},
-                {text: '', link: ''},
-            ]
+            link: '/zh/sirp/index/',
+            activeMatch: '/zh/sirp/'
         },
-        {
-            text: '其他',
-            collapsed: false,
-            items: [
-                {text: '更新版本', link: 'update_version'},
-            ]
-        }
+        // {
+        //     text: "更新日志",
+        //     items: [
+        //         // {
+        //         //     text: '3.1.2 - 渗透测试智能体和MCP服务器',
+        //         //     link: '/zh/release/3_1_2_Pentest_Agent_and_MCP_server'
+        //         // },
+        //         {
+        //             text: '3.1.1 - 混乱是阶梯',
+        //             link: '/zh/release/3_1_1_Chaos_is_a_ladder'
+        //         },
+        //
+        //     ]
+        // }
     ]
 }
 
-function sidebarModule(): DefaultTheme.SidebarItem[] {
+function sidebarASF(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: '智能体',
+            text: '功能介绍',
             collapsed: false,
             items: [
-                {text: '渗透测试智能体', link: 'AI_Agent_Session_LangGraph_Pentest'},
+                {text: 'Module', link: 'module/'},
+                {text: 'Playbook', link: 'playbook/'},
+                {text: 'Webhook', link: 'webhook/'},
             ]
         },
         {
-            text: '资源部署',
+            text: '开发文档',
             collapsed: false,
             items: [
-                {text: '随机身份生成(中文)', link: 'ResourceDevelopment_EstablishAccounts_RGPerson'},
+                {text: '环境配置', link: 'environment_setup/'},
+                {text: 'Module', link: 'module_development/'},
+                {text: 'Playbook', link: 'playbook_development/'},
             ]
         },
         {
-            text: '横向移动',
+            text: '生产部署',
             collapsed: false,
             items: [
-
-                {text: 'MS17-010扫描', link: 'LateralMovement_ExploitationOfRemoteServices_AuxiliaryMs17010'},
-                // {text: 'MS17-010利用(CSharp)', link: 'LateralMovement_ExploitationOfRemoteServices_MS17010'},
-
-            ]
-        },
-        {
-            text: '数据采集',
-            collapsed: false,
-            items: [
-                {text: '打包压缩目录并回传', link: 'Collection_ArchiveCollectedData_ArchiveViaCustomMethod'},
-                {text: '分卷压缩目录/文件(7z)', link: 'Collection_ArchiveCollectedData_ArchiveViaCustomMethod_7z'},
-            ]
-        },
-    ]
-}
-
-function sidebarTraining(): DefaultTheme.SidebarItem[] {
-    return [
-        {
-            text: '熟悉Viper',
-            collapsed: false,
-            items: [
-                {text: '获取权限', link: 'first_session/first_session'},
-            ]
-        },
-        {
-            text: '高阶技巧',
-            collapsed: false,
-            items: [
-                {text: '多级内网渗透(gost&viper)', link: 'multi_level_intranet_penetration_gost_viper'},
-
-            ]
-        },
-        {
-            text: 'Blog',
-            collapsed: false,
-            items: [
-                {text: 'Viper开源图形化内网渗透工具安装与入门指南', link: 'viper_open_source_graphical_intrAnet_penetration_tool_installation_and_beginner_guide'},
+                {text: 'SIEM', link: 'siem/'},
+                {text: 'ASF', link: 'asf/'},
             ]
         },
     ]
 }
 
-
-function sidebarPolicies(): DefaultTheme.SidebarItem[] {
+function sidebarSIRP(): DefaultTheme.SidebarItem[] {
     return [
-        {text: '隐私权条款', link: 'privacy_policy'},
-        {text: '服务协议', link: 'terms_of_service'},
+        {
+            text: '功能介绍',
+            collapsed: false,
+            items: [
+                {text: 'Dashboard', link: 'dashboard/'},
+                {text: 'Case', link: 'case/'},
+                {text: 'Alert', link: 'alert/'},
+                {text: 'Artifact', link: 'artifact/'},
+                {text: 'Playbook', link: 'playbook/'},
+                {text: 'System', link: 'system/'},
+                {text: 'Workflow', link: 'workflow/'},
+            ]
+        },
+        {
+            text: '安装部署',
+            collapsed: false,
+            items: [
+                {text: '安装平台', link: 'nocoly_install/'},
+                {text: '安装应用', link: 'sirp_install/'},
+                {text: '配置应用', link: 'sirp_config/'},
+            ]
+        },
+        {
+            text: '定制开发',
+            collapsed: false,
+            items: [
+                {text: '自定义字段', link: 'custom_fields'},
+            ]
+        },
     ]
 }
 
