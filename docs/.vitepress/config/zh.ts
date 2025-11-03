@@ -80,9 +80,10 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             text: '功能介绍',
             collapsed: false,
             items: [
-                {text: 'Module', link: 'module/'},
-                {text: 'Playbook', link: 'playbook/'},
-                {text: 'Webhook', link: 'webhook/'},
+                {text: 'Framework', link: 'framework/'},
+                {text: 'MODULES', link: 'module/'},
+                {text: 'PLAYBOOKS', link: 'playbook/'},
+                {text: 'PLUGINS', link: 'plugin/'},
             ]
         },
         {

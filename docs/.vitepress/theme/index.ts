@@ -1,5 +1,4 @@
 import DefaultTheme from "vitepress/theme";
-import googleAnalytics from 'vitepress-plugin-google-analytics';
 import 'virtual:group-icons.css'
 import './styles.css'
 import './styles/custom.css'
@@ -13,14 +12,11 @@ import Pricing from "./components/Pricing.vue";
 export default {
     extends: DefaultTheme,
     Layout,
-    enhanceApp: ({ app }) => {
+    enhanceApp: ({app}) => {
         app.component('Features', Features)
         app.component('Hero', Hero)
         app.component('KeyFeatures', KeyFeatures)
         app.component('Testimonials', Testimonials)
         app.component('Pricing', Pricing)
-        googleAnalytics({
-            id: 'G-8MSHMM5T8X',
-        });
     }
 };
