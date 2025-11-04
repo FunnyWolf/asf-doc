@@ -14,8 +14,8 @@ export const zh = defineConfig({
         },
 
         footer: {
-            message: '<a href="./policies/terms_of_service">Terms</a> · <a href="./policies/privacy_policy">Privacy</a>',
-            copyright: `版权所有 © 2020-${new Date().getFullYear()} AI SOC FRAMEWORK`
+            // message: '<a href="./policies/terms_of_service">Terms</a> · <a href="./policies/privacy_policy">Privacy</a>',
+            copyright: `版权所有 © 2020-${new Date().getFullYear()} Funnywolf`
         },
 
         docFooter: {
@@ -31,7 +31,7 @@ export const zh = defineConfig({
             text: '最后更新于',
             formatOptions: {
                 dateStyle: 'short',
-                timeStyle: 'medium'
+                // timeStyle: 'short'
             }
         },
 
@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'AI SOC FRAMEWORK',
-            link: '/zh/asf/index/',
+            link: '/zh/asf/framework/',
             activeMatch: '/zh/asf/'
         },
         {
@@ -81,23 +81,55 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             items: [
                 {text: 'Framework', link: 'framework/'},
-                {text: 'MODULES', link: 'module/'},
-                {text: 'PLAYBOOKS', link: 'playbook/'},
-                {text: 'PLUGINS', link: 'plugin/'},
+                // { text: 'MODULES', link: 'module/' },
+                // { text: 'PLAYBOOKS', link: 'playbook/' },
+                // { text: 'PLUGINS', link: 'plugin/' },
             ]
         },
         {
-            text: '开发文档',
+            text: '开发环境',
             collapsed: false,
             items: [
                 {text: '环境配置', link: 'environment_setup/'},
-                {text: 'Module', link: 'module_development/'},
-                {text: 'Playbook', link: 'playbook_development/'},
+            ]
+        },
+        {
+            text: 'MODULES',
+            collapsed: false,
+            base: '/zh/asf/MODULES/',
+            items: [
+                {text: '开发文档', link: 'development/'},
+                {text: 'ES-Rule-21-Phishing_user_report_mail', link: 'ES-Rule-21-Phishing_user_report_mail/'},
+                {text: 'ES-Rule-22-Phishing_user_report_mail', link: 'ES-Rule-22-Phishing_user_report_mail/'},
+            ]
+        },
+        {
+            text: 'PLAYBOOKS',
+            collapsed: false,
+            base: '/zh/asf/PLAYBOOKS/',
+            items: [
+                {text: '开发文档', link: 'development/'},
+                {text: 'Alert_Suggestion_Gen_By_LLM', link: 'Alert_Suggestion_Gen_By_LLM/'},
+                {text: 'Artifact_TI_Enrichment_Update', link: 'Artifact_TI_Enrichment_Update/'},
+                {text: 'Case_Suggestion_Gen_By_LLM', link: 'Case_Suggestion_Gen_By_LLM/'},
+                {text: 'TI_Artifact_query_mock', link: 'TI_Artifact_query_mock/'},
+            ]
+        },
+        {
+            text: 'PLUGINS',
+            collapsed: false,
+            base: '/zh/asf/PLUGINS/',
+            items: [
+                {text: '开发文档', link: 'development/'},
+                {text: 'Dify', link: 'Dify/'},
+                {text: 'LLM', link: 'LLM/'},
+                {text: 'SIRP', link: 'SIRP/'},
             ]
         },
         {
             text: '生产部署',
             collapsed: false,
+            base: '/zh/asf/production/',
             items: [
                 {text: 'SIEM', link: 'siem/'},
                 {text: 'ASF', link: 'asf/'},
@@ -125,7 +157,6 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             text: '安装部署',
             collapsed: false,
             items: [
-                {text: '安装平台', link: 'nocoly_install/'},
                 {text: '安装应用', link: 'sirp_install/'},
                 {text: '配置应用', link: 'sirp_config/'},
             ]

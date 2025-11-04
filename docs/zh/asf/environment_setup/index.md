@@ -1,23 +1,80 @@
-# empty
+# 环境配置
 
-## 资源准备
+开始前请准备如下资源
 
-8U32G ubuntu
+- 8核心/32G内存/50G 硬盘的 Linux 服务器
 
-pycharm (Windows/Mac)
+> 使用Ubuntu24.04演示
 
-openai 兼容API/ollama
+- Windows 开发主机
 
+> MacOS 配置方法类似
 
-## windows/mac
-git clone
-uv
+- LLM API
+
+> 支持OpenAI Compatible API 和 ollama API
+
+- **假设 Linux 服务器 IP : 192.168.241.128**
+- **假设 Windows 11 开发主机 IP : 192.168.241.1**
+
+## Linux 服务器
+
+Linux 服务器中需使用 Docker 安装 Redis Stack 及 SIRP
+
+### Redis Stack 安装
+
+- 安装Docker
+
+```
+export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
+curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
+```
+
+- 克隆 ASF 代码 (github下载上传到服务器也可以)
+
+```
+git clone git@github.com:FunnyWolf/ai-soc-framework.git
+```
+
+- 安装并启动 Redis Stack
+
+```
+cd ai-soc-framework/Docker/redis_stack
+docker compose up -d
+```
+
+- 访问 Redis Insight 检查是否安装成功
+
+> URL: http://192.168.241.128:8001 账号密码:default / redis-stack-password-for-ai-soc-framework
+
+### SIRP 安装
+
+[参考文档](/zh/sirp/sirp_install/)
+
+## Windows 开发主机
+
+- 克隆ASF代码
+
+```
+git clone git@github.com:FunnyWolf/ai-soc-framework.git
+```
+
+- 安装uv及依赖库
+
+```
+pip install uv
+cd ai-soc-framework
+uv venv 
 uv sync
+```
 
+- 将ai-soc-framework/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
+- 将ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py重命名为CONFIG.py [填写说明](https://asf.viperrtp.com/zh/asf/PLUGINS/SIRP/)
+- 将ai-soc-framework/PLUGINS/LLM/CONFIG.example.py重命名为CONFIG.py [填写说明](https://asf.viperrtp.com/zh/asf/PLUGINS/LLM/)
 
-## linux
-docker
-redis stack
+- 启动项目
 
-## CONFIG.py说明
-每个字段
+```
+Python manage.py runserver 0.0.0.0:7000
+```
+
