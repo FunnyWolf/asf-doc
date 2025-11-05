@@ -9,7 +9,7 @@
 
 ## 导入 SIRP
 
-- 克隆 ASF 代码库 , SIRP应用文件为 ai-soc-framework/Docker/SIRP/SIRP.mdy
+- 克隆 ASF 代码库 , SIRP应用文件为 ai-soc-framework/PLUGINS/SIRP/SIRP.mdy
 
 ```bash
 git clone git@github.com:FunnyWolf/ai-soc-framework.git

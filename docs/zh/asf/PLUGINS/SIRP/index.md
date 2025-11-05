@@ -16,7 +16,7 @@
 
 ## 配置方法
 
-- 将配置文件 ai-soc-framework/PLUGINS/Dify/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
+- 将配置文件 ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
 - SIRP_URL为 SIRP 平台地址,如 http://192.168.241.128:8880
 - SIRP_APPKEY 及 SIRP_SIGN
 

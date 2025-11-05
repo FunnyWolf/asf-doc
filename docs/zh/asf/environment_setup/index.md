@@ -17,7 +17,7 @@
 - **假设 Linux 服务器 IP : 192.168.241.128**
 - **假设 Windows 11 开发主机 IP : 192.168.241.1**
 
-## Linux 服务器
+## Linux 主机
 
 Linux 服务器中需使用 Docker 安装 Redis Stack 及 SIRP
 
@@ -51,7 +51,7 @@ docker compose up -d
 
 [参考文档](/zh/sirp/sirp_install/)
 
-## Windows 开发主机
+## Windows 开发机
 
 - 克隆ASF代码
 
@@ -69,8 +69,10 @@ uv sync
 ```
 
 - 将ai-soc-framework/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
-- 将ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py重命名为CONFIG.py [填写说明](https://asf.viperrtp.com/zh/asf/PLUGINS/SIRP/)
-- 将ai-soc-framework/PLUGINS/LLM/CONFIG.example.py重命名为CONFIG.py [填写说明](https://asf.viperrtp.com/zh/asf/PLUGINS/LLM/)
+
+- 参考 [SIRP Plugin](../PLUGINS/SIRP/) 配置 SIRP
+
+- 参考 [LLM Plugin](../PLUGINS/LLM/) 配置 LLM
 
 - 启动项目
 
