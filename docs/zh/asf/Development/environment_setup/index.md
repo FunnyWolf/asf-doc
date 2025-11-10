@@ -21,16 +21,16 @@
 
 Linux 服务器中需使用 Docker 安装 Redis Stack 及 SIRP
 
-### Redis Stack 安装
-
-- 安装Docker
+### 安装 Docker
 
 ```
 export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
 curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 ```
 
-- 克隆 ASF 代码 (github下载上传到服务器也可以)
+### 安装 Redis Stack
+
+- 克隆 ASF 代码 (或 github 下载上传到服务器)
 
 ```
 git clone git@github.com:FunnyWolf/ai-soc-framework.git
@@ -47,7 +47,7 @@ docker compose up -d
 
 > URL: http://192.168.241.128:8001 账号密码:default / redis-stack-password-for-ai-soc-framework
 
-### SIRP 安装
+### 安装 SIRP
 
 [参考文档](/zh/sirp/sirp_install/)
 
@@ -70,9 +70,9 @@ uv sync
 
 - 将ai-soc-framework/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
 
-- 参考 [SIRP Plugin](../PLUGINS/SIRP/) 配置 SIRP
+- 参考 [SIRP Plugin](../../PLUGINS/SIRP/) 配置 SIRP
 
-- 参考 [LLM Plugin](../PLUGINS/LLM/) 配置 LLM
+- 参考 [LLM Plugin](../../PLUGINS/LLM/) 配置 LLM
 
 - 启动项目
 

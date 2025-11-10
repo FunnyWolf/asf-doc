@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'AI SOC FRAMEWORK',
-            link: '/zh/asf/framework/',
+            link: '/zh/asf/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },
         {
@@ -77,10 +77,12 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarASF(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: '功能介绍',
+            text: '简介',
             collapsed: false,
+            base: '/zh/asf/Introduction/',
             items: [
-                {text: 'Framework', link: 'framework/'},
+                {text: '欢迎使用', link: 'what_is_asf/'},
+                {text: '功能列表', link: 'framework/'},
                 // { text: 'MODULES', link: 'module/' },
                 // { text: 'PLAYBOOKS', link: 'playbook/' },
                 // { text: 'PLUGINS', link: 'plugin/' },
@@ -89,6 +91,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: '开发环境',
             collapsed: false,
+            base: '/zh/asf/Development/',
             items: [
                 {text: '环境配置', link: 'environment_setup/'},
             ]
