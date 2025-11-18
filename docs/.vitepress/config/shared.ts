@@ -58,8 +58,8 @@ export const shared = defineConfig({
 
     /* prettier-ignore */
     head: [
-        ['link', {rel: 'icon', type: 'image/svg+xml', href: '/viper.svg'}],
-        ['link', {rel: 'icon', type: 'image/png', href: '/viper.svg'}],
+        ['link', {rel: 'icon', type: 'image/svg+xml', href: '/asf.svg'}],
+        ['link', {rel: 'icon', type: 'image/png', href: '/asf.svg'}],
         ['meta', {name: 'theme-color', content: '#5f67ee'}],
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
@@ -80,7 +80,7 @@ export const shared = defineConfig({
     },
     appearance: 'force-dark',
     themeConfig: {
-        logo: {src: '/viper.svg', width: 24, height: 24},
+        logo: {src: '/asf.svg', width: 24, height: 24},
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/FunnyWolf/ai-soc-framework'},
@@ -104,7 +104,7 @@ export const shared = defineConfig({
                 customIcon: {
                     vitepress: localIconLoader(
                         import.meta.url,
-                        '../../public/viper.svg'
+                        '../../public/asf.svg'
                     ),
                     // firebase: 'logos:firebase'
                 }

@@ -83,9 +83,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '欢迎使用', link: 'what_is_asf/'},
                 {text: '功能列表', link: 'framework/'},
-                // { text: 'MODULES', link: 'module/' },
-                // { text: 'PLAYBOOKS', link: 'playbook/' },
-                // { text: 'PLUGINS', link: 'plugin/' },
             ]
         },
         {
@@ -97,29 +94,25 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
-            text: 'MODULES',
+            text: '模块',
             collapsed: false,
             base: '/zh/asf/MODULES/',
             items: [
                 {text: '开发文档', link: 'development/'},
-                {text: 'ES-Rule-21-Phishing_user_report_mail', link: 'ES-Rule-21-Phishing_user_report_mail/'},
-                {text: 'ES-Rule-22-Phishing_user_report_mail', link: 'ES-Rule-22-Phishing_user_report_mail/'},
+                {text: '模块列表', link: 'module_list/'},
             ]
         },
         {
-            text: 'PLAYBOOKS',
+            text: '剧本',
             collapsed: false,
             base: '/zh/asf/PLAYBOOKS/',
             items: [
                 {text: '开发文档', link: 'development/'},
-                {text: 'Alert_Suggestion_Gen_By_LLM', link: 'Alert_Suggestion_Gen_By_LLM/'},
-                {text: 'Artifact_TI_Enrichment_Update', link: 'Artifact_TI_Enrichment_Update/'},
-                {text: 'Case_Suggestion_Gen_By_LLM', link: 'Case_Suggestion_Gen_By_LLM/'},
-                {text: 'TI_Artifact_query_mock', link: 'TI_Artifact_query_mock/'},
+                {text: '剧本列表', link: 'playbook_list/'},
             ]
         },
         {
-            text: 'PLUGINS',
+            text: '插件',
             collapsed: false,
             base: '/zh/asf/PLUGINS/',
             items: [
