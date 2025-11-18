@@ -1,4 +1,4 @@
-# empty
+# ES-Rule-22-Phishing_user_report_mail
 
 - `alert_preprocess_node` 函数展示如何从Redis Stream队列中读取告警并进行简单数据处理.
 - `alert_analyze_node` 函数展示如何调用 Dify App REST API,格式化输出结果.
