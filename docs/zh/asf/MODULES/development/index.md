@@ -1,13 +1,14 @@
-# 模块开发
+# 开发文档
+
+ASF的模块用于流式处理告警数据,每个模块对应 Redis Stream 一个消息队列,模块每次运行处理一条队列中的告警.
 
 ## 告警导入
 
 NDR/EDR/XDR/.. ==> SIEM ==> Alert Rule ==> Webhook ==> ASF Webhook Receiver ==> Redis Stream
 
-生产环境中无需编码,通过在SIEM平台中配置Webhook即可将告警数据导入ASF的Redis
-Stream中. 配置方法参考 [SIEM集成](../../production/siem/)
+**生产环境**中无需编码,通过在SIEM平台中配置Webhook即可将告警数据导入Redis Stream 消息队列. 配置方法 [SIEM集成](../../production/siem/)
 
-开发环境中可以通过脚本将测试告警导入Redis Stream,方法参考 [ES-Rule-21-Phishing_user_report_mail](../ES-Rule-21-Phishing_user_report_mail/) `导入测试告警`章节.
+**开发环境**中可以通过脚本将测试告警导入Redis Stream,方法参考 [导入测试告警](../ES-Rule-21-Phishing_user_report_mail/#导入测试告警).
 
 ## 告警流式分析
 
