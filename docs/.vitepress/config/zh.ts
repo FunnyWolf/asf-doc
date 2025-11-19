@@ -117,7 +117,9 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/PLUGINS/',
             items: [
                 {text: '开发文档', link: 'development/'},
+                {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'Dify', link: 'Dify/'},
+                {text: 'Embeddings', link: 'Embeddings/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'SIRP', link: 'SIRP/'},
             ]
@@ -127,8 +129,8 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/asf/production/',
             items: [
-                {text: 'SIEM', link: 'siem/'},
-                {text: 'ASF', link: 'asf/'},
+                {text: 'SIEM 集成', link: 'siem/'},
+                {text: 'ASF 部署', link: 'asf/'},
             ]
         },
     ]

@@ -1,3 +1,8 @@
-# empty
+# ASF 部署
 
-empty
+## uvicorn 部署
+
+```shell
+cd ai-soc-framework
+uvicorn --config uvicorn.toml
+```

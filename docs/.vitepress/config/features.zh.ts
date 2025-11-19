@@ -1,18 +1,18 @@
 export const featuresConfig = [
     {
-        title: '内置SIRP平台',
-        details: '内置基于Nocoly开发的SIRP平台,无需编码即可定制化开发UI',
+        title: '开箱即用的 SIRP 平台',
+        details: '支持Case/Alert/Artifact三级数据模型,告警聚合,自动化剧本,定制化UI',
         image: '/hero/zh/img_1.png'
     },
     {
-        title: '完全使用Python编写',
-        details: '框架和模块均使用Python编写,易于二次开发和定制',
-        image: '/hero/zh/img_2.png'
+        title: 'AI Agent 全面支持',
+        details: 'Langgraph 编写的 AI Agent 模块和剧本,MCP Server,Embeddings 接口',
+        image: '/hero/zh/img_4.png'
     },
     {
-        title: '开发人员友好',
-        details: '开发人员可选择熟悉的IDE进行模块开发,并预留独立的模块调试接口',
-        image: '/hero/zh/img_3.png'
+        title: '完全使用 Python 编写',
+        details: '框架,模块,剧本均使用Python编写,易于定制开发和二次扩展',
+        image: '/hero/zh/img_2.png'
     },
     // {
     //     title: '多种AI Agent模板',
