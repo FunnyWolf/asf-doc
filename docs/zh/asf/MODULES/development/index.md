@@ -17,3 +17,6 @@ Redis Stream ==> Module ==> SIRP
 用户可开发自定义模块来流式处理队列中每一条告警,每个模块对应处理 Redis Stream 一个消息队列,告警经过用户使用 Langgraph/Dify 构建的AI
 Agent 模块处理后,将处理结果发送至 SIRP.
 
+## 导入测试告警 / 单模块 & 单告警调试 / 告警聚合 (SIRP)
+
+参考 [ES-Rule-21-Phishing_user_report_mail](../ES-Rule-21-Phishing_user_report_mail/)

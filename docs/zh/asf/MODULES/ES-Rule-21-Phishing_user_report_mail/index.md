@@ -59,4 +59,4 @@ rule = GroupRule(
 )
 ```
 
-也就是说分析师和汇总分析类的AI Agent应该处理Alert集合(Case),而不是单个Alert,这样可以大大提升分析效率.
+分析师和汇总分析类的AI Agent应该处理Alert集合(Case),而不是单个Alert,这样可以大大提升分析效率.

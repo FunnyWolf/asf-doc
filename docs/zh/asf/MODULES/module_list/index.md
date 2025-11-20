@@ -18,3 +18,4 @@
 ### [NDR-Rule-05-Suspect-C2-Communication](../NDR-Rule-05-Suspect-C2-Communication/)
 
 - 展示如何使用AI Agent分析SIRP中的Case.
+- **调整 AI Agent 提示词即可将该模块迁移到其他类型告警(EDR/Cloud等)**
