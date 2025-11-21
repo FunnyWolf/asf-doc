@@ -49,7 +49,7 @@ docker compose up -d
 
 ### 安装 SIRP
 
-[参考文档](../../../sirp/sirp_install/)
+[参考文档](../../../sirp/Deploy/sirp_install/)
 
 ## Windows 开发机
 

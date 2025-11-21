@@ -54,23 +54,9 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
             text: 'SIRP',
-            link: '/zh/sirp/index/',
+            link: '/zh/sirp/Introduction/what_is_sirp/',
             activeMatch: '/zh/sirp/'
         },
-        // {
-        //     text: "更新日志",
-        //     items: [
-        //         // {
-        //         //     text: '3.1.2 - 渗透测试智能体和MCP服务器',
-        //         //     link: '/zh/release/3_1_2_Pentest_Agent_and_MCP_server'
-        //         // },
-        //         {
-        //             text: '3.1.1 - 混乱是阶梯',
-        //             link: '/zh/release/3_1_1_Chaos_is_a_ladder'
-        //         },
-        //
-        //     ]
-        // }
     ]
 }
 
@@ -139,21 +125,30 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
 function sidebarSIRP(): DefaultTheme.SidebarItem[] {
     return [
         {
+            text: '简介',
+            collapsed: false,
+            base: '/zh/sirp/Introduction/',
+            items: [
+                {text: '欢迎使用', link: 'what_is_sirp/'},
+                // {text: '功能列表', link: 'framework/'},
+            ]
+        },
+        {
             text: '功能介绍',
             collapsed: false,
+            base: '/zh/sirp/Feature/',
             items: [
                 {text: 'Dashboard', link: 'dashboard/'},
                 {text: 'Case', link: 'case/'},
                 {text: 'Alert', link: 'alert/'},
                 {text: 'Artifact', link: 'artifact/'},
                 {text: 'Playbook', link: 'playbook/'},
-                {text: 'System', link: 'system/'},
-                {text: 'Workflow', link: 'workflow/'},
             ]
         },
         {
             text: '安装部署',
             collapsed: false,
+            base: '/zh/sirp/Deploy/',
             items: [
                 {text: '安装应用', link: 'sirp_install/'},
                 {text: '配置应用', link: 'sirp_config/'},
@@ -162,8 +157,10 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: '定制开发',
             collapsed: false,
+            base: '/zh/sirp/Development/',
             items: [
-                {text: '自定义字段', link: 'custom_fields'},
+                {text: '自定义配置', link: 'custom_fields/'},
+                {text: '自定义字段', link: 'system/'},
             ]
         },
     ]

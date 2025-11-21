@@ -18,7 +18,7 @@
 - 异步执行
 - 模拟威胁情报查询,更新 Artifact 的 enrichment
 
-## [Case_Suggestion_Gen_By_LLM](../Case_Suggestion_Gen_By_LLM/)
+## [Case_Suggestion_Gen_By_LLM](../Case_L3_SOC_Analyst_Agent/)
 
 - Langgraph 构建
 - 异步执行
