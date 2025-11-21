@@ -82,7 +82,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/Introduction/',
             items: [
                 {text: '欢迎使用', link: 'what_is_asf/'},
-                {text: '功能列表', link: 'framework/'},
+                // {text: '功能列表', link: 'framework/'},
             ]
         },
         {
