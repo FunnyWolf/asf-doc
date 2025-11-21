@@ -5,3 +5,10 @@
 - SIRP 的设计思路和数据模型参考了主流的 SOAR 平台 (Splunk SOAR, Swimlane SOAR 等)。
 - SIRP 基于 Nocoly 平台构建, 利用其 APaas 特性实现灵活的定制和扩展。
 
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)

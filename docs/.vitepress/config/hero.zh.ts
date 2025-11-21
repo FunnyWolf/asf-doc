@@ -5,6 +5,6 @@ export const heroConfig = {
     actions: [
         {text: '开发文档', link: '/zh/asf/Development/environment_setup', theme: 'brand'},
         {text: '功能介绍', link: '/zh/asf/Introduction/what_is_asf/', theme: 'alt'},
-
+        {text: 'SIRP 平台', link: '/zh/sirp/Introduction/what_is_sirp/', theme: 'alt'},
     ]
 }

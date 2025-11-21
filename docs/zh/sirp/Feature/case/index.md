@@ -118,6 +118,12 @@ AI Agent 推荐的响应措施
 
 ![img_5.png](img_5.png)
 
+## Playbook
+
+> 与 Case 关联的自动化剧本记录.
+
+![img_7.png](img_7.png)
+
 ## System
 
 > 内部系统字段,仅供系统使用.
