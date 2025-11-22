@@ -1,34 +1,33 @@
-# 欢迎使用 ASF
+# Welcome to ASF
 
-**AI SOC Framework (ASF)** 是一个强大且灵活的 **开源** 自动化安全运营平台。平台集成 AI Agent 与自动化编排能力,支持主流 SIEM/SOAR
-场景,助力企业高效构建智能化安全运营体系。
+**AI SOC Framework (ASF)** is a powerful and flexible **open-source** automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR
+scenarios, and helps enterprises efficiently build intelligent security operations systems.
 
-## 为什么选择 ASF？
+## Why Choose ASF?
 
-- 📊 **简洁高效的操作界面**
-  内置SIRP,无需复杂配置即可快速定制开发安全运营平台 (UI/数据模型/报表/流程)
+- 📊 **Simple and Efficient Operational Interface**
+  Built-in SIRP allows for rapid custom development of a security operations platform (UI/data models/reports/workflows) without complex configuration.
 
-- 💻 **全面的多平台支持**
-  支持本地化部署,兼容主流操作系统,满足企业内网与合规需求
+- 💻 **Comprehensive Multi-Platform Support**
+  Supports on-premise deployment, is compatible with major operating systems, and meets enterprise intranet and compliance requirements.
 
-- 🧠 **AI驱动的智能辅助**
-  内置 Langgraph/Dify 等 AI Agent 模板,支持本地 LLM,提升告警分析与自动化响应能力
+- 🧠 **AI-Driven Intelligent Assistance**
+  Built-in AI Agent templates like Langgraph/Dify, supports local LLMs, enhancing alert analysis and automated response capabilities.
 
-- 🛠️ **丰富的模块库与扩展性**
-  提供多种自动化模块模板,支持 Python 二次开发,灵活对接各类安全设备与 API
+- 🛠️ **Rich Module Library and Extensibility**
+  Provides various automated module templates and supports secondary development in Python for flexible integration with various security devices and APIs.
 
-- ⚙️ **强大的自动化编排能力**
-  基于 Webhook + Redis Stream 实现高效告警流水线,支持主流 SIEM 平台
+- ⚙️ **Powerful Automation Orchestration**
+  Implements an efficient alert pipeline based on Webhook + Redis Stream, supporting mainstream SIEM platforms.
 
-- 🛡️ **专业级安全数据管控**
-  所有数据与模型均可本地化部署,保障企业数据安全与隐私。
+- 🛡️ **Professional-Grade Security Data Control**
+  All data and models can be deployed locally, ensuring enterprise data security and privacy.
 
-## 立即开始
+## Get Started
 
-+ 📚 [开发文档](../../Development/environment_setup/) - 快速上手 ASF 开发
-+ 🎓 [SIRP平台](../../../sirp/Introduction/what_is_sirp) - 了解内置 SIRP 功能
++ 📚 [Development Docs](../../Development/environment_setup/) - Quickly get started with ASF development.
++ 🎓 [SIRP Platform](../../../sirp/Introduction/what_is_sirp) - Learn about the built-in SIRP features.
 
-## 许可证
+## License
 
-该项目采用 [MIT](https://choosealicense.com/licenses/mit/) 许可证。
-
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.

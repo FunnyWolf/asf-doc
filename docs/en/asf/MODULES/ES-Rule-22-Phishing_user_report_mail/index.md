@@ -1,5 +1,5 @@
 # ES-Rule-22-Phishing_user_report_mail
 
-- `alert_preprocess_node` 函数展示如何从Redis Stream队列中读取告警并进行简单数据处理.
-- `alert_analyze_node` 函数展示如何调用 Dify App REST API,格式化输出结果.
-- `alert_output_node` 函数展示自定义聚合规则使用,如何将分析结果发送至 SIRP.
+- The `alert_preprocess_node` function demonstrates how to read an alert from the Redis Stream queue and perform simple data processing.
+- The `alert_analyze_node` function demonstrates how to call the Dify App REST API and format the output results.
+- The `alert_output_node` function demonstrates the use of custom aggregation rules and how to send the analysis results to SIRP.

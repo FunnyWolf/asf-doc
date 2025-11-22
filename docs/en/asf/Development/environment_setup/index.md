@@ -1,65 +1,65 @@
-# 环境配置
+# Environment Setup
 
-开始前请准备如下资源
+Please prepare the following resources before you begin:
 
-- 8核心/32G内存/50G 硬盘的 Linux 服务器
+- A Linux server with 8 cores, 32GB RAM, and 50GB of disk space.
 
-> 使用Ubuntu24.04演示
+> This demonstration uses Ubuntu 24.04.
 
-- Windows 开发主机
+- A Windows development host.
 
-> MacOS 配置方法类似
+> The configuration method for macOS is similar.
 
-- LLM API
+- An LLM API.
 
-> 支持OpenAI Compatible API 和 ollama API
+> Supports OpenAI Compatible API and Ollama API.
 
-- **假设 Linux 服务器 IP : 192.168.241.128**
-- **假设 Windows 11 开发主机 IP : 192.168.241.1**
+- **Assume Linux server IP: 192.168.241.128**
+- **Assume Windows 11 development host IP: 192.168.241.1**
 
-## Linux 主机
+## Linux Host
 
-Linux 服务器中需使用 Docker 安装 Redis Stack 及 SIRP
+On the Linux server, you need to use Docker to install Redis Stack and SIRP.
 
-### 安装 Docker
+### Install Docker
 
 ```
 export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
 curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 ```
 
-### 安装 Redis Stack
+### Install Redis Stack
 
-- 克隆 ASF 代码 (或 github 下载上传到服务器)
+- Clone the ASF code (or download from GitHub and upload to the server).
 
 ```
 git clone git@github.com:FunnyWolf/ai-soc-framework.git
 ```
 
-- 安装并启动 Redis Stack
+- Install and start Redis Stack.
 
 ```
 cd ai-soc-framework/Docker/redis_stack
 docker compose up -d
 ```
 
-- 访问 Redis Insight 检查是否安装成功
+- Visit Redis Insight to check if the installation was successful.
 
-> URL: http://192.168.241.128:8001 账号密码:default / redis-stack-password-for-ai-soc-framework
+> URL: http://192.168.241.128:8001 | Username/Password: default / redis-stack-password-for-ai-soc-framework
 
-### 安装 SIRP
+### Install SIRP
 
-[参考文档](../../../sirp/Deploy/sirp_install/)
+[Refer to the documentation](../../../sirp/Deploy/sirp_install/)
 
-## Windows 开发机
+## Windows Development Machine
 
-- 克隆ASF代码
+- Clone the ASF code.
 
 ```
 git clone git@github.com:FunnyWolf/ai-soc-framework.git
 ```
 
-- 安装uv及依赖库
+- Install uv and its dependencies.
 
 ```
 pip install uv
@@ -68,15 +68,14 @@ uv venv
 uv sync
 ```
 
-- 将ai-soc-framework/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
+- Rename ai-soc-framework/CONFIG.example.py to CONFIG.py. See the code comments for instructions on filling in the configuration items.
 
-- 参考 [SIRP Plugin](../../PLUGINS/SIRP/) 配置 SIRP
+- Refer to [SIRP Plugin](../../PLUGINS/SIRP/) to configure SIRP.
 
-- 参考 [LLM Plugin](../../PLUGINS/LLM/) 配置 LLM
+- Refer to [LLM Plugin](../../PLUGINS/LLM/) to configure LLM.
 
-- 启动项目
+- Start the project.
 
 ```
-Python manage.py runserver 0.0.0.0:7000
+python manage.py runserver 0.0.0.0:7000
 ```
-

@@ -1,31 +1,31 @@
 # ES-Rule-21-Phishing_user_report_mail
 
-## 导入测试告警
+## Importing Test Alerts
 
-ASF提供的样例模块都包含用于测试的告警数据,位于 `DATA/{模块名}/mock_alert.py`,执行该脚本即可将测试告警数据导入 Redis Stream 中.
+All sample modules provided by ASF include test alert data located in `DATA/{module_name}/mock_alert.py`. Executing this script will import the test alert data into Redis Stream.
 
-## 单模块 & 单告警调试
+## Single Module & Single Alert Debugging
 
-- 模块开发过程中开发人员经常需要针对某条特定告警进行调试.
-- ASF 框架可以单独调试模块,无需启动整个框架.代码可参考该模块```if __name__ == "__main__":```部分.
+- During module development, developers often need to debug a specific alert.
+- The ASF framework allows for debugging modules individually without starting the entire framework. For code reference, see the `if __name__ == "__main__":` section of this module.
 
-- 开发人员只需要在 Redis Insight 中找到模块对应的 Stream 队列,获取某条告警的ID.
+- Developers only need to find the Stream queue corresponding to the module in Redis Insight and get the ID of a specific alert.
 
 ![img.png](img.png)
 
-- 然后将 ID 赋值给 `module.debug_message_id` 变量并运行模块脚本调试该告警.
+- Then, assign the ID to the `module.debug_message_id` variable and run the module script to debug that alert.
 
 ![img_1.png](img_1.png)
 
-## 告警聚合 (SIRP)
+## Alert Aggregation (SIRP)
 
-[GroupRule](https://github.com/FunnyWolf/ai-soc-framework/blob/master/Lib/grouprule.py) 类用于告警聚合,将多个Alert按照Rule聚合为一个Case,使用方法参考代码注释.
+The [GroupRule](https://github.com/FunnyWolf/ai-soc-framework/blob/master/Lib/grouprule.py) class is used for alert aggregation, grouping multiple Alerts into a single Case according to a Rule. Refer to the code comments for usage.
 
-### 场景一
+### Scenario One
 
-- SIEM 平台中规则`ES-Rule-21-Phishing_user_report_mail`会将所有用户上报的钓鱼邮件元数据作为告警发送到Redis Stream中
-- ASF 模块 `ES-Rule-21-Phishing_user_report_mail` 使用 Langgraph 构建的 AI Agent 分析每条告警,确认是否为钓鱼邮件,并格式化为 SIRP Alert 的格式.
-- 我们希望将同一发送者在24h内上报的所有钓鱼邮件聚合为一条 SIRP Case.
+- In the SIEM platform, the rule `ES-Rule-21-Phishing_user_report_mail` sends metadata of all user-reported phishing emails as alerts to Redis Stream.
+- The ASF module `ES-Rule-21-Phishing_user_report_mail` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is a phishing email, and format it into the SIRP Alert format.
+- We want to aggregate all phishing emails reported by the same sender within 24 hours into a single SIRP Case.
 
 ```python
 rule = GroupRule(
@@ -37,16 +37,16 @@ rule = GroupRule(
     workbook=workbook)
 ```
 
-- deduplication_fields表示以该Alert的那个Artifact作为聚合依据(这里发件人)
-- deduplication_window表示多长时间内的Alert进行聚合(这里24h)
-- 经过聚合即使攻击者的一个邮件向多个用户发送,也只会在SIRP中生成一条Case,减少分析师工作量.
-- 因为所有的相关信息都会被添加到该Case中,分析师和AI Agent可以方便的获取所有数据.
+- `deduplication_fields` indicates which Artifact of the Alert is used as the basis for aggregation (here, the sender).
+- `deduplication_window` indicates the time window for aggregating Alerts (here, 24h).
+- After aggregation, even if an attacker sends an email to multiple users, only one Case will be generated in SIRP, reducing the analyst's workload.
+- Because all related information is added to this Case, analysts and AI Agents can easily access all data.
 
-### 场景二
+### Scenario Two
 
-- SIEM平台中规则`NDR-Rule-05-Suspect-C2-Communication` 将所有疑似C2通信的网络流量作为告警发送到Redis Stream中.
-- ASF 模块 `NDR-Rule-05-Suspect-C2-Communication` 使用 Langgraph 构建的 AI Agent 分析每条告警,确认是否为疑似C2通信,并格式化为 SIRP Alert 的格式.
-- 我们希望将同一主机的疑似C2通信在1小时内的所有告警聚合为一条 SIRP Case.
+- In the SIEM platform, the rule `NDR-Rule-05-Suspect-C2-Communication` sends all network traffic suspected of C2 communication as alerts to Redis Stream.
+- The ASF module `NDR-Rule-05-Suspect-C2-Communication` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is suspected C2 communication, and format it into the SIRP Alert format.
+- We want to aggregate all alerts of suspected C2 communication from the same host within 1 hour into a single SIRP Case.
 
 ```python
 rule = GroupRule(
@@ -59,4 +59,4 @@ rule = GroupRule(
 )
 ```
 
-分析师和汇总分析类的AI Agent应该处理Alert集合(Case),而不是单个Alert,这样可以大大提升分析效率.
+Analysts and summary-analysis AI Agents should process a collection of Alerts (a Case) rather than individual Alerts, which can greatly improve analysis efficiency.

@@ -1,34 +1,34 @@
-# 开发指南
+# Development Guide
 
-剧本 (Playbook) 用于执行 **用户触发** 的自动化任务.
+A Playbook is used to execute **user-triggered** automated tasks.
 
-例如调用TI查询并更新Artifact的enrichment,或者分析Alert生成Suggestion等.
+For example, calling a TI query to update an Artifact's enrichment, or analyzing an Alert to generate a Suggestion.
 
-## 注册剧本脚本
+## Registering a Playbook Script
 
-- 在`PLAYBOOKS`目录创建剧本脚本文件
-- 确保中的类名称为`Playbook`,并继承自`BasePlaybook`或`LanggraphPlaybook`
-- 实现`run`函数,框架会自动执行该函数
-- **推荐的方法是复制现有的脚本,根据需求进行修改**
+- Create a playbook script file in the `PLAYBOOKS` directory.
+- Ensure the class name in the file is `Playbook` and that it inherits from `BasePlaybook` or `LanggraphPlaybook`.
+- Implement the `run` function; the framework will execute this function automatically.
+- **The recommended method is to copy an existing script and modify it according to your needs.**
 
-## 调用剧本
+## Calling a Playbook
 
-- `api/v1/automation/playbook`接口POST请求调用剧本
-- POST Data 中 `playbook` 为剧本的文件名称,例如 `Alert_Suggestion_Gen_By_LLM`
-- 其他参数根据剧本需求传入,例如 `worksheet` 和 `rowid`
-- 剧本代码中可以使用 `self.param("参数名称")` 获取传入的参数值
+- A playbook is called via a POST request to the `api/v1/automation/playbook` endpoint.
+- In the POST Data, `playbook` is the file name of the playbook, for example, `Alert_Suggestion_Gen_By_LLM`.
+- Other parameters are passed in according to the playbook's requirements, such as `worksheet` and `rowid`.
+- In the playbook code, you can use `self.param("parameter_name")` to get the value of the passed-in parameter.
 
-## 同步执行
+## Synchronous Execution
 
-- 调用接口后,等待剧本执行完成并直接通过REST API 的 Response 返回结果
-- 可参考 [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX)
+- After calling the interface, it waits for the playbook to complete and returns the result directly through the REST API's Response.
+- Refer to [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX) for an example.
 
-## 异步执行
+## Asynchronous Execution
 
-- 调用接口后,立即返回任务ID,剧本中需要自行处理结果响应
-- 可参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM)
-- **SIRP 中只支持异步执行剧本**
+- After calling the interface, it immediately returns a task ID. The playbook needs to handle the result response itself.
+- Refer to [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM) for an example.
+- **Only asynchronous execution of playbooks is supported in SIRP.**
 
-## SIRP 剧本
+## SIRP Playbook
 
-- 开发 SIRP 剧本的方法参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM)
+- For the method of developing a SIRP playbook, refer to [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM).
