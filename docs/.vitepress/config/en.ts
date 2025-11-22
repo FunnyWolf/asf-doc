@@ -49,13 +49,13 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'AI SOC FRAMEWORK',
-            link: '/en/asf/Introduction/what_is_asf/',
-            activeMatch: '/en/asf/'
+            link: '/asf/Introduction/what_is_asf/',
+            activeMatch: '/asf/'
         },
         {
             text: 'SIRP',
-            link: '/en/sirp/Introduction/what_is_sirp/',
-            activeMatch: '/en/sirp/'
+            link: '/sirp/Introduction/what_is_sirp/',
+            activeMatch: '/sirp/'
         },
     ]
 }
@@ -65,7 +65,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Introduction',
             collapsed: false,
-            base: '/en/asf/Introduction/',
+            base: '/asf/Introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_asf/'},
                 // {text: 'Features', link: 'framework/'},
@@ -74,7 +74,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Development Environment',
             collapsed: false,
-            base: '/en/asf/Development/',
+            base: '/asf/Development/',
             items: [
                 {text: 'Environment Setup', link: 'environment_setup/'},
             ]
@@ -82,7 +82,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Modules',
             collapsed: false,
-            base: '/en/asf/MODULES/',
+            base: '/asf/MODULES/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'Module List', link: 'module_list/'},
@@ -91,7 +91,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Playbooks',
             collapsed: false,
-            base: '/en/asf/PLAYBOOKS/',
+            base: '/asf/PLAYBOOKS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'Playbook List', link: 'playbook_list/'},
@@ -100,7 +100,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Plugins',
             collapsed: false,
-            base: '/en/asf/PLUGINS/',
+            base: '/asf/PLUGINS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
@@ -113,7 +113,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Production Deployment',
             collapsed: false,
-            base: '/en/asf/production/',
+            base: '/asf/production/',
             items: [
                 {text: 'SIEM Integration', link: 'siem/'},
                 {text: 'ASF Deployment', link: 'asf/'},
@@ -127,7 +127,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Introduction',
             collapsed: false,
-            base: '/en/sirp/Introduction/',
+            base: '/sirp/Introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_sirp/'},
                 // {text: 'Features', link: 'framework/'},
@@ -136,7 +136,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Features',
             collapsed: false,
-            base: '/en/sirp/Feature/',
+            base: '/sirp/Feature/',
             items: [
                 {text: 'Dashboard', link: 'dashboard/'},
                 {text: 'Case', link: 'case/'},
@@ -148,7 +148,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Installation & Deployment',
             collapsed: false,
-            base: '/en/sirp/Deploy/',
+            base: '/sirp/Deploy/',
             items: [
                 {text: 'Install Application', link: 'sirp_install/'},
                 {text: 'Configure Application', link: 'sirp_config/'},
@@ -157,7 +157,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Custom Development',
             collapsed: false,
-            base: '/en/sirp/Development/',
+            base: '/sirp/Development/',
             items: [
                 {text: 'Custom Fields', link: 'custom_fields/'},
                 {text: 'System Configuration', link: 'system/'},
