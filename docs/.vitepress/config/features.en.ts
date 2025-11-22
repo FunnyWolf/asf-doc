@@ -2,7 +2,7 @@ export const featuresConfig = [
     {
         title: 'Out-of-the-box SIRP Platform',
         details: 'Supports Case/Alert/Artifact three-level data model, alert aggregation, automated playbooks, and customizable UI.',
-        image: '/hero/en/img_10.png'
+        image: '/hero/en/img_1.png'
     },
     {
         title: 'Comprehensive AI Agent Support',
