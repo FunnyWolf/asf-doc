@@ -145,3 +145,39 @@ AI Agent 推荐的响应措施
 - Deduplication Key
 
 告警聚合关键字,用于将相似告警聚合为同一 Case.
+
+## 操作日志
+
+可以查看 Case 的变更记录,用于审计和追踪.
+
+![img_9.png](img_9.png)
+
+## 作战室
+
+可以查看和参与 Case 相关的讨论,团队协作处理,也可作为该 Case 的作战室使用.
+
+![img_8.png](img_8.png)
+
+## 执行 Playbook
+
+> Playbook 开发可参考 [Playbook 开发指南](../../../asf/PLAYBOOKS/development/)
+
+- 打开详情页,点击左上角的 `Run Playbook` 按钮.
+
+![img_11.png](img_11.png)
+
+- 选择需要执行的 Playbook,点击 `确认` 按钮.
+
+![img_10.png](img_10.png)
+
+- 任务初始状态为 `Pending` ,等待调度执行.
+
+![img_12.png](img_12.png)
+
+- 任务执行过程中,状态为 `Running`.
+
+![img_13.png](img_13.png)
+
+- 任务执行完成后,状态为 `Success` 或 `Failed`,点击任务记录可查看执行详情.
+
+![img_14.png](img_14.png)

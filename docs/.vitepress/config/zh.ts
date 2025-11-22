@@ -84,7 +84,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/asf/MODULES/',
             items: [
-                {text: '开发文档', link: 'development/'},
+                {text: '开发指南', link: 'development/'},
                 {text: '模块列表', link: 'module_list/'},
             ]
         },
@@ -93,7 +93,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/asf/PLAYBOOKS/',
             items: [
-                {text: '开发文档', link: 'development/'},
+                {text: '开发指南', link: 'development/'},
                 {text: '剧本列表', link: 'playbook_list/'},
             ]
         },
@@ -102,7 +102,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/asf/PLUGINS/',
             items: [
-                {text: '开发文档', link: 'development/'},
+                {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
