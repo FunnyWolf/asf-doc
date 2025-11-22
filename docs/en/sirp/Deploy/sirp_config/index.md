@@ -1,35 +1,35 @@
-# 配置应用
+# Configure Application
 
-## 角色管理
+## Role Management
 
-SIRP 内置 `Administrator` `Security Analyst` `Observer` 三种角色,用户可以根据实际需求创建自定义角色并分配权限.
+SIRP has three built-in roles: `Administrator`, `Security Analyst`, and `Observer`. Users can create custom roles and assign permissions according to actual needs.
 
 - Administrator
 
-拥有系统的全部权限
+Possesses all system permissions.
 
 - Security Analyst
 
-拥有数据的查看和操作权限,但没有系统配置权限,日常分析人员和应急响应人员可分配此角色
+Has data viewing and operation permissions, but no system configuration permissions. This role can be assigned to daily analysts and incident response personnel.
 
 - Observer
 
-仅拥有数据查看权限,适合管理层和审计人员
+Only has data viewing permissions, suitable for management and auditors.
 
 ![img.png](img.png)
 
 ![img_1.png](img_1.png)
 
-## 账号管理
+## Account Management
 
-### 添加账号
+### Add Account
 
-管理员可以通过`组织管理` `用户和部门`添加新的用户账号.
+Administrators can add new user accounts through `Organization Management` > `Users and Departments`.
 
 ![img_2.png](img_2.png)
 
 ![img_3.png](img_3.png)
 
-用户加入到组织后,可以在 SIRP 中将用户分配到不同的角色.
+After users join an organization, they can be assigned to different roles within SIRP.
 
 ![img_4.png](img_4.png)

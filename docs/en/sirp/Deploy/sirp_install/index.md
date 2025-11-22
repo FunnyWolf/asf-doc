@@ -1,27 +1,27 @@
-# SIRP 安装
+# SIRP Installation
 
-- **假设 Linux 服务器 IP : 192.168.241.128**
-- **假设 Windows 11 开发主机 IP : 192.168.241.1**
+- **Assume Linux server IP: 192.168.241.128**
+- **Assume Windows 11 development host IP: 192.168.241.1**
 
-## 安装 Nocoly
+## Install Nocoly
 
-[安装手册](https://docs-pd.nocoly.com/deployment/docker-compose/standalone/quickstart/)
+[Installation Manual](https://docs-pd.nocoly.com/deployment/docker-compose/standalone/quickstart/)
 
-## 导入 SIRP
+## Import SIRP
 
-- 克隆 ASF 代码库 , SIRP应用文件为 ai-soc-framework/PLUGINS/SIRP/SIRP.mdy
+- Clone the ASF codebase. The SIRP application file is `ai-soc-framework/PLUGINS/SIRP/SIRP.mdy`.
 
 ```bash
 git clone git@github.com:FunnyWolf/ai-soc-framework.git
 ```
 
-- 登录 Nocoly 平台选择`组织管理` `应用`
+- Log in to the Nocoly platform and select `Organization Management` > `Applications`.
 
 ![img.png](img.png)
 
 ![img_1.png](img_1.png)
 
-- 导入 SIRP.mdy
+- Import `SIRP.mdy`.
 
 ![img_2.png](img_2.png)
 
@@ -32,4 +32,3 @@ git clone git@github.com:FunnyWolf/ai-soc-framework.git
 ![img_5.png](img_5.png)
 
 ![img_6.png](img_6.png)
-

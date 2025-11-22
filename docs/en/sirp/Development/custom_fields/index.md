@@ -1,17 +1,17 @@
-# 自定义字段
+# Custom Fields
 
-- 添加字段到表单
+- Add fields to the form.
 
 ![img_1.png](img_1.png)
 
 ![img.png](img.png)
 
-- 设置字段别名
+- Set field aliases.
 
 ![img_2.png](img_2.png)
 
 ![img_3.png](img_3.png)
 
-- 修改 TypeDict (推荐)
+- Modify TypeDict (recommended).
 
 ![img_4.png](img_4.png)

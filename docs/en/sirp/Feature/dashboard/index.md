@@ -1,7 +1,7 @@
 # Dashboard
 
-- 支持多种组件展示，用户可以根据需求自定义布局和内容.
-- 支持数据下钻和交互操作,支持基于时间范围的过滤和分析.
+- Supports various component displays, allowing users to customize layouts and content according to their needs.
+- Supports data drill-down and interactive operations, as well as filtering and analysis based on time ranges.
 
 ## Case
 

@@ -1,12 +1,12 @@
 # Alert
 
-- 集中展示所有告警记录.
-- 默认告警中所有字段为只读,不可编辑.
-- 分析员不会修改告警数据,只会基于告警数据进行调查和响应工作.
+- Centralized display of all alert records.
+- By default, all fields in an alert are read-only and cannot be edited.
+- Analysts do not modify alert data; they only conduct investigations and response activities based on alert data.
 
 ## View
 
-支持多种筛选和排序功能.
+Supports various filtering and sorting functions.
 
 ![img.png](img.png)
 
@@ -16,92 +16,92 @@
 
 ![img_1.png](img_1.png)
 
-> Alert 操作面板
+> Alert Operations Panel
 
 - Name
 
-人类可读的告警名称,简要描述告警内容
+Human-readable alert name, briefly describing the alert content.
 
 - Reference
 
-告警的参考链接,通常指向相关的威胁情报或原始 SIEM 原始数据链接或安全设备告警链接
+Alert reference link, usually pointing to relevant threat intelligence or original SIEM raw data link or security device alert link.
 
 - Source Data Identifier
 
-元数据,用于唯一标识告警的来源数据,例如日志ID,事件ID等,通常用于在 SIEM 和安全设备中快速定位告警的原始数据
+Metadata used to uniquely identify the source data of the alert, such as log ID, event ID, etc., typically used to quickly locate the original data of the alert in SIEM and security devices.
 
 - Severity
 
-告警严重性等级,分为 `Low` `Medium` `High` `Critical` 四个等级.
+Alert severity level, divided into four levels: `Low`, `Medium`, `High`, `Critical`.
 
 - Source
 
-告警来源,分为 `NDR` `EDR` `DLP` 等等类型.
+Alert source, categorized as `NDR`, `EDR`, `DLP`, etc.
 
 - Alert Date
 
-原始告警发生时间.
+Time when the original alert occurred.
 
 - Created Date
 
-告警在系统中创建时间.
+Time when the alert was created in the system.
 
 - Tags
 
-Alert 标签,用于对 Alert 进行分类和标记.可用于搜索和过滤.
+Alert tags, used for classifying and marking Alerts. Can be used for searching and filtering.
 
 - Alert ID
 
-自动生成的唯一告警编号.只用于可读性显示,不作为唯一标识.
+Automatically generated unique alert number. Used only for readability display, not as a unique identifier.
 
 - Description
 
-Alert 的详细描述.支持 Markdown 格式.
+Detailed description of the Alert. Supports Markdown format.
 
 - Attachments
 
-告警相关的附件.
+Attachments related to the alert.
 
 - **Rule ID**
 
-根据 ASF 的设计理念,告警都由 SIEM 中规则 (Rule) 来创建. Rule ID == Module 脚本名称 == SIEM 中 Rule 名称.
+According to ASF's design philosophy, alerts are created by rules in SIEM. Rule ID == Module script name == SIEM Rule name.
 
-> 对于 Splunk Rule ID 其实就是 Splunk 中 Alert 名称, 对于 Kibana 其实就是 Rule name 可以参考 [SIEM 集成](../../../asf/production/siem/)
+> For Splunk, the Rule ID is essentially the Splunk Alert name. For Kibana, it's the Rule name. Refer to [SIEM Integration](../../../asf/production/siem/).
 
 - Rule Name
 
-Rule 的人类可读名称.用于生成 Case Title.
+Human-readable name of the Rule. Used to generate the Case Title.
 
 ## Artifact
 
-告警相关的 Artifact 列表.
+List of artifacts related to the alert.
 
 ![img_3.png](img_3.png)
 
 ## AI
 
-基于告警内容生成的 AI 分析结果.
+AI analysis results generated based on the alert content.
 
 ![img_2.png](img_2.png)
 
 ## Case
 
-与告警相关联的 Case.
+Case associated with the alert.
 
 ![img_4.png](img_4.png)
 
 ## Raw Log
 
-告警的原始日志内容.JSON 格式.
+Original log content of the alert. JSON format.
 
 ![img_5.png](img_5.png)
 
 ## Playbook
 
-告警相关的 Playbook 执行历史.
+History of playbook executions related to the alert.
 
 ![img_6.png](img_6.png)
 
 ## System
 
-告警的系统字段.
+System fields of the alert.

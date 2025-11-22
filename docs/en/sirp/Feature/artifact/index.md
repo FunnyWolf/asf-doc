@@ -1,13 +1,13 @@
 # Artifact
 
-- Artifact 是指与安全事件相关的具体数据项或证据,用于支持调查和响应工作。
-- Artifact 可以包括各种类型的数据,如 IP 地址、域名、文件哈希值、URL、电子邮件地址等。
-- Artifact 挂载到 Alert 上,用于帮助分析和调查安全事件。
-- 查询/响应/富化等操作通常会基于 Artifact 进行,例如查询某个主机名的Owner信息,查询某个文件哈希值的威胁情报,封禁某个IP地址等。
+- An Artifact refers to specific data items or evidence related to a security incident, used to support investigation and response efforts.
+- Artifacts can include various types of data, such as IP addresses, domain names, file hashes, URLs, email addresses, etc.
+- Artifacts are mounted on Alerts to help analyze and investigate security incidents.
+- Operations such as querying, responding, and enriching are typically performed based on Artifacts, for example, querying the owner information of a hostname, querying threat intelligence for a file hash, or blocking an IP address.
 
 ## View
 
-支持多种筛选和排序功能.
+Supports various filtering and sorting functions.
 
 ![img.png](img.png)
 
@@ -19,30 +19,30 @@
 
 - Type
 
-Artifact 类型,如 ip,domain,hash,url,mail_from等.
+Artifact type, such as ip, domain, hash, url, mail_from, etc.
 
 - Value
 
-Artifact 的具体值,如具体的IP地址,域名等.
+The specific value of the Artifact, such as a specific IP address, domain name, etc.
 
 - Artifact ID
 
-自动生成的唯一 Artifact 编号.只用于可读性显示,不作为唯一标识.
+Automatically generated unique Artifact number. Used only for readability display, not as a unique identifier.
 
 - Is Whitelisted
 
-是否在白名单中.
+Whether it is in the whitelist.
 
 - Is Evidence
 
-是否作为调查的证据使用.
+Whether it is used as evidence for investigation.
 
 - Enrichment
 
-存储展示 JSON 格式的富化信息.
+Stores and displays enrichment information in JSON format.
 
 ## Playbook
 
-与 Artifact 相关联的 Playbook 列表.
+List of Playbooks associated with the Artifact.
 
 ![img_3.png](img_3.png)
