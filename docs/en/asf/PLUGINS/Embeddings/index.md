@@ -1,6 +1,6 @@
-# Embeddings 插件
+# Embeddings Plugin
 
-## 配置方法
+## Configuration Method
 
-- 将PLUGINS/Embeddings/CONFIG.example.py重命名为CONFIG.py
-- 根据代码注释填写配置项
+- Rename PLUGINS/Embeddings/CONFIG.example.py to CONFIG.py
+- Fill in the configuration items according to the code comments.

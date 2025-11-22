@@ -1,10 +1,10 @@
-# AlienVaultOTX 插件
+# AlienVaultOTX Plugin
 
-## 配置方法
+## Configuration Method
 
-- 将配置文件 PLUGINS/AlienVaultOTX/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
-- 注册账号后访问 [AlienVault](https://otx.alienvault.com/settings) 获取 API Key
+- Rename the configuration file PLUGINS/AlienVaultOTX/CONFIG.example.py to CONFIG.py to apply the configuration.
+- After registering an account, visit [AlienVault](https://otx.alienvault.com/settings) to get the API Key.
 
 ![img.png](img.png)
 
-- 根据代码注释填写配置项
+- Fill in the configuration items according to the code comments.

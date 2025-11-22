@@ -1,6 +1,6 @@
-# SIRP 插件
+# SIRP Plugin
 
-## 设置全局变量
+## Set Global Variables
 
 ![img_7.png](img_7.png)
 
@@ -8,23 +8,23 @@
 
 ![img_9.png](img_9.png)
 
-> 用于ASF 的 REST API认证,与 ai-soc-framework/CONFIG.py 文件中 ASF_TOKEN 保持一致
+> Used for ASF's REST API authentication, must be consistent with ASF_TOKEN in the ai-soc-framework/CONFIG.py file.
 
 ![img_10.png](img_10.png)
 
-> 用于调用ASF Playbook 接口,请根据实际配置修改IP
+> Used to call the ASF Playbook interface, please modify the IP according to your actual configuration.
 
-## 配置方法
+## Configuration Method
 
-- 将配置文件 ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
-- SIRP_URL为 SIRP 平台地址,如 http://192.168.241.128:8880
-- SIRP_APPKEY 及 SIRP_SIGN
+- Rename the configuration file ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py to CONFIG.py to apply the configuration.
+- SIRP_URL is the SIRP platform address, e.g., http://192.168.241.128:8880
+- SIRP_APPKEY and SIRP_SIGN
 
 ![img_11.png](img_11.png)
 
 ![img_12.png](img_12.png)
 
-> AppKey对应SIRP_APPKEY,Sign对应SIRP_SIGN
+> AppKey corresponds to SIRP_APPKEY, Sign corresponds to SIRP_SIGN.
 
 - SIRP_NOTICE_WEBHOOK
 
@@ -34,4 +34,4 @@
 
 ![img_2.png](img_2.png)
 
-> 将通知Webhook地址配置到 SIRP_NOTICE_WEBHOOK
+> Configure the notification Webhook address to SIRP_NOTICE_WEBHOOK.

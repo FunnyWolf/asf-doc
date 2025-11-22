@@ -1,6 +1,6 @@
-# 开发指南
+# Development Guide
 
-- 外部服务的API都会以插件的形式集成到ASF.
-- 高内聚,低耦合.无需修改ASF核心代码即可添加新接口.
-- 插件可以独立开发,测试和部署.
-- 实际使用可以按需配置.
+- APIs for external services are integrated into ASF in the form of plugins.
+- High cohesion, low coupling. New interfaces can be added without modifying the ASF core code.
+- Plugins can be developed, tested, and deployed independently.
+- Actual use can be configured on demand.
