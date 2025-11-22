@@ -159,8 +159,8 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/sirp/Development/',
             items: [
-                {text: '自定义配置', link: 'custom_fields/'},
-                {text: '自定义字段', link: 'system/'},
+                {text: '自定义字段', link: 'custom_fields/'},
+                {text: '系统配置', link: 'system/'},
             ]
         },
     ]
