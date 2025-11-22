@@ -24,7 +24,7 @@ All playbook code is located in the `PLAYBOOKS` directory.
 - Asynchronous execution
 - Summarizes and analyzes a Case to generate the Case's Severity/Confidence/Attack Stage/Analysis Rationale/Recommended Actions.
 
-## [TI_Artifact_query_mock](../TI_Artifact_query_mock/)
+## [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX/)
 
 - Synchronous execution
 - Used to simulate a threat intelligence query.

@@ -26,7 +26,7 @@ scenarios, and helps enterprises efficiently build intelligent security operatio
 ## Get Started
 
 + 📚 [Development Docs](../../Development/environment_setup/) - Quickly get started with ASF development.
-+ 🎓 [SIRP Platform](../../../sirp/Introduction/what_is_sirp) - Learn about the built-in SIRP features.
++ 🎓 [SIRP Platform](../../../sirp/Introduction/what_is_sirp/) - Learn about the built-in SIRP features.
 
 ## License
 

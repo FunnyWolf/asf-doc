@@ -26,7 +26,7 @@
 ## 立即开始
 
 + 📚 [开发文档](../../Development/environment_setup/) - 快速上手 ASF 开发
-+ 🎓 [SIRP平台](../../../sirp/Introduction/what_is_sirp) - 了解内置 SIRP 功能
++ 🎓 [SIRP平台](../../../sirp/Introduction/what_is_sirp/) - 了解内置 SIRP 功能
 
 ## 许可证
 

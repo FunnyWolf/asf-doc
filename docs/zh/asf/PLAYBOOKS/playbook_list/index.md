@@ -24,7 +24,7 @@
 - 异步执行
 - 汇总分析 Case 生成 Case 的 Severity/Confidence/Attack Stage/Analysis Rationale/Recommended Actions
 
-## [TI_Artifact_query_mock](../TI_Artifact_query_mock/)
+## [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX/)
 
 - 同步执行
 - 用于模拟威胁情报查询

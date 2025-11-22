@@ -21,14 +21,14 @@
 ## 同步执行
 
 - 调用接口后,等待剧本执行完成并直接通过REST API 的 Response 返回结果
-- 可参考 [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX)
+- 可参考 [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX/)
 
 ## 异步执行
 
 - 调用接口后,立即返回任务ID,剧本中需要自行处理结果响应
-- 可参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM)
+- 可参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/)
 - **SIRP 中只支持异步执行剧本**
 
 ## SIRP 剧本
 
-- 开发 SIRP 剧本的方法参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM)
+- 开发 SIRP 剧本的方法参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/)
