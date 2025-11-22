@@ -1,6 +1,6 @@
-# ASF 部署
+# ASF Deployment
 
-## uvicorn 部署
+## uvicorn Deployment
 
 ```shell
 cd ai-soc-framework

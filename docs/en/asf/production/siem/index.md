@@ -1,28 +1,28 @@
-# SIEM 集成
+# SIEM Integration
 
 ## Webhook Forwarder
 
-- ASF 内置 Webhook 接收节点,将 SIEM Webhook 发送的告警转发到 Redis Stack 对应的 Stream
-- Forwarder 会自动解析 Kibana/Splunk 中的告警名称,并根据告警名在 Redis Stack 创建同名的 Stream
-- Forwarder 实现代码 `Forwarder/views.py`
-- Forwarder 的URL格式为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>`, 其中 `<SIEM_NAME>` 支持 `kibana` 和 `splunk`
-- 为了便于集成, Forwarder Webhook 不需要身份认证,可通过防火墙进行访问控制
+- ASF has a built-in Webhook receiving node that forwards alarms sent by SIEM Webhook to the corresponding Stream in Redis Stack.
+- The Forwarder automatically parses the alarm names in Kibana/Splunk and creates a Stream with the same name in Redis Stack based on the alarm name.
+- The Forwarder implementation code is `Forwarder/views.py`.
+- The URL format for the Forwarder is `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>`, where `<SIEM_NAME>` supports `kibana` and `splunk`.
+- For ease of integration, the Forwarder Webhook does not require authentication and access can be controlled through a firewall.
 
-## Splunk 集成
+## Splunk Integration
 
-- SOC 团队首先需要根据自身的需求将安全设备或相关的系统日志集成到 Splunk,并根据业务要求创建告警.
+- The SOC team first needs to integrate security devices or related system logs into Splunk according to their own needs, and create alarms based on business requirements.
 
   ![img.png](img.png)
 
-- 触发需要选择`每个结果`,确保获取到所有告警.
-- Webhook 链接为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/splunk`
-- Forwarder 会自动将告警转发到 Redis Stack 中对应的 Stream,Stream 名称为告警名称.
-- 例如上图的告警会转发到Redis Stream 的 `Phishing_user_Report_Dify_Nocodb` 队列
+- Select `For each result` as the trigger to ensure all alarms are captured.
+- The Webhook URL is `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/splunk`.
+- The Forwarder will automatically forward the alarm to the corresponding Stream in Redis Stack. The Stream name is the alarm name.
+- For example, the alarm in the image above will be forwarded to the `Phishing_user_Report_Dify_Nocodb` queue of the Redis Stream.
 
 ![img_1.png](img_1.png)
 
-- 在`MODULE`创建`Phishing_user_Report_Dify_Nocodb.py`模块,即可处理该告警.
-- Splunk 告警的原始内容通常使用`_raw` 字段存储,Forwarder 会将该字段的内容作为告警的主要信息进行处理.如果在模块中解析告警时通常使用如下代码:
+- Create the `Phishing_user_Report_Dify_Nocodb.py` module in `MODULE` to process this alarm.
+- The original content of a Splunk alarm is usually stored in the `_raw` field. The Forwarder will process the content of this field as the main information of the alarm. When parsing the alarm in a module, the following code is usually used:
 
 ```python
 alert = self.read_message()
@@ -33,16 +33,16 @@ if alert is None:
 alert = json.loads(alert["_raw"])
 ```
 
-## Kibana (ELK) 集成
+## Kibana (ELK) Integration
 
-- SOC 团队首先需要根据自身的需求将安全设备或相关的系统日志集成到 ELK,并根据业务要求创建 Rule.
-- 创建 `Webhook Connectors`,`Authentication` 为 `None`,添加 `header` `Content-Type: application/json`
-- Webhook URL 为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/kibana`
+- The SOC team first needs to integrate security devices or related system logs into ELK according to their own needs, and create Rules based on business requirements.
+- Create a `Webhook Connector`, set `Authentication` to `None`, and add the header `Content-Type: application/json`.
+- The Webhook URL is `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/kibana`.
 
   ![img_2.png](img_2.png)
 
-- Kibana 中每个 Rule 中的 `Action` 选择上面创建的 `Webhook Connectors`.
-- `Message` 内容使用如下 JSON 模板 (context.hits 包含告警过滤出的 documents 即原始日志)
+- In each Rule in Kibana, select the `Webhook Connector` created above for the `Action`.
+- Use the following JSON template for the `Message` content (context.hits contains the documents filtered by the alarm, i.e., the original logs):
 
 ```
 {
@@ -55,13 +55,13 @@ alert = json.loads(alert["_raw"])
 }
 ```
 
-- `Details` 中 `Rule name` 会作为告警名称, Forwarder 会将告警转发到 Redis Stack 中对应的 Stream,Stream 名称为告警名称.
+- In `Details`, the `Rule name` will be used as the alarm name. The Forwarder will forward the alarm to the corresponding Stream in Redis Stack, and the Stream name will be the alarm name.
 
 ![img_3.png](img_3.png)
 
-- 例如上图的告警会转发到Redis Stream 的 `Phishing_User_Report_Kibana_Langgraph_Thehive` 队列
+- For example, the alarm in the image above will be forwarded to the `Phishing_User_Report_Kibana_Langgraph_Thehive` queue of the Redis Stream.
 
 ![img_4.png](img_4.png)
 
-- 在 `MODULE` 创建 `Phishing_User_Report_Kibana_Langgraph_Thehive.py` 模块,即可处理该告警.
+- Create the `Phishing_User_Report_Kibana_Langgraph_Thehive.py` module in `MODULE` to process this alarm.
 
