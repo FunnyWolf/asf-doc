@@ -1,9 +1,9 @@
-# 欢迎使用 SIRP
+# Welcome to SIRP
 
-- SIRP 是 ASF 中内置的安全编排与响应平台 (Security Incident Response Platform)
-- ASF 作为后台框架, 提供强大的自动化编排与 AI 驱动能力, 而 SIRP 则作为前端应用, 通过直观的用户界面帮助安全团队高效管理和响应安全事件。
-- SIRP 的设计思路和数据模型参考了主流的 SOAR 平台 (Splunk SOAR, Swimlane SOAR 等)。
-- SIRP 基于 Nocoly 平台构建, 利用其 APaas 特性实现灵活的定制和扩展。
+- SIRP is the built-in Security Incident Response Platform within ASF.
+- ASF serves as the backend framework, providing powerful automation orchestration and AI-driven capabilities, while SIRP acts as the frontend application, helping security teams efficiently manage and respond to security incidents through an intuitive user interface.
+- SIRP's design philosophy and data model reference mainstream SOAR platforms (Splunk SOAR, Swimlane SOAR, etc.).
+- SIRP is built on the Nocoly platform, leveraging its APaaS characteristics to achieve flexible customization and extension.
 
 ![img_4.png](img_4.png)
 
