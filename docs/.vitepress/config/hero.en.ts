@@ -1,9 +1,10 @@
 export const heroConfig = {
-  name: 'The AI Red Team Platform',
-  tagline: 'Built to make you extraordinarily offensive, Viper is the best way to perform adversary emulation and red teaming with AI',
-  image: "/hero/en/img.png",
-  actions: [
-    {text: 'QUICK START', link: '/guide/getting_start', theme: 'brand'},
-    {text: 'WHAT IS VIPER', link: '/guide/welcome_to_viper', theme: 'alt'},
-  ]
+    name: 'AI SOC FRAMEWORK',
+    tagline: 'AI Agent-based SOC automation framework. Open-source, flexible, powerful, private deployment.',
+    image: "/hero/en/img.png",
+    actions: [
+        {text: 'Development Docs', link: '/asf/Development/environment_setup', theme: 'brand'},
+        {text: 'Features Overview', link: '/asf/Introduction/what_is_asf/', theme: 'alt'},
+        {text: 'SIRP Platform', link: '/sirp/Introduction/what_is_sirp/', theme: 'alt'},
+    ]
 }
