@@ -1,1 +1,0 @@
-# Log4j2 CVE-2021-44228 Scanning

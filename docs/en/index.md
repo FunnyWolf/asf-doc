@@ -11,5 +11,7 @@ import { testimonialsConfig } from '../.vitepress/config/testimonials.en'
 
 <Hero :config="heroConfig" />
 <Features :features="featuresConfig" />
-<KeyFeatures :config="keyFeaturesConfig" />
-<Testimonials :config="testimonialsConfig" />
+
+[//]: # (<KeyFeatures :config="keyFeaturesConfig" />)
+
+[//]: # (<Testimonials :config="testimonialsConfig" />)
