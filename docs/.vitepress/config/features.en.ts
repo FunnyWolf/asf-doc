@@ -6,12 +6,12 @@ export const featuresConfig = [
     },
     {
         title: 'Comprehensive AI Agent Support',
-        details: 'AI Agent modules and playbooks written with Langgraph, MCP Server, Embeddings interface.',
+        details: 'AI Agent modules and playbooks written with LangGraph, MCP Server, Embeddings interface.',
         image: '/hero/en/img_24.png'
     },
     {
         title: 'Fully-featured Automation Framework',
-        details: 'Supports SIEM Webhook integration, Redis Stack Stream processing, synchronous and asynchronous Playbook templates.',
+        details: 'Supports SIEM Webhook integration, Redis  Stream processing, synchronous and asynchronous Playbook templates.',
         image: '/hero/en/img_23.png'
     },
     {

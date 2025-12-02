@@ -94,7 +94,30 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/PLAYBOOKS/',
             items: [
                 {text: '开发指南', link: 'development/'},
-                {text: '剧本列表', link: 'playbook_list/'},
+                {text: 'SIRP剧本开发指南', link: 'SIRP_Playbook_Development/'},
+                {
+                    text: 'Case',
+                    collapsed: false,
+                    items: [
+                        {text: '威胁狩猎智能体', link: 'Case_Threat_Hunting_Agent/'},
+                        {text: 'SOC L3 分析师智能体', link: 'Case_L3_SOC_Analyst_Agent/'},
+                    ]
+                },
+                {
+                    text: 'Alert',
+                    collapsed: false,
+                    items: [
+                        {text: '告警分析智能体', link: 'Alert_Suggestion_Gen_By_LLM/'},
+                    ]
+                },
+                {
+                    text: 'Artifact',
+                    collapsed: false,
+                    items: [
+                        {text: '威胁情报查询(AlienVaultOTX)', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
+                        {text: '威胁情报查询(Mock)', link: 'Artifact_TI_Enrichment_Update/'},
+                    ]
+                },
             ]
         },
         {

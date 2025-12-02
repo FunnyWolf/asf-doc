@@ -118,6 +118,17 @@ AI Agent 推荐的响应措施
 
 ![img_5.png](img_5.png)
 
+## Threat Hunting
+
+> 威胁狩猎智能体输出的报告
+
+![img_15.png](img_15.png)
+![img_16.png](img_16.png)
+
+> 威胁狩猎智能体的工具调用记录
+
+![img_17.png](img_17.png)
+
 ## Playbook
 
 > 与 Case 关联的自动化剧本记录.

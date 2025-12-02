@@ -98,6 +98,38 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
+            text: 'Playbooks',
+            collapsed: false,
+            base: '/asf/PLAYBOOKS/',
+            items: [
+                {text: 'Development Guide', link: 'development/'},
+                {text: 'SIRP Playbook Development Guide', link: 'SIRP_Playbook_Development/'},
+                {
+                    text: 'Case',
+                    collapsed: false,
+                    items: [
+                        {text: 'Threat Hunting Agent', link: 'Case_Threat_Hunting_Agent/'},
+                        {text: 'SOC L3 Analyst Agent', link: 'Case_L3_SOC_Analyst_Agent/'},
+                    ]
+                },
+                {
+                    text: 'Alert',
+                    collapsed: false,
+                    items: [
+                        {text: 'Alert Analysis Agent', link: 'Alert_Suggestion_Gen_By_LLM/'},
+                    ]
+                },
+                {
+                    text: 'Artifact',
+                    collapsed: false,
+                    items: [
+                        {text: 'TI Enrichment By AlienVaultOTX', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
+                        {text: 'TI Enrichment By Mock', link: 'Artifact_TI_Enrichment_Update/'},
+                    ]
+                },
+            ]
+        },
+        {
             text: 'Plugins',
             collapsed: false,
             base: '/asf/PLUGINS/',

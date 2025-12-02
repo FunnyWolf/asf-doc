@@ -2,7 +2,7 @@
 
 剧本 (Playbook) 用于执行 **用户触发** 的自动化任务.
 
-例如调用TI查询并更新Artifact的enrichment,或者分析Alert生成Suggestion等.
+例如调用 TI 查询并更新 Artifact 的 enrichment,或者分析 Alert 生成 Suggestion 等,或者针对 Case 进行威胁狩猎.
 
 ## 注册剧本脚本
 
@@ -28,7 +28,3 @@
 - 调用接口后,立即返回任务ID,剧本中需要自行处理结果响应
 - 可参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/)
 - **SIRP 中只支持异步执行剧本**
-
-## SIRP 剧本
-
-- 开发 SIRP 剧本的方法参考 [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/)

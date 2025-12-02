@@ -1,3 +1,11 @@
 # TI_Artifact_query_by_AlienVaultOTX
 
-An example of a synchronously executed playbook used to query threat intelligence and return results via the AlienVault OTX plugin.
+## Function Introduction
+
+Synchronous playbook execution example, used to query threat intelligence through the AlienVault OTX plugin and return results.
+
+## Playbook File
+
+```
+PLAYBOOK/TI_Artifact_query_by_AlienVaultOTX.py
+```

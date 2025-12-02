@@ -19,7 +19,8 @@
 - Status
 
 Ticket status, divided into `New`, `In Progress`, `Closed` three states. Initially `New`.
-When the analyst manually updates the status to `In Progress`, it means the ticket is being processed. At this time, `Acknowledged Date`, `Assignee`, `Attachments`, `Note` are editable.
+When the analyst manually updates the status to `In Progress`, it means the ticket is being processed. At this time, `Acknowledged Date`, `Assignee`, `Attachments`, `Note` are
+editable.
 When the analyst manually updates the status to `Closed`, it means the ticket has been processed. At this time, `Close Date`, `Close Reason`, `Summary` are editable.
 
 - Title
@@ -117,6 +118,16 @@ Recommended response actions by the AI Agent.
 > Workbook can use options like `[]` to facilitate analysts in completing tasks step by step.
 
 ![img_5.png](img_5.png)
+
+## Threat Hunting
+
+> Threat hunting Agent report associated with the Case.
+
+
+![img_16.png](img_16.png)
+
+> Threat hunting Agent tool invocation records.
+![img_17.png](img_17.png)
 
 ## Playbook
 

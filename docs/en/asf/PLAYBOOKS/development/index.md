@@ -1,34 +1,30 @@
 # Development Guide
 
-A Playbook is used to execute **user-triggered** automated tasks.
+Playbooks are used to execute **user-triggered** automated tasks.
 
-For example, calling a TI query to update an Artifact's enrichment, or analyzing an Alert to generate a Suggestion.
+For example, calling TI queries to update Artifact enrichment, analyzing alerts to generate suggestions, or performing threat hunting for Cases.
 
-## Registering a Playbook Script
+## Registering Playbook Scripts
 
-- Create a playbook script file in the `PLAYBOOKS` directory.
-- Ensure the class name in the file is `Playbook` and that it inherits from `BasePlaybook` or `LanggraphPlaybook`.
-- Implement the `run` function; the framework will execute this function automatically.
-- **The recommended method is to copy an existing script and modify it according to your needs.**
+- Create playbook script files in the `PLAYBOOKS` directory.
+- Ensure the class name is `Playbook` and inherits from `BasePlaybook` or `LanggraphPlaybook`.
+- Implement the `run` function, which the framework will automatically execute.
+- **The recommended method is to copy an existing script and modify it as needed.**
 
-## Calling a Playbook
+## Calling Playbooks
 
-- A playbook is called via a POST request to the `api/v1/automation/playbook` endpoint.
-- In the POST Data, `playbook` is the file name of the playbook, for example, `Alert_Suggestion_Gen_By_LLM`.
-- Other parameters are passed in according to the playbook's requirements, such as `worksheet` and `rowid`.
-- In the playbook code, you can use `self.param("parameter_name")` to get the value of the passed-in parameter.
+- Call the playbook using a POST request to the `api/v1/automation/playbook` interface.
+- In the POST Data, `playbook` is the playbook's file name, such as `Alert_Suggestion_Gen_By_LLM`.
+- Other parameters are passed in according to playbook requirements, such as `worksheet` and `rowid`.
+- The playbook code can use `self.param("parameter name")` to get the passed parameter values.
 
 ## Synchronous Execution
 
-- After calling the interface, it waits for the playbook to complete and returns the result directly through the REST API's Response.
-- Refer to [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX/) for an example.
+- After calling the interface, wait for the playbook to complete execution and return the result directly via the REST API Response.
+- Refer to [TI_Artifact_query_by_AlienVaultOTX](../TI_Artifact_query_by_AlienVaultOTX/)
 
 ## Asynchronous Execution
 
-- After calling the interface, it immediately returns a task ID. The playbook needs to handle the result response itself.
-- Refer to [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/) for an example.
-- **Only asynchronous execution of playbooks is supported in SIRP.**
-
-## SIRP Playbook
-
-- For the method of developing a SIRP playbook, refer to [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/).
+- After calling the interface, a task ID is returned immediately. The playbook needs to handle the result response itself.
+- Refer to [Alert_Suggestion_Gen_By_LLM](../Alert_Suggestion_Gen_By_LLM/)
+- **SIRP only supports asynchronous playbook execution.**
