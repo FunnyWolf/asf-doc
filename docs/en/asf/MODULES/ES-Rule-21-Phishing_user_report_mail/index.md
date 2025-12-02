@@ -19,7 +19,7 @@ All sample modules provided by ASF include test alert data located in `DATA/{mod
 
 ## Alert Aggregation (SIRP)
 
-The [GroupRule](https://github.com/FunnyWolf/ai-soc-framework/blob/master/Lib/grouprule.py) class is used for alert aggregation, grouping multiple Alerts into a single Case according to a Rule. Refer to the code comments for usage.
+The [GroupRule](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/Lib/grouprule.py) class is used for alert aggregation, grouping multiple Alerts into a single Case according to a Rule. Refer to the code comments for usage.
 
 ### Scenario One
 

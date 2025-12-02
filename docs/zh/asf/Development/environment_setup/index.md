@@ -33,19 +33,19 @@ curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 - 克隆 ASF 代码 (或 github 下载上传到服务器)
 
 ```
-git clone git@github.com:FunnyWolf/ai-soc-framework.git
+git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 ```
 
 - 安装并启动 Redis Stack
 
 ```
-cd ai-soc-framework/Docker/redis_stack
+cd agentic-soc-platform/Docker/redis_stack
 docker compose up -d
 ```
 
 - 访问 Redis Insight 检查是否安装成功
 
-> URL: http://192.168.241.128:8001 账号密码:default / redis-stack-password-for-ai-soc-framework
+> URL: http://192.168.241.128:8001 账号密码:default / redis-stack-password-for-agentic-soc-platform
 
 ### 安装 SIRP
 
@@ -56,19 +56,19 @@ docker compose up -d
 - 克隆ASF代码
 
 ```
-git clone git@github.com:FunnyWolf/ai-soc-framework.git
+git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 ```
 
 - 安装uv及依赖库
 
 ```
 pip install uv
-cd ai-soc-framework
+cd agentic-soc-platform
 uv venv 
 uv sync
 ```
 
-- 将ai-soc-framework/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
+- 将agentic-soc-platform/CONFIG.example.py重命名为CONFIG.py,配置项的填写说明见代码注释
 
 - 参考 [SIRP Plugin](../../PLUGINS/SIRP/) 配置 SIRP
 

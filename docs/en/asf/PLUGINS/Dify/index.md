@@ -2,7 +2,7 @@
 
 ## Configuration Method
 
-- Rename the configuration file ai-soc-framework/PLUGINS/Dify/CONFIG.example.py to CONFIG.py to apply the configuration.
+- Rename the configuration file agentic-soc-platform/PLUGINS/Dify/CONFIG.example.py to CONFIG.py to apply the configuration.
 - How to get DIFY_BASE_URL
 
 ![alt text](image.png)

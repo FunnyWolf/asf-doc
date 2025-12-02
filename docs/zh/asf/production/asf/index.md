@@ -3,6 +3,6 @@
 ## uvicorn 部署
 
 ```shell
-cd ai-soc-framework
+cd agentic-soc-platform
 uvicorn --config uvicorn.toml
 ```

@@ -9,10 +9,10 @@
 
 ## Import SIRP
 
-- Clone the ASF codebase. The SIRP application file is `ai-soc-framework/PLUGINS/SIRP/SIRP.mdy`.
+- Clone the ASF codebase. The SIRP application file is `agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy`.
 
 ```bash
-git clone git@github.com:FunnyWolf/ai-soc-framework.git
+git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 ```
 
 - Log in to the Nocoly platform and select `Organization Management` > `Applications`.

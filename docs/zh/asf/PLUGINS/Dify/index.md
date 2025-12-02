@@ -2,7 +2,7 @@
 
 ## 配置方法
 
-- 将配置文件 ai-soc-framework/PLUGINS/Dify/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
+- 将配置文件 agentic-soc-platform/PLUGINS/Dify/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
 - DIFY_BASE_URL获取方法
 
 ![alt text](image.png)

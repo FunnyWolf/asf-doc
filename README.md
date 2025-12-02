@@ -51,8 +51,8 @@ ASF processes security alerts and events through a streamlined, multi-stage pipe
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/FunnyWolf/ai-soc-framework.git
-    cd ai-soc-framework
+    git clone https://github.com/FunnyWolf/agentic-soc-platform.git
+    cd agentic-soc-platform
     ```
 
 2.  **Setup Linux Server Environment**

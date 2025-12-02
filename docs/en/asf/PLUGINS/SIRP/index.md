@@ -8,7 +8,7 @@
 
 ![img_9.png](img_9.png)
 
-> Used for ASF's REST API authentication, must be consistent with ASF_TOKEN in the ai-soc-framework/CONFIG.py file.
+> Used for ASF's REST API authentication, must be consistent with ASF_TOKEN in the agentic-soc-platform/CONFIG.py file.
 
 ![img_10.png](img_10.png)
 
@@ -16,7 +16,7 @@
 
 ## Configuration Method
 
-- Rename the configuration file ai-soc-framework/PLUGINS/SIRP/CONFIG.example.py to CONFIG.py to apply the configuration.
+- Rename the configuration file agentic-soc-platform/PLUGINS/SIRP/CONFIG.example.py to CONFIG.py to apply the configuration.
 - SIRP_URL is the SIRP platform address, e.g., http://192.168.241.128:8880
 - SIRP_APPKEY and SIRP_SIGN
 

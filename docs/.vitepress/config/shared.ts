@@ -83,7 +83,7 @@ export const shared = defineConfig({
         logo: {src: '/asf.svg', width: 24, height: 24},
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/FunnyWolf/ai-soc-framework'},
+            {icon: 'github', link: 'https://github.com/FunnyWolf/agentic-soc-platform'},
             {icon: 'twitter', link: 'https://x.com/viperrtp'},
             {icon: 'discord', link: 'https://discord.gg/3R9yZvQueT'},
             {

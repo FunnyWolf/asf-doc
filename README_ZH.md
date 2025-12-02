@@ -51,8 +51,8 @@ ASF 通过简化的多阶段流程处理安全告警和事件：
 
 1.  **克隆仓库**
     ```bash
-    git clone https://github.com/FunnyWolf/ai-soc-framework.git
-    cd ai-soc-framework
+    git clone https://github.com/FunnyWolf/agentic-soc-platform.git
+    cd agentic-soc-platform
     ```
 
 2.  **设置 Linux 服务器环境**

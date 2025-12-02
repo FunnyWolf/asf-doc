@@ -9,10 +9,10 @@
 
 ## 导入 SIRP
 
-- 克隆 ASF 代码库 , SIRP应用文件为 ai-soc-framework/PLUGINS/SIRP/SIRP.mdy
+- 克隆 ASF 代码库 , SIRP应用文件为 agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy
 
 ```bash
-git clone git@github.com:FunnyWolf/ai-soc-framework.git
+git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 ```
 
 - 登录 Nocoly 平台选择`组织管理` `应用`
