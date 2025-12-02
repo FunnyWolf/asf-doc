@@ -17,6 +17,9 @@ scenarios, and helps enterprises efficiently build intelligent security operatio
 - 🛠️ **Rich Module Library and Extensibility**
   Provides various automated module templates and supports secondary development in Python for flexible integration with various security devices and APIs.
 
+- 🛡️ **Threat Hunting Agent & Incident Response Agent**
+  Built-in powerful and flexible threat hunting agents and incident response agents, covering all scenarios.
+
 - ⚙️ **Powerful Automation Orchestration**
   Implements an efficient alert pipeline based on Webhook + Redis Stream, supporting mainstream SIEM platforms.
 

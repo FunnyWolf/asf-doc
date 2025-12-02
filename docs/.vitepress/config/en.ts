@@ -48,7 +48,7 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'Agentic SOC Platform',
+            text: 'FRAMEWORK',
             link: '/asf/Introduction/what_is_asf/',
             activeMatch: '/asf/'
         },

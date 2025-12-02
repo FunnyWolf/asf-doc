@@ -48,12 +48,12 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: '框架',
+            text: 'FRAMEWORK',
             link: '/zh/asf/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },
         {
-            text: '平台',
+            text: 'SIRP',
             link: '/zh/sirp/Introduction/what_is_sirp/',
             activeMatch: '/zh/sirp/'
         },
