@@ -50,7 +50,7 @@ export const shared = defineConfig({
     },
 
     sitemap: {
-        hostname: 'https://asf.viperrtp.com',
+        hostname: 'https://asp.viperrtp.com',
         transformItems(items) {
             return items.filter((item) => !item.url.includes('migration'))
         }
@@ -65,14 +65,14 @@ export const shared = defineConfig({
         ['meta', {property: 'og:locale', content: 'en'}],
         ['meta', {property: 'og:title', content: 'Agentic SOC Platform | Open Source, Flexible, Powerful, Private Deployment'}],
         ['meta', {property: 'og:site_name', content: 'Viper'}],
-        ['meta', {property: 'og:image', content: 'https://asf.viperrtp.com/viper-og.png'}],
-        ['meta', {property: 'og:url', content: 'https://asf.viperrtp.com/'}],
+        ['meta', {property: 'og:image', content: 'https://asp.viperrtp.com/viper-og.png'}],
+        ['meta', {property: 'og:url', content: 'https://asp.viperrtp.com/'}],
         ['meta', {name: 'twitter:site', content: '@viperrtp'}],
         ['meta', {name: 'twitter:creator', content: '@viperrtp'}],
         ['meta', {name: 'twitter:card', content: 'summary'}],
         ['meta', {name: 'twitter:title', content: 'Agentic SOC Platform | Open Source, Flexible, Powerful, Private Deployment'}],
         ['meta', {name: 'twitter:description', content: 'AI Agent SOC Automation Framework.Open Source, Flexible, Powerful, Private Deployment.'}],
-        ['meta', {name: 'twitter:image:src', content: 'https://asf.viperrtp.com/viper-og.png'}],
+        ['meta', {name: 'twitter:image:src', content: 'https://asp.viperrtp.com/viper-og.png'}],
     ],
 
     async transformHead(context: TransformContext) {
