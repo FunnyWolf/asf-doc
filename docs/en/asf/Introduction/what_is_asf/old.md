@@ -1,4 +1,4 @@
-# AI SOC Framework (ASF)
+# Agentic SOC Platform
 
 基于 AI Agent 的 SOC 自动化框架. 开源, 灵活, 强大, 私有部署.
 

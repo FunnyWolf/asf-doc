@@ -1,10 +1,10 @@
-# AI SOC Framework (ASF)
+# Agentic SOC Platform (ASF)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.com/)
 
-**AI SOC Framework (ASF)** is a powerful, flexible, and open-source automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR scenarios, and helps enterprises efficiently build intelligent security operations systems.
+**Agentic SOC Platform** is a powerful, flexible, and open-source automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR scenarios, and helps enterprises efficiently build intelligent security operations systems.
 
 ## Core Features
 

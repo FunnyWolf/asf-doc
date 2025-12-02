@@ -3,7 +3,7 @@ import {type DefaultTheme, defineConfig} from 'vitepress'
 
 export const zh = defineConfig({
     lang: 'zh-Hans',
-    description: 'AI SOC FRAMEWORK',
+    description: 'Agentic SOC Platform',
 
     themeConfig: {
         nav: nav(),
@@ -48,7 +48,7 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'AI SOC FRAMEWORK',
+            text: 'Agentic SOC Platform',
             link: '/zh/asf/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },

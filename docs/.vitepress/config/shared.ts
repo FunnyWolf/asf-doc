@@ -6,7 +6,7 @@ import {handleHeadMeta} from "../theme/handleHeadMeta";
 import minipic from 'vite-plugin-minipic'
 
 export const shared = defineConfig({
-    title: 'AI SOC Framework',
+    title: 'Agentic SOC Platform',
 
     rewrites: {
         'en/:rest*': ':rest*'
@@ -63,14 +63,14 @@ export const shared = defineConfig({
         ['meta', {name: 'theme-color', content: '#5f67ee'}],
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
-        ['meta', {property: 'og:title', content: 'AI SOC Framework | Open Source, Flexible, Powerful, Private Deployment'}],
+        ['meta', {property: 'og:title', content: 'Agentic SOC Platform | Open Source, Flexible, Powerful, Private Deployment'}],
         ['meta', {property: 'og:site_name', content: 'Viper'}],
         ['meta', {property: 'og:image', content: 'https://asf.viperrtp.com/viper-og.png'}],
         ['meta', {property: 'og:url', content: 'https://asf.viperrtp.com/'}],
         ['meta', {name: 'twitter:site', content: '@viperrtp'}],
         ['meta', {name: 'twitter:creator', content: '@viperrtp'}],
         ['meta', {name: 'twitter:card', content: 'summary'}],
-        ['meta', {name: 'twitter:title', content: 'AI SOC Framework | Open Source, Flexible, Powerful, Private Deployment'}],
+        ['meta', {name: 'twitter:title', content: 'Agentic SOC Platform | Open Source, Flexible, Powerful, Private Deployment'}],
         ['meta', {name: 'twitter:description', content: 'AI Agent SOC Automation Framework.Open Source, Flexible, Powerful, Private Deployment.'}],
         ['meta', {name: 'twitter:image:src', content: 'https://asf.viperrtp.com/viper-og.png'}],
     ],

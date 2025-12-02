@@ -1,6 +1,6 @@
 # Welcome to ASF
 
-**AI SOC Framework (ASF)** is a powerful and flexible **open-source** automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR
+**Agentic SOC Platform** is a powerful and flexible **open-source** automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR
 scenarios, and helps enterprises efficiently build intelligent security operations systems.
 
 ## Why Choose ASF?
