@@ -1,4 +1,4 @@
-# Agentic SOC Platform (ASF)
+# Agentic SOC Platform (ASP)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
@@ -17,19 +17,19 @@
 
 ## Architecture Overview
 
-ASF processes security alerts and events through a streamlined, multi-stage pipeline:
+ASP processes security alerts and events through a streamlined, multi-stage pipeline:
 
 1.  **SIEM/Alert Source**: EDR, NDR, or other security tools send alerts to a SIEM (e.g., Splunk, Kibana).
-2.  **Webhook Forwarder**: The SIEM forwards these alerts via webhook to ASF's built-in webhook receiver.
+2.  **Webhook Forwarder**: The SIEM forwards these alerts via webhook to ASP's built-in webhook receiver.
 3.  **Redis Stream**: The receiver pushes the alerts into a corresponding Redis Stream, which acts as a durable message queue. Each alert type gets its own stream.
-4.  **Module Engine**: An ASF **Module** consumes alerts from its designated stream, performs analysis (often using an AI Agent), enriches the data, and decides on an outcome.
+4.  **Module Engine**: An ASP **Module** consumes alerts from its designated stream, performs analysis (often using an AI Agent), enriches the data, and decides on an outcome.
 5.  **SIRP Platform**: The module's output, now formatted as a standardized security record, is sent to the **SIRP** platform, where it creates or updates Cases, Alerts, and Artifacts.
 6.  **Playbook Engine**: From the SIRP UI, an analyst can trigger a **Playbook** on a Case, Alert, or Artifact to perform further automated actions, such as threat intelligence enrichment or remediation.
 
 ```
 +-----------+      +----------------+      +---------------+      +-----------------+      +-------------+
 |   SIEM    |----->| Webhook Server |----->|  Redis Stream |----->|  Module Engine  |----->|    SIRP     |
-| (Splunk,  |      |      (ASF)     |      |  (Message Q)  |      |   (AI Agent)    |      | (Nocoly UI) |
+| (Splunk,  |      |      (ASP)     |      |  (Message Q)  |      |   (AI Agent)    |      | (Nocoly UI) |
 |  Kibana)  |      +----------------+      +---------------+      +-----------------+      +-------------+
 +-----------+                                                                                   ^
                                                                                                 |

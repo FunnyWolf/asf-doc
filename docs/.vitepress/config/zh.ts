@@ -48,12 +48,12 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'Agentic SOC Platform',
+            text: '框架',
             link: '/zh/asf/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },
         {
-            text: 'SIRP',
+            text: '平台',
             link: '/zh/sirp/Introduction/what_is_sirp/',
             activeMatch: '/zh/sirp/'
         },
@@ -139,7 +139,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/production/',
             items: [
                 {text: 'SIEM 集成', link: 'siem/'},
-                {text: 'ASF 部署', link: 'asf/'},
+                {text: 'ASP 部署', link: 'asf/'},
             ]
         },
     ]

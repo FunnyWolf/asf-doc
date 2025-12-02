@@ -64,7 +64,7 @@ Attachments related to the alert.
 
 - **Rule ID**
 
-According to ASF's design philosophy, alerts are created by rules in SIEM. Rule ID == Module script name == SIEM Rule name.
+According to ASP's design philosophy, alerts are created by rules in SIEM. Rule ID == Module script name == SIEM Rule name.
 
 > For Splunk, the Rule ID is essentially the Splunk Alert name. For Kibana, it's the Rule name. Refer to [SIEM Integration](../../../asf/production/siem/).
 

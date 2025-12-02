@@ -64,7 +64,7 @@ Alert 的详细描述.支持 Markdown 格式.
 
 - **Rule ID**
 
-根据 ASF 的设计理念,告警都由 SIEM 中规则 (Rule) 来创建. Rule ID == Module 脚本名称 == SIEM 中 Rule 名称.
+根据 ASP 的设计理念,告警都由 SIEM 中规则 (Rule) 来创建. Rule ID == Module 脚本名称 == SIEM 中 Rule 名称.
 
 > 对于 Splunk Rule ID 其实就是 Splunk 中 Alert 名称, 对于 Kibana 其实就是 Rule name 可以参考 [SIEM 集成](../../../asf/production/siem/)
 

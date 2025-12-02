@@ -2,7 +2,7 @@
 
 ## Webhook Forwarder
 
-- ASF has a built-in Webhook receiving node that forwards alarms sent by SIEM Webhook to the corresponding Stream in Redis Stack.
+- ASP has a built-in Webhook receiving node that forwards alarms sent by SIEM Webhook to the corresponding Stream in Redis Stack.
 - The Forwarder automatically parses the alarm names in Kibana/Splunk and creates a Stream with the same name in Redis Stack based on the alarm name.
 - The Forwarder implementation code is `Forwarder/views.py`.
 - The URL format for the Forwarder is `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>`, where `<SIEM_NAME>` supports `kibana` and `splunk`.

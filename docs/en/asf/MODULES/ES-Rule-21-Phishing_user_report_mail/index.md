@@ -2,12 +2,12 @@
 
 ## Importing Test Alerts
 
-All sample modules provided by ASF include test alert data located in `DATA/{module_name}/mock_alert.py`. Executing this script will import the test alert data into Redis Stream.
+All sample modules provided by ASP include test alert data located in `DATA/{module_name}/mock_alert.py`. Executing this script will import the test alert data into Redis Stream.
 
 ## Single Module & Single Alert Debugging
 
 - During module development, developers often need to debug a specific alert.
-- The ASF framework allows for debugging modules individually without starting the entire framework. For code reference, see the `if __name__ == "__main__":` section of this module.
+- The ASP framework allows for debugging modules individually without starting the entire framework. For code reference, see the `if __name__ == "__main__":` section of this module.
 
 - Developers only need to find the Stream queue corresponding to the module in Redis Insight and get the ID of a specific alert.
 
@@ -24,7 +24,7 @@ The [GroupRule](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/Li
 ### Scenario One
 
 - In the SIEM platform, the rule `ES-Rule-21-Phishing_user_report_mail` sends metadata of all user-reported phishing emails as alerts to Redis Stream.
-- The ASF module `ES-Rule-21-Phishing_user_report_mail` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is a phishing email, and format it into the SIRP Alert format.
+- The ASP module `ES-Rule-21-Phishing_user_report_mail` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is a phishing email, and format it into the SIRP Alert format.
 - We want to aggregate all phishing emails reported by the same sender within 24 hours into a single SIRP Case.
 
 ```python
@@ -45,7 +45,7 @@ rule = GroupRule(
 ### Scenario Two
 
 - In the SIEM platform, the rule `NDR-Rule-05-Suspect-C2-Communication` sends all network traffic suspected of C2 communication as alerts to Redis Stream.
-- The ASF module `NDR-Rule-05-Suspect-C2-Communication` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is suspected C2 communication, and format it into the SIRP Alert format.
+- The ASP module `NDR-Rule-05-Suspect-C2-Communication` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is suspected C2 communication, and format it into the SIRP Alert format.
 - We want to aggregate all alerts of suspected C2 communication from the same host within 1 hour into a single SIRP Case.
 
 ```python

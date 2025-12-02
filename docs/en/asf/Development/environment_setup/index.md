@@ -30,7 +30,7 @@ curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 
 ### Install Redis Stack
 
-- Clone the ASF code (or download from GitHub and upload to the server).
+- Clone the ASP code (or download from GitHub and upload to the server).
 
 ```
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git
@@ -53,7 +53,7 @@ docker compose up -d
 
 ## Windows Development Machine
 
-- Clone the ASF code.
+- Clone the ASP code.
 
 ```
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git

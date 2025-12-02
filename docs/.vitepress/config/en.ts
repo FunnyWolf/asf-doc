@@ -148,7 +148,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asf/production/',
             items: [
                 {text: 'SIEM Integration', link: 'siem/'},
-                {text: 'ASF Deployment', link: 'asf/'},
+                {text: 'ASP Deployment', link: 'asf/'},
             ]
         },
     ]

@@ -1,9 +1,9 @@
-# Welcome to ASF
+# Welcome to ASP
 
 **Agentic SOC Platform** is a powerful and flexible **open-source** automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR
 scenarios, and helps enterprises efficiently build intelligent security operations systems.
 
-## Why Choose ASF?
+## Why Choose ASP?
 
 - 📊 **Simple and Efficient Operational Interface**
   Built-in SIRP allows for rapid custom development of a security operations platform (UI/data models/reports/workflows) without complex configuration.
@@ -25,7 +25,7 @@ scenarios, and helps enterprises efficiently build intelligent security operatio
 
 ## Get Started
 
-+ 📚 [Development Docs](../../Development/environment_setup/) - Quickly get started with ASF development.
++ 📚 [Development Docs](../../Development/environment_setup/) - Quickly get started with ASP development.
 + 🎓 [SIRP Platform](../../../sirp/Introduction/what_is_sirp/) - Learn about the built-in SIRP features.
 
 ## License

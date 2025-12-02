@@ -10,7 +10,7 @@ Functions such as `Reset Password` and `Invite External Users` in SIRP rely on e
 
 For configuration method, refer to [Custom Integration Webhook for Receiving Emails](https://docs-pd.nocoly.com/faq/email#self-integration).
 
-Content of the `appextensions.json` file. Replace 192.168.241.1:7000 with the ASF deployment server IP and port.
+Content of the `appextensions.json` file. Replace 192.168.241.1:7000 with the ASP deployment server IP and port.
 
 ```json
 {
@@ -19,4 +19,4 @@ Content of the `appextensions.json` file. Replace 192.168.241.1:7000 with the AS
 }
 ```
 
-ASF logs will print the email content.
+ASP logs will print the email content.

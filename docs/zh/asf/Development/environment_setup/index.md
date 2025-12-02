@@ -30,7 +30,7 @@ curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 
 ### 安装 Redis Stack
 
-- 克隆 ASF 代码 (或 github 下载上传到服务器)
+- 克隆 ASP 代码 (或 github 下载上传到服务器)
 
 ```
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git

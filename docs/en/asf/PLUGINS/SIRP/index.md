@@ -8,11 +8,11 @@
 
 ![img_9.png](img_9.png)
 
-> Used for ASF's REST API authentication, must be consistent with ASF_TOKEN in the agentic-soc-platform/CONFIG.py file.
+> Used for ASP's REST API authentication, must be consistent with ASF_TOKEN in the agentic-soc-platform/CONFIG.py file.
 
 ![img_10.png](img_10.png)
 
-> Used to call the ASF Playbook interface, please modify the IP according to your actual configuration.
+> Used to call the ASP Playbook interface, please modify the IP according to your actual configuration.
 
 ## Configuration Method
 

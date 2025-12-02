@@ -9,7 +9,7 @@
 
 ## Import SIRP
 
-- Clone the ASF codebase. The SIRP application file is `agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy`.
+- Clone the ASP codebase. The SIRP application file is `agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy`.
 
 ```bash
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git

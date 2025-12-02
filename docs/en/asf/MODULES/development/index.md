@@ -1,10 +1,10 @@
 # Development Guide
 
-ASF modules are used for the **automated** streaming of alert data. Each module corresponds to a message queue in Redis Stream, and each run of a module processes one alert from the queue.
+ASP modules are used for the **automated** streaming of alert data. Each module corresponds to a message queue in Redis Stream, and each run of a module processes one alert from the queue.
 
 ## Alert Import
 
-NDR/EDR/XDR/.. ==> SIEM ==> Alert Rule ==> Webhook ==> ASF Webhook Receiver ==> Redis Stream
+NDR/EDR/XDR/.. ==> SIEM ==> Alert Rule ==> Webhook ==> ASP Webhook Receiver ==> Redis Stream
 
 In a **production environment**, you can import alert data into the Redis Stream message queue by configuring a Webhook in the SIEM platform, without any coding. For the configuration method, see [SIEM Integration](../../production/siem/).
 

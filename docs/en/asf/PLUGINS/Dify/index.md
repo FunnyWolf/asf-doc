@@ -15,7 +15,7 @@
 
 ## Naming Convention
 
-It is generally recommended that the application name in Dify be the same as the name of the Module/Playbook called in ASF. In ASF, you can use the following code to quickly call the corresponding application:
+It is generally recommended that the application name in Dify be the same as the name of the Module/Playbook called in ASP. In ASP, you can use the following code to quickly call the corresponding application:
 
 ```python
 client = Dify()

@@ -1,9 +1,9 @@
-# 欢迎使用 ASF
+# 欢迎使用 ASP
 
 **Agentic SOC Platform** 是一个强大且灵活的 **开源** 自动化安全运营平台。平台集成 AI Agent 与自动化编排能力,支持主流 SIEM/SOAR
 场景,助力企业高效构建智能化安全运营体系。
 
-## 为什么选择 ASF？
+## 为什么选择 ASP？
 
 - 📊 **简洁高效的操作界面**
   内置SIRP,无需复杂配置即可快速定制开发安全运营平台 (UI/数据模型/报表/流程)
@@ -25,7 +25,7 @@
 
 ## 立即开始
 
-+ 📚 [开发文档](../../Development/environment_setup/) - 快速上手 ASF 开发
++ 📚 [开发文档](../../Development/environment_setup/) - 快速上手 ASP 开发
 + 🎓 [SIRP平台](../../../sirp/Introduction/what_is_sirp/) - 了解内置 SIRP 功能
 
 ## 许可证

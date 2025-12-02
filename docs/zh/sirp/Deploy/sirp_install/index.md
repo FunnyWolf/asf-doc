@@ -9,7 +9,7 @@
 
 ## 导入 SIRP
 
-- 克隆 ASF 代码库 , SIRP应用文件为 agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy
+- 克隆 ASP 代码库 , SIRP应用文件为 agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy
 
 ```bash
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git
