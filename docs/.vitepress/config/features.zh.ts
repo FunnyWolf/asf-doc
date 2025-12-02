@@ -1,27 +1,27 @@
 export const featuresConfig = [
     {
-        title: '开箱即用的 SIRP 平台',
-        details: '支持Case/Alert/Artifact三级数据模型, 告警聚合, 自动化剧本, 定制化UI',
+        title: '内置专业级安全运营中心',
+        details: '提供从告警聚合、案件管理到 UI 定制的全流程能力，无需复杂配置，即刻拥有现代化 SIRP',
         image: '/hero/zh/img_21.png'
     },
     {
-        title: '威胁狩猎智能体 & 应急响应智能体',
-        details: '内置强大且灵活的威胁狩猎智能体和应急响应智能体, 全场景覆盖',
+        title: '核心 AI 安全智能体',
+        details: '预置强大灵活的威胁狩猎与应急响应智能体，覆盖从分析、调查到处置的全场景',
         image: '/hero/zh/img_25.png'
     },
     {
-        title: '功能全面的 Agentic SOC',
-        details: 'LangGraph 编写的 AI Agent 模块和剧本, MCP Server, Embeddings 接口',
+        title: '为 AI Agent 而生的架构',
+        details: '基于 LangGraph 构建，提供模块化 AI Agent 与剧本，并开放核心接口，让您轻松构建专属智能体',
         image: '/hero/zh/img_24.png'
     },
     {
-        title: '完善的自动化框架',
-        details: '支持集成SIEM Webhook, Redis Stream流式处理, 同步和异步的Playbook模板',
+        title: '强大的自动化编排引擎',
+        details: '以 Redis Stream 构建高效告警流水线，无缝集成 SIEM，提供多样化的剧本模板，轻松实现复杂流程自动化',
         image: '/hero/zh/img_23.png'
     },
     {
-        title: '完全使用 Python 编写',
-        details: '框架, 模块, 剧本均使用Python编写, 易于定制开发和二次扩展',
+        title: '纯粹的 Python 技术生态',
+        details: '框架、模块与剧本均采用 Python 实现，无技术栈壁垒，让定制开发与二次扩展得心应手',
         image: '/hero/zh/img_22.png'
     },
 ]

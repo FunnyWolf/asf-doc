@@ -1,6 +1,6 @@
 export const heroConfig = {
     name: 'Agentic SOC Platform',
-    tagline: '基于 AI Agent 的 SOC 自动化框架. 开源, 灵活, 强大, 私有部署.',
+    tagline: 'AI 智能体驱动的自动化，赋予您的 SOC 洞察先机，从容应对威胁',
     image: "/hero/zh/img_20.png",
     actions: [
         {text: '开发文档', link: '/zh/asf/Development/environment_setup', theme: 'brand'},

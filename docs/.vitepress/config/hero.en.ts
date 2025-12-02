@@ -1,6 +1,6 @@
 export const heroConfig = {
     name: 'Agentic SOC Platform',
-    tagline: 'AI Agent-based SOC automation framework. Open-source, flexible, powerful, private deployment.',
+    tagline: 'AI Agent-driven automation, empowering your SOC to stay one step ahead of threats.',
     image: "/hero/en/img_20.png",
     actions: [
         {text: 'Development Docs', link: '/asf/Development/environment_setup', theme: 'brand'},
