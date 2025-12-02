@@ -64,7 +64,7 @@ export const shared = defineConfig({
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
         ['meta', {property: 'og:title', content: 'Agentic SOC Platform | Open Source, Flexible, Powerful, Private Deployment'}],
-        ['meta', {property: 'og:site_name', content: 'Viper'}],
+        ['meta', {property: 'og:site_name', content: 'ASP'}],
         ['meta', {property: 'og:image', content: 'https://asp.viperrtp.com/viper-og.png'}],
         ['meta', {property: 'og:url', content: 'https://asp.viperrtp.com/'}],
         ['meta', {name: 'twitter:site', content: '@viperrtp'}],

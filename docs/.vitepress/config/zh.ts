@@ -48,15 +48,24 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'FRAMEWORK',
+            text: '开发框架',
             link: '/zh/asf/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },
         {
-            text: 'SIRP',
+            text: '运营平台',
             link: '/zh/sirp/Introduction/what_is_sirp/',
             activeMatch: '/zh/sirp/'
         },
+        {
+            text: "更新日志",
+            items: [
+                {
+                    text: '0.1.0 - 让我们嗨翻全场 !',
+                    link: '/zh/release/0_1_0_Let_us_rock_the_party/'
+                },
+            ]
+        }
     ]
 }
 

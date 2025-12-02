@@ -57,6 +57,15 @@ function nav(): DefaultTheme.NavItem[] {
             link: '/sirp/Introduction/what_is_sirp/',
             activeMatch: '/sirp/'
         },
+        {
+            text: "CHANGELOG",
+            items: [
+                {
+                    text: '0.1.0 - Let`s Rock The Party !',
+                    link: '/release/0_1_0_Let_us_rock_the_party/'
+                },
+            ]
+        }
     ]
 }
 
