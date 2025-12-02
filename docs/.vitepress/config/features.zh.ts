@@ -5,12 +5,17 @@ export const featuresConfig = [
         image: '/hero/zh/img_21.png'
     },
     {
-        title: 'AI Agent 全面支持',
+        title: '威胁狩猎智能体 & 应急响应智能体',
+        details: '内置强大且灵活的威胁狩猎智能体和应急响应智能体, 全场景覆盖',
+        image: '/hero/zh/img.png'
+    },
+    {
+        title: '功能全面的 Agentic SOC',
         details: 'LangGraph 编写的 AI Agent 模块和剧本, MCP Server, Embeddings 接口',
         image: '/hero/zh/img_24.png'
     },
     {
-        title: '功能完善的自动化框架',
+        title: '完善的自动化框架',
         details: '支持集成SIEM Webhook, Redis Stream流式处理, 同步和异步的Playbook模板',
         image: '/hero/zh/img_23.png'
     },
@@ -19,5 +24,4 @@ export const featuresConfig = [
         details: '框架, 模块, 剧本均使用Python编写, 易于定制开发和二次扩展',
         image: '/hero/zh/img_22.png'
     },
-
 ]

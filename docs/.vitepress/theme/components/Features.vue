@@ -31,7 +31,7 @@ defineProps({
 }
 
 .feature-content {
-  max-width: 800px;
+  max-width: 1080px;
   margin: 0 auto 2rem;
   text-align: center;
   padding: 0 2rem;
