@@ -7,7 +7,7 @@ export const featuresConfig = [
     {
         title: 'Threat Hunting Agent & Incident Response Agent',
         details: 'Built-in powerful and flexible threat hunting agent and Incident response agent, covering all scenarios.',
-        image: '/hero/en/img.png'
+        image: '/hero/en/img_25.png'
     },
     {
         title: 'Fully-featured Agentic SOC',

@@ -7,7 +7,7 @@ export const featuresConfig = [
     {
         title: '威胁狩猎智能体 & 应急响应智能体',
         details: '内置强大且灵活的威胁狩猎智能体和应急响应智能体, 全场景覆盖',
-        image: '/hero/zh/img.png'
+        image: '/hero/zh/img_25.png'
     },
     {
         title: '功能全面的 Agentic SOC',
