@@ -139,7 +139,20 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
                 {text: 'LLM', link: 'LLM/'},
+                {text: 'Mock', link: 'Mock/'},
+                {text: 'Redis', link: 'Redis/'},
                 {text: 'SIRP', link: 'SIRP/'},
+            ]
+        },
+        {
+            text: '基础智能体',
+            collapsed: false,
+            base: '/zh/asf/AGENTS/',
+            items: [
+                {text: '开发指南', link: 'development/'},
+                {text: 'CMDB', link: 'CMDB/'},
+                {text: 'SIEM', link: 'SIEM/'},
+                {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
             ]
         },
         {
