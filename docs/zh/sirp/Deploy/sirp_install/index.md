@@ -7,6 +7,14 @@
 
 [安装手册](https://docs-pd.nocoly.com/zh-Hans/deployment/docker-compose/standalone/quickstart/)
 
+- `DockerCgroupDrive`问题
+
+https://docs-pd.mingdao.com/deployment/env?_highlight=dockercgroupdrive#dockercgroupdrive
+
+- `ERROR: client version 1.25 is too old. Minimum supported API version is 1.44, please upgrade your client to a newer version`报错
+
+修改`service.sh`脚本,将所有XXX\docker-compose 修改为docker compose (使用系统docker compose 启动)
+
 ## 导入 SIRP
 
 - 克隆 ASP 代码库 , SIRP应用文件为 agentic-soc-platform/PLUGINS/SIRP/SIRP.mdy
