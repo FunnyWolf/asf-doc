@@ -1,6 +1,6 @@
 ## 文档
 
-- 插件: LLM Mock Redis
+- 插件: Mock
 - Agents
 - 安装文档
 

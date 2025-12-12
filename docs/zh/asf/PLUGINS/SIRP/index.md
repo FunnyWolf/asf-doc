@@ -1,19 +1,5 @@
 # SIRP 插件
 
-## SIRP配置
-
-![img_7.png](img_7.png)
-
-![img_8.png](img_8.png)
-
-![img_9.png](img_9.png)
-
-> 用于ASF 的 REST API认证,与 agentic-soc-platform/PLUGINS/SIRP/CONFIG.py 文件中 ASF_TOKEN 保持一致
-
-![img_10.png](img_10.png)
-
-> 用于调用ASF Playbook 接口,请根据实际配置修改IP
-
 ## 插件配置
 
 - 将配置文件 agentic-soc-platform/PLUGINS/SIRP/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
