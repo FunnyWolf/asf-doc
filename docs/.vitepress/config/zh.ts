@@ -154,6 +154,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'CMDB', link: 'CMDB/'},
                 {text: 'SIEM', link: 'SIEM/'},
                 {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
+                {text: 'Knowledge', link: 'Knowledge/'},
             ]
         },
         {
