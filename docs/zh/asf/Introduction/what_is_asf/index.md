@@ -1,7 +1,7 @@
 # 欢迎使用 ASP
 
-**Agentic SOC Platform** 是一个强大且灵活的 **开源** 自动化安全运营平台。平台集成 AI Agent 与自动化编排能力,支持主流 SIEM/SOAR
-场景,助力企业高效构建智能化安全运营体系。
+**Agentic SOC Platform** 是一个强大且灵活的 **开源** 自动化安全运营平台.平台集成 AI Agent 与自动化编排能力,支持主流 SIEM/SOAR
+场景,助力企业高效构建智能化安全运营体系.
 
 ## 为什么选择 ASP？
 
@@ -24,7 +24,7 @@
   基于 Webhook + Redis Stream 实现高效告警流水线,支持主流 SIEM 平台
 
 - 🛡️ **专业级安全数据管控**
-  所有数据与模型均可本地化部署,保障企业数据安全与隐私。
+  所有数据与模型均可本地化部署,保障企业数据安全与隐私.
 
 ## 立即开始
 
@@ -33,5 +33,5 @@
 
 ## 许可证
 
-该项目采用 [MIT](https://choosealicense.com/licenses/mit/) 许可证。
+该项目采用 [MIT](https://choosealicense.com/licenses/mit/) 许可证.
 

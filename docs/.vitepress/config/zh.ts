@@ -110,6 +110,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     items: [
                         {text: '威胁狩猎智能体', link: 'Case_Threat_Hunting_Agent/'},
                         {text: 'SOC L3 分析师智能体', link: 'Case_L3_SOC_Analyst_Agent/'},
+                        {text: 'SOC L3 分析师智能体 (工具调用)', link: 'Case_L3_SOC_Analyst_Agent_With_Tools/'},
                     ]
                 },
                 {
@@ -188,6 +189,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
                 {text: 'Alert', link: 'alert/'},
                 {text: 'Artifact', link: 'artifact/'},
                 {text: 'Playbook', link: 'playbook/'},
+                {text: 'Knowledge', link: 'knowledge/'},
             ]
         },
         {
