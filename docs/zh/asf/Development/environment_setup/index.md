@@ -2,6 +2,13 @@
 
 本指南将引导您完成 Agentic SOC Platform (ASP) 的完整开发环境部署.整个过程分为服务器端和开发机两部分.
 
+:::tip 网络环境假设
+为了便于说明,本文档做出以下 IP 地址假设,请在实际操作中替换为您环境的真实 IP：
+
+- **Linux 服务器 IP:** `192.168.241.128`
+- **Windows 开发主机 IP:** `192.168.241.1`
+  :::
+
 ## 系统要求与资源准备
 
 在开始之前,请确保您已准备好以下资源.
@@ -18,21 +25,16 @@
 
 - **LLM API:**
     - 需要一个兼容 OpenAI API 标准的 LLM 接口,或本地运行的 Ollama API.
+- **Embedding API:**
+    - 需要一个兼容 OpenAI API 标准的 Embedding 接口,或本地运行的 Ollama API.
 
-:::tip 网络环境假设
-为了便于说明,本文档做出以下 IP 地址假设,请在实际操作中替换为您环境的真实 IP：
+## Linux 服务器配置
 
-- **Linux 服务器 IP:** `192.168.241.128`
-- **Windows 开发主机 IP:** `192.168.241.1`
-  :::
-
-## Linux 服务器端配置
-
-Linux 服务器主要用于部署平台所需的核心后台服务,包括 Redis Stack 和 SIRP.
+Linux 服务器主要用于部署平台所需的核心后台服务及组件.
 
 ### 安装 Docker
 
-ASP 的后台服务通过 Docker 进行容器化部署.
+ASP 所需的后台组件通过 Docker 进行容器化部署.
 
 ```bash
 # 设置 Docker CE 清华镜像源并安装
@@ -40,29 +42,34 @@ export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
 curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 ```
 
-### 部署 Redis Stack
-
-Redis Stack 为平台提供高速的消息队列和缓存能力.
+### 克隆代码
 
 - **克隆项目代码** (或从 GitHub 下载后上传到服务器):
    ```bash
    git clone git@github.com:FunnyWolf/agentic-soc-platform.git
    ```
 
-- **启动 Redis Stack 服务:**
-   ```bash
-   cd agentic-soc-platform/Docker/RedisStack
-   docker compose up -d
-   ```
+### 部署 Redis Stack
 
-- **验证安装:**
-  通过浏览器访问 Redis Insight 管理界面检查服务是否正常.
-    - **URL:** `http://192.168.241.128:8001`
-    - **默认凭据:** 用户名 `default` / 密码 `redis-stack-password-for-agentic-soc-platform`
+Redis Stack 为平台提供高速的消息队列和缓存能力.
+
+- **[Redis Plugin - 部署](../../PLUGINS/Redis/)**
+
+### 部署 Qdrant
+
+Qdrant 作为平台向量数据库.
+
+- **[Qdrant Plugin - 部署](../../PLUGINS/Qdrant/)**
+
+### 部署 Neo4j
+
+Neo4j 作为平台图数据库,用于 Mem0.
+
+- **[Neo4j Plugin - 部署](../../PLUGINS/Neo4j/)**
 
 ### 部署 SIRP
 
-SIRP 是平台的前端应用.详细安装步骤请参考其独立文档.
+SIRP 是平台的前端应用.
 
 - **[SIRP 安装指南](../../../sirp/Deploy/sirp_install/)**
 
@@ -92,24 +99,55 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
    uv sync # 根据 pyproject.toml 安装所有依赖
    ```
 
-## 核心插件配置
+### 核心插件配置
 
-在首次启动项目前,需要完成关键的配置.
+在首次启动项目前,需要完成关键的配置,请按照顺序配置.
 
 - **Redis 插件:** 配置 Redis 连接信息.
-    - **[参考文档: Redis Plugin](../../PLUGINS/Redis/)**
-- **SIRP 插件:** 配置应用与 SIRP 后端的连接信息.
-    - **[参考文档: SIRP Plugin](../../PLUGINS/SIRP/)**
-- **LLM 插件:** 配置连接 LLM API 的相关凭据和地址.
-    - **[参考文档: LLM Plugin](../../PLUGINS/LLM/)**
+    - **[Redis Plugin - 配置方法](../../PLUGINS/Redis/)**
 
-## 启动与验证
+
+- **Qdrant 插件:** 配置 Qdrant 连接信息.
+    - **[Qdrant - 配置方法](../../PLUGINS/Qdrant/)**
+
+
+- **Neo4j 插件:** 配置 Neo4j 连接信息.
+    - **[Neo4j - 配置方法](../../PLUGINS/Neo4j/)**
+
+
+- **Huggingface 插件:** 下载 Huggingface 模型.
+    - **[Huggingface Plugin - 配置方法](../../PLUGINS/Embeddings/)**
+
+
+- **Embeddings 插件:** 配置连接 Embeddings API 的相关凭据和地址.
+    - **[Embeddings Plugin - 配置方法](../../PLUGINS/Embeddings/)**
+
+
+- **LLM 插件:** 配置连接 LLM API 的相关凭据和地址.
+    - **[LLM Plugin - 配置方法](../../PLUGINS/LLM/)**
+
+- **Mem0 插件:** 配置 Mem0 开关.
+    - **[Mem0 Plugin - 配置方法](../../PLUGINS/Mem0/)**
+
+
+- **SIRP 插件:** 配置应用与 SIRP 的连接信息.
+    - **[SIRP Plugin - 配置方法](../../PLUGINS/SIRP/)**
+
+
+- **AlienVaultOTX 插件:** 配置 AlienVaultOTX 相关凭据. (可选)
+    - **[AlienVaultOTX Plugin - 配置方法](../../PLUGINS/AlienVaultOTX/)**
+
+
+- **Dify 插件:** 配置 Dify 相关凭据. (可选)
+    - **[Dify Plugin - 配置方法](../../PLUGINS/Dify/)**
+
+### 启动与验证
 
 完成所有配置后,您可以启动 ASP 主服务.
 
 ```bash
 # 确保您已在 uv 或其他虚拟环境中
-python manage.py runserver 0.0.0.0:7000
+python manage.py runserver 127.0.0.1:7000
 ```
 
-服务启动后,您可以打开浏览器访问 `http://<您的开发机IP>:7000` 来查看 ASP 是否正常运行.
+服务启动后,您可以通过日志查看 ASP 后台服务是否正确运行.
