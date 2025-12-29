@@ -64,6 +64,10 @@ function nav(): DefaultTheme.NavItem[] {
                     text: '0.1.0 - 让我们嗨翻全场 !',
                     link: '/zh/release/0_1_0_Let_us_rock_the_party/'
                 },
+                {
+                    text: '0.1.1 - 秩序前的混乱',
+                    link: '/zh/release/0_1_1_Chaos_before_order/'
+                },
             ]
         }
     ]
@@ -139,7 +143,10 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
-                {text: 'LLM', link: 'LLM/'},
+                {text: 'Mem0', link: 'Mem0/'},
+                {text: 'Mock', link: 'Mock/'},
+                {text: 'Neo4j', link: 'Neo4j/'},
+                {text: 'Qdrant', link: 'Qdrant/'},
                 {text: 'Mock', link: 'Mock/'},
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIRP', link: 'SIRP/'},

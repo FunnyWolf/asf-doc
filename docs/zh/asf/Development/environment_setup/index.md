@@ -51,7 +51,7 @@ Redis Stack 为平台提供高速的消息队列和缓存能力.
 
 - **启动 Redis Stack 服务:**
    ```bash
-   cd agentic-soc-platform/Docker/redis_stack
+   cd agentic-soc-platform/Docker/RedisStack
    docker compose up -d
    ```
 

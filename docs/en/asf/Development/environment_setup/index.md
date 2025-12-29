@@ -46,7 +46,7 @@ Redis Stack provides the platform with high-speed message queuing and caching ca
 
 - **Start the Redis Stack service:**
    ```bash
-   cd agentic-soc-platform/Docker/redis_stack
+   cd agentic-soc-platform/Docker/RedisStack
    docker compose up -d
    ```
 
