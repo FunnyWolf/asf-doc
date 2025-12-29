@@ -2,10 +2,15 @@
 
 ## Webhook Forwarder
 
-- ASP 内置 Webhook 接收节点,将 SIEM Webhook 发送的告警转发到 Redis Stack 对应的 Stream
+- ASP 内置 Forwarder 插件,将 SIEM Webhook 发送的告警转发到 Redis Stack 对应的 Stream
 - Forwarder 会自动解析 Kibana/Splunk 中的告警名称,并根据告警名在 Redis Stack 创建同名的 Stream
-- Forwarder 实现代码 `Forwarder/views.py`
-- Forwarder 的URL格式为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>`, 其中 `<SIEM_NAME>` 支持 `kibana` 和 `splunk`
+- Forwarder 文档 [Forwarder](../../PLUGINS/Forwarder/)
+- Forwarder 的 URL 格式为
+
+```http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>```
+
+- `<SIEM_NAME>` 支持 `kibana` 和 `splunk`
+
 - 为了便于集成, Forwarder Webhook 不需要身份认证,可通过防火墙进行访问控制
 
 ## Splunk 集成

@@ -143,6 +143,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
+                {text: 'Forwarder', link: 'Forwarder/'},
                 {text: 'Mem0', link: 'Mem0/'},
                 {text: 'Mock', link: 'Mock/'},
                 {text: 'Neo4j', link: 'Neo4j/'},

@@ -2,7 +2,11 @@
 
 剧本 (Playbook) 用于执行 **用户触发** 的自动化任务.
 
-例如调用 TI 查询并更新 Artifact 的 enrichment,或者分析 Alert 生成 Suggestion 等,或者针对 Case 进行威胁狩猎.
+例如:
+
+- 调用 TI 查询并更新 Artifact 的 enrichment,
+- 分析 Alert 生成 Suggestion
+- 针对 Case 进行威胁狩猎.
 
 ## 注册剧本脚本
 
