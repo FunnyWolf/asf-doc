@@ -1,4 +1,4 @@
-# ES-Rule-21-Phishing_user_report_mail
+# ES-Rule-21-Phishing-User-Report-Mail
 
 - An AI Agent built with Langgraph, including three Langgraph Nodes: `alert preprocessing`, `LLM analysis`, and `result output`.
 - The module is used to analyze phishing email samples reported by end-users, determine whether the email is a phishing email, its confidence level, the analysis process, and send the results to SIRP.
@@ -27,8 +27,8 @@ The [GroupRule](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/Li
 
 ### Scenario 1
 
-- The `ES-Rule-21-Phishing_user_report_mail` rule in the SIEM platform sends metadata of all user-reported phishing emails as alerts to the Redis Stream.
-- The ASP module `ES-Rule-21-Phishing_user_report_mail` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is a phishing email, and format it into the SIRP Alert format.
+- The `ES-Rule-21-Phishing-User-Report-Mail` rule in the SIEM platform sends metadata of all user-reported phishing emails as alerts to the Redis Stream.
+- The ASP module `ES-Rule-21-Phishing-User-Report-Mail` uses an AI Agent built with Langgraph to analyze each alert, confirm if it is a phishing email, and format it into the SIRP Alert format.
 - We want to aggregate all phishing emails reported by the same sender within 24 hours into a single SIRP Case.
 
 ```python

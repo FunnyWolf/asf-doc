@@ -1,4 +1,4 @@
-# ES-Rule-22-Phishing_user_report_mail
+# ES-Rule-22-Phishing-User-Report-Mail
 
 - An AI Agent built with Dify, including three nodes: `alert preprocessing`, `LLM analysis`, and `result output`.
 - The module is used to analyze phishing email samples reported by end-users, determine whether the email is a phishing email, its confidence level, the analysis process, and send the results to SIRP.

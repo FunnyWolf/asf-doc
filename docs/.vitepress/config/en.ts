@@ -61,6 +61,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "CHANGELOG",
             items: [
                 {
+                    text: '0.1.1 - Chaos before order',
+                    link: '/release/0_1_1_Chaos_before_order/'
+                },
+                {
                     text: '0.1.0 - Let`s Rock The Party !',
                     link: '/release/0_1_0_Let_us_rock_the_party/'
                 },
@@ -94,7 +98,9 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asf/MODULES/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
-                {text: 'Module List', link: 'module_list/'},
+                {text: 'User-reported Phishing Email', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
+                {text: 'User-reported Phishing Email (Dify)', link: 'ES-Rule-22-Phishing-User-Report-Mail/'},
+                {text: 'Suspicious C2 Communication', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
         },
         {
@@ -103,22 +109,13 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asf/PLAYBOOKS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
-                {text: 'Playbook List', link: 'playbook_list/'},
-            ]
-        },
-        {
-            text: 'Playbooks',
-            collapsed: false,
-            base: '/asf/PLAYBOOKS/',
-            items: [
-                {text: 'Development Guide', link: 'development/'},
-                {text: 'SIRP Playbook Development Guide', link: 'SIRP_Playbook_Development/'},
                 {
                     text: 'Case',
                     collapsed: false,
                     items: [
                         {text: 'Threat Hunting Agent', link: 'Case_Threat_Hunting_Agent/'},
                         {text: 'SOC L3 Analyst Agent', link: 'Case_L3_SOC_Analyst_Agent/'},
+                        {text: 'SOC L3 Analyst Agent (Tool Calling)', link: 'Case_L3_SOC_Analyst_Agent_With_Tools/'},
                     ]
                 },
                 {
@@ -147,8 +144,28 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
+                {text: 'Forwarder', link: 'Forwarder/'},
+                {text: 'Huggingface', link: 'Huggingface/'},
                 {text: 'LLM', link: 'LLM/'},
+                {text: 'MCP', link: 'MCP/'},
+                {text: 'Mem0', link: 'Mem0/'},
+                {text: 'Mock', link: 'Mock/'},
+                {text: 'Neo4j', link: 'Neo4j/'},
+                {text: 'Qdrant', link: 'Qdrant/'},
+                {text: 'Redis', link: 'Redis/'},
                 {text: 'SIRP', link: 'SIRP/'},
+            ]
+        },
+        {
+            text: 'Basic Agents',
+            collapsed: false,
+            base: '/asf/AGENTS/',
+            items: [
+                {text: 'Development Guide', link: 'development/'},
+                {text: 'CMDB', link: 'CMDB/'},
+                {text: 'SIEM', link: 'SIEM/'},
+                {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
+                {text: 'Knowledge', link: 'Knowledge/'},
             ]
         },
         {
@@ -184,6 +201,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
                 {text: 'Alert', link: 'alert/'},
                 {text: 'Artifact', link: 'artifact/'},
                 {text: 'Playbook', link: 'playbook/'},
+                {text: 'Knowledge', link: 'knowledge/'},
             ]
         },
         {
