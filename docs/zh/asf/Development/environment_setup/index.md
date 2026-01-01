@@ -1,6 +1,7 @@
 # 环境配置
 
-本指南将引导您完成 Agentic SOC Platform (ASP) 的完整开发环境部署.整个过程分为服务器端和开发机两部分.
+本指南将引导您完成 Agentic SOC Platform (ASP) 的完整开发环境部署.
+整个过程分为服务器端和开发机两部分.
 
 :::tip 网络环境假设
 为了便于说明,本文档做出以下 IP 地址假设,请在实际操作中替换为您环境的真实 IP：
@@ -9,14 +10,14 @@
 - **Windows 开发主机 IP:** `192.168.241.1`
   :::
 
-## 系统要求与资源准备
+## 操作系统及资源准备
 
 在开始之前,请确保您已准备好以下资源.
 
-### 硬件要求
+### 操作系统及性能要求
 
 - **Linux 服务器:**
-    - **配置:** 建议 8 核心 CPU / 32G 内存 / 50G 以上硬盘
+    - **配置:** 2 核心 CPU / 4G 内存 / 10G 以上硬盘
     - **系统:** 本文以 `Ubuntu 24.04` 为例
 - **开发主机:**
     - **系统:** Windows 或 macOS
@@ -106,22 +107,17 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 - **Redis 插件:** 配置 Redis 连接信息.
     - **[Redis Plugin - 配置方法](../../PLUGINS/Redis/)**
 
-
 - **Qdrant 插件:** 配置 Qdrant 连接信息.
     - **[Qdrant - 配置方法](../../PLUGINS/Qdrant/)**
-
 
 - **Neo4j 插件:** 配置 Neo4j 连接信息.
     - **[Neo4j - 配置方法](../../PLUGINS/Neo4j/)**
 
-
 - **Huggingface 插件:** 下载 Huggingface 模型.
     - **[Huggingface Plugin - 配置方法](../../PLUGINS/Embeddings/)**
 
-
 - **Embeddings 插件:** 配置连接 Embeddings API 的相关凭据和地址.
     - **[Embeddings Plugin - 配置方法](../../PLUGINS/Embeddings/)**
-
 
 - **LLM 插件:** 配置连接 LLM API 的相关凭据和地址.
     - **[LLM Plugin - 配置方法](../../PLUGINS/LLM/)**
@@ -129,14 +125,11 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 - **Mem0 插件:** 配置 Mem0 开关.
     - **[Mem0 Plugin - 配置方法](../../PLUGINS/Mem0/)**
 
-
 - **SIRP 插件:** 配置应用与 SIRP 的连接信息.
     - **[SIRP Plugin - 配置方法](../../PLUGINS/SIRP/)**
 
-
 - **AlienVaultOTX 插件:** 配置 AlienVaultOTX 相关凭据. (可选)
     - **[AlienVaultOTX Plugin - 配置方法](../../PLUGINS/AlienVaultOTX/)**
-
 
 - **Dify 插件:** 配置 Dify 相关凭据. (可选)
     - **[Dify Plugin - 配置方法](../../PLUGINS/Dify/)**
