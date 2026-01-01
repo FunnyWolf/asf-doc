@@ -3,6 +3,10 @@
 ## Configuration Method
 
 - Rename PLUGINS/LLM/CONFIG.example.py to CONFIG.py
-- Fill in the configuration items according to the code comments.
-- LLM supports adding multiple configurations. Each configuration can have multiple tags, allowing you to call the corresponding LLM configuration using a tag.
-- This method allows for the use of different LLM configurations for various scenarios, achieving a balance between performance and cost.
+- Fill in the configuration items according to the code comments
+- LLM supports adding multiple configurations, each configuration can add multiple Tags, and supports calling the corresponding LLM configuration through tags.
+- Through the above method, different LLM configurations can be used for different scenarios to achieve a balance between performance and cost.
+
+## Ollama
+
+- Refer to `Docker\ollama\ollama_nginx` to add Basic Auth for Ollama.

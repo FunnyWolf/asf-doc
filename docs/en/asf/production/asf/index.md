@@ -4,5 +4,5 @@
 
 ```shell
 cd agentic-soc-platform
-uvicorn --config uvicorn.toml
+uvicorn --config Docker/Uvicorn/uvicorn.toml
 ```

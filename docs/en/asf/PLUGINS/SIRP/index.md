@@ -1,37 +1,23 @@
 # SIRP Plugin
 
-## Set Global Variables
+## Deployment
 
-![img_7.png](img_7.png)
+[SIRP Installation Guide](../../../sirp/Deploy/sirp_install/)
 
-![img_8.png](img_8.png)
+## Plugin Configuration
 
-![img_9.png](img_9.png)
-
-> Used for ASP's REST API authentication, must be consistent with ASF_TOKEN in the agentic-soc-platform/CONFIG.py file.
-
-![img_10.png](img_10.png)
-
-> Used to call the ASP Playbook interface, please modify the IP according to your actual configuration.
-
-## Configuration Method
-
-- Rename the configuration file agentic-soc-platform/PLUGINS/SIRP/CONFIG.example.py to CONFIG.py to apply the configuration.
-- SIRP_URL is the SIRP platform address, e.g., http://192.168.241.128:8880
-- SIRP_APPKEY and SIRP_SIGN
+- Rename the configuration file agentic-soc-platform/PLUGINS/SIRP/CONFIG.example.py to CONFIG.py to enable the configuration.
+- `SIRP_URL` is the SIRP platform address, such as http://192.168.241.128:8880 (private deployment) or https://www.nocoly.com (cloud service).
+- `AppKey` corresponds to `SIRP_APPKEY`, and `Sign` corresponds to `SIRP_SIGN`.
 
 ![img_11.png](img_11.png)
 
 ![img_12.png](img_12.png)
 
-> AppKey corresponds to SIRP_APPKEY, Sign corresponds to SIRP_SIGN.
+- Fill in the notification Webhook address into `SIRP_NOTICE_WEBHOOK`.
 
-- SIRP_NOTICE_WEBHOOK
-
-![img.png](img.png)
+![img.png](img_1.png)
 
 ![img_1.png](img_1.png)
 
 ![img_2.png](img_2.png)
-
-> Configure the notification Webhook address to SIRP_NOTICE_WEBHOOK.
