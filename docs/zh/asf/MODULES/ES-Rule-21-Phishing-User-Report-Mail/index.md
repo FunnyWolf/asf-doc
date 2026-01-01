@@ -1,5 +1,9 @@
 # ES-Rule-21-Phishing_user_report_mail
 
+- 使用 Langgraph 构建的AI Agent,包含`告警预处理`,`LLM分析`,`结果输出`三个Langgraph Node.
+- 模块用于分析终端用户上报的钓鱼邮件样本,分析邮件是否为钓鱼邮件/置信度/分析过程,并将结果发送至 SIRP.
+- **推荐在参考该模块代码来开发 Langgraph 类型模块**.
+
 ## 导入测试告警
 
 ASF提供的样例模块都包含用于测试的告警数据,位于 `DATA/{模块名}/mock_alert.py`,执行该脚本即可将测试告警数据导入 Redis Stream 中.

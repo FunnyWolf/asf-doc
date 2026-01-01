@@ -98,7 +98,9 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/MODULES/',
             items: [
                 {text: '开发指南', link: 'development/'},
-                {text: '模块列表', link: 'module_list/'},
+                {text: '用户上报钓鱼邮件', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
+                {text: '用户上报钓鱼邮件(Dify)', link: 'ES-Rule-22-Phishing-User-Report-Mail/'},
+                {text: '可疑的 C2 通讯', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
         },
         {
@@ -107,7 +109,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/PLAYBOOKS/',
             items: [
                 {text: '开发指南', link: 'development/'},
-                {text: 'SIRP剧本开发指南', link: 'SIRP_Playbook_Development/'},
                 {
                     text: 'Case',
                     collapsed: false,
