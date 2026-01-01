@@ -1,21 +1,23 @@
 # Development Guide
 
-ASP modules are used for the **automated** streaming of alert data. Each module corresponds to a message queue in Redis Stream, and each run of a module processes one alert from the queue.
+ASF modules are used for **automated** stream processing of alert data. Each module corresponds to a message queue in Redis Stream, and each time a module runs, it processes one alert from the queue.
+
+All module code is located in the `MODULES` directory.
 
 ## Alert Import
 
 NDR/EDR/XDR/.. ==> SIEM ==> Alert Rule ==> Webhook ==> ASP Webhook Receiver ==> Redis Stream
 
-In a **production environment**, you can import alert data into the Redis Stream message queue by configuring a Webhook in the SIEM platform, without any coding. For the configuration method, see [SIEM Integration](../../production/siem/).
+In a **production environment**, no coding is required. Alert data can be imported into the Redis Stream message queue by configuring a Webhook in the SIEM platform. For configuration method, see [SIEM Integration](../../production/siem/).
 
-In a **development environment**, you can import test alerts into Redis Stream using a script. For the method, refer to [Importing Test Alerts](../ES-Rule-21-Phishing_user_report_mail/#importing-test-alerts).
+In a **development environment**, test alerts can be imported into Redis Stream via a script. For the method, refer to [Import Test Alerts](../ES-Rule-21-Phishing-User-Report-Mail/#import-test-alerts).
 
-## Streaming Alert Analysis
+## Alert Stream Analysis
 
 Redis Stream ==> Module ==> SIRP
 
-Users can develop custom modules to process each alert in the queue. Each module corresponds to a message queue in Redis Stream. After the alerts are processed by the AI Agent module built by the user with Langgraph/Dify, the results are sent to SIRP.
+Users can develop custom modules to stream-process each alert in the queue. Each module corresponds to processing one message queue in Redis Stream. After the alert is processed by the AI Agent module built by the user with Langgraph/Dify, the processing result is sent to SIRP.
 
-## Importing Test Alerts / Single Module & Single Alert Debugging / Alert Aggregation (SIRP)
+## Import Test Alerts / Single Module & Single Alert Debugging / Alert Aggregation (SIRP)
 
-Refer to [ES-Rule-21-Phishing_user_report_mail](../ES-Rule-21-Phishing_user_report_mail/)
+Refer to [ES-Rule-21-Phishing_user_report_mail](../ES-Rule-21-Phishing-User-Report-Mail/).
