@@ -9,7 +9,7 @@ TI Enrichment By Mock
 ## Playbook File
 
 ```
-PLAYBOOK/Artifact_TI_Enrichment_Update.py
+PLAYBOOK/Artifact_TI_Enrichment_By_Mock.py
 ```
 
 ## Function Introduction

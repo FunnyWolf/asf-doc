@@ -9,7 +9,7 @@ TI Enrichment By Mock
 ## 剧本文件
 
 ```
-PLAYBOOK/Artifact_TI_Enrichment_Update.py
+PLAYBOOK/Artifact_TI_Enrichment_By_Mock.py
 ```
 
 ## 功能介绍
