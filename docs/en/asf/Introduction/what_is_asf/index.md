@@ -1,7 +1,8 @@
 # Welcome to ASP
 
-**Agentic SOC Platform** is a powerful and flexible **open-source** automated security operations platform. It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR
-scenarios, and helps enterprises efficiently build intelligent security operations systems.
+**Agentic SOC Platform** is a powerful and flexible **open-source** automated security operations platform.
+It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR scenarios, and helps enterprises efficiently build intelligent security operations
+systems.
 
 ## Why Choose ASP?
 
@@ -33,4 +34,4 @@ scenarios, and helps enterprises efficiently build intelligent security operatio
 
 ## License
 
-This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
+This project is licensed under the [MIT](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/LICENSE) License.
