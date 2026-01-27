@@ -99,7 +99,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: '用户上报钓鱼邮件', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
-                {text: '用户上报钓鱼邮件(Dify)', link: 'ES-Rule-22-Phishing-User-Report-Mail/'},
                 {text: '可疑的 C2 通讯', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
         },

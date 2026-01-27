@@ -99,7 +99,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'User-reported Phishing Email', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
-                {text: 'User-reported Phishing Email (Dify)', link: 'ES-Rule-22-Phishing-User-Report-Mail/'},
                 {text: 'Suspicious C2 Communication', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
         },
