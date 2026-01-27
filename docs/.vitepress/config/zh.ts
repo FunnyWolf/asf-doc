@@ -121,7 +121,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     text: 'Alert',
                     collapsed: false,
                     items: [
-                        {text: '告警分析智能体', link: 'Alert_Suggestion_Gen_By_LLM/'},
+                        {text: '告警分析智能体', link: 'Alert_Analysis_Agent/'},
                     ]
                 },
                 {
@@ -129,7 +129,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     collapsed: false,
                     items: [
                         {text: '威胁情报查询(AlienVaultOTX)', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
-                        {text: '威胁情报查询(Mock)', link: 'Artifact_TI_Enrichment_Update/'},
+                        {text: '威胁情报查询(Mock)', link: 'Artifact_TI_Enrichment_By_Mock/'},
                     ]
                 },
             ]
@@ -151,7 +151,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'Mock', link: 'Mock/'},
                 {text: 'Neo4j', link: 'Neo4j/'},
                 {text: 'Qdrant', link: 'Qdrant/'},
-                {text: 'Mock', link: 'Mock/'},
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIRP', link: 'SIRP/'},
             ]

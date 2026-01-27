@@ -121,7 +121,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     text: 'Alert',
                     collapsed: false,
                     items: [
-                        {text: 'Alert Analysis Agent', link: 'Alert_Suggestion_Gen_By_LLM/'},
+                        {text: 'Alert Analysis Agent', link: 'Alert_Analysis_Agent/'},
                     ]
                 },
                 {
@@ -129,7 +129,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     collapsed: false,
                     items: [
                         {text: 'TI Enrichment By AlienVaultOTX', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
-                        {text: 'TI Enrichment By Mock', link: 'Artifact_TI_Enrichment_Update/'},
+                        {text: 'TI Enrichment By Mock', link: 'Artifact_TI_Enrichment_By_Mock/'},
                     ]
                 },
             ]
