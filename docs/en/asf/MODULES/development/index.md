@@ -16,7 +16,7 @@ In a **development environment**, test alerts can be imported into Redis Stream 
 
 Redis Stream ==> Module ==> SIRP
 
-Users can develop custom modules to stream-process each alert in the queue. Each module corresponds to processing one message queue in Redis Stream. After the alert is processed by the AI Agent module built by the user with Langgraph/Dify, the processing result is sent to SIRP.
+Users can develop custom modules to stream-process each alert in the queue. Each module corresponds to processing one message queue in Redis Stream. After the alert is processed by the AI Agent module built by the user with LangGraph, the processing result is sent to SIRP.
 
 ## Import Test Alerts / Single Module & Single Alert Debugging / Alert Aggregation (SIRP)
 

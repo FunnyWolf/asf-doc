@@ -13,7 +13,7 @@ systems.
   Supports on-premise deployment, is compatible with major operating systems, and meets enterprise intranet and compliance requirements.
 
 - 🧠 **AI-Driven Intelligent Assistance**
-  Built-in AI Agent templates like Langgraph/Dify, supports local LLMs, enhancing alert analysis and automated response capabilities.
+  Built-in AI Agent templates like LangGraph, supports local LLMs, enhancing alert analysis and automated response capabilities.
 
 - 🛠️ **Rich Module Library and Extensibility**
   Provides various automated module templates and supports secondary development in Python for flexible integration with various security devices and APIs.
