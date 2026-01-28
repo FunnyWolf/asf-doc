@@ -61,6 +61,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "CHANGELOG",
             items: [
                 {
+                    text: '0.2.0 - OCSF And BaseModel',
+                    link: '/release/0_2_0_OCSF_And_BaseModel/'
+                },
+                {
                     text: '0.1.1 - Chaos before order',
                     link: '/release/0_1_1_Chaos_before_order/'
                 },

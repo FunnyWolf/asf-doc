@@ -61,6 +61,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "更新日志",
             items: [
                 {
+                    text: '0.2.0 - OCSF 和 BaseModel',
+                    link: '/zh/release/0_2_0_OCSF_And_BaseModel/'
+                },
+                {
                     text: '0.1.1 - 秩序前的混乱',
                     link: '/zh/release/0_1_1_Chaos_before_order/'
                 },
@@ -68,6 +72,7 @@ function nav(): DefaultTheme.NavItem[] {
                     text: '0.1.0 - 让我们嗨翻全场 !',
                     link: '/zh/release/0_1_0_Let_us_rock_the_party/'
                 },
+
             ]
         }
     ]
