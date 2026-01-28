@@ -199,6 +199,8 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
                 {text: 'Case', link: 'case/'},
                 {text: 'Alert', link: 'alert/'},
                 {text: 'Artifact', link: 'artifact/'},
+                {text: 'Enrichment', link: 'enrichment/'},
+                {text: 'Ticket', link: 'ticket/'},
                 {text: 'Playbook', link: 'playbook/'},
                 {text: 'Knowledge', link: 'knowledge/'},
             ]
