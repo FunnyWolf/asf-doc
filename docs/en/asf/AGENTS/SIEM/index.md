@@ -2,22 +2,16 @@
 
 ## Tool Binding
 
+The Agent has been bound with three Tools provided by the [SIEM Plugin](../../PLUGINS/SIEM/)
+
 ```python
-from PLUGINS.Mock.SIEM_Splunk import splunk_search_tool
+tools = [SIEMToolKit.explore_schema, SIEMToolKit.execute_adaptive_query, SIEMToolKit.keyword_search]
 ```
 
-Change to the actual Splunk SPL interface.
+By default, you only need to configure the SIEM Plugin to use the Agent.
 
 ## System Prompt
 
 `DATA\Agent_SIEM\system_prompt.md`
 
-Can be adjusted according to the actual situation of the internal SIEM.
-
-`DATA\Agent_SIEM\splunk_datamodels.yml`
-
-Fill the Splunk data model information into the yml file above.
-
-## Notes
-
-- In the actual testing process, LLM has limited understanding of complex SPL. Subsequent ASP will provide a more general solution without requiring LLM to understand SPL statements.
+You can adjust it based on the actual situation of your internal SIEM.

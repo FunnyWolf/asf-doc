@@ -1,24 +1,26 @@
 # Mock 插件
 
-## 配置方法
+在将 ASP 部署在生产环境前,建议通过该插件测试 Agent 的架构和数据流.
 
-- 该插件无需额外配置,安装后即可使用.
-- 在将 ASP 部署在生产环境前,建议通过该插件测试 Agent 的架构和数据流.
-
-## 功能介绍
-
-### CMDB
+## CMDB
 
 模拟企业CMDB API接口
 
-### SIEM
+## SIEM
 
-通过LLM接口模拟SIEM数据查询接口,入参为自然语言的查询请求,返回模拟的SIEM日志数据. 使用方法参考`if __name__ == "__main__":`代码
+- 生成 `siem-network-traffic` `siem-host-events` `siem-aws-cloudtrail` 三种测试日志
+- 支持 `ELK` 及 `Splunk` 两种 SIEM
+- 生成的测试数据可与 SIEM 插件中 `siem-network-traffic.yaml` `siem-host-events.yaml` `siem-aws-cloudtrail.yaml` 配置文件配合使用
 
-### Threat Intelligence
+#### 配置方法
 
-模拟威胁情报查询接口
+- 拷贝 CONFIG.example.py 为 CONFIG.py
+- 修改 CONFIG.py 中的配置项
+- 默认 EPS 为 10, 可根据需要在 settings.py 中修改
+- 运行 main.py 即可开始生成日志
 
-### SIRP
+## SIRP
 
-生成各种类型设备的 Alert 数据,使用内置聚合规则,生成 Case
+- 生成完整的 `Case` `Alert` `Artifact` `Enrichment` `Ticket` 测试数据, 数据自动关联
+- 开发人员可参考 `mock_*.py` 构建新的 Mock 数据或理解如何使用 SIRP API
+- 运行 main.py 即可开始生成日志

@@ -156,6 +156,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'Neo4j', link: 'Neo4j/'},
                 {text: 'Qdrant', link: 'Qdrant/'},
                 {text: 'Redis', link: 'Redis/'},
+                {text: 'SIEM', link: 'SIEM/'},
                 {text: 'SIRP', link: 'SIRP/'},
             ]
         },

@@ -1,24 +1,26 @@
 # Mock Plugin
 
-## Configuration Method
+Before deploying ASF in production environments, it is recommended to test the Agent's architecture and data flow through this plugin.
 
-- This plugin requires no additional configuration and can be used after installation.
-- Before deploying ASP in a production environment, it is recommended to test the Agent's architecture and data flow using this plugin.
+## CMDB
 
-## Features
+Simulates enterprise CMDB API interfaces
 
-### CMDB
+## SIEM
 
-Simulates enterprise CMDB API interface.
+- Generates three types of test logs: `siem-network-traffic`, `siem-host-events`, and `siem-aws-cloudtrail`
+- Supports both `ELK` and `Splunk` SIEM platforms
+- The generated test data can be used with the configuration files `siem-network-traffic.yaml`, `siem-host-events.yaml`, and `siem-aws-cloudtrail.yaml` in the SIEM plugin
 
-### SIEM
+#### Configuration
 
-Simulates SIEM data query interface through LLM interface. The input is a natural language query request, and it returns simulated SIEM log data. For usage, refer to the `if __name__ == "__main__":` code.
+- Copy CONFIG.example.py to CONFIG.py
+- Modify the configuration items in CONFIG.py
+- The default EPS is 10, which can be modified in settings.py as needed
+- Run main.py to start generating logs
 
-### Threat Intelligence
+## SIRP
 
-Simulates threat intelligence query interface.
-
-### SIRP
-
-Generates Alert data for various types of devices, and uses built-in aggregation rules to generate Cases.
+- Generates complete test data for `Case`, `Alert`, `Artifact`, `Enrichment`, and `Ticket`, with automatic data association
+- Developers can refer to `mock_*.py` to build new Mock data or understand how to use SIRP API
+- Run main.py to start generating logs
