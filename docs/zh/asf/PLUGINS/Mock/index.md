@@ -10,7 +10,7 @@
 
 - 生成 `siem-network-traffic` `siem-host-events` `siem-aws-cloudtrail` 三种测试日志
 - 支持 `ELK` 及 `Splunk` 两种 SIEM
-- 生成的测试数据可与 SIEM 插件中 `siem-network-traffic.yaml` `siem-host-events.yaml` `siem-aws-cloudtrail.yaml` 配置文件配合使用
+- 生成的测试数据可与 [SIEM 插件](../SIEM/) 中 `siem-network-traffic.yaml` `siem-host-events.yaml` `siem-aws-cloudtrail.yaml` 配置文件配合使用
 
 #### 配置方法
 
