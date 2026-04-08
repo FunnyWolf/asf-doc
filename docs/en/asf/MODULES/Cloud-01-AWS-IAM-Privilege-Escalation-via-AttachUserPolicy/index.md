@@ -5,4 +5,4 @@
 
 ## Module Architecture
 
-- The module's logs come from the [Mock plugin](../../PLUGINS/MCP/) CloudGenerator (which generates AWS CloudTrail logs). The log definition is described in this [YAML](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/Plugin_SIEM_Indexes/siem-aws-cloudtrail.yaml)
+- The module's logs come from the [Mock plugin](../../PLUGINS/Mock/) CloudGenerator (which generates AWS CloudTrail logs). The log definition is described in this [YAML](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/Plugin_SIEM_Indexes/siem-aws-cloudtrail.yaml)

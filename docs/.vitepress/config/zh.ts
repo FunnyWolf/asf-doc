@@ -61,6 +61,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "更新日志",
             items: [
                 {
+                    text: '0.3.0 - MCP 和 Claude Code Plugin',
+                    link: '/zh/release/0_3_0_MCP_And_ClaudeCodePlugin/'
+                },
+                {
                     text: '0.2.0 - OCSF 和 BaseModel',
                     link: '/zh/release/0_2_0_OCSF_And_BaseModel/'
                 },
@@ -86,7 +90,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/Introduction/',
             items: [
                 {text: '欢迎使用', link: 'what_is_asf/'},
-                // {text: '功能列表', link: 'framework/'},
             ]
         },
         {
@@ -103,6 +106,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/MODULES/',
             items: [
                 {text: '开发指南', link: 'development/'},
+                {text: 'AWS IAM 权限提升告警', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
                 {text: '用户上报钓鱼邮件', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
                 {text: '可疑的 C2 通讯', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
@@ -146,15 +150,13 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
-                {text: 'Dify', link: 'Dify/'},
+                {text: 'ClaudeCode', link: 'ClaudeCode/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
                 {text: 'Forwarder', link: 'Forwarder/'},
                 {text: 'Huggingface', link: 'Huggingface/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'MCP', link: 'MCP/'},
-                {text: 'Mem0', link: 'Mem0/'},
                 {text: 'Mock', link: 'Mock/'},
-                {text: 'Neo4j', link: 'Neo4j/'},
                 {text: 'Qdrant', link: 'Qdrant/'},
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIEM', link: 'SIEM/'},
@@ -170,7 +172,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'CMDB', link: 'CMDB/'},
                 {text: 'SIEM', link: 'SIEM/'},
                 {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
-                {text: 'Knowledge', link: 'Knowledge/'},
             ]
         },
         {

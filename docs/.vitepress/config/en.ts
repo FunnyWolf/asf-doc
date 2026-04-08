@@ -61,6 +61,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "CHANGELOG",
             items: [
                 {
+                    text: '0.3.0 - MCP and Claude Code Plugin',
+                    link: '/release/0_3_0_MCP_And_ClaudeCodePlugin/'
+                },
+                {
                     text: '0.2.0 - OCSF And BaseModel',
                     link: '/release/0_2_0_OCSF_And_BaseModel/'
                 },
@@ -85,7 +89,6 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asf/Introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_asf/'},
-                // {text: 'Features', link: 'framework/'},
             ]
         },
         {
@@ -102,6 +105,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asf/MODULES/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
+                {text: 'AWS IAM Privilege Escalation Alert', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
                 {text: 'User-reported Phishing Email', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
                 {text: 'Suspicious C2 Communication', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
             ]
@@ -145,15 +149,12 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
-                {text: 'Dify', link: 'Dify/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
                 {text: 'Forwarder', link: 'Forwarder/'},
                 {text: 'Huggingface', link: 'Huggingface/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'MCP', link: 'MCP/'},
-                {text: 'Mem0', link: 'Mem0/'},
                 {text: 'Mock', link: 'Mock/'},
-                {text: 'Neo4j', link: 'Neo4j/'},
                 {text: 'Qdrant', link: 'Qdrant/'},
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIEM', link: 'SIEM/'},

@@ -1,4 +1,4 @@
-# 0.2.0 - MCP and Claude Code Plugin
+# 0.3.0 - MCP and Claude Code Plugin
 
 ## New Features
 - [SIEM Plugin](../../asf/PLUGINS/SIEM/) supports Splunk / ELK, allows custom log configuration metadata, and adds a unified log retrieval interface for LLMs.

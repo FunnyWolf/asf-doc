@@ -62,11 +62,6 @@ Qdrant 作为平台向量数据库.
 
 - **[Qdrant Plugin - 部署](../../PLUGINS/Qdrant/)**
 
-### 部署 Neo4j
-
-Neo4j 作为平台图数据库,用于 Mem0.
-
-- **[Neo4j Plugin - 部署](../../PLUGINS/Neo4j/)**
 
 ### 部署 SIRP
 
@@ -110,8 +105,6 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 - **Qdrant 插件:** 配置 Qdrant 连接信息.
     - **[Qdrant - 配置方法](../../PLUGINS/Qdrant/)**
 
-- **Neo4j 插件:** 配置 Neo4j 连接信息.
-    - **[Neo4j - 配置方法](../../PLUGINS/Neo4j/)**
 
 - **Huggingface 插件:** 下载 Huggingface 模型.
     - **[Huggingface Plugin - 配置方法](../../PLUGINS/Embeddings/)**
@@ -122,17 +115,11 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 - **LLM 插件:** 配置连接 LLM API 的相关凭据和地址.
     - **[LLM Plugin - 配置方法](../../PLUGINS/LLM/)**
 
-- **Mem0 插件:** 配置 Mem0 开关.
-    - **[Mem0 Plugin - 配置方法](../../PLUGINS/Mem0/)**
-
 - **SIRP 插件:** 配置应用与 SIRP 的连接信息.
     - **[SIRP Plugin - 配置方法](../../PLUGINS/SIRP/)**
 
 - **AlienVaultOTX 插件:** 配置 AlienVaultOTX 相关凭据. (可选)
     - **[AlienVaultOTX Plugin - 配置方法](../../PLUGINS/AlienVaultOTX/)**
-
-- **Dify 插件:** 配置 Dify 相关凭据. (可选)
-    - **[Dify Plugin - 配置方法](../../PLUGINS/Dify/)**
 
 ### 启动与验证
 

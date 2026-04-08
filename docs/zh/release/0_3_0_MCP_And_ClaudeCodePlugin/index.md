@@ -1,4 +1,4 @@
-# 0.2.0 - MCP 和 Claude Code Plugin
+# 0.3.0 - MCP 和 Claude Code Plugin
 
 ## 新功能
 - [SIEM Plugin](../../asf/PLUGINS/SIEM/) 支持Splunk / ELK, 可添加自定义日志配置信息, 添加适用于 LLM 的, 统一的日志检索接口.

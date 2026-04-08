@@ -11,7 +11,7 @@
 
 - DATA/Indexes 目录中包含 `siem-aws-cloudtrail.yaml` `siem-host-events.yaml` `siem-network-traffic.yaml` 三个 index 日志配置样例
 
-> 可以和 [Mock 插件](../Mock) 生成的测试数据配合使用
+> 可以和 [Mock 插件](../Mock/) 生成的测试数据配合使用
 
 - 新的 SIEM 日志配置可参考上述三个 yaml 文件编写,并放置在 DATA/Indexes 目录下
 - 生产环境中需要将三个测试 yaml 删除,以免影响 LLM 查询结果

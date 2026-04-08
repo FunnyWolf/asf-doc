@@ -62,11 +62,6 @@ Qdrant serves as the platform's vector database.
 
 - **[Qdrant Plugin - Deployment](../../PLUGINS/Qdrant/)**
 
-### Deploy Neo4j
-
-Neo4j serves as the platform's graph database, used for Mem0.
-
-- **[Neo4j Plugin - Deployment](../../PLUGINS/Neo4j/)**
 
 ### Deploy SIRP
 
@@ -110,9 +105,6 @@ Before starting the project for the first time, critical configurations need to 
 - **Qdrant Plugin:** Configure Qdrant connection information.
     - **[Qdrant - Configuration Method](../../PLUGINS/Qdrant/)**
 
-- **Neo4j Plugin:** Configure Neo4j connection information.
-    - **[Neo4j - Configuration Method](../../PLUGINS/Neo4j/)**
-
 - **Huggingface Plugin:** Download Huggingface models.
     - **[Huggingface Plugin - Configuration Method](../../PLUGINS/Embeddings/)**
 
@@ -122,17 +114,11 @@ Before starting the project for the first time, critical configurations need to 
 - **LLM Plugin:** Configure credentials and addresses for connecting to the LLM API.
     - **[LLM Plugin - Configuration Method](../../PLUGINS/LLM/)**
 
-- **Mem0 Plugin:** Configure Mem0 switch.
-    - **[Mem0 Plugin - Configuration Method](../../PLUGINS/Mem0/)**
-
 - **SIRP Plugin:** Configure application and SIRP connection information.
     - **[SIRP Plugin - Configuration Method](../../PLUGINS/SIRP/)**
 
 - **AlienVaultOTX Plugin:** Configure AlienVaultOTX related credentials. (Optional)
     - **[AlienVaultOTX Plugin - Configuration Method](../../PLUGINS/AlienVaultOTX/)**
-
-- **Dify Plugin:** Configure Dify related credentials. (Optional)
-    - **[Dify Plugin - Configuration Method](../../PLUGINS/Dify/)**
 
 ### Startup and Verification
 

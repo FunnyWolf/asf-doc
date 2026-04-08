@@ -5,4 +5,4 @@
 
 ## 模块架构
 
-- 模块的日志来源于 [Mock 插件](../../PLUGINS/MCP/) 的 CloudGenerator (生成 AWS cloudtrail 日志),日志说明的 [yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/Plugin_SIEM_Indexes/siem-aws-cloudtrail.yaml)
+- 模块的日志来源于 [Mock 插件](../../PLUGINS/Mock/) 的 CloudGenerator (生成 AWS cloudtrail 日志),日志说明的 [yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/Plugin_SIEM_Indexes/siem-aws-cloudtrail.yaml)
