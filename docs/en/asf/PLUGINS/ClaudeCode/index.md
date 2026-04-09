@@ -21,10 +21,24 @@ Bash:
 export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
 ```
 
-- Start Claude Code, add the https://github.com/FunnyWolf/agentic-soc-platform marketplace, and install the asp plugin
+- In Claude Code, register the marketplace first:
+
+
+```
+/plugin marketplace add FunnyWolf/agentic-soc-platform
+```
+
+- Then install the plugin from this marketplace:
+
+```
+/plugin install ASP@agentic-soc-platform 
+```
+
 
 ![alt text](image.png)
+
 ![alt text](image-1.png)
+
 
 ## Using Skills / Agents
 

@@ -22,6 +22,17 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
 ```
 
 - 启动 Claude Code , 添加 https://github.com/FunnyWolf/agentic-soc-platform marketplace, 安装 asp plugin
+- 启动 Claude Code,注册 marketplace
+
+```
+/plugin marketplace add FunnyWolf/agentic-soc-platform
+```
+
+- 从 marketplace 中安装 plugin
+
+```
+/plugin install ASP@agentic-soc-platform 
+```
 
 ![alt text](image.png)
 ![alt text](image-1.png)
