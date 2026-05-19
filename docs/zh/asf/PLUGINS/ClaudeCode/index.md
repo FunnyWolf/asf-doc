@@ -2,8 +2,8 @@
 
 ## 功能列表
 
-- asp-case-investigator / asp-artifact-investigator 两个 agent
-- alert / artifact / case / enrichment / knowledge / playbook / SIEM / ticket 八个 skill
+- asp-case-investigator / asp-artifact-investigator / asp-threat-hunting 三个 agent
+- alert / artifact / case / enrichment / knowledge / module-creator / playbook / siem-index-yaml / siem-search / ti / ticket 十一个 skill
 - 默认连接 ASP MCP 服务器
 
 ## 配置方法

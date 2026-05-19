@@ -4,12 +4,12 @@
 
 - 运行 MCP Server
 ```bash
-python PLUGIN/MCP/mcp_server.py
+python PLUGINS/MCP/mcpserver.py
 ```
 
 支持指定host,port,和uuid
 ```bash
-python PLUGIN/MCP/mcp_server.py --host 127.0.0.1 --port 7002 --uuid thisisjustfortest 
+python PLUGINS/MCP/mcpserver.py --host 127.0.0.1 --port 7002 --uuid thisisjustfortest
 ```
 
 - 配置 MCP SSE URL
@@ -34,28 +34,24 @@ REGISTERED_MCP_TOOLS = [
 
     # case
     list_cases,
-    get_case_discussions,
     update_case,
 
     # alert
     list_alerts,
-    get_alert_discussions,
-    update_alert,
+    attach_artifact_to_alert,
 
     # artifact
     list_artifacts,
 
     # enrichment
     create_enrichment,
-    attach_enrichment_to_target,
 
     # playbook
-    list_available_playbook_definitions,
+    list_playbook_definitions,
     execute_playbook,
     list_playbook_runs,
 
     # knowledge
-    list_knowledge,
     update_knowledge,
     search_knowledge,
 
@@ -63,13 +59,20 @@ REGISTERED_MCP_TOOLS = [
     list_tickets,
     create_ticket,
     update_ticket,
-    attach_ticket_to_case,
 
     # SIEM
     get_current_time,
     siem_explore_schema,
     siem_adaptive_query,
     siem_keyword_search,
+    siem_discover_index_fields,
+
+    # Threat Intelligence
+    ti_query,
+
+    # Stream Debug
+    read_stream_message_by_id,
+    read_stream_head,
 
 ]
 ```

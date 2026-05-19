@@ -107,8 +107,8 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AWS IAM 权限提升告警', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
-                {text: '用户上报钓鱼邮件', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
-                {text: '可疑的 C2 通讯', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
+                {text: '用户上报钓鱼邮件', link: 'Mail-01-User-Report-Phishing-Mail/'},
+                {text: '卷影副本删除检测', link: 'EDR-01-HOST-Vssadmin-Delete-Shadows/'},
             ]
         },
         {
@@ -117,30 +117,10 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/zh/asf/PLAYBOOKS/',
             items: [
                 {text: '开发指南', link: 'development/'},
-                {
-                    text: 'Case',
-                    collapsed: false,
-                    items: [
-                        {text: '威胁狩猎智能体', link: 'Case_Threat_Hunting_Agent/'},
-                        {text: 'SOC L3 分析师智能体', link: 'Case_L3_SOC_Analyst_Agent/'},
-                        {text: 'SOC L3 分析师智能体 (工具调用)', link: 'Case_L3_SOC_Analyst_Agent_With_Tools/'},
-                    ]
-                },
-                {
-                    text: 'Alert',
-                    collapsed: false,
-                    items: [
-                        {text: '告警分析智能体', link: 'Alert_Analysis_Agent/'},
-                    ]
-                },
-                {
-                    text: 'Artifact',
-                    collapsed: false,
-                    items: [
-                        {text: '威胁情报查询(AlienVaultOTX)', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
-                        {text: '威胁情报查询(Mock)', link: 'Artifact_TI_Enrichment_By_Mock/'},
-                    ]
-                },
+                {text: '案件调查', link: 'Investigation/'},
+                {text: '知识提取', link: 'Knowledge_Extraction/'},
+                {text: '威胁情报查询(AlienVaultOTX)', link: 'TI_Enrichment_By_AlienVaultOTX/'},
+                {text: '威胁情报查询(Mock)', link: 'TI_Enrichment_By_Mock/'},
             ]
         },
         {
@@ -151,6 +131,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'ClaudeCode', link: 'ClaudeCode/'},
+                {text: 'ELK', link: 'ELK/'},
                 {text: 'Embeddings', link: 'Embeddings/'},
                 {text: 'Forwarder', link: 'Forwarder/'},
                 {text: 'Huggingface', link: 'Huggingface/'},
@@ -161,6 +142,8 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIEM', link: 'SIEM/'},
                 {text: 'SIRP', link: 'SIRP/'},
+                {text: 'Splunk', link: 'Splunk/'},
+                {text: 'TI', link: 'TI/'},
             ]
         },
         {
@@ -210,6 +193,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
                 {text: 'Ticket', link: 'ticket/'},
                 {text: 'Playbook', link: 'playbook/'},
                 {text: 'Knowledge', link: 'knowledge/'},
+                {text: 'Message', link: 'message/'},
             ]
         },
         {

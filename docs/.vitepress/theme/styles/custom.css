@@ -584,7 +584,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-    --vp-sidebar-bg-color: var(--vp-c-bg-alt);
+    --vp-sidebar-bg-color: transparent;
 }
 
 /**

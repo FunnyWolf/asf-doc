@@ -24,10 +24,10 @@
 
 ### 软件与服务
 
+- **SIEM 平台**
+    - 已部署基于 ELK 或 Splunk 的 SIEM 平台. 支持 ELK 社区版(免费).
 - **LLM API:**
-    - 需要一个兼容 OpenAI API 标准的 LLM 接口.
-- **Embedding API:**
-    - 需要一个兼容 OpenAI API 标准的 Embedding 接口.
+    - 兼容 OpenAI API 标准的 LLM 接口.
 
 ## Linux 服务器配置
 
@@ -55,12 +55,6 @@ curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 Redis Stack 为平台提供高速的消息队列和缓存能力.
 
 - **[Redis Plugin - 部署](../../PLUGINS/Redis/)**
-
-### 部署 Qdrant
-
-Qdrant 作为平台向量数据库.
-
-- **[Qdrant Plugin - 部署](../../PLUGINS/Qdrant/)**
 
 ### 部署 SIRP
 
@@ -94,21 +88,12 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
    uv sync # 根据 pyproject.toml 安装所有依赖
    ```
 
-### 核心插件配置
+### 插件配置
 
 在首次启动项目前,需要完成关键的配置,请按照顺序配置.
 
 - **Redis 插件:** 配置 Redis 连接信息.
     - **[Redis Plugin - 配置方法](../../PLUGINS/Redis/)**
-
-- **Qdrant 插件:** 配置 Qdrant 连接信息.
-    - **[Qdrant - 配置方法](../../PLUGINS/Qdrant/)**
-
-- **Huggingface 插件:** 下载 Huggingface 模型.
-    - **[Huggingface Plugin - 配置方法](../../PLUGINS/Embeddings/)**
-
-- **Embeddings 插件:** 配置连接 Embeddings API 的相关凭据和地址.
-    - **[Embeddings Plugin - 配置方法](../../PLUGINS/Embeddings/)**
 
 - **LLM 插件:** 配置连接 LLM API 的相关凭据和地址.
     - **[LLM Plugin - 配置方法](../../PLUGINS/LLM/)**

@@ -7,7 +7,7 @@
 - Forwarder 文档 [Forwarder](../../PLUGINS/Forwarder/)
 - Forwarder 的 URL 格式为
 
-```http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>```
+```http://<ASP_SERVER_IP>:<ASP_SERVER_PORT>/api/v1/webhook/<SIEM_NAME>```
 
 - `<SIEM_NAME>` 支持 `kibana` 和 `splunk`
 
@@ -20,7 +20,7 @@
   ![img.png](img.png)
 
 - 触发需要选择`每个结果`,确保获取到所有告警.
-- Webhook 链接为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/splunk`
+- Webhook 链接为 `http://<ASP_SERVER_IP>:<ASP_SERVER_PORT>/api/v1/webhook/splunk`
 - Forwarder 会自动将告警转发到 Redis Stack 中对应的 Stream,Stream 名称为告警名称.
 - 例如上图的告警会转发到Redis Stream 的 `Phishing_user_Report_Dify_Nocodb` 队列
 
@@ -42,7 +42,7 @@ alert = json.loads(alert["_raw"])
 
 - SOC 团队首先需要根据自身的需求将安全设备或相关的系统日志集成到 ELK,并根据业务要求创建 Rule.
 - 创建 `Webhook Connectors`,`Authentication` 为 `None`,添加 `header` `Content-Type: application/json`
-- Webhook URL 为 `http://<ASF_SERVER_IP>:<ASF_SERVER_PORT>/api/v1/webhook/kibana`
+- Webhook URL 为 `http://<ASP_SERVER_IP>:<ASP_SERVER_PORT>/api/v1/webhook/kibana`
 
   ![img_2.png](img_2.png)
 

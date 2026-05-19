@@ -54,4 +54,3 @@ uvicorn --config PLUGINS/Forwarder/uvicorn.toml
 - `GET /`: 一个简单的健康检查端点。
 - `POST /api/v1/webhook/splunk`: 接收 Splunk 告警 webhook。
 - `POST /api/v1/webhook/kibana`: 接收 Kibana (Elasticsearch) 告警 webhook。
-- `POST /api/v1/webhook/nocolymail`: 接收 NocolyMail webhook。

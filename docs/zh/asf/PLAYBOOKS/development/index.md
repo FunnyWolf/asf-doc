@@ -8,7 +8,7 @@
 - 分析 Alert 生成 Suggestion
 - 针对 Case 进行威胁狩猎.
 
-Alert_Analysis_Agent 是 SIRP 剧本的模板样例,以此剧本介绍如何开发 SIRP 剧本.
+Investigation 是 SIRP 剧本的模板样例,以此剧本介绍如何开发 SIRP 剧本.
 
 ## 注册剧本
 
@@ -57,13 +57,13 @@ def param_user_input(self):
 - 每次执行完成后建议通过如下代码更新任务结果
 
 ```python
-self.update_playbook("Success", "Get suggestion by ai agent completed.") # Success/Failed 
+self.update_playbook("Success", "Case Investigation Success.") # Success/Failed
 ```
 
 - 推荐在执行完成后通过 send_notice 向执行脚本的用户发送通知
 
 ```python
-self.send_notice("Alert_Suggestion_Gen_By_LLM output_node Finish", f"rowid:{self.param_source_rowid}")
+self.send_notice("Investigation Finish", f"rowid:{self.param_source_rowid}")
 ```
 
 ![img_1.png](img_1.png)
@@ -76,9 +76,9 @@ self.send_notice("Alert_Suggestion_Gen_By_LLM output_node Finish", f"rowid:{self
 
 ```python
 
-class Playbook(LanggraphPlaybook):
-    TYPE = "ALERT"  # 分类标签
-    NAME = "Suggestion Generation by LLM"  # 剧本名称
+class Playbook(BasePlaybook):
+    TYPE = "CASE"  # 分类标签
+    NAME = "Investigation"  # 剧本名称
 ```
 
 - 剧本编写完成后,需要在 SIRP 中将剧本名称添加到对应的选项集中.`playbook_artifact` `playbook_alert` `playbook_case` 分别对应Artifact/Alert/Case类型剧本.
@@ -103,13 +103,16 @@ class Playbook(LanggraphPlaybook):
 ## 剧本调试
 
 - 每个剧本文件是一个单独的 `Playbook` 类,可以直接执行进行开发调试
-- 例如 `Alert_Suggestion_Gen_By_LLM` 剧本应用于 `Alert` 记录
+- 例如 `Investigation` 剧本应用于 `Case` 记录
 
 ```python
 if __name__ == "__main__":
-    params_debug = {'source_rowid': '13782e0a-2423-4fc3-9b16-7f2eb15ae83f', 'source_worksheet': 'alert'}
+    import os, django
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ASP.settings")
+    django.setup()
+    model = PlaybookModel(source_row_id='your_case_row_id_here')
     module = Playbook()
-    module._params = params_debug
+    module._playbook_model = model
     module.run()
 ```
 
