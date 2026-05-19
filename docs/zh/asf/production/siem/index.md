@@ -60,6 +60,23 @@ alert = json.loads(alert["_raw"])
 }
 ```
 
+
+
+
+```json
+{
+  "@timestamp": "{{context.date}}",
+  "rule": {
+    "name": "{{rule.name}}"
+  },
+  "context": {
+    "hits": "[{{context.hits}}]"
+  }
+}
+```
+
+
+
 - `Details` 中 `Rule name` 会作为告警名称, Forwarder 会将告警转发到 Redis Stack 中对应的 Stream,Stream 名称为告警名称.
 
 ![img_3.png](img_3.png)

@@ -117,7 +117,7 @@ Before starting the project for the first time, critical configurations need to 
 - **SIRP Plugin:** Configure application and SIRP connection information.
     - **[SIRP Plugin - Configuration Method](../../PLUGINS/SIRP/)**
 
-- **AlienVaultOTX Plugin:** Configure AlienVaultOTX related credentials. (Optional)
+- **AlienVaultOTX Plugin:** Configure AlienVaultOTX related credentials. (Optional) 
     - **[AlienVaultOTX Plugin - Configuration Method](../../PLUGINS/AlienVaultOTX/)**
 
 ### Startup and Verification

@@ -20,3 +20,11 @@
 
 - 插件提供三个函数 `SIEMToolKit.explore_schema` `SIEMToolKit.execute_adaptive_query` `SIEMToolKit.keyword_search`
 - Agent 调用可参考 [Agent SIEM](../../AGENTS/SIEM/)
+
+
+
+
+
+
+
+

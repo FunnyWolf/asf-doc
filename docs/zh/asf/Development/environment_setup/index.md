@@ -25,9 +25,9 @@
 ### 软件与服务
 
 - **LLM API:**
-    - 需要一个兼容 OpenAI API 标准的 LLM 接口,或本地运行的 Ollama API.
+    - 需要一个兼容 OpenAI API 标准的 LLM 接口.
 - **Embedding API:**
-    - 需要一个兼容 OpenAI API 标准的 Embedding 接口,或本地运行的 Ollama API.
+    - 需要一个兼容 OpenAI API 标准的 Embedding 接口.
 
 ## Linux 服务器配置
 
@@ -61,7 +61,6 @@ Redis Stack 为平台提供高速的消息队列和缓存能力.
 Qdrant 作为平台向量数据库.
 
 - **[Qdrant Plugin - 部署](../../PLUGINS/Qdrant/)**
-
 
 ### 部署 SIRP
 
@@ -104,7 +103,6 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 
 - **Qdrant 插件:** 配置 Qdrant 连接信息.
     - **[Qdrant - 配置方法](../../PLUGINS/Qdrant/)**
-
 
 - **Huggingface 插件:** 下载 Huggingface 模型.
     - **[Huggingface Plugin - 配置方法](../../PLUGINS/Embeddings/)**
