@@ -50,4 +50,13 @@ router.onAfterRouteChanged = setupMediumZoom;
 body {
   background: #0a0a0a !important;
 }
+
+.VPNavBar .divider {
+  display: none !important;
+}
+
+.VPFooter {
+  background: transparent !important;
+  border: none !important;
+}
 </style>

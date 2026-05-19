@@ -1,3 +1,18 @@
+/* 导航栏透明 + 右侧留空 */
+:root {
+    --vp-nav-bg-color: transparent !important;
+}
+
+.VPNavBar {
+    background-color: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(16px) !important;
+    border-bottom: none !important;
+}
+
+.VPNavBar .content-body {
+    padding-right: 32px !important;
+}
+
 /* 调整导航栏链接字号 */
 /*.VPNavBarMenuLink {*/
 /*  font-size: 16px !important;  !* 按需调整数值 *!*/

@@ -9,7 +9,3 @@ import { featuresConfig } from '../.vitepress/config/features.zh'
 
 <Hero :config="heroConfig" />
 <Features :features="featuresConfig" />
-
-[//]: # (<KeyFeatures :config="keyFeaturesConfig" />)
-
-[//]: # (<Testimonials :config="testimonialsConfig" />)
