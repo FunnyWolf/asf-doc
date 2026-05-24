@@ -25,7 +25,7 @@
 ### 软件与服务
 
 - **SIEM 平台**
-    - 已部署基于 ELK 或 Splunk 的 SIEM 平台. 支持 ELK 社区版(免费).
+    - 已部署基于 ELK 或 Splunk 的 SIEM 平台. 支持 ELK 社区版.
 - **LLM API:**
     - 兼容 OpenAI API 标准的 LLM 接口.
 
@@ -100,6 +100,8 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 
 - **SIRP 插件:** 配置应用与 SIRP 的连接信息.
     - **[SIRP Plugin - 配置方法](../../PLUGINS/SIRP/)**
+
+
 
 - **AlienVaultOTX 插件:** 配置 AlienVaultOTX 相关凭据. (可选)
     - **[AlienVaultOTX Plugin - 配置方法](../../PLUGINS/AlienVaultOTX/)**

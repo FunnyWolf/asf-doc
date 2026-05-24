@@ -21,14 +21,14 @@ SPLUNK_HEC_URL = "http://10.10.10.10:8088/services/collector"
 SPLUNK_TOKEN = "your_hec_token"
 ```
 
-| 配置项 | 说明 |
-|-------|------|
-| SPLUNK_HOST | Splunk 服务器地址 |
-| SPLUNK_PORT | Splunk 管理端口 (默认 8089) |
-| SPLUNK_USER | 登录用户名 |
-| SPLUNK_PASS | 登录密码 |
+| 配置项            | 说明                      |
+|----------------|-------------------------|
+| SPLUNK_HOST    | Splunk 服务器地址            |
+| SPLUNK_PORT    | Splunk 管理端口 (默认 8089)   |
+| SPLUNK_USER    | 登录用户名                   |
+| SPLUNK_PASS    | 登录密码                    |
 | SPLUNK_HEC_URL | HTTP Event Collector 地址 |
-| SPLUNK_TOKEN | HEC Token |
+| SPLUNK_TOKEN   | HEC Token               |
 
 ## 配合使用
 
