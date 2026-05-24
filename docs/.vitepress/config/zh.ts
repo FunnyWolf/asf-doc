@@ -1,6 +1,5 @@
 import {type DefaultTheme, defineConfig} from 'vitepress'
 
-
 export const zh = defineConfig({
     lang: 'zh-Hans',
     description: 'Agentic SOC Platform',
@@ -9,7 +8,7 @@ export const zh = defineConfig({
         nav: nav(),
 
         sidebar: {
-            '/zh/asf/': {base: '/zh/asf/', items: sidebarASF()},
+            '/zh/asp/': {base: '/zh/asp/', items: sidebarASP()},
             '/zh/sirp/': {base: '/zh/sirp/', items: sidebarSIRP()},
         },
 
@@ -30,6 +29,7 @@ export const zh = defineConfig({
         lastUpdated: {
             text: '最后更新于',
             formatOptions: {
+                // @ts-ignore
                 dateStyle: 'short',
                 // timeStyle: 'short'
             }
@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: '开发框架',
-            link: '/zh/asf/Introduction/what_is_asf/',
+            link: '/zh/asp/Introduction/what_is_asf/',
             activeMatch: '/zh/asf/'
         },
         {
@@ -82,12 +82,12 @@ function nav(): DefaultTheme.NavItem[] {
     ]
 }
 
-function sidebarASF(): DefaultTheme.SidebarItem[] {
+function sidebarASP(): DefaultTheme.SidebarItem[] {
     return [
         {
             text: '简介',
             collapsed: false,
-            base: '/zh/asf/Introduction/',
+            base: '/zh/asp/Introduction/',
             items: [
                 {text: '欢迎使用', link: 'what_is_asf/'},
             ]
@@ -95,7 +95,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: '开发环境',
             collapsed: false,
-            base: '/zh/asf/Development/',
+            base: '/zh/asp/Development/',
             items: [
                 {text: '环境配置', link: 'environment_setup/'},
             ]
@@ -103,7 +103,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: '模块',
             collapsed: false,
-            base: '/zh/asf/MODULES/',
+            base: '/zh/asp/MODULES/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AWS IAM 权限提升告警', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
@@ -114,7 +114,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: '剧本',
             collapsed: false,
-            base: '/zh/asf/PLAYBOOKS/',
+            base: '/zh/asp/PLAYBOOKS/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: '案件调查', link: 'Investigation/'},
@@ -126,7 +126,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: '插件',
             collapsed: false,
-            base: '/zh/asf/PLUGINS/',
+            base: '/zh/asp/PLUGINS/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
@@ -147,23 +147,12 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
-            text: '基础智能体',
-            collapsed: false,
-            base: '/zh/asf/AGENTS/',
-            items: [
-                {text: '开发指南', link: 'development/'},
-                {text: 'CMDB', link: 'CMDB/'},
-                {text: 'SIEM', link: 'SIEM/'},
-                {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
-            ]
-        },
-        {
             text: '生产部署',
             collapsed: false,
-            base: '/zh/asf/production/',
+            base: '/zh/asp/production/',
             items: [
                 {text: 'SIEM 集成', link: 'siem/'},
-                {text: 'ASP 部署', link: 'asf/'},
+                {text: 'ASP 部署', link: 'asp/'},
             ]
         },
     ]

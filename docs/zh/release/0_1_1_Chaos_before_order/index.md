@@ -5,11 +5,11 @@
 ## 新功能亮点
 
 - [Message](../../sirp/Feature/message/) 存储 Agent 运行时的所有消息记录, 包括系统消息, 人类消息, AI 消息和工具消息, 方便审计和调试.
-- [Agents](../../asf/AGENTS/development/) 基础智能体框架,支持 `CMDB`,`SIEM`,`ThreatIntelligence`,`Knowledge`四个开箱即用智能体.
-- [Qdrant](../../asf/PLUGINS/Qdrant/) Qdrant 向量数据库插件, 支持向量数据存储与检索.
-- [Embeddings](../../asf/PLUGINS/Embeddings/) Embeddings 插件, 支持 OpenAI 和 Ollama 的 Embedding 模型, 支持Chroma 和 Qdrant 两种向量数据库.
+- [Agents](../../asp/AGENTS/development/) 基础智能体框架,支持 `CMDB`,`SIEM`,`ThreatIntelligence`,`Knowledge`四个开箱即用智能体.
+- [Qdrant](../../asp/PLUGINS/Qdrant/) Qdrant 向量数据库插件, 支持向量数据存储与检索.
+- [Embeddings](../../asp/PLUGINS/Embeddings/) Embeddings 插件, 支持 OpenAI 和 Ollama 的 Embedding 模型, 支持Chroma 和 Qdrant 两种向量数据库.
 - [Knowledge](../../sirp/Feature/knowledge/) 知识库, 支持知识库管理及 Agent 的知识库调用.
-- [Case_L3_SOC_Analyst_Agent_With_Tools](../../asf/PLAYBOOKS/Case_L3_SOC_Analyst_Agent_With_Tools/) `SOC L3 分析师智能体 (工具调用)` 剧本,调用 `知识库` 进行 L3 分析.
+- [Case_L3_SOC_Analyst_Agent_With_Tools](../../asp/PLAYBOOKS/Case_L3_SOC_Analyst_Agent_With_Tools/) `SOC L3 分析师智能体 (工具调用)` 剧本,调用 `知识库` 进行 L3 分析.
 - 更新 SIRP 到 Nocoly 7.0.0 版本.
 
 ## 优化

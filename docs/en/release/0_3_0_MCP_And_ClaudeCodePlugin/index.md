@@ -1,9 +1,9 @@
 # 0.3.0 - MCP and Claude Code Plugin
 
 ## New Features
-- [SIEM Plugin](../../asf/PLUGINS/SIEM/) supports Splunk / ELK, allows custom log configuration metadata, and adds a unified log retrieval interface for LLMs.
-- [MCP Plugin](../../asf/PLUGINS/MCP/) reaches its official release and supports most core ASP capabilities.
-- [Claude Code Plugin](../../asf/PLUGINS/ClaudeCode/) includes built-in MCP connectivity, 8 skills, and 1 agent.
+- [SIEM Plugin](../../asp/PLUGINS/SIEM/) supports Splunk / ELK, allows custom log configuration metadata, and adds a unified log retrieval interface for LLMs.
+- [MCP Plugin](../../asp/PLUGINS/MCP/) reaches its official release and supports most core ASP capabilities.
+- [Claude Code Plugin](../../asp/PLUGINS/ClaudeCode/) includes built-in MCP connectivity, 8 skills, and 1 agent.
 
 ## Improvements
 - SIRP UI layout and field-level permission control have been improved.

@@ -94,7 +94,7 @@ You can view and participate in discussions related to the Case, collaborate wit
 
 ## Execute Playbook
 
-> For Playbook development, refer to [Playbook Development Guide](../../../asf/PLAYBOOKS/development/)
+> For Playbook development, refer to [Playbook Development Guide](../../../asp/PLAYBOOKS/development/)
 
 - Open the detail page and click the `Run Playbook` button in the upper left corner.
 

@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'FRAMEWORK',
-            link: '/asf/Introduction/what_is_asf/',
+            link: '/asp/Introduction/what_is_asf/',
             activeMatch: '/asf/'
         },
         {
@@ -86,7 +86,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Introduction',
             collapsed: false,
-            base: '/asf/Introduction/',
+            base: '/asp/Introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_asf/'},
             ]
@@ -94,7 +94,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Development Environment',
             collapsed: false,
-            base: '/asf/Development/',
+            base: '/asp/Development/',
             items: [
                 {text: 'Environment Setup', link: 'environment_setup/'},
             ]
@@ -102,7 +102,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Modules',
             collapsed: false,
-            base: '/asf/MODULES/',
+            base: '/asp/MODULES/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'AWS IAM Privilege Escalation Alert', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
@@ -113,7 +113,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Playbooks',
             collapsed: false,
-            base: '/asf/PLAYBOOKS/',
+            base: '/asp/PLAYBOOKS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {
@@ -145,7 +145,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Plugins',
             collapsed: false,
-            base: '/asf/PLUGINS/',
+            base: '/asp/PLUGINS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
@@ -164,7 +164,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Basic Agents',
             collapsed: false,
-            base: '/asf/AGENTS/',
+            base: '/asp/AGENTS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'CMDB', link: 'CMDB/'},
@@ -176,10 +176,10 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
         {
             text: 'Production Deployment',
             collapsed: false,
-            base: '/asf/production/',
+            base: '/asp/production/',
             items: [
                 {text: 'SIEM Integration', link: 'siem/'},
-                {text: 'ASP Deployment', link: 'asf/'},
+                {text: 'ASP Deployment', link: 'asp/'},
             ]
         },
     ]

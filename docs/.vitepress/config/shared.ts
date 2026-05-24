@@ -61,8 +61,8 @@ export const shared = defineConfig({
 
     /* prettier-ignore */
     head: [
-        ['link', {rel: 'icon', type: 'image/svg+xml', href: '/asf.svg'}],
-        ['link', {rel: 'icon', type: 'image/png', href: '/asf.svg'}],
+        ['link', {rel: 'icon', type: 'image/svg+xml', href: '/asp.svg'}],
+        ['link', {rel: 'icon', type: 'image/png', href: '/asp.svg'}],
         ['meta', {name: 'theme-color', content: '#5f67ee'}],
         ['meta', {property: 'og:type', content: 'website'}],
         ['meta', {property: 'og:locale', content: 'en'}],
@@ -83,7 +83,7 @@ export const shared = defineConfig({
     },
     appearance: 'force-dark',
     themeConfig: {
-        logo: {src: '/asf.svg', width: 24, height: 24},
+        logo: {src: '/asp.svg', width: 24, height: 24},
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/FunnyWolf/agentic-soc-platform'},
@@ -106,7 +106,7 @@ export const shared = defineConfig({
                     vitepress: localIconLoader(
                         // @ts-ignore
                         import.meta.url,
-                        '../../public/asf.svg'
+                        '../../public/asp.svg'
                     ),
                     // firebase: 'logos:firebase'
                 }

@@ -94,7 +94,7 @@
 
 ## 执行 Playbook
 
-> Playbook 开发可参考 [Playbook 开发指南](../../../asf/PLAYBOOKS/development/)
+> Playbook 开发可参考 [Playbook 开发指南](../../../asp/PLAYBOOKS/development/)
 
 - 打开详情页,点击左上角的 `Run Playbook` 按钮.
 
