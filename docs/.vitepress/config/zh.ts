@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: '开发框架',
-            link: '/zh/asp/Introduction/what_is_asf/',
+            link: '/zh/asp/Introduction/what_is_asp/',
             activeMatch: '/zh/asf/'
         },
         {
@@ -89,7 +89,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/zh/asp/Introduction/',
             items: [
-                {text: '欢迎使用', link: 'what_is_asf/'},
+                {text: '欢迎使用', link: 'what_is_asp/'},
             ]
         },
         {

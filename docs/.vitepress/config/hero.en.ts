@@ -4,7 +4,7 @@ export const heroConfig = {
     image: "/hero/en/img_20.png",
     actions: [
         {text: 'Development Docs', link: '/asp/Development/environment_setup', theme: 'brand'},
-        {text: 'Features Overview', link: '/asp/Introduction/what_is_asf/', theme: 'alt'},
+        {text: 'Features Overview', link: '/asp/Introduction/what_is_asp/', theme: 'alt'},
         {text: 'SIRP Platform', link: '/sirp/Introduction/what_is_sirp/', theme: 'alt'},
     ]
 }

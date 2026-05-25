@@ -4,7 +4,7 @@ export const heroConfig = {
     image: "/hero/zh/img_20.png?v=1",
     actions: [
         {text: '开发文档', link: '/zh/asp/Development/environment_setup', theme: 'brand'},
-        {text: '功能介绍', link: '/zh/asp/Introduction/what_is_asf/', theme: 'alt'},
+        {text: '功能介绍', link: '/zh/asp/Introduction/what_is_asp/', theme: 'alt'},
         {text: 'SIRP 平台', link: '/zh/sirp/Introduction/what_is_sirp/', theme: 'alt'},
     ]
 }

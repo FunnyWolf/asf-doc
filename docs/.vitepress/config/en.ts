@@ -49,7 +49,7 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'FRAMEWORK',
-            link: '/asp/Introduction/what_is_asf/',
+            link: '/asp/Introduction/what_is_asp/',
             activeMatch: '/asf/'
         },
         {
@@ -88,7 +88,7 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             collapsed: false,
             base: '/asp/Introduction/',
             items: [
-                {text: 'Welcome', link: 'what_is_asf/'},
+                {text: 'Welcome', link: 'what_is_asp/'},
             ]
         },
         {
