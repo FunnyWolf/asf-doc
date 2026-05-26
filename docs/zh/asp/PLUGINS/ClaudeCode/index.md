@@ -39,20 +39,21 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
 ```
 
 - 启动 Claude Code
-- 注册  https://github.com/FunnyWolf/agentic-soc-platform marketplace
+- 注册  https://github.com/FunnyWolf/asp-marketplace marketplace
 
 ```
-/plugin marketplace add FunnyWolf/agentic-soc-platform
+/plugin marketplace add FunnyWolf/asp-marketplace
 ```
 
 - 从 marketplace 中安装 plugin
 
 ```
-/plugin install ASP@agentic-soc-platform 
+/plugin install asp-plugin@asp-marketplace
 ```
 
-![alt text](image.png)
-![alt text](image-1.png)
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
 
 ## 调用 Skill / Agent
 
@@ -66,4 +67,4 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
 
 - 在使用时推荐将 Plugin 安装到 repo local,减少在使用 Claude Code 开发其他项目时的上下文占用.
 
-![img_1.png](img_1.png)
+![img_4.png](img_4.png)

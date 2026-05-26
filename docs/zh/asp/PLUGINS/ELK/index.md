@@ -3,12 +3,12 @@
 ## 功能介绍
 
 - Elasticsearch (ELK/Kibana) SIEM 客户端插件,基于 `elasticsearch-py` 实现.
-- 提供结构化查询、关键词搜索、字段发现、聚合分析等功能.
-- 使用 index_action.py 脚本可将 index 中的告警转发到 Redis Stream 消息队列,供模块消费.
+- 提供结构化查询、关键词搜索、字段发现、聚合分析等功能 (配合 [SIEM 插件](../SIEM/index.md) YAML 索引配置).
+- 使用 Kibana 的 index action 可将 rule 产生的告警发送到指定的 index, index_action.py 脚本可将 index 中的告警转发到 Redis Stream 消息队列,供模块消费.
 
 > 此功能可替代 Forwarder 插件接收 Webhook 的功能,适用于 ELK 社区版
 
-- 配合 SIEM 插件的 YAML 索引配置使用.
+- 使用 Kibana 的 webhook action 可将 rule 产生的告警发送到 Forwarder, Forwarder 可将接收的告警转发到 Redis Stream 消息队列,供模块消费.
 
 ## 配置方法
 
@@ -23,14 +23,18 @@ ACTION_INDEX_NAME = "siem-alert"
 POLL_INTERVAL_MINUTES = 1
 ```
 
-| 配置项                   | 说明                   |
-|-----------------------|----------------------|
-| ELK_HOST              | Elasticsearch 服务地址   |
-| ELK_KEY               | ELK Personal API key |
-| ACTION_INDEX_NAME     | 告警索引名称               |
-| POLL_INTERVAL_MINUTES | 轮询间隔(分钟)             |
+| 配置项                   | 说明                    |
+|-----------------------|-----------------------|
+| ELK_HOST              | Elasticsearch 服务地址    |
+| ELK_KEY               | ELK Personal API key  |
+| ACTION_INDEX_NAME     | 告警索引名称                |
+| POLL_INTERVAL_MINUTES | index_action 轮询间隔(分钟) |
 
 ## 发送告警到 Redis Stream (index action)
+
+- 配置 [Redis 插件](../Redis/index.md)
+
+> index_action.py 需要读取 Redis 插件的 CONFIG.py 中的配置项,且确保正确配置
 
 - 创建 connector
 
@@ -79,7 +83,48 @@ cd ~/agentic-soc-platform
 uv sync
 python -m PLUGINS.ELK.index_action
 ```
+
 ![img_8.png](img_8.png)
+
+## 发送告警到 Redis Stream (webhook action)
+
+
+- 配置 [Forwarder 插件](../Forwarder/index.md)
+
+- 创建 connector
+
+![img_9.png](img_9.png)
+
+![img_10.png](img_10.png)
+
+url 为 http://192.168.163.128:7000/api/v1/webhook/kibana 根据实际情况替换 ip 和端口
+
+- Kibana 中创建 Alert Rule
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+- 设置 Action
+
+![img_11.png](img_11.png)
+
+![img_12.png](img_12.png)
+
+message 代码
+
+```
+{
+  "rule":{
+    "name":"{{rule.name}}"
+  },
+  "context":{
+    "hits":[{{{context.hits}}}]
+  }
+}
+```
+
+- 等待 Rule 触发后,Forwarder 中会产生对应日志
 
 ## 配合使用
 
