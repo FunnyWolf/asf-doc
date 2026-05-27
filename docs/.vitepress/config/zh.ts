@@ -131,7 +131,41 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'CMDB', link: 'CMDB/'},
-                {text: 'ClaudeCode', link: 'ClaudeCode/'},
+                {
+                    text: 'ClaudeCode',
+                    collapsed: true,
+                    base: '/zh/asp/PLUGINS/ClaudeCode/',
+                    items: [
+                        {text: '使用指南', link: 'index/'},
+                        {
+                            text: 'Agents',
+                            collapsed: true,
+                            base: '/zh/asp/PLUGINS/ClaudeCode/agents/',
+                            items: [
+                                {text: 'Case Investigator', link: 'case-investigator/'},
+                                {text: 'Artifact Investigator', link: 'artifact-investigator/'},
+                                {text: 'Threat Hunting', link: 'threat-hunting/'},
+                            ]
+                        },
+                        {
+                            text: 'Skills',
+                            collapsed: true,
+                            base: '/zh/asp/PLUGINS/ClaudeCode/skills/',
+                            items: [
+                                {text: 'Alert', link: 'alert/'},
+                                {text: 'Artifact', link: 'artifact/'},
+                                {text: 'Case', link: 'case/'},
+                                {text: 'Enrichment', link: 'enrichment/'},
+                                {text: 'Knowledge', link: 'knowledge/'},
+                                {text: 'Module Creator', link: 'module-creator/'},
+                                {text: 'Playbook', link: 'playbook/'},
+                                {text: 'SIEM Index YAML', link: 'siem-index-yaml/'},
+                                {text: 'SIEM Search', link: 'siem-search/'},
+                                {text: 'Threat Intelligence', link: 'threat-intelligence/'},
+                            ]
+                        },
+                    ]
+                },
                 {text: 'ELK', link: 'ELK/'},
                 {text: 'Forwarder', link: 'Forwarder/'},
                 {text: 'LLM', link: 'LLM/'},
@@ -143,16 +177,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'Splunk', link: 'Splunk/'},
                 {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
             ]
-        },
-        {
-            text: '生产部署',
-            collapsed: false,
-            base: '/zh/asp/production/',
-            items: [
-                {text: 'SIEM 集成', link: 'siem/'},
-                {text: 'ASP 部署', link: 'asp/'},
-            ]
-        },
+        }
     ]
 }
 

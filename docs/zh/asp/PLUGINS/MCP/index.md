@@ -3,17 +3,18 @@
 ## 配置方法
 
 - 运行 MCP Server
+
 ```bash
 python PLUGINS/MCP/mcpserver.py
 ```
 
 支持指定host,port,和uuid
+
 ```bash
 python PLUGINS/MCP/mcpserver.py --host 10.10.10.10 --port 7001 --uuid thisisjustfortest
 ```
 
-- 配置 MCP SSE URL
-脚本会将MCP SSE 的 URL输出 
+- 配置 MCP SSE URL 脚本会将 MCP SSE 的 URL 输出 (配置 [ClaudeCode 插件](../ClaudeCode/index.md) 时需要)
 
 ```
 mcp server url: http://10.10.10.10:7001/thisisjustfortest/sse

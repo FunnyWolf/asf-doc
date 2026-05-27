@@ -1,6 +1,6 @@
 # Knowledge
 
-存储和管理SOC团队的知识库,支持Markdown格式,Agent可调用.
+存储和管理 SOC 团队的知识库,支持通过关键词搜索,AI Agent 可调用.
 
 ## View
 
@@ -16,16 +16,21 @@
 
 - Body
 
-知识条目内容
+知识条目内容,支持 Markdown.
 
-- Using
+- Tags
 
-知识条目是否正在使用 (Agent是否能调用)
+知识标签,用于筛选和分类.
 
-- Action
+- Source
 
-知识库动作.
+知识来源.`Manual` 为手动创建,`Case` 为从已结案的 Case 中自动提取(通过 Knowledge Extraction 剧本).
 
-知识条目调整为 `Store` 时, 后台会自动将该知识条目存储到 "sirp_knowledge" 的 collection 中.完成后,该条目标记为 `Using`,Action 被重置为 `Done`.
+- Expires At
 
-知识条目调整为 `Remove` 时, 后台会自动将该知识条目从 "sirp_knowledge" 的 collection 中删除.完成后,该条目标记为 不使用,Action 被重置为 `Done`.
+知识过期时间.留空表示永久有效,过期后不再参与搜索.
+
+## 知识来源
+
+- **手动创建**: 用户直接在平台中编写知识条目
+- **Case 提取**: 对已结案 Case 执行 Knowledge Extraction 剧本,通过 LLM 从 Case 调查记录和讨论中提取可复用知识
