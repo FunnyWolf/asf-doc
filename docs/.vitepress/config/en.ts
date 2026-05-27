@@ -136,8 +136,8 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
                     text: 'Artifact',
                     collapsed: false,
                     items: [
-                        {text: 'TI Enrichment By AlienVaultOTX', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
-                        {text: 'TI Enrichment By Mock', link: 'Artifact_TI_Enrichment_By_Mock/'},
+                        {text: 'ThreatIntelligence Enrichment By AlienVaultOTX', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
+                        {text: 'ThreatIntelligence Enrichment By Mock', link: 'Artifact_TI_Enrichment_By_Mock/'},
                     ]
                 },
             ]

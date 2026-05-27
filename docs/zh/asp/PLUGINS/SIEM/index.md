@@ -1,25 +1,64 @@
 # SIEM 插件
 
-当前支持 `ELK` 和 `Splunk`,插件提供易于 LLM 使用的 API (Tools)
+统一的 SIEM 查询接口,支持 `ELK` 和 `Splunk` 后端,通过 YAML 配置索引的字段信息.
 
 ## 配置方法
 
-- 将 CONFIG.example.py 重命名为 CONFIG.py,并根据代码注释填写配置项
-- 如只使用了 `ELK` 和 `Splunk` 中的一种,不要删除或注释掉另一种的配置项,直接使用默认值即可
+在 `DATA/PLUGINS/SIEM/` 目录下为每个索引创建一个 YAML 配置文件,插件根据 `backend` 字段自动选择后端.
 
-> 插件会根据 yaml 中配置的 backend 自动选择
+### YAML 结构
 
-- DATA/Indexes 目录中包含 `siem-aws-cloudtrail.yaml` `siem-host-events.yaml` `siem-network-traffic.yaml` 三个 index 日志配置样例
+```yaml
+name: siem-network-traffic        # 索引名
+backend: ELK                       # ELK 或 Splunk
+description: Network traffic logs  # 描述
 
-> 可以和 [Mock 插件](../Mock/) 生成的测试数据配合使用
+fields:
+  - name: source.ip                # 字段名
+    type: ip                       # 字段类型
+    description: Source IP         # 描述
+    is_key_field: true             # 是否为关键字段(用于聚合统计)
+    sample_values: [ "10.0.0.19" ]   # 示例值
+```
 
-- 新的 SIEM 日志配置可参考上述三个 yaml 文件编写,并放置在 DATA/Indexes 目录下
-- 生产环境中需要将三个测试 yaml 删除,以免影响 LLM 查询结果
+- `is_key_field: true` 的字段会作为查询时的默认聚合字段
+- 示例值可选填写,用于辅助理解字段含义
+
+### 测试配置
+
+`DATA/PLUGINS/SIEM/` 中包含三个测试样例:
+
+| 文件                          | 索引名                    | 说明                |
+|-----------------------------|------------------------|-------------------|
+| `siem-network-traffic.yaml` | `siem-network-traffic` | 网络流量日志            |
+| `siem-host-events.yaml`     | `siem-host-events`     | 主机事件日志            |
+| `siem-aws-cloudtrail.yaml`  | `siem-aws-cloudtrail`  | AWS CloudTrail 日志 |
+
+可与 [Mock 插件](../Mock/index.md) 的 SIEM 模拟数据配合使用.生产环境应删除这三个测试配置,以免干扰 LLM 查询.
+
+新增索引可参考上述样例编写.
 
 ## 使用方法
 
-- 插件提供三个函数 `SIEMToolKit.explore_schema` `SIEMToolKit.execute_adaptive_query` `SIEMToolKit.keyword_search`
-- Agent 调用可参考 [Agent SIEM](../../AGENTS/SIEM/)
+`SIEMToolKit` 提供四个方法:
+
+| 方法                       | 说明                        |
+|--------------------------|---------------------------|
+| `explore_schema`         | 列出所有已注册索引,或查看指定索引的字段定义    |
+| `execute_adaptive_query` | 精确匹配查询,根据结果量自动选择返回模式      |
+| `keyword_search`         | 关键词搜索,未指定索引时自动跨索引发现       |
+| `discover_index_fields`  | 从后端实时发现索引字段(用于生成 YAML 配置) |
+
+### 自适应返回模式
+
+`execute_adaptive_query` 和 `keyword_search` 根据命中数量自动调整返回内容:
+
+| 模式        | 条件           | 返回内容         |
+|-----------|--------------|--------------|
+| `records` | <= 100 条     | 完整记录         |
+| `sample`  | 100 ~ 1000 条 | 统计信息 + 5 条采样 |
+| `summary` | > 1000 条     | 仅统计信息        |
+
 
 
 

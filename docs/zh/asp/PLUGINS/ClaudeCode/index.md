@@ -19,23 +19,23 @@
     - `asp-siem-search` — 在 SIEM 中进行日志调查、事件检索与结构化分析
     - `asp-threat-intelligence` — 查询 IOC 的威胁情报，评估风险等级
 
-- 默认连接 ASP MCP 服务器
+- 连接 ASP MCP 服务器
 
 ## 配置方法
 
-- 首先启动 ASP 的 MCP 服务,获取 MCP SSE URL [文档链接](../MCP/)
+- 配置 [MCP 插件](../MCP/index.md), 获取 MCP SSE URL
 - 将 url 设置到环境变量 ASP_MCP_SSE_URL
 
 PowerShell:
 
 ```powershell
-$env:ASP_MCP_SSE_URL = "http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
+$env:ASP_MCP_SSE_URL = "http://your_server_ip:7001/XXXXXXXXXXXXX/sse"
 ```
 
 Bash:
 
 ```bash
-export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
+export ASP_MCP_SSE_URL="http://your_server_ip:7001/XXXXXXXXXXXXX/sse"
 ```
 
 - 启动 Claude Code
@@ -61,7 +61,7 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7000/XXXXXXXXXXXXX/sse"
 
 ## 补充说明
 
-- ASP Plugin 在 Claude Code 启动时 MCP Tools / Agents / Skills 一共约占用 10.4k 的上下文
+- ASP Plugin 在 Claude Code 启动时 MCP Tools / Agents / Skills 一共约占用 10.5k 的上下文
 
 ![img.png](img.png)
 

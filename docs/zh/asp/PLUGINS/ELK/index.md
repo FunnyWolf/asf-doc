@@ -8,7 +8,7 @@
 
 > 此功能可替代 Forwarder 插件接收 Webhook 的功能,适用于 ELK 社区版
 
-- 使用 Kibana 的 webhook action 可将 rule 产生的告警发送到 Forwarder, Forwarder 可将接收的告警转发到 Redis Stream 消息队列,供模块消费.
+- 使用 Kibana 的 webhook action 可将 rule 产生的告警发送到 Forwarder, Forwarder 将接收的告警转发到 Redis Stream 消息队列,供模块消费.
 
 ## 配置方法
 
@@ -86,8 +86,11 @@ python -m PLUGINS.ELK.index_action
 
 ![img_8.png](img_8.png)
 
-## 发送告警到 Redis Stream (webhook action)
+- 登录 Redis Insight 可查看 Stream 中的告警
 
+![img_14.png](img_14.png)
+
+## 发送告警到 Redis Stream (webhook action)
 
 - 配置 [Forwarder 插件](../Forwarder/index.md)
 
@@ -126,7 +129,8 @@ message 代码
 
 - 等待 Rule 触发后,Forwarder 中会产生对应日志
 
-## 配合使用
+![img_13.png](img_13.png)
 
-- [SIEM 插件](../SIEM/) — 使用 YAML 索引配置定义 ELK 索引的字段映射
-- [Forwarder 插件](../Forwarder/) — 接收 Kibana 告警 Webhook 并转发到 Redis Stream
+- 登录 Redis Insight 可查看 Stream 中的告警
+
+![img_14.png](img_14.png)
