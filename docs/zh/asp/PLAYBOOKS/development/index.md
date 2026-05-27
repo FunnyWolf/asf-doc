@@ -1,61 +1,51 @@
 # 开发指南
 
-剧本 (Playbook) 用于执行 **用户触发** 的自动化任务.
+剧本 (Playbook) 用于执行**用户触发**的自动化任务,例如:
 
-例如:
+- 调用 LLM 分析 Case 并生成报告 ([Investigation](../Investigation/index.md))
+- 分析已关闭 Case 的处理过程和结果,生成 Knowledge ([Knowledge Extraction](../Knowledge_Extraction/index.md))
+- 为 Case 关联的所有 Artifact 添加威胁情报富化 ([Threat Intelligence Enrichment](../Threat_Intelligence_Enrichment/index.md))
 
-- 调用 LLM 分析 Case 给出报告.
-- 分析 已关闭的 Case 的分析过程和结果,生成 Knowledge
-- 为 Case 挂载的所有 Alert 中所有 Artifact 添加威胁情报的 Enrichment
-
-[Investigation](../Investigation/index.md) 作为样例介绍剧本中关键的 API.
+[Investigation](../Investigation/index.md) 可作为样例,展示剧本中关键 API 的用法.
 
 ## 注册剧本
 
-- 剧本只作用于 Case,或者说只有 Case 可以运行剧本
-- 在`PLAYBOOKS`目录创建剧本脚本文件
-- 确保中的类名称为`Playbook`,并继承自`BasePlaybook`或`LanggraphPlaybook`
-- 确保包含 NAME = "XXX", 用于在 SIRP 中注册剧本
-- 实现`run`函数,框架会自动执行该函数
-- **推荐的方法是复制现有的脚本,根据需求进行修改**
+- 剧本仅作用于 Case,只有 Case 可以运行剧本
+- 在 `PLAYBOOKS` 目录下创建脚本文件
+- 类名必须为 `Playbook`,继承自 `BasePlaybook` 或 `LanggraphPlaybook`
+- 类中须包含 `NAME = "XXX"`,作为 SIRP 中的注册名称
+- 实现 `run` 方法,框架会自动调用
+- **推荐做法:复制现有脚本,按需修改**
 
 ## 获取输入参数
 
-- self.param_source_row_id 包含触发剧本的 Case 的 row_id, 可根据 row_id 调用 Case 相关接口.
-- 例如通过 Case 的 row_id 获取该 Case 关联的 Alerts 列表.Alerts 列表中每一条 Alert 也可以通过接口获取 Artifact 列表.
-- 剧本执行完成后可调用 API 更新 Case / Alert / Artifact.
+- `self.param_source_row_id` — 触发剧本的 Case row_id,可用于调用 Case 相关接口 (如获取关联的 Alert 列表,进而获取每个 Alert 的 Artifact 列表)
+- `self.param_user_input` — 用户执行时的附加输入 (可选)
+- 剧本执行过程中,可通过 API 更新 Case / Alert / Artifact
 
 ## 更新任务结果
 
-
-- 每次执行完成后建议通过如下代码更新任务结果
-
-```python
-self.update_playbook("Success", "Case Investigation Success.") # Success/Failed
-```
-
-- 推荐在执行完成后通过 send_notice 向执行脚本的用户发送通知,通知内容可自定义 (可选)
+执行完成后,通过以下代码更新任务状态:
 
 ```python
-self.send_notice("Investigation Finish", f"rowid:{self.param_source_rowid}")
+self.update_playbook_status(PlaybookJobStatus.SUCCESS, "Case Investigation Success.")  # SUCCESS/FAILED
 ```
 
 ## SIRP 注册
 
-- 应用于 SIRP 的剧本需要一个人类可读的名字,便于使用人员在 SIRP 界面中选择剧本执行.
+剧本需要在 SIRP 中注册后,才能在界面中被选择执行.
 
-- 在 SIRP 中将剧本名称 (类的 NAME = "XXX" 参数) 添加到 `PLAYBOOK` 选项集中.
+将剧本的 `NAME` 值添加到 SIRP 的 `PLAYBOOK` 选项集中:
 
 ![img_5.png](img_5.png)
 
 ![img_6.png](img_6.png)
 
-- 添加完成后,在 SIRP 打开 Case,点击 `Playbook` 按钮即可选择新添加的剧本执行.
+注册完成后,在 Case 详情页点击 `Playbook` 按钮即可选择执行.
 
 ## 剧本调试
 
-- 每个剧本文件是一个单独的 `Playbook` 类,可以直接执行进行开发调试
-- 例如 `Investigation` 剧本应用于 `Case` 记录
+每个剧本文件是独立的 `Playbook` 类,可直接运行进行调试.以 `Investigation` 为例:
 
 ```python
 if __name__ == "__main__":
@@ -68,6 +58,6 @@ if __name__ == "__main__":
     module.run()
 ```
 
-- 其中 `source_rowid` 可以通过如下图方法获取
+其中 `source_row_id` 可在 SIRP 的 Case 详情页获取:
 
 ![img_7.png](img_7.png)
