@@ -4,55 +4,29 @@
 
 例如:
 
-- 调用 TI 查询并更新 Artifact 的 enrichment,
-- 分析 Alert 生成 Suggestion
-- 针对 Case 进行威胁狩猎.
+- 调用 LLM 分析 Case 给出报告.
+- 分析 已关闭的 Case 的分析过程和结果,生成 Knowledge
+- 为 Case 挂载的所有 Alert 中所有 Artifact 添加威胁情报的 Enrichment
 
-Investigation 是 SIRP 剧本的模板样例,以此剧本介绍如何开发 SIRP 剧本.
+[Investigation](../Investigation/index.md) 作为样例介绍剧本中关键的 API.
 
 ## 注册剧本
 
-- 首先确认剧本用于何种数据类型(Alert/Case/Artifact等)
+- 剧本只作用于 Case,或者说只有 Case 可以运行剧本
 - 在`PLAYBOOKS`目录创建剧本脚本文件
 - 确保中的类名称为`Playbook`,并继承自`BasePlaybook`或`LanggraphPlaybook`
+- 确保包含 NAME = "XXX", 用于在 SIRP 中注册剧本
 - 实现`run`函数,框架会自动执行该函数
 - **推荐的方法是复制现有的脚本,根据需求进行修改**
 
 ## 获取输入参数
 
-- 每个剧本与一类数据类型绑定,剧本执行时会传入该数据类型对应的 worksheet 和 rowid (可以理解为数据库表和主键 ID),剧本执行过程中可以通过接口获取一条完整的数据.
-- 通过接口还可以获取数据记录的关联数据,例如通过 Case 的 rowid 获取该 Case 关联的 Alerts 列表.Alerts 列表中每一条 Alert 也可以通过接口获取 Artifact 列表.
-- 实现代码可以参考`preprocess_node`节点代码
-- **此种方式的好处是用户执行剧本时无需输入参数,剧本可以通过接口获取所需的所有数据**
-- 获取输入参数代码
+- self.param_source_row_id 包含触发剧本的 Case 的 row_id, 可根据 row_id 调用 Case 相关接口.
+- 例如通过 Case 的 row_id 获取该 Case 关联的 Alerts 列表.Alerts 列表中每一条 Alert 也可以通过接口获取 Artifact 列表.
+- 剧本执行完成后可调用 API 更新 Case / Alert / Artifact.
 
-```python
-@property
-def param_rowid(self):
-    return self.param("rowid")
+## 更新任务结果
 
-@property
-def param_source_rowid(self):
-    return self.param("source_rowid")
-
-@property
-def param_source_worksheet(self):
-    return self.param("source_worksheet")
-
-@property
-def param_user(self):
-    return self.param("user")
-
-@property
-def param_user_input(self):
-    return self.param("user_input")
-```
-
-## 更新任务结果并发送通知
-
-- SIRP 每次执行剧本都会在 Playbook 的 worksheet中创建一条记录
-
-![img.png](img.png)
 
 - 每次执行完成后建议通过如下代码更新任务结果
 
@@ -60,45 +34,23 @@ def param_user_input(self):
 self.update_playbook("Success", "Case Investigation Success.") # Success/Failed
 ```
 
-- 推荐在执行完成后通过 send_notice 向执行脚本的用户发送通知
+- 推荐在执行完成后通过 send_notice 向执行脚本的用户发送通知,通知内容可自定义 (可选)
 
 ```python
 self.send_notice("Investigation Finish", f"rowid:{self.param_source_rowid}")
 ```
 
-![img_1.png](img_1.png)
-
 ## SIRP 注册
 
-- 应用于 SIRP 的剧本需要一个分类标签(CASE/ALERT/ARTIFACT)和人类可读的名字,便于使用人员在 SIRP 界面中选择剧本执行.
+- 应用于 SIRP 的剧本需要一个人类可读的名字,便于使用人员在 SIRP 界面中选择剧本执行.
 
-- 剧本中使用 TYPE 和 NAME 两个类变量进行注册.
-
-```python
-
-class Playbook(BasePlaybook):
-    TYPE = "CASE"  # 分类标签
-    NAME = "Investigation"  # 剧本名称
-```
-
-- 剧本编写完成后,需要在 SIRP 中将剧本名称添加到对应的选项集中.`playbook_artifact` `playbook_alert` `playbook_case` 分别对应Artifact/Alert/Case类型剧本.
-
-![img_2.png](img_2.png)
-
-![img_3.png](img_3.png)
-
-- 添加完成后,在 SIRP 打开对应的记录,点击 `Playbook` 按钮即可选择新添加的剧本执行.
-
-- 选择一条 Alert 记录
-  ![img_4.png](img_4.png)
-
-- 选择剧本并执行
+- 在 SIRP 中将剧本名称 (类的 NAME = "XXX" 参数) 添加到 `PLAYBOOK` 选项集中.
 
 ![img_5.png](img_5.png)
 
-- 剧本任务执行状态可以在 `Playbook` 中查看
-
 ![img_6.png](img_6.png)
+
+- 添加完成后,在 SIRP 打开 Case,点击 `Playbook` 按钮即可选择新添加的剧本执行.
 
 ## 剧本调试
 

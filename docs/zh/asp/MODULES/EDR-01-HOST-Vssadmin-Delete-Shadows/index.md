@@ -1,43 +1,18 @@
-# 卷影副本删除检测 (EDR-01)
+# EDR-01-HOST-Vssadmin-Delete-Shadows
 
-- 检测 Windows 主机上执行 `vssadmin delete shadows` 命令的行为,这是勒索软件加密前的典型操作.
-- 基于 MITRE ATT&CK 技术 **T1490 - Inhibit System Recovery** (抑制系统恢复).
+检测 Windows 主机上执行 `vssadmin delete shadows` 命令的行为,这是勒索软件加密前的典型操作.
 
-## 字段映射
+- MITRE ATT&CK: **T1490 - Inhibit System Recovery**
+- 展示 EDR 告警到 ASP Alert 的映射、进程相关 Artifact 提取和 Case 聚合
 
-从 EDR 告警中提取以下字段:
+## 日志来源
 
-| 原始字段 | ASP 字段 |
-|---------|---------|
-| `@timestamp` | event_time |
-| `host.name` | host_name |
-| `user.name` | user_name |
-| `process.command_line` | process_cmd |
-| `process.hash.sha256` | process_hash |
-| `process.parent.name` | parent_name |
-| `risk_score` | risk_level |
+日志来源于 [Mock 插件](../../PLUGINS/Mock/) 的 `HostGenerator`,生成模拟 EDR 主机日志.字段说明见 [siem-host-events.yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/PLUGINS/SIEM/siem-host-events.yaml).
 
-## Artifact 提取
+## 关键处理逻辑
 
-| Artifact 类型 | 角色 | 说明 |
-|-------------|------|------|
-| USER_NAME | ACTOR | 执行命令的用户 |
-| HOSTNAME | AFFECTED | 受影响主机 |
-| HASH | RELATED | 进程哈希 (SHA256/MD5) |
-| COMMAND_LINE | RELATED | 完整命令行 |
-
-## 告警聚合
-
-- 使用 `Correlation` 按 **同一主机 + 同一用户** 在 **24 小时** 内聚合为一个 Case.
-- 同一主机上同一用户的多次卷影副本删除操作会合并到同一案件中,减少分析师工作量.
-
-## 严重程度
-
-- 默认严重程度为 **Critical**,因为卷影副本删除是勒索软件的强指标.
-- 风险评分 >= 90 映射为 Critical,>= 70 为 High,>= 40 为 Medium.
-
-## MITRE ATT&CK
-
-- **Tactic**: Impact
-- **Technique**: T1490 - Inhibit System Recovery
-- **缓解措施**: 通过 AppLocker/WDAC 限制 vssadmin.exe 使用,监控卷影副本删除行为,维护离线备份.
+- **字段提取**: 从原始告警中提取主机、用户、进程、父进程及哈希信息,支持扁平和嵌套两种 JSON 格式
+- **Artifact**: 执行用户、受影响主机、进程哈希(SHA256/MD5)、完整命令行
+- **聚合**: 按 `[主机名, 用户名]` 在 24h 内聚合为同一 Case
+- **严重程度**: 默认处置为 DETECTED(卷影副本删除是勒索软件强指标);风险评分 >=90 Critical, >=70 High, >=40 Medium
+- **缓解措施**: 通过 AppLocker/WDAC 限制 vssadmin.exe,监控卷影副本删除,维护离线备份
