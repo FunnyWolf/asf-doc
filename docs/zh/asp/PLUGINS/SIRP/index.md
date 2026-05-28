@@ -33,18 +33,45 @@ Case ──┬── Alert ──┬── Artifact ── Enrichment
 ```
 
 - **Case**: 安全案件,聚合多个 Alert,是分析师和 AI 分析处理的核心对象
-- **Alert**: 告警,通常映射 SIEM Rule 产生的告警,包含 MITRE ATT&CK 映射、风险等级、修复建议等
-- **Artifact**: 从告警中提取的实体(IOC),如 IP、域名、哈希、用户等,类型遵循 OCSF/ECS 标准
-- **Enrichment**: 富化数据,为 Artifact/Alert/Case 补充威胁情报、CMDB、地理信息等上下文
-- **Playbook**: 响应剧本,支持定义和执行自动化响应流程
-- **Knowledge**: 知识库,供 AI 和分析师查询的内部安全知识记录
+- **Alert**: 告警,映射 SIEM Rule 产生的告警,包含 MITRE ATT&CK 映射、风险等级、修复建议等.一个 Alert 只能挂载到一个 Case
+- **Artifact**: 从告警中提取的实体 (IOC),如 IP、域名、哈希、用户等.一个 Artifact 可挂载到多个 Alert (多对多关系)
+- **Enrichment**: 富化数据,可挂载到 Case / Alert / Artifact 任意一级,补充威胁情报、CMDB、地理信息等上下文
+- **Playbook**: 响应剧本执行记录,关联到 Case,跟踪执行状态和结果
+- **Knowledge**: 知识库,供 AI 和分析师查询的内部安全知识记录,支持从已关闭 Case 中自动提取
 
 ### 关键能力
 
-- 实体创建时自动去重(Artifact 按 name+type+role+value,Enrichment 按 uid 或 type+provider+value)
-- 关联数据自动级联加载和保存
-- Case 支持 AI 分析调度,通过 Redis Stream 实现冷却期控制(默认 10 分钟)
-- Case 支持 AI 评估字段(`severity_ai`、`confidence_ai`、`verdict_ai`)与人工评估字段分离
-- Playbook 支持通过 Case ID 发起执行,并跟踪执行状态
+**通用 CRUD**
+所有实体支持 get / list / create / update / update_or_create / batch_update_or_create,支持按 row_id 或业务 ID 查询,支持结构化过滤条件.
 
+**关联数据自动加载**
+Case 加载时自动级联加载关联的 Alert 列表 (含 Artifact 和 Enrichment),Alert 加载时自动级联加载 Artifact 和 Enrichment,无需手动 join.
 
+**自动去重**
+- Artifact: 按 name + type + role + value 复合键去重,创建时若已存在则返回已有 row_id
+- Enrichment: 按 uid (外部计算的稳定标识) 或 type + provider + value 去重,已存在则更新
+- Artifact 值自动归一化 (邮箱/哈希/主机名转小写,MAC 地址格式标准化)
+
+**Case AI 分析调度**
+Case 支持通过 `mark_analysis_requested()` 触发自动化 AI 分析,基于 Redis Stream 实现冷却期调度 (默认 10 分钟),支持防抖和首次请求优先.
+
+**AI 评估与人工评估分离**
+Case 同时维护人工评估字段 (`severity` / `confidence` / `verdict`) 和 AI 评估字段 (`severity_ai` / `confidence_ai` / `verdict_ai`),互不覆盖.
+
+**AI 调查报告**
+Case 的 `investigation_report_ai_json` 字段存储 LLM 生成的结构化调查报告,包含判决、攻击链、时间线、IOC、修复建议等.
+
+**讨论记录**
+Case 和 Alert 支持讨论/评论线程,通过 `get_discussions()` 获取.
+
+**Playbook 执行管理**
+Playbook 支持创建待执行记录、跟踪执行状态 (Pending / Running / Success / Failed),通过 Case ID 关联触发.
+
+**Knowledge 搜索**
+Knowledge 支持按关键词列表搜索未过期的知识记录 (匹配标题或正文),返回格式化结果供 AI 消费.
+
+**通知推送**
+Notice 支持通过 Webhook 向指定用户发送通知消息.
+
+**AI 序列化**
+所有实体支持 `model_dump_for_ai(profile=...)` 方法,按 profile (如 "mcp"、"investigation") 过滤字段,生成适合 LLM 消费的精简 JSON.

@@ -10,18 +10,18 @@
 
 ## 使用样例
 
-<!-- 截图 + 说明 -->
+![img.png](img.png)
 
 ## 输入
 
-| 参数 | 说明 |
-|------|------|
+| 参数        | 说明                                                    |
+|-----------|-------------------------------------------------------|
 | target_id | 挂载目标,如 `case_000001`、`alert_000001`、`artifact_000001` |
-| name | Enrichment 名称 |
-| type | 类型(Threat Intelligence, Geo Location, CMDB 等) |
-| value | 值 |
-| desc | 摘要 |
-| data | 详细 JSON 数据 |
+| name      | Enrichment 名称                                         |
+| type      | 类型(Threat Intelligence, Geo Location, CMDB 等)         |
+| value     | 值                                                     |
+| desc      | 摘要                                                    |
+| data      | 详细 JSON 数据                                            |
 
 ## 输出
 

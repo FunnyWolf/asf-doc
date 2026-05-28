@@ -36,7 +36,9 @@ fields:
 
 可与 [Mock 插件](../Mock/index.md) 的 SIEM 模拟数据配合使用.生产环境应删除这三个测试配置,以免干扰 LLM 查询.
 
-新增索引可参考上述样例编写.
+### 新增索引
+
+新增索引可参考上述测试样例编写. 推荐使用 Claude Code Skill [SIEM Index YAML](../ClaudeCode/skills/siem-index-yaml) 辅助编写.
 
 ## 使用方法
 

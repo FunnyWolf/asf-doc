@@ -10,14 +10,14 @@
 
 ## 使用样例
 
-<!-- 截图 + 说明 -->
+![img.png](img.png)
 
 ## 输入
 
-| 参数 | 说明 |
-|------|------|
-| alert_id | 告警 ID,如 `alert_000001` |
-| 过滤条件 | status, severity, confidence, correlation_uid |
+| 参数       | 说明                                            |
+|----------|-----------------------------------------------|
+| alert_id | 告警 ID,如 `alert_000001`                        |
+| 过滤条件     | status, severity, confidence, correlation_uid |
 
 ## 输出
 

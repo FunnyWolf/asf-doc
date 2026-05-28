@@ -9,14 +9,14 @@
 
 ## 使用样例
 
-<!-- 截图 + 说明 -->
+![img.png](img.png)
 
 ## 输入
 
-| 参数 | 说明 |
-|------|------|
-| keyword | 搜索关键词,匹配 title 和 body |
-| 更新字段 | title, body, expires_at, tags |
+| 参数      | 说明                            |
+|---------|-------------------------------|
+| keyword | 搜索关键词,匹配 title 和 body         |
+| 更新字段    | title, body, expires_at, tags |
 
 ## 输出
 

@@ -11,15 +11,17 @@ Case 管理:查看、筛选、更新工作流/AI 分析字段,查看讨论记录
 
 ## 使用样例
 
-<!-- 截图 + 说明 -->
+![img.png](img.png)
+
+![img_1.png](img_1.png)
 
 ## 输入
 
-| 参数 | 说明 |
-|------|------|
-| case_id | Case ID,如 `case_000001` |
-| 过滤条件 | status, severity, confidence, verdict, correlation_uid, title, tags |
-| 更新字段 | severity, status, verdict, severity_ai, confidence_ai, verdict_ai, comment, summary |
+| 参数      | 说明                                                                                  |
+|---------|-------------------------------------------------------------------------------------|
+| case_id | Case ID,如 `case_000001`                                                             |
+| 过滤条件    | status, severity, confidence, verdict, correlation_uid, title, tags                 |
+| 更新字段    | severity, status, verdict, severity_ai, confidence_ai, verdict_ai, comment, summary |
 
 ## 输出
 

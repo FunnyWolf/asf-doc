@@ -6,52 +6,36 @@
 
 ## View
 
-支持多种筛选和排序功能.
-
 ![img.png](img.png)
 
-![img_8.png](img_8.png)
+> 支持多种筛选和排序功能.
 
 ## Detail
 
 ![img_1.png](img_1.png)
 
-![img_7.png](img_7.png)
-
-![img_9.png](img_9.png)
-
 > Alert 操作面板
 
-## Artifact
-
-告警相关的 Artifact 列表.
-
-![img_3.png](img_3.png)
-
-## AI
-
-基于告警内容生成的 AI 分析结果.
+## Artifacts
 
 ![img_2.png](img_2.png)
 
-## Case
+> 相关的 Artifact 记录
 
-与告警相关联的 Case.
+## Enrichments
 
-![img_4.png](img_4.png)
+![img_3.png](img_3.png)
+
+> 关联的 Enrichment 记录
 
 ## Raw Log
 
-告警的原始日志内容.JSON 格式.
+![img_4.png](img_4.png)
+
+> 告警的原始日志内容.JSON 格式.
+
+## Unmapped Data
 
 ![img_5.png](img_5.png)
 
-## Playbook
-
-告警相关的 Playbook 执行历史.
-
-![img_6.png](img_6.png)
-
-## System
-
-告警的系统字段.
+> 原始告警中未进行映射的数据,默认 AI 不会分析该数据

@@ -14,10 +14,10 @@
 
 ## 输入
 
-| 参数 | 说明 |
-|------|------|
-| index_name | SIEM 索引名称 |
-| backend | `ELK` 或 `Splunk` |
+| 参数         | 说明               |
+|------------|------------------|
+| index_name | SIEM 索引名称        |
+| backend    | `ELK` 或 `Splunk` |
 
 ## 输出
 
@@ -32,7 +32,7 @@ fields:
     type: <类型>
     description: <描述>
     is_key_field: true/false
-    sample_values: [...]
+    sample_values: [ ... ]
 ```
 
 ## 依赖

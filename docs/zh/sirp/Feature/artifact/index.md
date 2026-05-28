@@ -7,42 +7,23 @@
 
 ## View
 
-支持多种筛选和排序功能.
-
 ![img.png](img.png)
-
-![img_1.png](img_1.png)
+> 支持多种筛选和排序功能.
 
 ## Detail
 
+![img_1.png](img_1.png)
+
+> 操作面板
+
+## Enrichments
+
 ![img_2.png](img_2.png)
 
-- Type
+> 关联的 Enrichment 记录
 
-Artifact 类型,如 ip,domain,hash,url,mail_from等.
-
-- Value
-
-Artifact 的具体值,如具体的IP地址,域名等.
-
-- Artifact ID
-
-自动生成的唯一 Artifact 编号.只用于可读性显示,不作为唯一标识.
-
-- Is Whitelisted
-
-是否在白名单中.
-
-- Is Evidence
-
-是否作为调查的证据使用.
-
-- Enrichment
-
-存储展示 JSON 格式的富化信息.
-
-## Playbook
-
-与 Artifact 相关联的 Playbook 列表.
+## Alerts
 
 ![img_3.png](img_3.png)
+
+> 关联的 Alert 记录
