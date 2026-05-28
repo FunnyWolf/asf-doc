@@ -101,6 +101,17 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
+            text: '后台服务',
+            collapsed: false,
+            base: '/zh/asp/Background/',
+            items: [
+                {text: '总览', link: 'index/'},
+                {text: '模块运行框架', link: 'module-engine/'},
+                {text: 'Playbook 执行', link: 'playbook-execution/'},
+                {text: '自动化分析', link: 'auto-analysis/'},
+            ]
+        },
+        {
             text: '模块',
             collapsed: false,
             base: '/zh/asp/MODULES/',
