@@ -12,6 +12,7 @@
 
 ![img_3.png](img_3.png)
 
-- 修改 TypeDict (推荐)
+- 修改 XXXModel
 
-![img_4.png](img_4.png)
+  https://github.com/FunnyWolf/agentic-soc-platform/blob/master/PLUGINS/SIRP/sirpcoremodel.py
+  https://github.com/FunnyWolf/agentic-soc-platform/blob/master/PLUGINS/SIRP/sirpextramodel.py
