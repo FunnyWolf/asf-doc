@@ -33,4 +33,4 @@
 ## 知识来源
 
 - **手动创建**: 用户直接在平台中编写知识条目
-- **Case 提取**: 对已结案 Case 执行 Knowledge Extraction 剧本,通过 LLM 从 Case 调查记录和讨论中提取可复用知识
+- **Case 提取**: 对已结案 Case 执行 [Knowledge Extraction 剧本](../../../asp/PLAYBOOKS/Knowledge_Extraction/index.md),通过 LLM 从 Case 调查记录和讨论中提取可复用知识
