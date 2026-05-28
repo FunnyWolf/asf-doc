@@ -62,6 +62,7 @@ class Module(BaseModule):
         # alert_model = AlertModel(...)
         # saved_alert_row_id = Alert.create(alert_model)
         # Case.create(CaseModel(..., alerts=[saved_alert_row_id]))
+        # Case.mark_analysis_requested(row_id=case_row_id, cooldown_minutes=3)
 ```
 
 ### 模块处理步骤
@@ -70,7 +71,7 @@ class Module(BaseModule):
 2. **Artifact 提取** — 提取 IOC(用户、主机、IP、哈希等),标注类型和角色
 3. **关联聚合** — 通过 `Correlation.generate_correlation_uid()` 按规则和时间窗口聚合,相同 `correlation_uid` 的告警关联到同一个 Case
 4. **构建 Alert** — 填充 MITRE ATT&CK 映射、严重程度、产品信息等
-5. **Case 处理** — 按 `correlation_uid` 查找已有 Case,存在则追加 Alert,否则新建 Case
+5. **Case 处理** — 按 `correlation_uid` 查找已有 Case,存在则追加 Alert,否则新建 Case;完成后调用 `Case.mark_analysis_requested()` 触发自动化分析
 
 ### Claude Code Skill
 

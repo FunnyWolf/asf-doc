@@ -119,8 +119,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: '开发指南', link: 'development/'},
                 {text: '案件调查', link: 'Investigation/'},
                 {text: '知识提取', link: 'Knowledge_Extraction/'},
-                {text: '威胁情报查询(AlienVaultOTX)', link: 'Threat_Intelligence_Enrichment/'},
-                {text: '威胁情报查询(Mock)', link: 'TI_Enrichment_By_Mock/'},
+                {text: '威胁情报富化', link: 'Threat_Intelligence_Enrichment/'},
             ]
         },
         {
