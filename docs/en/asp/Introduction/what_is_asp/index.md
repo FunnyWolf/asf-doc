@@ -27,6 +27,10 @@ Modules, plugins, and Playbooks are all Python scripts. Simply follow the conven
 **On-Premises Deployment**
 Fully deployed locally, data stays within the internal network. Licensed under the MIT open-source license.
 
+## Architecture
+
+![arch.jpg](arch.jpg)
+
 ## Getting Started
 
 - [Environment Setup](../../Development/environment_setup/) -- Quickly deploy ASP
