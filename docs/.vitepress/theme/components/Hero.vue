@@ -59,7 +59,7 @@ defineProps({
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   color: rgba(255, 255, 255, 0.5);
   margin: 1.5rem 0 2.5rem;
-  max-width: 640px;
+  max-width: 920px;
   line-height: 1.6;
 }
 

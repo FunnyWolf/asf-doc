@@ -1,21 +1,23 @@
 # Redis Plugin
 
+Redis Stack provides the message queue (Stream) capability for the platform.
+
 ## Deployment
 
-Redis Stack provides high-speed message queue and caching capabilities for the platform.
+```bash
+cd agentic-soc-platform/Docker/RedisStack
+docker compose up -d
+```
 
-- **Start Redis Stack Service:**
-   ```bash
-   cd agentic-soc-platform/Docker/RedisStack
-   docker compose up -d
-   ```
+Verify via Redis Insight: `http://192.168.241.128:8001`, default credentials `default` / `redis-stack-password-for-agentic-soc-platform`.
 
-- **Verify Installation:**
-  Access the Redis Insight administration interface through a browser to check if the service is running normally.
-    - **URL:** `http://192.168.241.128:8001`
-    - **Default Credentials:** Username `default` / Password `redis-stack-password-for-agentic-soc-platform`
+## Configuration
 
-## Configuration Method
+1. Rename `PLUGINS/Redis/CONFIG.example.py` to `CONFIG.py`
+2. Modify the configuration items:
 
-- Rename PLUGINS/Redis/CONFIG.example.py to CONFIG.py
-- Fill in the configuration items according to the code comments
+| Configuration Item       | Default Value | Description                                                  |
+|--------------------------|---------------|--------------------------------------------------------------|
+| `REDIS_URL`              | `redis://:password@address:6379/` | Redis connection address                     |
+| `REDIS_STREAM_MAX_LENGTH`| `10000`       | Maximum Stream length; oldest messages are auto-deleted when exceeded |
+| `REDIS_MAX_CONNECTIONS`  | `10`          | Connection pool size; recommended to be 2x the number of modules |

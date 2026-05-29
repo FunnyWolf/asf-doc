@@ -1,6 +1,6 @@
 # Enrichment
 
-Centralized management of all Enrichment records mounted on Case / Alert / Artifact, supporting viewing details and deletion operations.
+Centrally manages all Enrichment records attached to Cases, Alerts, and Artifacts. Supports viewing details and deletion.
 
 ![img.png](img.png)
 

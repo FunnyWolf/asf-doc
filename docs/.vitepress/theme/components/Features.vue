@@ -24,7 +24,7 @@ defineProps({
 
 <style scoped>
 .features-section {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 5rem 2rem 6rem;
 }
@@ -62,7 +62,7 @@ defineProps({
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.7;
   margin: 0 0 2rem;
-  max-width: 640px;
+  max-width: 100%;
 }
 
 .card-image {

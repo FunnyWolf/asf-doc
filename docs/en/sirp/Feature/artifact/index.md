@@ -1,48 +1,29 @@
 # Artifact
 
-- An Artifact refers to specific data items or evidence related to a security incident, used to support investigation and response efforts.
-- Artifacts can include various types of data, such as IP addresses, domain names, file hashes, URLs, email addresses, etc.
-- Artifacts are mounted on Alerts to help analyze and investigate security incidents.
-- Operations such as querying, responding, and enriching are typically performed based on Artifacts, for example, querying the owner information of a hostname, querying threat intelligence for a file hash, or blocking an IP address.
+- An Artifact refers to a specific data item or piece of evidence related to a security incident, used to support investigation and response efforts.
+- Artifacts can include various types of data, such as IP addresses, domains, file hashes, URLs, email addresses, etc.
+- Artifacts are attached to Alerts to help analyze and investigate security incidents.
+- Query/response/enrichment operations are typically performed on Artifacts, such as querying the owner of a hostname, looking up threat intelligence for a file hash, blocking an IP address, etc.
 
 ## View
 
-Supports various filtering and sorting functions.
-
 ![img.png](img.png)
-
-![img_1.png](img_1.png)
+> Supports multiple filtering and sorting functions.
 
 ## Detail
 
+![img_1.png](img_1.png)
+
+> Operation panel
+
+## Enrichments
+
 ![img_2.png](img_2.png)
 
-- Type
+> Associated Enrichment records
 
-Artifact type, such as ip, domain, hash, url, mail_from, etc.
-
-- Value
-
-The specific value of the Artifact, such as a specific IP address, domain name, etc.
-
-- Artifact ID
-
-Automatically generated unique Artifact number. Used only for readability display, not as a unique identifier.
-
-- Is Whitelisted
-
-Whether it is in the whitelist.
-
-- Is Evidence
-
-Whether it is used as evidence for investigation.
-
-- Enrichment
-
-Stores and displays enrichment information in JSON format.
-
-## Playbook
-
-List of Playbooks associated with the Artifact.
+## Alerts
 
 ![img_3.png](img_3.png)
+
+> Associated Alert records

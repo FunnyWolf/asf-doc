@@ -1,23 +1,77 @@
-# Development Guide
+# Module Development Guide
 
-ASF modules are used for **automated** stream processing of alert data. Each module corresponds to a message queue in Redis Stream, and each time a module runs, it processes one alert from the queue.
+Modules are used for **automated** streaming processing of alert data, converting raw SIEM alerts into user-readable [Case](../../../sirp/Feature/case/index.md) / [Alert](../../../sirp/Feature/alert/index.md) / [Artifact](../../../sirp/Feature/artifact/index.md) in SIRP.
 
-All module code is located in the `MODULES` directory.
+## Data Flow
 
-## Alert Import
+```
+NDR/EDR/XDR → SIEM → Rule → Webhook → Forwarder → Redis Stream → Module → SIRP
+```
 
-NDR/EDR/XDR/.. ==> SIEM ==> Alert Rule ==> Webhook ==> ASP Webhook Receiver ==> Redis Stream
+- **No coding required for production** — configure Webhook Action or Index Action in SIEM to import alerts into Redis Stream
+- Each module processes a single Redis Stream message queue
+- The module name is the Stream name
 
-In a **production environment**, no coding is required. Alert data can be imported into the Redis Stream message queue by configuring a Webhook in the SIEM platform. For configuration method, see [SIEM Integration](../../production/siem/).
+### Data Noise Reduction
 
-In a **development environment**, test alerts can be imported into Redis Stream via a script. For the method, refer to [Import Test Alerts](../ES-Rule-21-Phishing-User-Report-Mail/#import-test-alerts).
+| Stage                      | Data Volume (Example) |
+|----------------------------|----------------------|
+| Raw logs                   | 10 million/day       |
+| SIEM Rule triggered alerts | 1,000/day            |
+| **Cases** after module processing | **10/day**    |
 
-## Alert Stream Analysis
+No critical information is lost during processing. AI Agents and analysts only need to handle the aggregated Cases.
 
-Redis Stream ==> Module ==> SIRP
+## Module Structure
 
-Users can develop custom modules to stream-process each alert in the queue. Each module corresponds to processing one message queue in Redis Stream. After the alert is processed by the AI Agent module built by the user with LangGraph, the processing result is sent to SIRP.
+Each module is a Python file under the `MODULES/` directory, where the filename is the module name:
 
-## Import Test Alerts / Single Module & Single Alert Debugging / Alert Aggregation (SIRP)
+```
+MODULES/
+├── EDR-01-HOST-Vssadmin-Delete-Shadows.py
+├── Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy.py
+└── Mail-01-User-Report-Phishing-Mail.py
+```
 
-Refer to [ES-Rule-21-Phishing_user_report_mail](../ES-Rule-21-Phishing-User-Report-Mail/).
+### Basic Framework
+
+```python
+from Lib.basemodule import BaseModule
+from PLUGINS.SIRP.sirpapi import Alert, Case
+from PLUGINS.SIRP.sirpcoremodel import AlertModel, CaseModel, ArtifactModel
+
+class Module(BaseModule):
+    def __init__(self):
+        super().__init__()
+
+    def run(self):
+        # 1. Read raw alert from Redis Stream
+        raw_alert = self.read_stream_message()
+
+        # 2. Field extraction and data mapping
+        # ...
+
+        # 3. Build Artifact list (IOC)
+        # artifacts = [ArtifactModel(...)]
+
+        # 4. Correlation and aggregation
+        # correlation_uid = Correlation.generate_correlation_uid(...)
+
+        # 5. Create Alert and Case
+        # alert_model = AlertModel(...)
+        # saved_alert_row_id = Alert.create(alert_model)
+        # Case.create(CaseModel(..., alerts=[saved_alert_row_id]))
+        # Case.mark_analysis_requested(row_id=case_row_id, cooldown_minutes=3)
+```
+
+### Module Processing Steps
+
+1. **Field Extraction** — Extract key fields from raw JSON, supporting both flat and nested formats
+2. **Artifact Extraction** — Extract IOCs (users, hosts, IPs, hashes, etc.), label types and roles
+3. **Correlation and Aggregation** — Aggregate by rules and time windows via `Correlation.generate_correlation_uid()`. Alerts with the same `correlation_uid` are linked to the same Case
+4. **Alert Construction** — Populate MITRE ATT&CK mapping, severity, product information, etc.
+5. **Case Processing** — Search for existing Cases by `correlation_uid`. If found, append the Alert; otherwise create a new Case. Upon completion, call `Case.mark_analysis_requested()` to trigger automated analysis
+
+### Claude Code Skill
+
+[Module Creator](../../PLUGINS/ClaudeCode/skills/module-creator/) Skill assists developers in quickly building Modules

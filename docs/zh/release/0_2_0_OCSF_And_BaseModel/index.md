@@ -4,7 +4,7 @@
 
 - [Case](../../sirp/Feature/case/) 基于 [OCSF Incident Finding](https://schema.ocsf.io/1.7.0/classes/incident_finding) 标准进行重构, 提供统一的事件调查和响应数据结构.
 - [Alert](../../sirp/Feature/alert/) 基于 [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) 标准进行重构, 提供统一的告警数据结构.
-- 新增 [Enrichment](../../sirp/Feature/enrichment/) 和 [Ticket](../../sirp/Feature/ticket/) 模块, 分别用于存储丰富化数据和外部工单数据.
+- 新增 [Enrichment](../../sirp/Feature/enrichment/) 模块,用于存储丰富化数据.(Ticket 模块已废弃)
 
 ## 优化
 

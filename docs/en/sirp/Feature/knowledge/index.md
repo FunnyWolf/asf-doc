@@ -1,6 +1,6 @@
 # Knowledge
 
-Stores and manages the SOC team's knowledge base, supports Markdown format, and can be called by agents.
+Store and manage the SOC team's knowledge base. Supports keyword search and can be invoked by AI Agents.
 
 ## View
 
@@ -12,20 +12,25 @@ Stores and manages the SOC team's knowledge base, supports Markdown format, and 
 
 - Title
 
-Knowledge item title.
+The knowledge entry title.
 
 - Body
 
-Knowledge item content.
+The knowledge entry content, supports Markdown.
 
-- Using
+- Tags
 
-Whether the knowledge item is in use (whether it can be called by the Agent).
+Knowledge tags, used for filtering and categorization.
 
-- Action
+- Source
 
-Knowledge base actions.
+Knowledge source. `Manual` means manually created. `Case` means automatically extracted from resolved Cases (via the Knowledge Extraction playbook).
 
-When a knowledge item is set to `Store`, the backend will automatically store it in the "sirp_knowledge" collection. After completion, the item is marked as `Using`, and the Action is reset to `Done`.
+- Expires At
 
-When a knowledge item is set to `Remove`, the backend will automatically delete it from the "sirp_knowledge" collection. After completion, the item is marked as not in use, and the Action is reset to `Done`.
+Knowledge expiration date. Leave empty for permanently valid entries. Expired entries will no longer appear in searches.
+
+## Knowledge Sources
+
+- **Manual Creation**: Users directly write knowledge entries in the platform
+- **Case Extraction**: Execute the [Knowledge Extraction playbook](../../../asp/PLAYBOOKS/Knowledge_Extraction/index.md) on resolved Cases to extract reusable knowledge from Case investigation records and discussions using LLM

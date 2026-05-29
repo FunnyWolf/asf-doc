@@ -1,10 +1,10 @@
 export const heroConfig = {
     name: 'Agentic SOC Platform',
-    tagline: 'AI Agent-driven automation, empowering your SOC to stay one step ahead of threats.',
-    image: "/hero/en/img_20.png",
+    tagline: 'Agentic AI that eliminates alert fatigue — so your team can focus on real threats.',
+    image: `/hero/en/img.png?v=${Date.now()}`,
     actions: [
-        {text: 'Development Docs', link: '/asp/Development/environment_setup', theme: 'brand'},
-        {text: 'Features Overview', link: '/asp/Introduction/what_is_asp/', theme: 'alt'},
+        {text: 'Quick Start', link: '/asp/Development/environment_setup', theme: 'brand'},
+        {text: 'Learn More', link: '/asp/Introduction/what_is_asp/', theme: 'alt'},
         {text: 'SIRP Platform', link: '/sirp/Introduction/what_is_sirp/', theme: 'alt'},
     ]
 }

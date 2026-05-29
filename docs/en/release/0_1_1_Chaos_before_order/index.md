@@ -4,12 +4,12 @@
 
 ## New Feature Highlights
 
-- [Message](../../sirp/Feature/message/) stores all message records during Agent runtime, including system messages, human messages, AI messages, and tool messages, facilitating auditing and debugging.
-- [Agents](../../asp/AGENTS/development/) provides a basic agent framework, supporting four out-of-the-box agents: `CMDB`, `SIEM`, `ThreatIntelligence`, and `Knowledge`.
-- [Qdrant](../../asp/PLUGINS/Qdrant/) is a Qdrant vector database plugin, supporting vector data storage and retrieval.
-- [Embeddings](../../asp/PLUGINS/Embeddings/) is an Embeddings plugin, supporting OpenAI and Ollama's Embedding models, and two vector databases: Chroma and Qdrant.
+- ~~Message module~~ (deprecated, functionality integrated into other modules)
+- ~~Agents basic framework~~ (deprecated, replaced by [ClaudeCode plugin](../../asp/PLUGINS/ClaudeCode/) agent system)
+- ~~Qdrant vector database plugin~~ (deprecated)
+- ~~Embeddings plugin~~ (deprecated)
 - [Knowledge](../../sirp/Feature/knowledge/) base, supporting knowledge base management and agent's knowledge base calls.
-- [Case_L3_SOC_Analyst_Agent_With_Tools](../../asp/PLAYBOOKS/Case_L3_SOC_Analyst_Agent_With_Tools/) is the `SOC L3 Analyst Agent (Tool Calling)` playbook, which calls the `Knowledge Base` for L3 analysis.
+- ~~Case_L3_SOC_Analyst_Agent_With_Tools playbook~~ (deprecated, replaced by [Playbook](../../asp/PLAYBOOKS/development/) system)
 - Updated SIRP to Nocoly 7.0.0.
 
 ## Optimizations

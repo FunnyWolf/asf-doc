@@ -1,37 +1,39 @@
-# Welcome to ASP
+# Agentic SOC Platform
 
-**Agentic SOC Platform** is a powerful and flexible **open-source** automated security operations platform.
-It integrates AI Agent capabilities with automation orchestration, supports mainstream SIEM/SOAR scenarios, and helps enterprises efficiently build intelligent security operations
-systems.
+ASP is an open-source security operations platform that provides security teams with a complete workflow from alert ingestion, automatic aggregation, and AI analysis to response and remediation.
 
-## Why Choose ASP?
+Unlike traditional SIEM/SOAR, the AI Agents in ASP are not just auxiliary tools -- they actively participate in alert triage, case investigation, and knowledge accumulation. The analyst's role shifts from "processing alerts one by one" to "reviewing AI reports and making decisions."
 
-- 📊 **Simple and Efficient Operational Interface**
-  Built-in SIRP allows for rapid custom development of a security operations platform (UI/data models/reports/workflows) without complex configuration.
+## Core Capabilities
 
-- 💻 **Comprehensive Multi-Platform Support**
-  Supports on-premise deployment, is compatible with major operating systems, and meets enterprise intranet and compliance requirements.
+**Automated Alert Processing**
+The Module framework continuously consumes SIEM alerts, automatically extracts IOCs, correlates and aggregates them, and transforms raw logs into a structured three-tier system of Case / Alert / Artifact.
 
-- 🧠 **AI-Driven Intelligent Assistance**
-  Built-in AI Agent templates like LangGraph, supports local LLMs, enhancing alert analysis and automated response capabilities.
+**AI Investigation Analysis**
+Built-in LLM analysis pipeline automatically generates structured investigation reports containing verdicts, attack chains, timelines, IOCs, and remediation recommendations, written back to the Case for analyst review.
 
-- 🛠️ **Rich Module Library and Extensibility**
-  Provides various automated module templates and supports secondary development in Python for flexible integration with various security devices and APIs.
+**Automated Playbooks**
+Playbooks support one-click triggering: in-depth case investigation, extracting knowledge from processed cases, and attaching threat intelligence enrichment to Artifacts. Custom extensions based on Python.
 
-- 🛡️ **Threat Hunting Agent & Incident Response Agent**
-  Built-in powerful and flexible threat hunting agents and incident response agents, covering all scenarios.
+**Code Agent Integration**
+Deep integration with Claude Code through the MCP protocol, providing professional security Agents and Skills. Analysts can directly operate Cases, search SIEM logs, query threat intelligence, and write Modules and Playbooks within the AI Agent.
 
-- ⚙️ **Powerful Automation Orchestration**
-  Implements an efficient alert pipeline based on Webhook + Redis Stream, supporting mainstream SIEM platforms.
+**Continuous Knowledge Accumulation**
+Automatically extracts reusable security knowledge from closed cases, continuously building an organization-level knowledge base to improve the efficiency and accuracy of subsequent case analysis.
 
-- 🛡️ **Professional-Grade Security Data Control**
-  All data and models can be deployed locally, ensuring enterprise data security and privacy.
+**Flexible Customization**
+Modules, plugins, and Playbooks are all Python scripts. Simply follow the conventions to integrate new SIEM rules, threat intelligence sources, or automation workflows. The built-in SIRP frontend supports UI, data model, and workflow customization.
 
-## Get Started
+**On-Premises Deployment**
+Fully deployed locally, data stays within the internal network. Licensed under the MIT open-source license.
 
-+ 📚 [Development Docs](../../Development/environment_setup/) - Quickly get started with ASP development.
-+ 🎓 [SIRP Platform](../../../sirp/Introduction/what_is_sirp/) - Learn about the built-in SIRP features.
+## Getting Started
+
+- [Environment Setup](../../Development/environment_setup/) -- Quickly deploy ASP
+- [Module Development](../../MODULES/development/) -- Write alert processing modules
+- [Playbook Development](../../PLAYBOOKS/development/) -- Write automated Playbooks
+- [SIRP Platform](../../../sirp/Introduction/what_is_sirp/) -- Learn about the built-in frontend application
 
 ## License
 
-This project is licensed under the [MIT](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/LICENSE) License.
+[MIT](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/LICENSE) open-source license.

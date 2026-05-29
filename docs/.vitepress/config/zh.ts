@@ -14,7 +14,7 @@ export const zh = defineConfig({
 
         footer: {
             // message: '<a href="./policies/terms_of_service">Terms</a> · <a href="./policies/privacy_policy">Privacy</a>',
-            copyright: `版权所有 © 2020-${new Date().getFullYear()} Funnywolf`
+            copyright: `版权所有 © 2024-${new Date().getFullYear()} Funnywolf`
         },
 
         docFooter: {

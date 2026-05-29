@@ -6,11 +6,11 @@
 
 ## Webhook for Receiving Emails
 
-Functions such as `Reset Password` and `Invite External Users` in SIRP rely on email sending. Users can configure a Webhook to receive these emails.
+SIRP features such as `Reset Password` and `Invite External User` depend on email sending. Users can configure a Webhook to receive these emails.
 
-For configuration method, refer to [Custom Integration Webhook for Receiving Emails](https://docs-pd.nocoly.com/faq/email#self-integration).
+For configuration instructions, refer to [Custom Integration Webhook for Receiving Emails](https://docs-pd.nocoly.com/faq/email#self-integration)
 
-Content of the `appextensions.json` file. Replace 192.168.241.1:7000 with the ASP deployment server IP and port.
+`appextensions.json` file contents
 
 ```json
 {
@@ -18,5 +18,3 @@ Content of the `appextensions.json` file. Replace 192.168.241.1:7000 with the AS
   "WebhookHeaders": {}
 }
 ```
-
-ASP logs will print the email content.

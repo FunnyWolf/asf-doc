@@ -1,132 +1,72 @@
 # Environment Setup
 
-This guide will walk you through the complete development environment deployment of the Agentic SOC Platform (ASP).
-The entire process is divided into two parts: server-side and development machine.
+This guide explains how to complete a full deployment of ASP on a Linux server, and how to remotely connect to existing services from a development machine for development and debugging.
 
-:::tip Network Environment Assumptions
-For clarity, this document makes the following IP address assumptions. Please replace them with the actual IP addresses of your environment during operation:
+## Resource Requirements
 
-- **Linux Server IP:** `192.168.241.128`
-- **Windows Development Host IP:** `192.168.241.1`
-  :::
+- **Linux Server**: 2 CPU cores / 4G RAM / 10G disk, this guide uses Ubuntu 24.04 as an example
+- **SIEM Platform**: Deployed ELK or Splunk (community edition supported)
+- **LLM API**: An interface compatible with the OpenAI API standard
 
-## Operating System and Resource Preparation
-
-Before starting, please ensure that you have the following resources ready.
-
-### Operating System and Performance Requirements
-
-- **Linux Server:**
-    - **Configuration:** 2 core CPU / 4G RAM / 10G+ storage
-    - **System:** This document uses `Ubuntu 24.04` as an example
-- **Development Host:**
-    - **System:** Windows or macOS
-
-### Software and Services
-
-- **LLM API:**
-    - Requires an LLM interface compatible with OpenAI API standards, or a locally running Ollama API.
-- **Embedding API:**
-    - Requires an Embedding interface compatible with OpenAI API standards, or a locally running Ollama API.
-
-## Linux Server Configuration
-
-The Linux server is primarily used to deploy the core backend services and components required by the platform.
+## Linux Server Deployment
 
 ### Install Docker
 
-The backend components required by ASP are deployed in containers via Docker.
-
 ```bash
-# Set up Tsinghua mirror source for Docker CE and install
 export DOWNLOAD_URL="https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
 curl -fsSL https://viperrtp.com/docker.sh | bash -s docker
 ```
 
-### Clone Code
-
-- **Clone project code** (or download from GitHub and upload to the server):
-   ```bash
-   git clone git@github.com:FunnyWolf/agentic-soc-platform.git
-   ```
-
-### Deploy Redis Stack
-
-Redis Stack provides high-speed message queue and caching capabilities for the platform.
-
-- **[Redis Plugin - Deployment](../../PLUGINS/Redis/)**
-
-### Deploy Qdrant
-
-Qdrant serves as the platform's vector database.
-
-- **[Qdrant Plugin - Deployment](../../PLUGINS/Qdrant/)**
-
-
-### Deploy SIRP
-
-SIRP is the frontend application of the platform.
-
-- **[SIRP Installation Guide](../../../sirp/Deploy/sirp_install/)**
-
-## Windows/macOS Development Host Configuration
-
-The development host is used to run and debug ASP's core application code.
-
-### Clone Code
+### Clone the Repository
 
 ```bash
 git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 ```
 
-### Set up Python Environment and Dependencies
+### Deploy Redis Stack
 
-We recommend using `uv` to manage Python virtual environments and project dependencies, as it provides an extremely fast package management experience.
+- **[Redis Plugin - Deployment](../../PLUGINS/Redis/)**
 
-- **Install uv:**
-   ```bash
-   pip install uv
-   ```
+### Deploy SIRP
 
-- **Create virtual environment and install dependencies:**
-   ```bash
-   cd agentic-soc-platform
-   uv venv  # Create .venv virtual environment
-   uv sync # Install all dependencies according to pyproject.toml
-   ```
+- **[SIRP Installation Guide](../../../sirp/Deploy/sirp_install/)**
 
-### Core Plugin Configuration
+### Python Environment and Dependencies
 
-Before starting the project for the first time, critical configurations need to be completed. Please configure them in order.
-
-- **Redis Plugin:** Configure Redis connection information.
-    - **[Redis Plugin - Configuration Method](../../PLUGINS/Redis/)**
-
-- **Qdrant Plugin:** Configure Qdrant connection information.
-    - **[Qdrant - Configuration Method](../../PLUGINS/Qdrant/)**
-
-- **Huggingface Plugin:** Download Huggingface models.
-    - **[Huggingface Plugin - Configuration Method](../../PLUGINS/Embeddings/)**
-
-- **Embeddings Plugin:** Configure credentials and addresses for connecting to the Embeddings API.
-    - **[Embeddings Plugin - Configuration Method](../../PLUGINS/Embeddings/)**
-
-- **LLM Plugin:** Configure credentials and addresses for connecting to the LLM API.
-    - **[LLM Plugin - Configuration Method](../../PLUGINS/LLM/)**
-
-- **SIRP Plugin:** Configure application and SIRP connection information.
-    - **[SIRP Plugin - Configuration Method](../../PLUGINS/SIRP/)**
-
-- **AlienVaultOTX Plugin:** Configure AlienVaultOTX related credentials. (Optional) 
-    - **[AlienVaultOTX Plugin - Configuration Method](../../PLUGINS/AlienVaultOTX/)**
-
-### Startup and Verification
-
-After completing all configurations, you can start the ASP main service.
+It is recommended to use `uv` for virtual environment management:
 
 ```bash
-# Ensure you are in uv or another virtual environment
-python manage.py runserver 127.0.0.1:7000
+pip install uv
+cd agentic-soc-platform
+uv venv
+uv sync
 ```
 
-After the service starts, you can check the logs to verify if the ASP backend service is running correctly.
+### Plugin Configuration
+
+Complete the configuration in the following order:
+
+- **Redis**: Connection information -- [Configuration Guide](../../PLUGINS/Redis/)
+- **LLM**: API credentials and endpoint -- [Configuration Guide](../../PLUGINS/LLM/)
+- **SIRP**: Connection information -- [Configuration Guide](../../PLUGINS/SIRP/)
+- **AlienVaultOTX**: Credentials -- [Configuration Guide](../../PLUGINS/AlienVaultOTX/)
+
+### Startup Verification
+
+```bash
+python manage.py runserver
+```
+
+After the service starts, check the logs to confirm that the background services are running correctly.
+
+## Development Machine Setup (Optional)
+
+The development machine is used for daily coding and debugging. It does not need to deploy Redis/SIRP and other services -- simply connect to the existing services on the Linux server.
+
+1. Clone the repository and set up the Python environment (same as above)
+2. Modify plugin configuration to point Redis/SIRP and other connection addresses to the Linux server IP
+3. Start the service for debugging
+
+```bash
+python manage.py runserver
+```

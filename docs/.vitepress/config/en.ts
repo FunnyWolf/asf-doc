@@ -9,13 +9,13 @@ export const en = defineConfig({
         nav: nav(),
 
         sidebar: {
-            '/asf/': {base: '/asf/', items: sidebarASF()},
+            '/asp/': {base: '/asp/', items: sidebarASP()},
             '/sirp/': {base: '/sirp/', items: sidebarSIRP()},
         },
 
         footer: {
             // message: '<a href="./policies/terms_of_service">Terms</a> · <a href="./policies/privacy_policy">Privacy</a>',
-            copyright: `Copyright © 2020-${new Date().getFullYear()} Funnywolf`
+            copyright: `Copyright © 2024-${new Date().getFullYear()} Funnywolf`
         },
 
         docFooter: {
@@ -30,6 +30,7 @@ export const en = defineConfig({
         lastUpdated: {
             text: 'Last updated on',
             formatOptions: {
+                // @ts-ignore
                 dateStyle: 'short',
                 // timeStyle: 'short'
             }
@@ -48,9 +49,9 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'FRAMEWORK',
+            text: 'Framework',
             link: '/asp/Introduction/what_is_asp/',
-            activeMatch: '/asf/'
+            activeMatch: '/asp/'
         },
         {
             text: 'SIRP',
@@ -58,14 +59,14 @@ function nav(): DefaultTheme.NavItem[] {
             activeMatch: '/sirp/'
         },
         {
-            text: "CHANGELOG",
+            text: "Changelog",
             items: [
                 {
                     text: '0.3.0 - MCP and Claude Code Plugin',
                     link: '/release/0_3_0_MCP_And_ClaudeCodePlugin/'
                 },
                 {
-                    text: '0.2.0 - OCSF And BaseModel',
+                    text: '0.2.0 - OCSF and BaseModel',
                     link: '/release/0_2_0_OCSF_And_BaseModel/'
                 },
                 {
@@ -73,7 +74,7 @@ function nav(): DefaultTheme.NavItem[] {
                     link: '/release/0_1_1_Chaos_before_order/'
                 },
                 {
-                    text: '0.1.0 - Let`s Rock The Party !',
+                    text: '0.1.0 - Let`s Rock The Party!',
                     link: '/release/0_1_0_Let_us_rock_the_party/'
                 },
             ]
@@ -81,7 +82,7 @@ function nav(): DefaultTheme.NavItem[] {
     ]
 }
 
-function sidebarASF(): DefaultTheme.SidebarItem[] {
+function sidebarASP(): DefaultTheme.SidebarItem[] {
     return [
         {
             text: 'Introduction',
@@ -100,14 +101,25 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
+            text: 'Background Services',
+            collapsed: false,
+            base: '/asp/Background/',
+            items: [
+                {text: 'Overview', link: 'index/'},
+                {text: 'Module Engine', link: 'module-engine/'},
+                {text: 'Playbook Execution', link: 'playbook-execution/'},
+                {text: 'Auto Analysis', link: 'auto-analysis/'},
+            ]
+        },
+        {
             text: 'Modules',
             collapsed: false,
             base: '/asp/MODULES/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
-                {text: 'AWS IAM Privilege Escalation Alert', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
-                {text: 'User-reported Phishing Email', link: 'ES-Rule-21-Phishing-User-Report-Mail/'},
-                {text: 'Suspicious C2 Communication', link: 'NDR-Rule-05-Suspect-C2-Communication/'},
+                {text: 'AWS IAM Privilege Escalation', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
+                {text: 'Phishing Mail Detection', link: 'Mail-01-User-Report-Phishing-Mail/'},
+                {text: 'Shadow Copy Deletion', link: 'EDR-01-HOST-Vssadmin-Delete-Shadows/'},
             ]
         },
         {
@@ -116,30 +128,9 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             base: '/asp/PLAYBOOKS/',
             items: [
                 {text: 'Development Guide', link: 'development/'},
-                {
-                    text: 'Case',
-                    collapsed: false,
-                    items: [
-                        {text: 'Threat Hunting Agent', link: 'Case_Threat_Hunting_Agent/'},
-                        {text: 'SOC L3 Analyst Agent', link: 'Case_L3_SOC_Analyst_Agent/'},
-                        {text: 'SOC L3 Analyst Agent (Tool Calling)', link: 'Case_L3_SOC_Analyst_Agent_With_Tools/'},
-                    ]
-                },
-                {
-                    text: 'Alert',
-                    collapsed: false,
-                    items: [
-                        {text: 'Alert Analysis Agent', link: 'Alert_Analysis_Agent/'},
-                    ]
-                },
-                {
-                    text: 'Artifact',
-                    collapsed: false,
-                    items: [
-                        {text: 'ThreatIntelligence Enrichment By AlienVaultOTX', link: 'Artifact_TI_Enrichment_By_AlienVaultOTX/'},
-                        {text: 'ThreatIntelligence Enrichment By Mock', link: 'Artifact_TI_Enrichment_By_Mock/'},
-                    ]
-                },
+                {text: 'Investigation', link: 'Investigation/'},
+                {text: 'Knowledge Extraction', link: 'Knowledge_Extraction/'},
+                {text: 'Threat Intelligence Enrichment', link: 'Threat_Intelligence_Enrichment/'},
             ]
         },
         {
@@ -149,39 +140,54 @@ function sidebarASF(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: 'Development Guide', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
-                {text: 'Embeddings', link: 'Embeddings/'},
+                {text: 'CMDB', link: 'CMDB/'},
+                {
+                    text: 'ClaudeCode',
+                    collapsed: true,
+                    base: '/asp/PLUGINS/ClaudeCode/',
+                    items: [
+                        {text: 'Usage Guide', link: 'index/'},
+                        {
+                            text: 'Agents',
+                            collapsed: true,
+                            base: '/asp/PLUGINS/ClaudeCode/agents/',
+                            items: [
+                                {text: 'Case Investigator', link: 'case-investigator/'},
+                                {text: 'Artifact Investigator', link: 'artifact-investigator/'},
+                                {text: 'Threat Hunting', link: 'threat-hunting/'},
+                            ]
+                        },
+                        {
+                            text: 'Skills',
+                            collapsed: true,
+                            base: '/asp/PLUGINS/ClaudeCode/skills/',
+                            items: [
+                                {text: 'Alert', link: 'alert/'},
+                                {text: 'Artifact', link: 'artifact/'},
+                                {text: 'Case', link: 'case/'},
+                                {text: 'Enrichment', link: 'enrichment/'},
+                                {text: 'Knowledge', link: 'knowledge/'},
+                                {text: 'Module Creator', link: 'module-creator/'},
+                                {text: 'Playbook', link: 'playbook/'},
+                                {text: 'SIEM Index YAML', link: 'siem-index-yaml/'},
+                                {text: 'SIEM Search', link: 'siem-search/'},
+                                {text: 'Threat Intelligence', link: 'threat-intelligence/'},
+                            ]
+                        },
+                    ]
+                },
+                {text: 'ELK', link: 'ELK/'},
                 {text: 'Forwarder', link: 'Forwarder/'},
-                {text: 'Huggingface', link: 'Huggingface/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'MCP', link: 'MCP/'},
                 {text: 'Mock', link: 'Mock/'},
-                {text: 'Qdrant', link: 'Qdrant/'},
                 {text: 'Redis', link: 'Redis/'},
                 {text: 'SIEM', link: 'SIEM/'},
                 {text: 'SIRP', link: 'SIRP/'},
-            ]
-        },
-        {
-            text: 'Basic Agents',
-            collapsed: false,
-            base: '/asp/AGENTS/',
-            items: [
-                {text: 'Development Guide', link: 'development/'},
-                {text: 'CMDB', link: 'CMDB/'},
-                {text: 'SIEM', link: 'SIEM/'},
+                {text: 'Splunk', link: 'Splunk/'},
                 {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
-                {text: 'Knowledge', link: 'Knowledge/'},
             ]
-        },
-        {
-            text: 'Production Deployment',
-            collapsed: false,
-            base: '/asp/production/',
-            items: [
-                {text: 'SIEM Integration', link: 'siem/'},
-                {text: 'ASP Deployment', link: 'asp/'},
-            ]
-        },
+        }
     ]
 }
 
@@ -193,7 +199,6 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             base: '/sirp/Introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_sirp/'},
-                // {text: 'Features', link: 'framework/'},
             ]
         },
         {
@@ -206,9 +211,8 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
                 {text: 'Alert', link: 'alert/'},
                 {text: 'Artifact', link: 'artifact/'},
                 {text: 'Enrichment', link: 'enrichment/'},
-                {text: 'Ticket', link: 'ticket/'},
-                {text: 'Playbook', link: 'playbook/'},
                 {text: 'Knowledge', link: 'knowledge/'},
+                {text: 'Playbook', link: 'playbook/'},
             ]
         },
         {

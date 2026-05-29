@@ -6,7 +6,7 @@
   data structure for event investigation and response.
 - [Alert](../../sirp/Feature/alert/) has been restructured based on the [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) standard, providing a
   unified alert data structure.
-- New [Enrichment](../../sirp/Feature/enrichment/) and [Ticket](../../sirp/Feature/ticket/) modules added for storing enrichment data and external ticket data respectively.
+- New [Enrichment](../../sirp/Feature/enrichment/) module added for storing enrichment data. (Ticket module deprecated)
 
 ## Optimization
 

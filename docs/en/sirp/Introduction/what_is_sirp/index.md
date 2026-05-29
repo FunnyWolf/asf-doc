@@ -1,30 +1,29 @@
 # Welcome to SIRP
 
-SIRP (Security Incident Response Platform) is the built-in security orchestration and response platform within the Agentic SOC Platform (ASP). It provides a centralized, visual workbench for security teams to efficiently manage and respond to security incidents.
+SIRP (Security Incident Response Platform) is the built-in security orchestration and response platform within the Agentic SOC Platform (ASP). It provides security teams with a centralized, visual workspace to efficiently manage and respond to security incidents.
 
-## Relationship between SIRP and ASP
+## Relationship Between SIRP and ASP
 
-In the overall Agentic SOC Platform (ASP) architecture, ASP and SIRP play complementary roles:
+Within the overall Agentic SOC Platform (ASP) architecture, ASP and SIRP play complementary roles:
 
-- **ASP (Backend Framework):** As the powerful backend, ASP provides core automation orchestration, AI Agent support, and integration capabilities with various security tools.
-- **SIRP (Frontend Application):** As the intuitive frontend, SIRP presents ASP's powerful features through a user-friendly interface, helping security analysts process alerts, investigate cases, and execute response actions.
+- **ASP (Backend Framework):** As a powerful backend, ASP provides core automation orchestration capabilities, AI Agent support, and integration with various security tools.
+- **SIRP (Frontend Application):** As an intuitive frontend, SIRP presents ASP's powerful capabilities through a user-friendly interface, helping security analysts handle alerts, investigate cases, and execute response actions.
 
-In short, ASP is the engine, and SIRP is the cockpit.
+In simple terms, ASP is the engine, and SIRP is the cockpit.
 
 ## Core Features
 
-- **Inspired by Mainstream Designs:** SIRP's core data model (Case/Alert/Artifact) and design philosophy are based on industry-leading SOAR platforms (like Splunk SOAR, Swimlane SOAR), ensuring a professional and universal workflow.
+- **Industry-Proven Design:** SIRP's core data model (Case/Alert/Artifact) and design philosophy reference leading SOAR platforms (such as Splunk SOAR, Swimlane SOAR), ensuring professional and universal workflows.
 
-- **Highly Flexible Customization:** SIRP is built on the [Nocoly](https://www.nocoly.com) APaaS platform. This means you can easily customize almost every aspect, including:
+- **Highly Flexible Customization:** SIRP is built on the [Nocoly](https://www.nocoly.com) APaaS platform. This means you can easily customize nearly every aspect, including:
     - **User Interface (UI):** Adjust layouts, views, and fields.
-    - **Data Models:** Add custom fields or create new data relationships.
+    - **Data Model:** Add custom fields or create new data associations.
     - **Workflows:** Design and modify automated response processes.
-    - **Dashboards & Reports:** Create monitoring and reporting views tailored to specific needs.
+    - **Report Dashboards:** Create monitoring and reporting views tailored to specific needs.
 
-- **Seamless Integration of ASP Capabilities:** SIRP natively integrates all of ASP's automation and intelligent capabilities. Security teams can trigger complex automated playbooks and AI analysis agents with a single click from the interface.
+- **Seamless ASP Integration:** SIRP natively integrates all of ASP's automation and intelligence capabilities. Security teams can trigger complex automated Playbooks and AI analysis Agents with a single click in the interface.
 
 ## Platform Overview
-
 
 ![img_4.png](img_4.png)
 

@@ -1,7 +1,7 @@
 # Dashboard
 
-- Supports various component displays, allowing users to customize layouts and content according to their needs.
-- Supports data drill-down and interactive operations, as well as filtering and analysis based on time ranges.
+- Supports multiple component displays. Users can customize layout and content based on their needs.
+- Supports data drill-down and interactive operations, with time-range-based filtering and analysis.
 
 ## Case
 
