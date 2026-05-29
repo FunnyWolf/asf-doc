@@ -5,8 +5,8 @@ export const featuresConfig = [
         image: `/hero/zh/img_1.png?v=${Date.now()}`
     },
     {
-        title: 'AI 调查报告,清晰美观',
-        details: 'LLM 自动生成结构化调查报告,包含判决、攻击链、时间线、IOC 和修复建议,在 UI 中以清晰美观的格式呈现,分析师一目了然',
+        title: 'AI 秒级生成调查报告',
+        details: 'LLM 自动生成调查报告,将原本需要数小时的人工分析压缩为秒级输出,报告涵盖判决、攻击链、IOC 和修复建议',
         image: `/hero/zh/img_2.png?v=${Date.now()}`
     },
     {

@@ -5,8 +5,8 @@ export const featuresConfig = [
         image: `/hero/en/img_1.png?v=${Date.now()}`
     },
     {
-        title: 'AI Investigation Reports, Clear and Beautiful',
-        details: 'LLM automatically generates structured investigation reports with verdicts, attack chains, timelines, IOCs, and remediation advice, presented in a clean format in the UI.',
+        title: 'AI-Powered Investigation, Seconds Not Hours',
+        details: 'LLM auto-generates structured investigation reports — verdicts, attack chains, IOCs, and remediation advice in seconds, not hours.',
         image: `/hero/en/img_2.png?v=${Date.now()}`
     },
     {

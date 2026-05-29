@@ -9,8 +9,8 @@ Unlike traditional SIEM/SOAR, the AI Agents in ASP are not just auxiliary tools 
 **Automated Alert Processing**
 The Module framework continuously consumes SIEM alerts, automatically extracts IOCs, correlates and aggregates them, and transforms raw logs into a structured three-tier system of Case / Alert / Artifact.
 
-**AI Investigation Analysis**
-Built-in LLM analysis pipeline automatically generates structured investigation reports containing verdicts, attack chains, timelines, IOCs, and remediation recommendations, written back to the Case for analyst review.
+**AI-Powered Investigation, Seconds Not Hours**
+Built-in LLM analysis pipeline compresses hours of manual analysis into seconds, auto-generating reports with verdicts, attack chains, IOCs, and remediation advice.
 
 **Automated Playbooks**
 Playbooks support one-click triggering: in-depth case investigation, extracting knowledge from processed cases, and attaching threat intelligence enrichment to Artifacts. Custom extensions based on Python.
