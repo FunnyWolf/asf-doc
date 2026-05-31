@@ -7,7 +7,7 @@
 
 ## 日志来源
 
-日志来源于 [Mock 插件](../../PLUGINS/Mock/) 的 `HostGenerator`，生成模拟 EDR 主机日志。字段说明见 [siem-host-events.yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/PLUGINS/SIEM/siem-host-events.yaml)。
+日志来源于 [Mock 插件](../../PLUGINS/Mock/index.md) 的 `HostGenerator`，生成模拟 EDR 主机日志。字段说明见 [siem-host-events.yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/PLUGINS/SIEM/siem-host-events.yaml)。
 
 ## 关键处理逻辑
 

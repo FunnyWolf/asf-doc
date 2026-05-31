@@ -7,7 +7,7 @@
 
 ## 日志来源
 
-日志来源于 [Mock 插件](../../PLUGINS/Mock/) 的 `CloudGenerator`，生成模拟 AWS CloudTrail
+日志来源于 [Mock 插件](../../PLUGINS/Mock/index.md) 的 `CloudGenerator`，生成模拟 AWS CloudTrail
 日志。
 
 字段说明见 [siem-aws-cloudtrail.yaml](https://github.com/FunnyWolf/agentic-soc-platform/blob/master/DATA/PLUGINS/SIEM/siem-aws-cloudtrail.yaml).

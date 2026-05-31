@@ -5,11 +5,11 @@
 ## 新功能亮点
 
 - ~~Message 模块~~（已废弃，功能已整合到其他模块）
-- ~~Agents 基础智能体框架~~（已废弃，已由 [ClaudeCode 插件](../../asp/PLUGINS/ClaudeCode/) 的 Agent 体系替代）
+- ~~Agents 基础智能体框架~~（已废弃，已由 [ClaudeCode 插件](../../asp/PLUGINS/ClaudeCode/index.md) 的 Agent 体系替代）
 - ~~Qdrant 向量数据库插件~~（已废弃）
 - ~~Embeddings 插件~~（已废弃）
-- [Knowledge](../../sirp/Feature/knowledge/) 知识库，支持知识库管理及 Agent 的知识库调用。
-- ~~Case_L3_SOC_Analyst_Agent_With_Tools 剧本~~（已废弃，已由 [Playbook](../../asp/PLAYBOOKS/development/) 体系替代）
+- [Knowledge](../../sirp/Feature/knowledge/index.md) 知识库，支持知识库管理及 Agent 的知识库调用。
+- ~~Case_L3_SOC_Analyst_Agent_With_Tools 剧本~~（已废弃，已由 [Playbook](../../asp/PLAYBOOKS/development/index.md) 体系替代）
 - 更新 SIRP 到 Nocoly 7.0.0 版本。
 
 ## 优化

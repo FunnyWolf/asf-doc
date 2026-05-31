@@ -1,9 +1,9 @@
 # 0.3.0 - MCP 和 Claude Code Plugin
 
 ## 新功能
-- [SIEM Plugin](../../asp/PLUGINS/SIEM/) 支持 Splunk/ELK，可添加自定义日志配置信息，添加适用于 LLM 的、统一的日志检索接口。
-- [MCP Plugin](../../asp/PLUGINS/MCP/) 正式版本，支持 ASP 大部分核心功能
-- [Claude Code Plugin](../../asp/PLUGINS/ClaudeCode/)，内置 MCP 连接，8 个 Skill，1 个 agent
+- [SIEM Plugin](../../asp/PLUGINS/SIEM/index.md) 支持 Splunk/ELK，可添加自定义日志配置信息，添加适用于 LLM 的、统一的日志检索接口。
+- [MCP Plugin](../../asp/PLUGINS/MCP/index.md) 正式版本，支持 ASP 大部分核心功能
+- [Claude Code Plugin](../../asp/PLUGINS/ClaudeCode/index.md)，内置 MCP 连接，8 个 Skill，1 个 agent
 
 ## 优化
 - SIRP 优化 UI 布局和字段的权限控制

@@ -25,11 +25,11 @@ git clone git@github.com:FunnyWolf/agentic-soc-platform.git
 
 ### 部署 Redis Stack
 
-- **[Redis Plugin - 部署](../../PLUGINS/Redis/)**
+- **[Redis Plugin - 部署](../../PLUGINS/Redis/index.md)**
 
 ### 部署 SIRP
 
-- **[SIRP 安装指南](../../../sirp/Deploy/sirp_install/)**
+- **[SIRP 安装指南](../../../sirp/Deploy/sirp_install/index.md)**
 
 ### Python 环境与依赖
 
@@ -46,10 +46,10 @@ uv sync
 
 按以下顺序完成配置：
 
-- **Redis**: 连接信息 — [配置方法](../../PLUGINS/Redis/)
-- **LLM**: API 凭据和地址 — [配置方法](../../PLUGINS/LLM/)
-- **SIRP**: 连接信息 — [配置方法](../../PLUGINS/SIRP/)
-- **AlienVaultOTX**: 凭据 — [配置方法](../../PLUGINS/AlienVaultOTX/)
+- **Redis**: 连接信息 — [配置方法](../../PLUGINS/Redis/index.md)
+- **LLM**: API 凭据和地址 — [配置方法](../../PLUGINS/LLM/index.md)
+- **SIRP**: 连接信息 — [配置方法](../../PLUGINS/SIRP/index.md)
+- **AlienVaultOTX**: 凭据 — [配置方法](../../PLUGINS/AlienVaultOTX/index.md)
 
 ### 启动验证
 

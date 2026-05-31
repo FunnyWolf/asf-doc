@@ -47,7 +47,7 @@ fields:
 
 ### 生成 YAML
 
-推荐使用 Claude Code Skill [SIEM Index YAML](../ClaudeCode/skills/siem-index-yaml/) 辅助生成。该 Skill 会调用 `discover_index_fields` 从后端实时发现字段，自动生成配置文件。
+推荐使用 Claude Code Skill [SIEM Index YAML](../ClaudeCode/skills/siem-index-yaml/index.md) 辅助生成。该 Skill 会调用 `discover_index_fields` 从后端实时发现字段，自动生成配置文件。
 
 ### 测试配置
 

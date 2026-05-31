@@ -75,4 +75,4 @@ class Module(BaseModule):
 
 ### Claude Code Skill
 
-[Module Creator](../../PLUGINS/ClaudeCode/skills/module-creator/) Skill 辅助开发人员快速开发 Module。
+[Module Creator](../../PLUGINS/ClaudeCode/skills/module-creator/index.md) Skill 辅助开发人员快速开发 Module。

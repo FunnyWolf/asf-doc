@@ -56,7 +56,7 @@
 
 ![img_7.png](img_7.png)
 
-Playbook 开发可参考 [Playbook 开发指南](../../../asp/PLAYBOOKS/development/)
+Playbook 开发可参考 [Playbook 开发指南](../../../asp/PLAYBOOKS/development/index.md)
 
 使用 Playbook 参考 [Playbook](../playbook/index.md)
 

@@ -16,7 +16,7 @@ Splunk SIEM 客户端，基于 `splunk-sdk` 实现，为 SIEM 插件提供 Splun
 | `SPLUNK_HEC_URL` | HTTP Event Collector 地址，仅 Mock 插件生成测试数据时需要 |
 | `SPLUNK_TOKEN`   | HEC Token，仅 Mock 插件生成测试数据时需要               |
 
-不使用 [Mock 插件](../Mock/) 生成测试数据时，`SPLUNK_HEC_URL` 和 `SPLUNK_TOKEN` 可留空。
+不使用 [Mock 插件](../Mock/index.md) 生成测试数据时，`SPLUNK_HEC_URL` 和 `SPLUNK_TOKEN` 可留空。
 
 ## 发送告警到 Redis Stream (webhook action)
 

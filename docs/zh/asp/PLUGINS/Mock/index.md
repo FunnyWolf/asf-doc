@@ -78,7 +78,7 @@ SPLUNK_ENABLED = True
 python PLUGINS/Mock/SIEM/main.py
 ```
 
-生成的日志可与 [SIEM 插件](../SIEM/) 中的 `siem-network-traffic.yaml`、`siem-host-events.yaml`、`siem-aws-cloudtrail.yaml` 配置文件配合使用。
+生成的日志可与 [SIEM 插件](../SIEM/index.md) 中的 `siem-network-traffic.yaml`、`siem-host-events.yaml`、`siem-aws-cloudtrail.yaml` 配置文件配合使用。
 
 ## SIRP
 

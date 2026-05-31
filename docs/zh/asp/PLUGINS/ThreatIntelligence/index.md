@@ -49,5 +49,5 @@ result = TIToolKit.query("8.8.8.8", provider="AlienVaultOTX")
 
 ## 配合使用
 
-- [AlienVaultOTX 插件](../AlienVaultOTX/) — 默认注册的威胁情报源。
-- [Threat Intelligence Enrichment 剧本](../../PLAYBOOKS/Threat_Intelligence_Enrichment/) — 使用 TI 插件执行情报富化。
+- [AlienVaultOTX 插件](../AlienVaultOTX/index.md) — 默认注册的威胁情报源。
+- [Threat Intelligence Enrichment 剧本](../../PLAYBOOKS/Threat_Intelligence_Enrichment/index.md) — 使用 TI 插件执行情报富化。
