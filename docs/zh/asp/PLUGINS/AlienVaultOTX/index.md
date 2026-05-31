@@ -2,9 +2,9 @@
 
 ## 配置方法
 
-- 注册账号后访问 [AlienVault](https://otx.alienvault.com/settings) 获取 API Key
+- 注册账号后访问 [AlienVault](https://otx.alienvault.com/settings) 获取 API Key。
   ![img.png](img.png)
 
-- 将配置文件 PLUGINS/AlienVaultOTX/CONFIG.example.py 重命名为 CONFIG.py 使配置生效
+- 将配置文件 PLUGINS/AlienVaultOTX/CONFIG.example.py 重命名为 CONFIG.py 使配置生效。
 
-- 根据代码注释填写配置项
+- 根据代码注释填写配置项。

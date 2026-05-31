@@ -1,11 +1,11 @@
 # SIEM Index YAML
 
-从后端实时发现字段并生成 SIEM 索引的 YAML 配置文件.
+从后端实时发现字段并生成 SIEM 索引的 YAML 配置文件。
 
 ## 触发场景
 
-- 新增 SIEM 索引,需要生成字段配置
-- 已有索引的字段有变化,需要更新配置
+- 新增 SIEM 索引，需要生成字段配置。
+- 已有索引的字段有变化，需要更新配置。
 - 查看 ELK/Splunk 索引实际有哪些字段
 
 ## 使用样例
@@ -21,7 +21,7 @@
 
 ## 输出
 
-YAML 配置文件,写入 `DATA/PLUGINS/SIEM/<index_name>.yaml`,包含:
+YAML 配置文件，写入 `DATA/PLUGINS/SIEM/<index_name>.yaml`，包含：
 
 ```yaml
 name: <index_name>
@@ -37,6 +37,6 @@ fields:
 
 ## 依赖
 
-调用 MCP 工具: `siem_discover_index_fields`.
+调用 MCP 工具：`siem_discover_index_fields`。
 
-> 必须通过 `siem_discover_index_fields` 获取实时字段,不能手动编写. `description` 和 `is_key_field` 由模型推断,需用户确认后写入.
+> 必须通过 `siem_discover_index_fields` 获取实时字段，不能手动编写。`description` 和 `is_key_field` 由模型推断，需用户确认后写入。

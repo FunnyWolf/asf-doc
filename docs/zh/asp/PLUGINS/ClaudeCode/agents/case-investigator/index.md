@@ -1,6 +1,6 @@
 # Case Investigator
 
-从 Case 出发的调查编排 Agent,自动选择最有价值的调查路径.
+从 Case 出发的调查编排 Agent，自动选择最有价值的调查路径。
 
 ## 触发场景
 
@@ -16,7 +16,7 @@
 
 | 参数 | 说明 |
 |------|------|
-| Case ID / 描述 | Case 的 ID 或自然语言描述 |
+| Case ID/描述 | Case 的 ID 或自然语言描述 |
 
 ## 输出
 
@@ -28,4 +28,4 @@
 
 ## 依赖
 
-底层调用: `asp-case-en/zh`, `asp-alert-en/zh`, `asp-artifact-en/zh`, `asp-siem-search-en/zh`, `asp-knowledge-en/zh`, `asp-enrichment-en/zh`, `asp-playbook-en/zh`
+底层调用：`asp-case-en/zh`、`asp-alert-en/zh`、`asp-artifact-en/zh`、`asp-siem-search-en/zh`、`asp-knowledge-en/zh`、`asp-enrichment-en/zh`、`asp-playbook-en/zh`

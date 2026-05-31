@@ -1,6 +1,6 @@
 # Artifact Investigator
 
-从 IOC / Artifact 出发的调查编排 Agent,查找 SIEM 频次分布、Knowledge 上下文、父级关联.
+从 IOC/Artifact 出发的调查编排 Agent，查找 SIEM 频次分布、Knowledge 上下文、父级关联。
 
 ## 触发场景
 
@@ -16,7 +16,7 @@
 
 | 参数 | 说明 |
 |------|------|
-| IOC 值 / Artifact ID | IP、域名、哈希、URL 等,或已有 Artifact 的 ID |
+| IOC 值/Artifact ID | IP、域名、哈希、URL 等，或已有 Artifact 的 ID |
 
 ## 输出
 
@@ -28,4 +28,4 @@
 
 ## 依赖
 
-底层调用: `asp-artifact-en/zh`, `asp-siem-search-en/zh`, `asp-knowledge-en/zh`, `asp-enrichment-en/zh`, `asp-alert-en/zh`, `asp-case-en/zh`, `asp-playbook-en/zh`
+底层调用：`asp-artifact-en/zh`、`asp-siem-search-en/zh`、`asp-knowledge-en/zh`、`asp-enrichment-en/zh`、`asp-alert-en/zh`、`asp-case-en/zh`、`asp-playbook-en/zh`

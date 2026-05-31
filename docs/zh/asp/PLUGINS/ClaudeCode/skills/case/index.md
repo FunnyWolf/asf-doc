@@ -1,6 +1,6 @@
 # Case
 
-Case 管理:查看、筛选、更新工作流/AI 分析字段,查看讨论记录.
+Case 管理：查看、筛选、更新工作流/AI 分析字段，查看讨论记录。
 
 ## 触发场景
 
@@ -19,14 +19,14 @@ Case 管理:查看、筛选、更新工作流/AI 分析字段,查看讨论记录
 
 | 参数      | 说明                                                                                  |
 |---------|-------------------------------------------------------------------------------------|
-| case_id | Case ID,如 `case_000001`                                                             |
+| case_id | Case ID，如 `case_000001`                                                             |
 | 过滤条件    | status, severity, confidence, verdict, correlation_uid, title, tags                 |
 | 更新字段    | severity, status, verdict, severity_ai, confidence_ai, verdict_ai, comment, summary |
 
 ## 输出
 
-Case 详情: ID、标题、严重程度、状态、判定、置信度、时间线、关联告警、讨论记录、AI 分析字段.
+Case 详情：ID、标题、严重程度、状态、判定、置信度、时间线、关联告警、讨论记录、AI 分析字段。
 
 ## 依赖
 
-调用 MCP 工具: `list_cases`, `update_case`. 保存分析需配合 `asp-enrichment-en/zh`.
+调用 MCP 工具：`list_cases`、`update_case`。保存分析需配合 `asp-enrichment-en/zh`。
