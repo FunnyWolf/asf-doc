@@ -23,12 +23,3 @@ In simple terms, ASP is the engine, and SIRP is the cockpit.
 
 - **Seamless ASP Integration:** SIRP natively integrates all of ASP's automation and intelligence capabilities. Security teams can trigger complex automated Playbooks and AI analysis Agents with a single click in the interface.
 
-## Platform Overview
-
-![img_4.png](img_4.png)
-
-![img_5.png](img_5.png)
-
-![img_6.png](img_6.png)
-
-![img_7.png](img_7.png)
