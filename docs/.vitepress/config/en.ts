@@ -230,6 +230,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             base: '/sirp/Development/',
             items: [
                 {text: 'Custom Fields', link: 'custom_fields/'},
+                {text: 'Update Custom Components', link: 'update_custom_components/'},
                 {text: 'System Configuration', link: 'system/'},
             ]
         },

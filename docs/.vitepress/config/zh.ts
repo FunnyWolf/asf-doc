@@ -231,6 +231,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             base: '/zh/sirp/Development/',
             items: [
                 {text: '自定义字段', link: 'custom_fields/'},
+                {text: '更新自定义组件', link: 'update_custom_components/'},
                 {text: '系统配置', link: 'system/'},
             ]
         },
