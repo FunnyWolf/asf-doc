@@ -1,6 +1,6 @@
 # 更新自定义组件
 
-SIRP 使用自定义 React 组件来扩展界面展示能力。组件代码位于 `agentic-soc-platform/PLUGINS/SIRP/components/` 目录下。
+SIRP 使用自定义 React 组件来扩展界面展示能力。组件代码位于 `agentic-soc-platform/Docker/SIRP/components/` 目录下。
 
 ## 组件类型
 

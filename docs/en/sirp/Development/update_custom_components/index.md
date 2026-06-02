@@ -1,22 +1,22 @@
 # Update Custom Components
 
-SIRP uses custom React components to extend UI capabilities. Component code is located in `agentic-soc-platform/PLUGINS/SIRP/components/`.
+SIRP uses custom React components to extend UI capabilities. Component code is located in `agentic-soc-platform/Docker/SIRP/components/`.
 
 ## Component Types
 
-| Type | Description | Props |
-|------|-------------|-------|
-| Storage | Can store user input values | `value`, `onChange`, `env` |
+| Type      | Description                              | Props                               |
+|-----------|------------------------------------------|-------------------------------------|
+| Storage   | Can store user input values              | `value`, `onChange`, `env`          |
 | Reference | Display existing data only, cannot store | `formData`, `env`, `currentControl` |
 
 ## Available Components
 
-| Component File | Description | Type |
-|----------------|-------------|------|
-| `investigation_report_ai.jsx` | AI Investigation Report (Light) | Reference |
-| `investigation_report_ai_dark.jsx` | AI Investigation Report (Dark) | Reference |
-| `json.jsx` | JSON Viewer (Light) | Reference |
-| `json_dark.jsx` | JSON Viewer (Dark) | Reference |
+| Component File                     | Description                     | Type      |
+|------------------------------------|---------------------------------|-----------|
+| `investigation_report_ai.jsx`      | AI Investigation Report (Light) | Reference |
+| `investigation_report_ai_dark.jsx` | AI Investigation Report (Dark)  | Reference |
+| `json.jsx`                         | JSON Viewer (Light)             | Reference |
+| `json_dark.jsx`                    | JSON Viewer (Dark)              | Reference |
 
 Dark mode components use `_dark.jsx` suffix for system dark theme.
 
