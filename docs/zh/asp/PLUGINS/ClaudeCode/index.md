@@ -23,7 +23,7 @@
 
 ## 配置方法
 
-- 配置 [MCP 插件](../MCP/index.md), 获取 MCP SSE URL
+- 配置 [MCP 插件](../MCP/index.md)，获取 MCP SSE URL
 - 将 url 设置到环境变量 ASP_MCP_SSE_URL
 
 PowerShell:
@@ -39,7 +39,7 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7001/XXXXXXXXXXXXX/sse"
 ```
 
 - 启动 Claude Code
-- 注册  https://github.com/FunnyWolf/asp-marketplace marketplace
+- 注册 https://github.com/FunnyWolf/asp-marketplace marketplace
 
 ```
 /plugin marketplace add FunnyWolf/asp-marketplace
@@ -61,10 +61,10 @@ export ASP_MCP_SSE_URL="http://your_server_ip:7001/XXXXXXXXXXXXX/sse"
 
 ## 补充说明
 
-- ASP Plugin 在 Claude Code 启动时 MCP Tools / Agents / Skills 一共约占用 10.5k 的上下文
+- ASP Plugin 在 Claude Code 启动时 MCP Tools/Agents/Skills 一共约占用 10.5k 的上下文
 
 ![img.png](img.png)
 
-- 在使用时推荐将 Plugin 安装到 repo local,减少在使用 Claude Code 开发其他项目时的上下文占用.
+- 在使用时推荐将 Plugin 安装到 repo local，减少在使用 Claude Code 开发其他项目时的上下文占用。
 
 ![img_4.png](img_4.png)

@@ -1,10 +1,10 @@
 # Playbook 执行
 
-`subscribe_pending_playbook` 后台任务负责发现和执行待运行的 Playbook.
+`subscribe_pending_playbook` 后台任务负责发现和执行待运行的 Playbook。
 
 ## 发现机制
 
-`PlaybookLoader` (`Lib/playbookloader.py`) 启动时扫描 `PLAYBOOKS/` 目录,动态导入每个 `.py` 文件,读取 `Playbook` 类的 `NAME` 和 `DESC` 属性,缓存到 `Xcache`.
+`PlaybookLoader`（`Lib/playbookloader.py`）启动时扫描 `PLAYBOOKS/` 目录，动态导入每个 `.py` 文件，读取 `Playbook` 类的 `NAME` 和 `DESC` 属性，缓存到 `Xcache`。
 
 ## 执行流程
 
@@ -21,14 +21,14 @@ API/MCP 创建 Playbook 记录 (job_status=PENDING)
 
 ## 状态兜底
 
-`on_playbook_task_finished` 回调确保 Playbook 一定有终态:
+`on_playbook_task_finished` 回调确保 Playbook 一定有终态：
 
-- 如果业务代码已通过 `update_playbook_status()` 设置了终态,回调跳过
-- 如果业务代码未设置,回调自动写入 SUCCESS 或 FAILED
+- 如果业务代码已通过 `update_playbook_status()` 设置了终态，回调跳过
+- 如果业务代码未设置，回调自动写入 SUCCESS 或 FAILED
 
 ## 关键 API
 
-Playbook 基类 (`Lib/baseplaybook.py`) 提供:
+Playbook 基类（`Lib/baseplaybook.py`）提供：
 
 | API | 说明 |
 |-----|------|
