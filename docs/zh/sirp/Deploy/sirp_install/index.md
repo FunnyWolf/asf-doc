@@ -10,7 +10,7 @@ SIRP 基于 Nocoly 平台进行部署。Nocoly 可以私有部署或使用云服
     - 免费版存在功能限制。
 
 - **Nocoly 私有部署：** 适合生产环境部署及使用大规模测试。
-    - 最低配置要求：8 核 CPU、32GB 内存、50GB 硬盘。
+    - 最低配置要求：4 核 CPU、24GB 内存。
     - 数据存储在本地服务器。
     - 私有部署可免费使用专业版功能。
 
@@ -19,6 +19,8 @@ SIRP 基于 Nocoly 平台进行部署。Nocoly 可以私有部署或使用云服
 ## 安装 Nocoly（私有部署）
 
 参考[官方安装手册](https://docs-pd.nocoly.com/zh-Hans/deployment/docker-compose/standalone/quickstart/)
+
+- 精简安装：[官方精简安装手册](https://docs-pd.nocoly.com/zh-Hans/deployment/docker-compose/standalone/lite)
 
 ### 常见问题
 

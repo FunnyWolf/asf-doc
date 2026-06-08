@@ -10,7 +10,7 @@ SIRP is deployed on the Nocoly platform. Nocoly can be self-hosted or used as a 
     - The free tier has feature limitations.
 
 - **Nocoly Self-Hosted:** Suitable for production deployment and large-scale testing.
-    - Minimum requirements: 8-core CPU, 32GB RAM, 50GB disk.
+    - Minimum requirements: 4-core CPU, 24GB RAM.
     - Data is stored on local servers.
     - Self-hosted deployment offers free access to Professional features.
 
@@ -18,7 +18,9 @@ For a detailed comparison, see: https://www.nocoly.com/pricing
 
 ## Installing Nocoly (Self-Hosted)
 
-Refer to the [official installation guide](https://docs-pd.nocoly.com/zh-Hans/deployment/docker-compose/standalone/quickstart/)
+Refer to the [official installation guide](https://docs-pd.nocoly.com/deployment/docker-compose/standalone/quickstart/)
+
+- Lite installation: [Official Lite Installation Guide](https://docs-pd.nocoly.com/deployment/docker-compose/standalone/lite/)
 
 ### Common Issues
 
