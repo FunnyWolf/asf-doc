@@ -7,7 +7,7 @@ This is a standalone FastAPI service that listens for webhooks from different so
 The Forwarder can use ASP's uv environment. It can also be deployed on a standalone host. You can install the required dependencies using the following command:
 
 ```bash
-pip install -r PLUGINS/Forwarder/requirements.txt
+pip install -r integrations/Webhook/requirements.txt
 ```
 
 - Configure the [Redis Plugin](../Redis/index.md)
@@ -26,7 +26,7 @@ source .venv/bin/activate
 - Start the forwarding service:
 
 ```bash
-uvicorn PLUGINS.Forwarder.main:app --host 0.0.0.0 --port 7000
+uvicorn integrations.Webhook.main:app --host 0.0.0.0 --port 7000
 ```
 
 ## API Endpoints

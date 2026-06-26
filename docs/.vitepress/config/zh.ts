@@ -9,7 +9,6 @@ export const zh = defineConfig({
 
         sidebar: {
             '/zh/asp/': {base: '/zh/asp/', items: sidebarASP()},
-            '/zh/sirp/': {base: '/zh/sirp/', items: sidebarSIRP()},
         },
 
         footer: {
@@ -49,13 +48,8 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: '开发框架',
-            link: '/zh/asp/Introduction/what_is_asp/',
+            link: '/zh/asp/introduction/what_is_asp/',
             activeMatch: '/zh/asf/'
-        },
-        {
-            text: '运营平台',
-            link: '/zh/sirp/Introduction/what_is_sirp/',
-            activeMatch: '/zh/sirp/'
         },
         {
             text: "更新日志",
@@ -87,15 +81,29 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: '简介',
             collapsed: false,
-            base: '/zh/asp/Introduction/',
+            base: '/zh/asp/introduction/',
             items: [
                 {text: '欢迎使用', link: 'what_is_asp/'},
             ]
         },
         {
+            text: '功能介绍',
+            collapsed: false,
+            base: '/zh/asp/feature/',
+            items: [
+                {text: 'Dashboard', link: 'dashboard/'},
+                {text: 'Case', link: 'case/'},
+                {text: 'Alert', link: 'alert/'},
+                {text: 'Artifact', link: 'artifact/'},
+                {text: 'Enrichment', link: 'enrichment/'},
+                {text: 'Knowledge', link: 'knowledge/'},
+                {text: 'Playbook', link: 'playbook/'},
+            ]
+        },
+        {
             text: '开发环境',
             collapsed: false,
-            base: '/zh/asp/Development/',
+            base: '/zh/asp/development/',
             items: [
                 {text: '环境配置', link: 'environment_setup/'},
             ]
@@ -103,7 +111,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: '后台服务',
             collapsed: false,
-            base: '/zh/asp/Background/',
+            base: '/zh/asp/background/',
             items: [
                 {text: '总览', link: 'index/'},
                 {text: '模块运行框架', link: 'module-engine/'},
@@ -114,7 +122,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: '模块',
             collapsed: false,
-            base: '/zh/asp/MODULES/',
+            base: '/zh/asp/modules/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AWS IAM 权限提升告警', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
@@ -125,7 +133,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: '剧本',
             collapsed: false,
-            base: '/zh/asp/PLAYBOOKS/',
+            base: '/zh/asp/playbooks/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: '案件调查', link: 'Investigation/'},
@@ -136,7 +144,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: '插件',
             collapsed: false,
-            base: '/zh/asp/PLUGINS/',
+            base: '/zh/asp/integrations/',
             items: [
                 {text: '开发指南', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
@@ -144,13 +152,13 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {
                     text: 'ClaudeCode',
                     collapsed: true,
-                    base: '/zh/asp/PLUGINS/ClaudeCode/',
+                    base: '/zh/asp/integrations/ClaudeCode/',
                     items: [
                         {text: '使用指南', link: 'index/'},
                         {
                             text: 'Agents',
                             collapsed: true,
-                            base: '/zh/asp/PLUGINS/ClaudeCode/agents/',
+                            base: '/zh/asp/integrations/ClaudeCode/agents/',
                             items: [
                                 {text: 'Case Investigator', link: 'case-investigator/'},
                                 {text: 'Artifact Investigator', link: 'artifact-investigator/'},
@@ -160,7 +168,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                         {
                             text: 'Skills',
                             collapsed: true,
-                            base: '/zh/asp/PLUGINS/ClaudeCode/skills/',
+                            base: '/zh/asp/integrations/ClaudeCode/skills/',
                             items: [
                                 {text: 'Alert', link: 'alert/'},
                                 {text: 'Artifact', link: 'artifact/'},
@@ -177,64 +185,17 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                     ]
                 },
                 {text: 'ELK', link: 'ELK/'},
-                {text: 'Forwarder', link: 'Forwarder/'},
+                {text: 'Webhook', link: 'Webhook/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'MCP', link: 'MCP/'},
                 {text: 'Mock', link: 'Mock/'},
-                {text: 'Redis', link: 'Redis/'},
+                {text: 'RedisStack', link: 'RedisStack/'},
+                {text: 'Rustfs', link: 'Rustfs/'},
                 {text: 'SIEM', link: 'SIEM/'},
-                {text: 'SIRP', link: 'SIRP/'},
                 {text: 'Splunk', link: 'Splunk/'},
                 {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
             ]
         }
-    ]
-}
-
-function sidebarSIRP(): DefaultTheme.SidebarItem[] {
-    return [
-        {
-            text: '简介',
-            collapsed: false,
-            base: '/zh/sirp/Introduction/',
-            items: [
-                {text: '欢迎使用', link: 'what_is_sirp/'},
-                // {text: '功能列表', link: 'framework/'},
-            ]
-        },
-        {
-            text: '功能介绍',
-            collapsed: false,
-            base: '/zh/sirp/Feature/',
-            items: [
-                {text: 'Dashboard', link: 'dashboard/'},
-                {text: 'Case', link: 'case/'},
-                {text: 'Alert', link: 'alert/'},
-                {text: 'Artifact', link: 'artifact/'},
-                {text: 'Enrichment', link: 'enrichment/'},
-                {text: 'Knowledge', link: 'knowledge/'},
-                {text: 'Playbook', link: 'playbook/'},
-            ]
-        },
-        {
-            text: '安装部署',
-            collapsed: false,
-            base: '/zh/sirp/Deploy/',
-            items: [
-                {text: '安装应用', link: 'sirp_install/'},
-                {text: '配置应用', link: 'sirp_config/'},
-            ]
-        },
-        {
-            text: '定制开发',
-            collapsed: false,
-            base: '/zh/sirp/Development/',
-            items: [
-                {text: '自定义字段', link: 'custom_fields/'},
-                {text: '更新自定义组件', link: 'update_custom_components/'},
-                {text: '系统配置', link: 'system/'},
-            ]
-        },
     ]
 }
 

@@ -75,7 +75,7 @@ Each generator has corresponding attack scenarios, injected with a 5% probabilit
 ### Running
 
 ```bash
-python PLUGINS/Mock/SIEM/main.py
+python integrations/Mock/SIEM/main.py
 ```
 
 Generated logs can be used with the `siem-network-traffic.yaml`, `siem-host-events.yaml`, and `siem-aws-cloudtrail.yaml` configuration files in the [SIEM Plugin](../SIEM/).
@@ -87,13 +87,13 @@ Generates complete Case, Alert, Artifact, and Enrichment test data with automati
 ### Creating Mock Data
 
 ```bash
-python PLUGINS/Mock/SIRP/main.py
+python integrations/Mock/SIRP/main.py
 ```
 
 ### Cleaning Up Mock Data
 
 ```bash
-python PLUGINS/Mock/SIRP/delete_all.py
+python integrations/Mock/SIRP/delete_all.py
 ```
 
 ### Mock Data Overview

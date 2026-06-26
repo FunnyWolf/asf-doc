@@ -35,7 +35,7 @@ export const featuresConfig = [
         image: `/hero/zh/img_7.png?v=${Date.now()}`
     },
     {
-        title: '开源、私有化、纯 Python',
+        title: '开源、私有化、Python & Typescript',
         details: 'MIT 开源许可证,全部本地化部署数据不出内网,模块/插件/Playbook 均为 Python 脚本,无技术栈壁垒',
         image: `/hero/zh/img_8.png?v=${Date.now()}`
     },

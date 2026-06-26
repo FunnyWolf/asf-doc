@@ -50,12 +50,12 @@ function nav(): DefaultTheme.NavItem[] {
     return [
         {
             text: 'Framework',
-            link: '/asp/Introduction/what_is_asp/',
+            link: '/asp/introduction/what_is_asp/',
             activeMatch: '/asp/'
         },
         {
             text: 'SIRP',
-            link: '/sirp/Introduction/what_is_sirp/',
+            link: '/sirp/introduction/what_is_sirp/',
             activeMatch: '/sirp/'
         },
         {
@@ -85,25 +85,25 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarASP(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'Introduction',
+            text: 'introduction',
             collapsed: false,
-            base: '/asp/Introduction/',
+            base: '/asp/introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_asp/'},
             ]
         },
         {
-            text: 'Development Environment',
+            text: 'development Environment',
             collapsed: false,
-            base: '/asp/Development/',
+            base: '/asp/development/',
             items: [
                 {text: 'Environment Setup', link: 'environment_setup/'},
             ]
         },
         {
-            text: 'Background Services',
+            text: 'background Services',
             collapsed: false,
-            base: '/asp/Background/',
+            base: '/asp/background/',
             items: [
                 {text: 'Overview', link: 'index/'},
                 {text: 'Module Engine', link: 'module-engine/'},
@@ -114,9 +114,9 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Modules',
             collapsed: false,
-            base: '/asp/MODULES/',
+            base: '/asp/modules/',
             items: [
-                {text: 'Development Guide', link: 'development/'},
+                {text: 'development Guide', link: 'development/'},
                 {text: 'AWS IAM Privilege Escalation', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
                 {text: 'Phishing Mail Detection', link: 'Mail-01-User-Report-Phishing-Mail/'},
                 {text: 'Shadow Copy Deletion', link: 'EDR-01-HOST-Vssadmin-Delete-Shadows/'},
@@ -125,9 +125,9 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Playbooks',
             collapsed: false,
-            base: '/asp/PLAYBOOKS/',
+            base: '/asp/playbooks/',
             items: [
-                {text: 'Development Guide', link: 'development/'},
+                {text: 'development Guide', link: 'development/'},
                 {text: 'Investigation', link: 'Investigation/'},
                 {text: 'Knowledge Extraction', link: 'Knowledge_Extraction/'},
                 {text: 'Threat Intelligence Enrichment', link: 'Threat_Intelligence_Enrichment/'},
@@ -136,21 +136,21 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Plugins',
             collapsed: false,
-            base: '/asp/PLUGINS/',
+            base: '/asp/integrations/',
             items: [
-                {text: 'Development Guide', link: 'development/'},
+                {text: 'development Guide', link: 'development/'},
                 {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
                 {text: 'CMDB', link: 'CMDB/'},
                 {
                     text: 'ClaudeCode',
                     collapsed: true,
-                    base: '/asp/PLUGINS/ClaudeCode/',
+                    base: '/asp/integrations/ClaudeCode/',
                     items: [
                         {text: 'Usage Guide', link: 'index/'},
                         {
                             text: 'Agents',
                             collapsed: true,
-                            base: '/asp/PLUGINS/ClaudeCode/agents/',
+                            base: '/asp/integrations/ClaudeCode/agents/',
                             items: [
                                 {text: 'Case Investigator', link: 'case-investigator/'},
                                 {text: 'Artifact Investigator', link: 'artifact-investigator/'},
@@ -160,7 +160,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                         {
                             text: 'Skills',
                             collapsed: true,
-                            base: '/asp/PLUGINS/ClaudeCode/skills/',
+                            base: '/asp/integrations/ClaudeCode/skills/',
                             items: [
                                 {text: 'Alert', link: 'alert/'},
                                 {text: 'Artifact', link: 'artifact/'},
@@ -177,11 +177,11 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                     ]
                 },
                 {text: 'ELK', link: 'ELK/'},
-                {text: 'Forwarder', link: 'Forwarder/'},
+                {text: 'Webhook', link: 'Webhook/'},
                 {text: 'LLM', link: 'LLM/'},
                 {text: 'MCP', link: 'MCP/'},
                 {text: 'Mock', link: 'Mock/'},
-                {text: 'Redis', link: 'Redis/'},
+                {text: 'RedisStack', link: 'RedisStack/'},
                 {text: 'SIEM', link: 'SIEM/'},
                 {text: 'SIRP', link: 'SIRP/'},
                 {text: 'Splunk', link: 'Splunk/'},
@@ -194,9 +194,9 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
 function sidebarSIRP(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'Introduction',
+            text: 'introduction',
             collapsed: false,
-            base: '/sirp/Introduction/',
+            base: '/sirp/introduction/',
             items: [
                 {text: 'Welcome', link: 'what_is_sirp/'},
             ]
@@ -204,7 +204,7 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Features',
             collapsed: false,
-            base: '/sirp/Feature/',
+            base: '/sirp/feature/',
             items: [
                 {text: 'Dashboard', link: 'dashboard/'},
                 {text: 'Case', link: 'case/'},
@@ -225,9 +225,9 @@ function sidebarSIRP(): DefaultTheme.SidebarItem[] {
             ]
         },
         {
-            text: 'Custom Development',
+            text: 'Custom development',
             collapsed: false,
-            base: '/sirp/Development/',
+            base: '/sirp/development/',
             items: [
                 {text: 'Custom Fields', link: 'custom_fields/'},
                 {text: 'Update Custom Components', link: 'update_custom_components/'},

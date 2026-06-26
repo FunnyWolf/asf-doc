@@ -81,7 +81,7 @@ Message code
 ```bash
 cd ~/agentic-soc-platform
 uv sync
-python -m PLUGINS.ELK.index_action
+python -m integrations.ELK.index_action
 ```
 
 ![img_8.png](img_8.png)

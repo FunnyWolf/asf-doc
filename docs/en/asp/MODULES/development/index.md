@@ -45,7 +45,7 @@ class Module(BaseModule):
         super().__init__()
 
     def run(self):
-        # 1. Read raw alert from Redis Stream
+        # 1. Read raw alert from RedisStack Stream
         raw_alert = self.read_stream_message()
 
         # 2. Field extraction and data mapping

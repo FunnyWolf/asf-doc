@@ -1,20 +1,20 @@
-# MCP Plugin
+# MCP 插件
 
-## Configuration
+## 配置方法
 
-- Run the MCP Server
+- 运行 MCP Server
 
 ```bash
 python integrations/MCP/mcpserver.py
 ```
 
-Supports specifying host, port, and uuid
+支持指定 host、port 和 uuid。
 
 ```bash
 python integrations/MCP/mcpserver.py --host 10.10.10.10 --port 7001 --uuid thisisjustfortest
 ```
 
-- Configure the MCP SSE URL; the script will output the MCP SSE URL (needed when configuring the [ClaudeCode Plugin](../ClaudeCode/index.md))
+- 配置 MCP SSE URL 脚本会将 MCP SSE 的 URL 输出（配置 [ClaudeCode 插件](../ClaudeCode/index.md) 时需要）。
 
 ```
 mcp server url: http://10.10.10.10:7001/thisisjustfortest/sse
@@ -24,7 +24,7 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://10.10.10.10:7001 (Press CTRL+C to quit)
 ```
 
-## Currently Supported Tools
+## 当前支持的 Tools
 
 ```python
 REGISTERED_MCP_TOOLS = [

@@ -54,7 +54,7 @@
  * Colors: Palette
  *
  * The primitive colors used for accent colors. These colors are referenced
- * by functional colors such as "Text", "Background", or "Brand".
+ * by functional colors such as "Text", "background", or "Brand".
  *
  * Each colors have exact same color scale system with 3 levels of solid
  * colors with different brightness, and 1 soft color.
@@ -145,7 +145,7 @@
 }
 
 /**
- * Colors: Background
+ * Colors: background
  *
  * - `bg`: The bg color used for main screen.
  *
