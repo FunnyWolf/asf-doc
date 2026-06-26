@@ -15,7 +15,7 @@ Built-in LLM analysis pipeline compresses hours of manual analysis into seconds,
 **Automated Playbooks**
 Playbooks support one-click triggering: in-depth case investigation, extracting knowledge from processed cases, and attaching threat intelligence enrichment to Artifacts. Custom extensions based on Python.
 
-**Code Agent Integration**
+**Harness Agent Integration**
 Deep integration with Claude Code through the MCP protocol, providing professional security Agents and Skills. Analysts can directly operate Cases, search SIEM logs, query threat intelligence, and write Modules and Playbooks within the AI Agent.
 
 **Continuous Knowledge Accumulation**

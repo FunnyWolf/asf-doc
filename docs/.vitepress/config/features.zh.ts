@@ -16,7 +16,7 @@ export const featuresConfig = [
     },
     {
         title: 'Harness Agent 深度进入安全运营',
-        details: '通过插件和 MCP 连接向 ClaudeCode 等 Code Agent 暴露 ASP 能力,让 Agent 能直接操作 Case、搜索日志、查询威胁情报、编写模块和剧本',
+        details: '通过插件和 MCP 连接向 ClaudeCode / Codex / OpenCode 等 Harness Agent 暴露 ASP 能力,让 Agent 能直接操作 Case、搜索日志、查询威胁情报、编写模块和剧本',
         image: `/hero/zh/img_6.png?v=${Date.now()}`
     },
     {
