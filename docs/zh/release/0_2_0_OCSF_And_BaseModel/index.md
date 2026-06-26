@@ -2,9 +2,9 @@
 
 ## 新功能亮点
 
-- [Case](../../asp/feature/case/index.md) 基于 [OCSF Incident Finding](https://schema.ocsf.io/1.7.0/classes/incident_finding) 标准进行重构，提供统一的事件调查和响应数据结构。
-- [Alert](../../asp/feature/alert/index.md) 基于 [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) 标准进行重构，提供统一的告警数据结构。
-- 新增 [Enrichment](../../asp/feature/enrichment/index.md) 模块，用于存储丰富化数据（Ticket 模块已废弃）
+- [Case](../../asp/workspace/case/) 基于 [OCSF Incident Finding](https://schema.ocsf.io/1.7.0/classes/incident_finding) 标准进行重构，提供统一的事件调查和响应数据结构。
+- [Alert](../../asp/workspace/alert/) 基于 [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) 标准进行重构，提供统一的告警数据结构。
+- 新增 [Enrichment](../../asp/workspace/enrichment/) 模块，用于存储丰富化数据（Ticket 模块已废弃）
 
 ## 优化
 

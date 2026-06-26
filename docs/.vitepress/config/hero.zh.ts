@@ -1,10 +1,10 @@
 export const heroConfig = {
     name: 'Agentic SOC Platform',
-    tagline: '以 Agentic AI 为核心,让安全团队从告警疲劳中解放,专注于真正重要的安全决策',
+    tagline: '从告警疲劳到 AI 辅助决策,让 Agent 主动参与分诊、调查、富化和知识沉淀',
     image: `/hero/zh/img.png?v=${Date.now()}`,
     actions: [
-        {text: '快速部署', link: '/zh/asp/development/environment_setup', theme: 'brand'},
-        {text: '了解更多', link: '/zh/asp/introduction/what_is_asp/', theme: 'alt'},
-        {text: 'SIRP 平台', link: '/zh/sirp/introduction/what_is_sirp/', theme: 'alt'},
+        {text: '快速开始', link: '/zh/asp/quick-start/deployment/', theme: 'brand'},
+        {text: '了解产品', link: '/zh/asp/overview/', theme: 'alt'},
+        {text: '工作台功能', link: '/zh/asp/workspace/case/', theme: 'alt'},
     ]
 }

@@ -47,13 +47,17 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: '开发框架',
-            link: '/zh/asp/introduction/what_is_asp/',
-            activeMatch: '/zh/asf/'
+            text: '产品文档',
+            link: '/zh/asp/overview/',
+            activeMatch: '/zh/asp/'
         },
         {
             text: "更新日志",
             items: [
+                {
+                    text: '0.4.0 - Less Is More',
+                    link: '/zh/release/0_4_0_Less_Is_More/'
+                },
                 {
                     text: '0.3.0 - MCP 和 Claude Code Plugin',
                     link: '/zh/release/0_3_0_MCP_And_ClaudeCodePlugin/'
@@ -79,17 +83,29 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarASP(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: '简介',
+            text: '概览',
             collapsed: false,
-            base: '/zh/asp/introduction/',
+            base: '/zh/asp/overview/',
             items: [
-                {text: '欢迎使用', link: 'what_is_asp/'},
+                {text: '什么是 ASP', link: 'index/'},
+                {text: '产品架构', link: 'architecture/'},
+                {text: '术语表', link: 'glossary/'},
             ]
         },
         {
-            text: '功能介绍',
+            text: '快速开始',
             collapsed: false,
-            base: '/zh/asp/feature/',
+            base: '/zh/asp/quick-start/',
+            items: [
+                {text: '部署', link: 'deployment/'},
+                {text: '首次登录', link: 'first-login/'},
+                {text: '基础配置', link: 'basic-configuration/'},
+            ]
+        },
+        {
+            text: '工作台功能',
+            collapsed: false,
+            base: '/zh/asp/workspace/',
             items: [
                 {text: 'Dashboard', link: 'dashboard/'},
                 {text: 'Case', link: 'case/'},
@@ -98,102 +114,43 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'Enrichment', link: 'enrichment/'},
                 {text: 'Knowledge', link: 'knowledge/'},
                 {text: 'Playbook', link: 'playbook/'},
+                {text: 'Inbox', link: 'inbox/'},
+                {text: 'Audit Log', link: 'audit-log/'},
             ]
         },
         {
-            text: '开发环境',
+            text: '系统设置',
             collapsed: false,
-            base: '/zh/asp/development/',
-            items: [
-                {text: '环境配置', link: 'environment_setup/'},
-            ]
-        },
-        {
-            text: '后台服务',
-            collapsed: false,
-            base: '/zh/asp/background/',
+            base: '/zh/asp/settings/',
             items: [
                 {text: '总览', link: 'index/'},
-                {text: '模块运行框架', link: 'module-engine/'},
-                {text: 'Playbook 执行', link: 'playbook-execution/'},
-                {text: '自动化分析', link: 'auto-analysis/'},
+                {text: '用户与 API Key', link: 'users-api-keys/'},
+                {text: 'LLM Provider', link: 'llm-provider/'},
+                {text: 'SIEM', link: 'siem/'},
+                {text: '威胁情报', link: 'threat-intelligence/'},
+                {text: 'LDAP', link: 'ldap/'},
+                {text: 'Agentic Runtime', link: 'agentic-runtime/'},
             ]
         },
         {
-            text: '模块',
-            collapsed: false,
-            base: '/zh/asp/modules/',
-            items: [
-                {text: '开发指南', link: 'development/'},
-                {text: 'AWS IAM 权限提升告警', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
-                {text: '用户上报钓鱼邮件', link: 'Mail-01-User-Report-Phishing-Mail/'},
-                {text: '卷影副本删除检测', link: 'EDR-01-HOST-Vssadmin-Delete-Shadows/'},
-            ]
-        },
-        {
-            text: '剧本',
-            collapsed: false,
-            base: '/zh/asp/playbooks/',
-            items: [
-                {text: '开发指南', link: 'development/'},
-                {text: '案件调查', link: 'Investigation/'},
-                {text: '知识提取', link: 'Knowledge_Extraction/'},
-                {text: '威胁情报富化', link: 'Threat_Intelligence_Enrichment/'},
-            ]
-        },
-        {
-            text: '插件',
+            text: '集成',
             collapsed: false,
             base: '/zh/asp/integrations/',
             items: [
-                {text: '开发指南', link: 'development/'},
-                {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
-                {text: 'CMDB', link: 'CMDB/'},
-                {
-                    text: 'ClaudeCode',
-                    collapsed: true,
-                    base: '/zh/asp/integrations/ClaudeCode/',
-                    items: [
-                        {text: '使用指南', link: 'index/'},
-                        {
-                            text: 'Agents',
-                            collapsed: true,
-                            base: '/zh/asp/integrations/ClaudeCode/agents/',
-                            items: [
-                                {text: 'Case Investigator', link: 'case-investigator/'},
-                                {text: 'Artifact Investigator', link: 'artifact-investigator/'},
-                                {text: 'Threat Hunting', link: 'threat-hunting/'},
-                            ]
-                        },
-                        {
-                            text: 'Skills',
-                            collapsed: true,
-                            base: '/zh/asp/integrations/ClaudeCode/skills/',
-                            items: [
-                                {text: 'Alert', link: 'alert/'},
-                                {text: 'Artifact', link: 'artifact/'},
-                                {text: 'Case', link: 'case/'},
-                                {text: 'Enrichment', link: 'enrichment/'},
-                                {text: 'Knowledge', link: 'knowledge/'},
-                                {text: 'Module Creator', link: 'module-creator/'},
-                                {text: 'Playbook', link: 'playbook/'},
-                                {text: 'SIEM Index YAML', link: 'siem-index-yaml/'},
-                                {text: 'SIEM Search', link: 'siem-search/'},
-                                {text: 'Threat Intelligence', link: 'threat-intelligence/'},
-                            ]
-                        },
-                    ]
-                },
-                {text: 'ELK', link: 'ELK/'},
-                {text: 'Webhook', link: 'Webhook/'},
-                {text: 'LLM', link: 'LLM/'},
-                {text: 'MCP', link: 'MCP/'},
-                {text: 'Mock', link: 'Mock/'},
-                {text: 'RedisStack', link: 'RedisStack/'},
-                {text: 'Rustfs', link: 'Rustfs/'},
-                {text: 'SIEM', link: 'SIEM/'},
-                {text: 'Splunk', link: 'Splunk/'},
-                {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
+                {text: '总览', link: 'index/'},
+                {text: 'Webhook', link: 'webhook/'},
+                {text: 'ClaudeCode 插件', link: 'claude-code/'},
+            ]
+        },
+        {
+            text: '开发扩展',
+            collapsed: false,
+            base: '/zh/asp/development/',
+            items: [
+                {text: '总览', link: 'index/'},
+                {text: '数据模型与 API', link: 'data-model-api/'},
+                {text: 'Playbook 扩展', link: 'playbook/'},
+                {text: '模块示例', link: 'module-examples/'},
             ]
         }
     ]

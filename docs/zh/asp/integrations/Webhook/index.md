@@ -1,36 +1,18 @@
-# Forwarder 插件
+# Webhook
 
-这是一个独立的 FastAPI 服务，用于监听来自不同来源（如 Splunk、Kibana）的 webhook，并将它们转发到 Redis Stream。
+Webhook 用于接收外部系统发送的告警。
 
-## 依赖安装
+## 当前端点
 
-Forwarder 可以使用 ASP 的 uv 环境，也可以独立主机部署，您可以通过以下命令安装所需依赖：
+| 来源 | API |
+| --- | --- |
+| Splunk | `/api/webhook/splunk/` |
+| Kibana | `/api/webhook/kibana/` |
 
-```bash
-pip install -r integrations/Webhook/requirements.txt
-```
+Webhook 接收到告警后，后端会进入当前告警处理流程，生成或关联 Alert、Case、Artifact 等资源。
 
-- 配置 [Redis 插件](../RedisStack/index.md)
+## 使用建议
 
-> index_action.py 需要读取 Redis 插件的 CONFIG.py 中的配置项，且确保正确配置。
-
-## 运行服务
-
-- 切换到项目目录，加载 venv 环境。
-
-```bash
-cd ~/agentic-soc-platform
-source .venv/bin/activate
-```
-
-- 启动转发服务：
-
-```bash
-uvicorn integrations.Webhook.main:app --host 0.0.0.0 --port 7000
-```
-
-## API 端点
-
-- `GET /`: 一个简单的健康检查端点。
-- `POST /api/v1/webhook/splunk`: 接收 Splunk 告警 webhook。
-- `POST /api/v1/webhook/kibana`：接收 Kibana（ELK）告警 webhook。
+- 在 SIEM 侧配置告警 Action 指向对应端点。
+- 保持来源告警中的唯一 ID、规则名、产品信息和原始日志字段完整。
+- 用 Correlation UID 让同一事件的多个 Alert 聚合到同一 Case。
