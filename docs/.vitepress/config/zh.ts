@@ -200,6 +200,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'Module 开发', link: 'module-examples/'},
                 {text: 'Playbook 开发', link: 'playbook/'},
                 {text: 'SIEM YAML', link: 'siem-yaml/'},
+                {text: 'Mock 数据', link: 'mock-data/'},
             ]
         }
     ]

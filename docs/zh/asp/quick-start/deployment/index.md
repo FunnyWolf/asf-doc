@@ -14,13 +14,13 @@ uv sync
 
 配置 `.env`，至少确认以下运行依赖：
 
-| 配置 | 说明 |
-| --- | --- |
-| `DB_NAME` / `DB_USER` / `DB_PASSWORD` / `DB_HOST` / `DB_PORT` | PostgreSQL 连接。 |
-| `REDIS_URL` | Redis 连接，例如 `redis://localhost:6379/1`。 |
-| `S3_ENDPOINT_URL` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_STORAGE_BUCKET_NAME` | 附件和头像使用的 S3 兼容存储。 |
-| `DJANGO_SECRET_KEY` | 生产环境必须设置。 |
-| `DJANGO_ALLOWED_HOSTS` | 生产环境允许访问的主机名。 |
+| 配置                                                                                         | 说明                                      |
+|--------------------------------------------------------------------------------------------|-----------------------------------------|
+| `DB_NAME` / `DB_USER` / `DB_PASSWORD` / `DB_HOST` / `DB_PORT`                              | PostgreSQL 连接。                          |
+| `REDIS_URL`                                                                                | Redis 连接，例如 `redis://localhost:6379/1`。 |
+| `S3_ENDPOINT_URL` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_STORAGE_BUCKET_NAME` | 附件和头像使用的 S3 兼容存储。                       |
+| `DJANGO_SECRET_KEY`                                                                        | 生产环境必须设置。                               |
+| `DJANGO_ALLOWED_HOSTS`                                                                     | 生产环境允许访问的主机名。                           |
 
 执行数据库迁移并启动开发服务：
 
@@ -48,12 +48,12 @@ uv sync
 .\.venv\Scripts\python.exe manage.py run_elk_action_worker
 ```
 
-| Worker | 作用 |
-| --- | --- |
-| `run_agentic_module_worker` | 消费 Redis Stream，运行 Module 生成 Case / Alert / Artifact。 |
-| `run_agentic_case_analysis_worker` | 执行 Case AI 分析任务。 |
-| `run_agentic_playbook_worker` | 执行用户触发的 Playbook。 |
-| `run_elk_action_worker` | 从 ELK Action Index 轮询告警。 |
+| Worker                             | 作用                                                    |
+|------------------------------------|-------------------------------------------------------|
+| `run_agentic_module_worker`        | 消费 Redis Stream，运行 Module 生成 Case / Alert / Artifact。 |
+| `run_agentic_case_analysis_worker` | 执行 Case AI 分析任务。                                      |
+| `run_agentic_playbook_worker`      | 执行用户触发的 Playbook。                                     |
+| `run_elk_action_worker`            | 从 ELK Action Index 轮询告警。                              |
 
 ## MCP
 

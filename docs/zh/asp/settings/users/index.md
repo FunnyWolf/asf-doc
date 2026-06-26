@@ -24,6 +24,33 @@
 
 当前界面创建和编辑用户时只能分配 `user` 或 `viewer`；`admin` 来自 Django superuser，不通过用户管理界面创建。
 
+## 管理员账号
+
+ASP 的管理员是 Django superuser，需要在后端命令行创建和维护。
+
+创建管理员：
+
+```powershell
+cd backend
+.\.venv\Scripts\python.exe manage.py createsuperuser
+```
+
+创建出的管理员使用登录页的 `Platform` 方式登录。
+
+如果忘记管理员用户名，可以查询现有 superuser：
+
+```powershell
+cd backend
+.\.venv\Scripts\python.exe manage.py shell -c "from apps.accounts.models import User; print('\n'.join(User.objects.filter(is_superuser=True).values_list('username', flat=True)))"
+```
+
+如果需要重置管理员密码：
+
+```powershell
+cd backend
+.\.venv\Scripts\python.exe manage.py changepassword <admin-username>
+```
+
 ## 认证类型
 
 | 类型             | 说明                            |
