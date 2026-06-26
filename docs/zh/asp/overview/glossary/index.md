@@ -16,6 +16,6 @@
 | Inbox | 站内消息，用于向用户发送系统或用户消息，可关联资源和附件。 |
 | Audit Log | 审计日志，记录资源创建、更新、删除，以及变更字段和操作者。 |
 | LLM Provider | 大模型配置项，包含名称、Base URL、模型、API Key、代理、标签和优先级。 |
-| Agentic Runtime | Agentic 运行配置，目前包含提示词语言和 Stream 长度等参数。 |
+| Runtime | Agentic 运行配置，目前包含提示词语言和 Stream 长度等参数。 |
 | Harness Agent | 通过插件和 MCP 连接 ASP 能力的 Code Agent。它可以围绕 Case、Artifact、SIEM 日志、威胁情报、Module 和 Playbook 工作。 |
 | Webhook | 外部 SIEM 或告警系统接入 ASP 的入口，例如 Splunk / Kibana 告警可通过 Webhook 进入平台。 |

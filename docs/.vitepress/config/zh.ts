@@ -116,6 +116,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'Playbook', link: 'playbook/'},
                 {text: 'Inbox', link: 'inbox/'},
                 {text: 'Audit Log', link: 'audit-log/'},
+                {text: '个人中心', link: 'personal-center/'},
             ]
         },
         {
@@ -124,12 +125,12 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             base: '/zh/asp/settings/',
             items: [
                 {text: '总览', link: 'index/'},
-                {text: '用户与 API Key', link: 'users-api-keys/'},
+                {text: '用户管理', link: 'users/'},
                 {text: 'LLM Provider', link: 'llm-provider/'},
                 {text: 'SIEM', link: 'siem/'},
                 {text: '威胁情报', link: 'threat-intelligence/'},
                 {text: 'LDAP', link: 'ldap/'},
-                {text: 'Agentic Runtime', link: 'agentic-runtime/'},
+                {text: 'Runtime', link: 'runtime/'},
             ]
         },
         {
@@ -138,19 +139,67 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             base: '/zh/asp/integrations/',
             items: [
                 {text: '总览', link: 'index/'},
-                {text: 'Webhook', link: 'webhook/'},
-                {text: 'ClaudeCode 插件', link: 'claude-code/'},
+                {
+                    text: 'Webhook',
+                    collapsed: false,
+                    base: '/zh/asp/integrations/webhook/',
+                    items: [
+                        {text: '总览', link: 'index/'},
+                        {text: 'Splunk', link: 'splunk/'},
+                        {text: 'ELK / Kibana', link: 'elk/'},
+                    ]
+                },
+                {text: 'ELK Index Action', link: 'elk-index-action/'},
+                {
+                    text: 'ClaudeCode 插件',
+                    collapsed: false,
+                    base: '/zh/asp/integrations/claude-code/',
+                    items: [
+                        {text: '使用指南', link: 'index/'},
+                        {
+                            text: 'Agents',
+                            collapsed: true,
+                            base: '/zh/asp/integrations/claude-code/agents/',
+                            items: [
+                                {text: 'Case Investigator', link: 'case-investigator/'},
+                                {text: 'Artifact Investigator', link: 'artifact-investigator/'},
+                                {text: 'Threat Hunting', link: 'threat-hunting/'},
+                            ]
+                        },
+                        {
+                            text: 'Skills',
+                            collapsed: true,
+                            base: '/zh/asp/integrations/claude-code/skills/',
+                            items: [
+                                {text: 'Alert', link: 'alert/'},
+                                {text: 'Artifact', link: 'artifact/'},
+                                {text: 'Case', link: 'case/'},
+                                {text: 'Enrichment', link: 'enrichment/'},
+                                {text: 'Knowledge', link: 'knowledge/'},
+                                {text: 'Comment', link: 'comment/'},
+                                {text: 'CMDB', link: 'cmdb/'},
+                                {text: 'Module Creator', link: 'module-creator/'},
+                                {text: 'Playbook', link: 'playbook/'},
+                                {text: 'Playbook Creator', link: 'playbook-creator/'},
+                                {text: 'SIEM Index YAML', link: 'siem-index-yaml/'},
+                                {text: 'SIEM Search', link: 'siem-search/'},
+                                {text: 'SIEM Rule', link: 'siem-rule/'},
+                                {text: 'Threat Intelligence', link: 'threat-intelligence/'},
+                            ]
+                        },
+                    ]
+                },
             ]
         },
         {
-            text: '开发扩展',
+            text: '定制开发',
             collapsed: false,
             base: '/zh/asp/development/',
             items: [
                 {text: '总览', link: 'index/'},
-                {text: '数据模型与 API', link: 'data-model-api/'},
-                {text: 'Playbook 扩展', link: 'playbook/'},
-                {text: '模块示例', link: 'module-examples/'},
+                {text: 'Module 开发', link: 'module-examples/'},
+                {text: 'Playbook 开发', link: 'playbook/'},
+                {text: 'SIEM YAML', link: 'siem-yaml/'},
             ]
         }
     ]

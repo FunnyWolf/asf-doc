@@ -37,5 +37,5 @@ ASP 的核心数据模型（Case、Alert、Artifact、Enrichment、Playbook、Kn
 - [快速部署](../quick-start/deployment/) — 部署 ASP 并启动文档中的基础工作流。
 - [基础配置](../quick-start/basic-configuration/) — 配置 LLM、SIEM、威胁情报和 LDAP。
 - [Case 工作台](../workspace/case/) — 了解分析师如何围绕 Case 处置安全事件。
-- [模块示例](../development/module-examples/) — 了解如何用 Module 流式处理告警。
-- [Playbook 扩展](../development/playbook/) — 了解如何把 LLM 分析和 SOAR 自动化编排在一起。
+- [Module 开发](../development/module-examples/) — 了解如何用 Module 流式处理告警。
+- [Playbook 开发](../development/playbook/) — 了解如何把 LLM 分析和 SOAR 自动化编排在一起。
