@@ -1,6 +1,6 @@
 # 个人中心
 
-个人中心用于当前登录用户维护自己的资料、密码和 API Key。
+个人中心用于当前登录用户维护自己的资料、个人设置、密码和 API Key。
 
 ## 入口
 
@@ -19,6 +19,19 @@ Profile 用于维护当前用户的个人资料：
 - Mobile Phone
 
 这些字段只影响当前用户资料，不改变用户角色和认证类型。
+
+## Settings
+
+Settings 用于维护当前用户的个人设置。当前包含 Notification Preferences：
+
+- Notify me when my Playbook runs finish：开启后，当前用户触发的 Playbook 运行完成时会收到 Inbox 系统通知。成功和失败都会通知。
+- Notify me when a Case is assigned to me：开启后，Case 被分配给当前用户时会收到 Inbox 系统通知。
+
+通知偏好默认开启。关闭后只影响当前用户本人，不影响其他用户接收通知。
+
+Case 分配通知只会发送给新的负责人。取消分配、重复保存同一负责人，以及用户将 Case 分配给自己时不会发送通知。
+
+![img_3.png](img_3.png)
 
 ## Password
 

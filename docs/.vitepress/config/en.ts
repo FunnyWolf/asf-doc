@@ -10,7 +10,6 @@ export const en = defineConfig({
 
         sidebar: {
             '/asp/': {base: '/asp/', items: sidebarASP()},
-            '/sirp/': {base: '/sirp/', items: sidebarSIRP()},
         },
 
         footer: {
@@ -49,18 +48,17 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
     return [
         {
-            text: 'Framework',
-            link: '/asp/introduction/what_is_asp/',
+            text: 'Documentation',
+            link: '/asp/overview/',
             activeMatch: '/asp/'
-        },
-        {
-            text: 'SIRP',
-            link: '/sirp/introduction/what_is_sirp/',
-            activeMatch: '/sirp/'
         },
         {
             text: "Changelog",
             items: [
+                {
+                    text: '0.4.0 - Less Is More',
+                    link: '/release/0_4_0_Less_Is_More/'
+                },
                 {
                     text: '0.3.0 - MCP and Claude Code Plugin',
                     link: '/release/0_3_0_MCP_And_ClaudeCodePlugin/'
@@ -85,72 +83,83 @@ function nav(): DefaultTheme.NavItem[] {
 function sidebarASP(): DefaultTheme.SidebarItem[] {
     return [
         {
-            text: 'introduction',
+            text: 'Overview',
             collapsed: false,
-            base: '/asp/introduction/',
+            base: '/asp/overview/',
             items: [
-                {text: 'Welcome', link: 'what_is_asp/'},
+                {text: 'What is ASP', link: 'index/'},
+                {text: 'Architecture', link: 'architecture/'},
+                {text: 'Glossary', link: 'glossary/'},
             ]
         },
         {
-            text: 'development Environment',
+            text: 'Quick Start',
             collapsed: false,
-            base: '/asp/development/',
+            base: '/asp/quick-start/',
             items: [
-                {text: 'Environment Setup', link: 'environment_setup/'},
+                {text: 'Deployment', link: 'deployment/'},
+                {text: 'First Login', link: 'first-login/'},
+                {text: 'Basic Configuration', link: 'basic-configuration/'},
             ]
         },
         {
-            text: 'background Services',
+            text: 'Workspace',
             collapsed: false,
-            base: '/asp/background/',
+            base: '/asp/workspace/',
+            items: [
+                {text: 'Dashboard', link: 'dashboard/'},
+                {text: 'Case', link: 'case/'},
+                {text: 'Alert', link: 'alert/'},
+                {text: 'Artifact', link: 'artifact/'},
+                {text: 'Enrichment', link: 'enrichment/'},
+                {text: 'Knowledge', link: 'knowledge/'},
+                {text: 'Playbook', link: 'playbook/'},
+                {text: 'Inbox', link: 'inbox/'},
+                {text: 'Audit Log', link: 'audit-log/'},
+                {text: 'Personal Center', link: 'personal-center/'},
+            ]
+        },
+        {
+            text: 'Settings',
+            collapsed: false,
+            base: '/asp/settings/',
             items: [
                 {text: 'Overview', link: 'index/'},
-                {text: 'Module Engine', link: 'module-engine/'},
-                {text: 'Playbook Execution', link: 'playbook-execution/'},
-                {text: 'Auto Analysis', link: 'auto-analysis/'},
+                {text: 'User Management', link: 'users/'},
+                {text: 'LLM Provider', link: 'llm-provider/'},
+                {text: 'SIEM', link: 'siem/'},
+                {text: 'Threat Intelligence', link: 'threat-intelligence/'},
+                {text: 'LDAP', link: 'ldap/'},
+                {text: 'Runtime', link: 'runtime/'},
             ]
         },
         {
-            text: 'Modules',
-            collapsed: false,
-            base: '/asp/modules/',
-            items: [
-                {text: 'development Guide', link: 'development/'},
-                {text: 'AWS IAM Privilege Escalation', link: 'Cloud-01-AWS-IAM-Privilege-Escalation-via-AttachUserPolicy/'},
-                {text: 'Phishing Mail Detection', link: 'Mail-01-User-Report-Phishing-Mail/'},
-                {text: 'Shadow Copy Deletion', link: 'EDR-01-HOST-Vssadmin-Delete-Shadows/'},
-            ]
-        },
-        {
-            text: 'Playbooks',
-            collapsed: false,
-            base: '/asp/playbooks/',
-            items: [
-                {text: 'development Guide', link: 'development/'},
-                {text: 'Investigation', link: 'Investigation/'},
-                {text: 'Knowledge Extraction', link: 'Knowledge_Extraction/'},
-                {text: 'Threat Intelligence Enrichment', link: 'Threat_Intelligence_Enrichment/'},
-            ]
-        },
-        {
-            text: 'Plugins',
+            text: 'Integrations',
             collapsed: false,
             base: '/asp/integrations/',
             items: [
-                {text: 'development Guide', link: 'development/'},
-                {text: 'AlienVaultOTX', link: 'AlienVaultOTX/'},
-                {text: 'CMDB', link: 'CMDB/'},
+                {text: 'Overview', link: 'index/'},
                 {
-                    text: 'ClaudeCode',
-                    collapsed: true,
-                    base: '/asp/integrations/ClaudeCode/',
+                    text: 'Webhook',
+                    collapsed: false,
+                    base: '/asp/integrations/webhook/',
+                    items: [
+                        {text: 'Overview', link: 'index/'},
+                        {text: 'Splunk', link: 'splunk/'},
+                        {text: 'ELK / Kibana', link: 'elk/'},
+                    ]
+                },
+                {text: 'ELK Index Action', link: 'elk-index-action/'},
+                {
+                    text: 'ClaudeCode Plugin',
+                    collapsed: false,
+                    base: '/asp/integrations/claude-code/',
                     items: [
                         {text: 'Usage Guide', link: 'index/'},
                         {
                             text: 'Agents',
                             collapsed: true,
-                            base: '/asp/integrations/ClaudeCode/agents/',
+                            base: '/asp/integrations/claude-code/agents/',
                             items: [
                                 {text: 'Case Investigator', link: 'case-investigator/'},
                                 {text: 'Artifact Investigator', link: 'artifact-investigator/'},
@@ -160,80 +169,41 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                         {
                             text: 'Skills',
                             collapsed: true,
-                            base: '/asp/integrations/ClaudeCode/skills/',
+                            base: '/asp/integrations/claude-code/skills/',
                             items: [
                                 {text: 'Alert', link: 'alert/'},
                                 {text: 'Artifact', link: 'artifact/'},
                                 {text: 'Case', link: 'case/'},
                                 {text: 'Enrichment', link: 'enrichment/'},
                                 {text: 'Knowledge', link: 'knowledge/'},
+                                {text: 'Comment', link: 'comment/'},
+                                {text: 'CMDB', link: 'cmdb/'},
                                 {text: 'Module Creator', link: 'module-creator/'},
                                 {text: 'Playbook', link: 'playbook/'},
+                                {text: 'Playbook Creator', link: 'playbook-creator/'},
                                 {text: 'SIEM Index YAML', link: 'siem-index-yaml/'},
                                 {text: 'SIEM Search', link: 'siem-search/'},
+                                {text: 'SIEM Rule', link: 'siem-rule/'},
                                 {text: 'Threat Intelligence', link: 'threat-intelligence/'},
                             ]
                         },
                     ]
                 },
-                {text: 'ELK', link: 'ELK/'},
-                {text: 'Webhook', link: 'Webhook/'},
-                {text: 'LLM', link: 'LLM/'},
-                {text: 'MCP', link: 'MCP/'},
-                {text: 'Mock', link: 'Mock/'},
-                {text: 'RedisStack', link: 'RedisStack/'},
-                {text: 'SIEM', link: 'SIEM/'},
-                {text: 'SIRP', link: 'SIRP/'},
-                {text: 'Splunk', link: 'Splunk/'},
-                {text: 'ThreatIntelligence', link: 'ThreatIntelligence/'},
+            ]
+        },
+        {
+            text: 'Development',
+            collapsed: false,
+            base: '/asp/development/',
+            items: [
+                {text: 'Overview', link: 'index/'},
+                {text: 'Environment Setup', link: 'environment-setup/'},
+                {text: 'Module Development', link: 'module-examples/'},
+                {text: 'Playbook Development', link: 'playbook/'},
+                {text: 'SIEM YAML', link: 'siem-yaml/'},
+                {text: 'Mock Data', link: 'mock-data/'},
             ]
         }
-    ]
-}
-
-function sidebarSIRP(): DefaultTheme.SidebarItem[] {
-    return [
-        {
-            text: 'introduction',
-            collapsed: false,
-            base: '/sirp/introduction/',
-            items: [
-                {text: 'Welcome', link: 'what_is_sirp/'},
-            ]
-        },
-        {
-            text: 'Features',
-            collapsed: false,
-            base: '/sirp/feature/',
-            items: [
-                {text: 'Dashboard', link: 'dashboard/'},
-                {text: 'Case', link: 'case/'},
-                {text: 'Alert', link: 'alert/'},
-                {text: 'Artifact', link: 'artifact/'},
-                {text: 'Enrichment', link: 'enrichment/'},
-                {text: 'Knowledge', link: 'knowledge/'},
-                {text: 'Playbook', link: 'playbook/'},
-            ]
-        },
-        {
-            text: 'Installation & Deployment',
-            collapsed: false,
-            base: '/sirp/Deploy/',
-            items: [
-                {text: 'Install Application', link: 'sirp_install/'},
-                {text: 'Configure Application', link: 'sirp_config/'},
-            ]
-        },
-        {
-            text: 'Custom development',
-            collapsed: false,
-            base: '/sirp/development/',
-            items: [
-                {text: 'Custom Fields', link: 'custom_fields/'},
-                {text: 'Update Custom Components', link: 'update_custom_components/'},
-                {text: 'System Configuration', link: 'system/'},
-            ]
-        },
     ]
 }
 

@@ -21,4 +21,4 @@
 | Webhook              | 外部 SIEM 或告警系统接入 ASP 的入口，例如 Splunk / Kibana 告警可通过 Webhook 进入平台。                              |
 | ELK Index Action     | Kibana 先把 action 写入 Elasticsearch 索引，再由 ASP worker 轮询读取并转换为告警的接入方式。                              |
 | SIEM YAML            | 描述 Splunk / ELK 索引、字段和默认聚合字段的 YAML 配置，供 Agent / MCP 理解和查询日志。                                  |
-| Personal Center      | 个人中心，当前用户维护个人资料、密码和 API Key 的入口。                                                          |
+| Personal Center      | 个人中心，当前用户维护个人资料、个人设置、密码和 API Key 的入口。                                                     |

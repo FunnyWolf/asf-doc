@@ -5,11 +5,11 @@
 ## New Feature Highlights
 
 - ~~Message module~~ (deprecated, functionality integrated into other modules)
-- ~~Agents basic framework~~ (deprecated, replaced by [ClaudeCode plugin](../../asp/PLUGINS/ClaudeCode/) agent system)
+- ~~Agents basic framework~~ (deprecated, replaced by [ClaudeCode plugin](../../asp/integrations/claude-code/) agent system)
 - ~~Qdrant vector database plugin~~ (deprecated)
 - ~~Embeddings plugin~~ (deprecated)
-- [Knowledge](../../sirp/Feature/knowledge/) base, supporting knowledge base management and agent's knowledge base calls.
-- ~~Case_L3_SOC_Analyst_Agent_With_Tools playbook~~ (deprecated, replaced by [Playbook](../../asp/PLAYBOOKS/development/) system)
+- [Knowledge](../../asp/workspace/knowledge/) base, supporting knowledge base management and agent's knowledge base calls.
+- ~~Case_L3_SOC_Analyst_Agent_With_Tools playbook~~ (deprecated, replaced by [Playbook](../../asp/development/playbook/) system)
 - Updated SIRP to Nocoly 7.0.0.
 
 ## Optimizations

@@ -2,11 +2,11 @@
 
 ## Feature Highlights
 
-- [Case](../../sirp/Feature/case/) has been restructured based on the [OCSF Incident Finding](https://schema.ocsf.io/1.7.0/classes/incident_finding) standard, providing a unified
+- [Case](../../asp/workspace/case/) has been restructured based on the [OCSF Incident Finding](https://schema.ocsf.io/1.7.0/classes/incident_finding) standard, providing a unified
   data structure for event investigation and response.
-- [Alert](../../sirp/Feature/alert/) has been restructured based on the [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) standard, providing a
+- [Alert](../../asp/workspace/alert/) has been restructured based on the [OCSF Detection Finding](https://schema.ocsf.io/1.7.0/classes/detection_finding) standard, providing a
   unified alert data structure.
-- New [Enrichment](../../sirp/Feature/enrichment/) module added for storing enrichment data. (Ticket module deprecated)
+- New [Enrichment](../../asp/workspace/enrichment/) module added for storing enrichment data. (Ticket module deprecated)
 
 ## Optimization
 
