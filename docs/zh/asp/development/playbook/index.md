@@ -58,8 +58,10 @@ python manage.py run_agentic_playbook_worker
   - 从已有 analyst verdict 的 Case 中提取可复用知识。
 - `threat_intelligence_enrichment.py`
   - 对 Case 关联 Artifact 查询威胁情报，并写入 Artifact Enrichment。
-- `cmdb_enrichment.py`
+- `custom\playbooks\cmdb_enrichment.py`
   - 对 Case 关联 Artifact 查询 CMDB，并写入 Artifact Enrichment。
+- `custom\playbooks\case_summary.py`
+  - 读取 `custom\data\playbooks\case_summary\System_<lang>.md`，调用 LLM 生成 Case Summary。
 
 ## 数据落点
 
@@ -69,6 +71,17 @@ Playbook 不应只输出临时文本。推荐把结果写回：
 - Knowledge：从案件提取的可复用知识。
 - Enrichment：威胁情报、资产、身份或历史上下文。
 - Playbook：任务状态、备注和后台任务 ID。
+
+## 自定义 Prompt
+
+自定义 Playbook 可以把提示词放在：
+
+```text
+custom/data/playbooks/<playbook_slug>/System_en.md
+custom/data/playbooks/<playbook_slug>/System_zh.md
+```
+
+Playbook 中通过 `self.read_prompt("System")` 按 Runtime 的 Prompt Language 读取对应文件。缺少 Prompt 文件时，Playbook 会失败并把错误写入任务记录。
 
 ## 设计建议
 

@@ -93,7 +93,9 @@ ASP_RUSTFS_CONSOLE_PORT=9001
 | --- | --- |
 | `custom/modules/*.py` | 自定义 Module。 |
 | `custom/playbooks/*.py` | 自定义 Playbook。 |
+| `custom/data/modules/<module_slug>/raw_alert_*.json` | Module 开发调试样本。 |
 | `custom/data/siem/*.yaml` | 自定义 SIEM YAML。 |
+| `custom/data/playbooks/<playbook_slug>/*.md` | 自定义 Playbook Prompt。 |
 | `custom/requirements.txt` | Module / Playbook 需要的额外 Python 包。 |
 
 修改脚本或 YAML 后，可以在 `System Settings` → `Runtime` 中执行 `Refresh / Validate`。如果变更了 Python 依赖或公共 helper module，需要重新执行 `asp-custom-deps` 并重启相关容器。

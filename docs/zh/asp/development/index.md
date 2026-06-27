@@ -18,7 +18,7 @@
 | Playbook | `custom\playbooks\*.py` / `backend\playbooks\*.py` | 从 Case 触发用户主动执行的自动化任务。 |
 | SIEM YAML | `custom\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
 
-生产运行时默认只从 `custom/` 加载 Module 和 SIEM YAML。`backend\examples\` 只保存示例文件，不进入运行路径。Playbook 保留产品内置能力，也允许通过 `custom\playbooks\*.py` 追加或覆盖。
+生产运行时默认只从 `custom/` 加载 Module 和 SIEM YAML。源码仓库中的 `backend\custom\` 可作为本地开发样例；发布包中的 `custom/` 默认是空模板。Playbook 保留产品内置能力，也允许通过 `custom\playbooks\*.py` 追加或覆盖。
 
 ## 数据流
 
@@ -47,7 +47,7 @@ docker compose run --rm asp-custom-deps --index-url https://pypi.org/simple
 
 ## 当前示例
 
-当前后端在 `backend\examples\modules\` 中包含以下 Module 示例：
+当前后端在 `backend\custom\modules\` 中包含以下 Module 示例：
 
 - `aws_iam_privilege_escalation_attach_user_policy.py`
 - `edr_vssadmin_delete_shadows.py`

@@ -42,11 +42,11 @@ Runtime 配置更新会写入 Audit Log。
 
 ## Custom Definitions
 
-`Refresh / Validate` 用于手动刷新和校验自定义 Module、Playbook、SIEM YAML。
+`Refresh / Validate` 用于手动刷新和校验自定义 Module、Playbook、SIEM YAML 和自定义 Playbook Prompt。
 
 执行后页面会显示：
 
-- 已加载的 Module、Playbook、SIEM YAML 数量。
+- 已加载的 Module、Playbook、SIEM YAML、Prompt 数量。
 - 每个定义的名称、来源和文件路径。
 - 加载失败的文件路径和异常信息。
 
