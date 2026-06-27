@@ -139,6 +139,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             base: '/zh/asp/integrations/',
             items: [
                 {text: '总览', link: 'index/'},
+                {text: 'MCP', link: 'mcp/'},
                 {
                     text: 'Webhook',
                     collapsed: false,
