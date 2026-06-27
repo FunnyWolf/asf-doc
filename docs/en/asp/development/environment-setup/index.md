@@ -140,12 +140,3 @@ pnpm dev
 ```
 
 Frontend API defaults to `/api`, development environment can forward to backend through Vite or reverse proxy.
-
-## Documentation Site
-
-This documentation is located at `asf-doc`:
-
-```powershell
-npm install
-npm run docs:dev
-```

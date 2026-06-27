@@ -4,6 +4,8 @@ Dashboard is used to quickly view the current security operations status.
 
 The current page aggregates and displays information such as Case, Alert, key trends, risk distribution, and keyword clouds, helping analysts determine which areas need priority attention today.
 
+![img.png](../../../../public/hero/zh/img.png)
+
 ## Usage Recommendations
 
 - Check Dashboard at the start of each shift.

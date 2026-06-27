@@ -4,6 +4,8 @@ Dashboard 用于快速查看当前安全运营状态。
 
 当前页面聚合展示 Case、Alert、关键趋势、风险分布和关键词云等信息，帮助分析师判断今天需要优先关注的方向。
 
+![img.png](../../../../public/hero/zh/img.png)
+
 ## 使用建议
 
 - 每日开始值班时先查看 Dashboard。

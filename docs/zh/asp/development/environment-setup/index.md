@@ -140,12 +140,3 @@ pnpm dev
 ```
 
 前端 API 默认访问 `/api`，开发环境可通过 Vite 或反向代理转发到后端。
-
-## 文档站
-
-本文档位于 `asf-doc`：
-
-```powershell
-npm install
-npm run docs:dev
-```
