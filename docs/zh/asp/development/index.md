@@ -62,8 +62,9 @@ docker compose run --rm asp-custom-deps --index-url https://pypi.org/simple
 
 ## 推荐阅读顺序
 
-1. [Module 开发](module-examples/)：了解如何把 Stream 告警转换为 ASP 资源。
-2. [Playbook 开发](playbook/)：了解如何编写 Case 触发的自动化任务。
-3. [SIEM YAML](siem-yaml/)：了解如何为 Agent / MCP 查询维护索引配置。
+1. [开发环境搭建](environment-setup/)：准备源码开发环境和 custom 目录。
+2. [Module 开发](module-examples/)：了解如何把 Stream 告警转换为 ASP 资源。
+3. [Playbook 开发](playbook/)：了解如何编写 Case 触发的自动化任务。
+4. [SIEM YAML](siem-yaml/)：了解如何为 Agent / MCP 查询维护索引配置。
 
 ClaudeCode 插件中的 [Module Creator](../integrations/claude-code/skills/module-creator/) 和 [Playbook Creator](../integrations/claude-code/skills/playbook-creator/) 可以辅助生成代码草案。

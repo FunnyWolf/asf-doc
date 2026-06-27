@@ -197,6 +197,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             base: '/zh/asp/development/',
             items: [
                 {text: '总览', link: 'index/'},
+                {text: '开发环境搭建', link: 'environment-setup/'},
                 {text: 'Module 开发', link: 'module-examples/'},
                 {text: 'Playbook 开发', link: 'playbook/'},
                 {text: 'SIEM YAML', link: 'siem-yaml/'},

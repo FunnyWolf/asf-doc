@@ -1,10 +1,10 @@
 # 部署
 
-ASP 后端是 Django，前端是 Vite + Ant Design。单机私有化部署推荐使用 Docker Compose 分发包；源码方式主要用于开发和调试。
+ASP 后端是 Django，前端是 Vite + Ant Design。单机私有化部署推荐使用 Docker Compose 分发包。
 
 ## Docker Compose 单机部署
 
-发布包命名为 `asp-compose-<version>.zip`，解压后包含：
+发布包命名为 `asp-compose-<version>.tar.gz`，解压后包含：
 
 ```text
 compose.yaml
@@ -100,83 +100,18 @@ ASP_RUSTFS_CONSOLE_PORT=9001
 
 修改脚本或 YAML 后，可以在 `System Settings` → `Runtime` 中执行 `Refresh / Validate`。如果变更了 Python 依赖或公共 helper module，需要重新执行 `asp-custom-deps` 并重启相关容器。
 
-## 源码开发部署
+## 日志
 
-### 后端
+后端进程日志会挂载到部署目录的 `logs/`：
 
-进入 `backend` 目录后使用项目内虚拟环境运行管理命令。
-
-安装依赖：
-
-```powershell
-uv sync
+```text
+logs/django.log
+logs/asgi.log
+logs/agentic-module-worker.log
+logs/agentic-case-analysis-worker.log
+logs/agentic-playbook-worker.log
+logs/elk-action-worker.log
 ```
 
-配置 `.env`，至少确认以下运行依赖：
+容器标准输出和标准错误仍可通过 `docker compose logs` 查看。
 
-| 配置 | 说明 |
-| --- | --- |
-| `POSTGRES_DB` / `POSTGRES_USER` / `POSTGRES_PASSWORD` / `POSTGRES_HOST` / `POSTGRES_PORT` | PostgreSQL 连接。 |
-| `REDIS_HOST` / `REDIS_PORT` / `REDIS_DB` / `REDIS_PASSWORD` | Redis 连接。 |
-| `RUSTFS_ENDPOINT_URL` / `RUSTFS_ACCESS_KEY` / `RUSTFS_SECRET_KEY` / `RUSTFS_BUCKET` | RustFS / S3 兼容对象存储。 |
-| `DJANGO_SECRET_KEY` | 生产环境必须设置。 |
-| `DJANGO_ALLOWED_HOSTS` | 生产环境允许访问的主机名。 |
-
-执行数据库迁移并启动开发服务：
-
-```powershell
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe manage.py runserver
-```
-
-后端 API 默认挂载在 `/api/` 下。首次部署后应先完成数据库迁移，再创建管理员账号。
-
-创建管理员账号：
-
-```powershell
-.\.venv\Scripts\python.exe manage.py createsuperuser
-```
-
-### 后台 worker
-
-开发或生产环境需要按实际功能启动对应 worker：
-
-```powershell
-.\.venv\Scripts\python.exe manage.py run_agentic_module_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_case_analysis_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_playbook_worker
-.\.venv\Scripts\python.exe manage.py run_elk_action_worker
-```
-
-| Worker                             | 作用                                                    |
-|------------------------------------|-------------------------------------------------------|
-| `run_agentic_module_worker`        | 消费 Redis Stream，运行 Module 生成 Case / Alert / Artifact。 |
-| `run_agentic_case_analysis_worker` | 执行 Case AI 分析任务。                                      |
-| `run_agentic_playbook_worker`      | 执行用户触发的 Playbook。                                     |
-| `run_elk_action_worker`            | 从 ELK Action Index 轮询告警。                              |
-
-### MCP
-
-MCP 端点挂载在 ASGI 应用的 `/api/mcp`。如果需要 ClaudeCode 插件，生产环境需要把 `/api/mcp` 路由到 ASGI 服务。
-
-后端普通 API/Admin 可以走 WSGI，MCP 走 ASGI。
-
-### 前端
-
-进入 `frontend` 目录安装依赖并启动开发服务：
-
-```powershell
-npm install
-npm run dev
-```
-
-生产环境可以按项目实际部署方式构建前端并反向代理到后端 API。
-
-## 文档站
-
-本文档位于 `asf-doc`：
-
-```powershell
-npm install
-npm run docs:dev
-```
