@@ -14,9 +14,11 @@
 
 | 扩展点 | 位置 | 用途 |
 | --- | --- | --- |
-| Module | `backend\modules\*.py` | 消费 Redis Stream 中的原始告警，生成 Case / Alert / Artifact。 |
-| Playbook | `backend\playbooks\*.py` | 从 Case 触发用户主动执行的自动化任务。 |
-| SIEM YAML | `backend\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
+| Module | `custom\modules\*.py` / `backend\modules\*.py` | 消费 Redis Stream 中的原始告警，生成 Case / Alert / Artifact。 |
+| Playbook | `custom\playbooks\*.py` / `backend\playbooks\*.py` | 从 Case 触发用户主动执行的自动化任务。 |
+| SIEM YAML | `custom\data\siem\*.yaml` / `backend\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
+
+Compose 部署时优先把用户代码放在 `custom/`。官方目录保留产品内置示例；同名脚本或 YAML 由 `custom/` 覆盖。
 
 ## 数据流
 
@@ -30,6 +32,18 @@ SIEM Rule
 ```
 
 Module 负责把原始告警降噪和标准化，让分析师围绕 Case 工作；Playbook 负责在 Case 上推进调查、富化、知识提取或其他自动化动作；SIEM YAML 让 Agent 能理解和查询外部日志。
+
+## 刷新与依赖
+
+修改 Module、Playbook 或 SIEM YAML 后，可以在 `System Settings` → `Runtime` 中点击 `Refresh / Validate` 重新扫描并查看加载结果。加载失败会显示文件路径和异常信息，并写入 Audit Log。
+
+如果新增或升级了 Python 依赖，先更新 `custom\requirements.txt`，再执行：
+
+```bash
+docker compose run --rm asp-custom-deps --index-url https://pypi.org/simple
+```
+
+依赖包或公共 helper module 变更后，需要重启相关容器；单纯脚本定义或 YAML 变更可通过刷新/校验确认。
 
 ## 当前示例
 

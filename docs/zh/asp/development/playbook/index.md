@@ -4,7 +4,13 @@ Playbook 是 ASP 中面向 Case 的自动化任务。
 
 ## 脚本位置
 
-Playbook 文件位于：
+Compose 部署时，用户自定义 Playbook 放在：
+
+```text
+custom/playbooks/
+```
+
+源码开发时，内置示例位于：
 
 ```text
 backend/playbooks/
@@ -41,6 +47,8 @@ python manage.py run_agentic_playbook_worker
 ```
 
 执行成功后，返回值会写入 Playbook 的 `Remark`；执行失败时，异常信息会写入失败记录。
+
+修改 Playbook 后，可以在 `System Settings` → `Runtime` 中点击 `Refresh / Validate` 查看加载结果。若 Playbook 引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
 
 ## 当前示例
 
