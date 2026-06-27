@@ -4,7 +4,7 @@ SIEM Index YAML Skill 用于创建或更新 SIEM 索引配置 YAML。
 
 ## 触发场景
 
-- 为 Splunk 或 ELK 中的索引生成 `backend/data/siem/*.yaml`。
+- 为 Splunk 或 ELK 中的索引生成 `custom/data/siem/*.yaml`。
 - 从后端实时发现字段，并为字段补充说明、类型和关键字段标记。
 - 让 Agent / MCP 能通过 schema 理解和查询 SIEM 数据源。
 

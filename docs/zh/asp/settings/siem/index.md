@@ -52,7 +52,7 @@ Splunk 和 ELK 都支持 Test。Splunk 测试会连接 Splunk 并读取 service 
 
 ## SIEM 查询与索引配置
 
-SIEM 连接配置只负责提供 Splunk / ELK 后端凭据。Agent 和 MCP 的 SIEM 查询还依赖 `backend\data\siem\*.yaml` 中的索引配置。
+SIEM 连接配置只负责提供 Splunk / ELK 后端凭据。Agent 和 MCP 的 SIEM 查询还依赖 `custom\data\siem\*.yaml` 中的索引配置。
 
 YAML 索引配置用于描述可搜索索引、后端类型、字段含义和默认聚合字段。未配置的索引不会出现在 schema 列表中，也不会参与基于 schema 的查询。
 
@@ -68,5 +68,5 @@ YAML 索引配置用于描述可搜索索引、后端类型、字段含义和默
 
 - 保存后先执行 Test，确认网络、账号、证书和密钥配置正确。
 - 只在需要从 Kibana action index 拉取告警时启用 ELK Index Action。
-- 为 Agent / MCP 查询维护 `backend\data\siem\*.yaml` 索引配置，避免让 LLM 在未知索引中盲查。
+- 为 Agent / MCP 查询维护 `custom\data\siem\*.yaml` 索引配置，避免让 LLM 在未知索引中盲查。
 - Webhook 接入请参考集成章节，不在 SIEM 设置页配置。

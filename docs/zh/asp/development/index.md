@@ -14,11 +14,11 @@
 
 | 扩展点 | 位置 | 用途 |
 | --- | --- | --- |
-| Module | `custom\modules\*.py` / `backend\modules\*.py` | 消费 Redis Stream 中的原始告警，生成 Case / Alert / Artifact。 |
+| Module | `custom\modules\*.py` | 消费 Redis Stream 中的原始告警，生成 Case / Alert / Artifact。 |
 | Playbook | `custom\playbooks\*.py` / `backend\playbooks\*.py` | 从 Case 触发用户主动执行的自动化任务。 |
-| SIEM YAML | `custom\data\siem\*.yaml` / `backend\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
+| SIEM YAML | `custom\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
 
-Compose 部署时优先把用户代码放在 `custom/`。官方目录保留产品内置示例；同名脚本或 YAML 由 `custom/` 覆盖。
+生产运行时默认只从 `custom/` 加载 Module 和 SIEM YAML。`backend\examples\` 只保存示例文件，不进入运行路径。Playbook 保留产品内置能力，也允许通过 `custom\playbooks\*.py` 追加或覆盖。
 
 ## 数据流
 
@@ -47,7 +47,7 @@ docker compose run --rm asp-custom-deps --index-url https://pypi.org/simple
 
 ## 当前示例
 
-当前后端包含以下 Module 示例：
+当前后端在 `backend\examples\modules\` 中包含以下 Module 示例：
 
 - `aws_iam_privilege_escalation_attach_user_policy.py`
 - `edr_vssadmin_delete_shadows.py`

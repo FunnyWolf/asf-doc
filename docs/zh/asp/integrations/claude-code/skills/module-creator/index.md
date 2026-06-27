@@ -4,7 +4,7 @@ Module Creator Skill 用于为 SIEM Rule 创建 ASP 告警处理模块。
 
 ## 触发场景
 
-- 为新的 SIEM Rule 编写 `backend/modules/` 下的 Python Module。
+- 为新的 SIEM Rule 编写 `custom/modules/` 下的 Python Module。
 - 把 Webhook 或 ELK Index Action 写入的 raw alert 转换为 Case / Alert / Artifact。
 - 设计 Correlation UID 和 Artifact 提取逻辑。
 
@@ -26,6 +26,6 @@ Module Creator Skill 用于为 SIEM Rule 创建 ASP 告警处理模块。
 
 ## 依赖
 
-- `backend/modules/`
+- `custom/modules/`
 - 当前 backend 的 Case / Alert / Artifact 枚举模型
 - MCP 工具：Stream 读取相关工具
