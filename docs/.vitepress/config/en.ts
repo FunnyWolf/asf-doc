@@ -101,6 +101,8 @@ function sidebarASP(rootBase = '/asp/'): DefaultTheme.SidebarItem[] {
                 {text: 'Deployment', link: 'deployment/'},
                 {text: 'First Login', link: 'first-login/'},
                 {text: 'Basic Configuration', link: 'basic-configuration/'},
+                {text: 'Restart & Operations', link: 'operations/'},
+                {text: 'Upgrade', link: 'upgrade/'},
             ]
         },
         {

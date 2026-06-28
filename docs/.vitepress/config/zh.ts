@@ -100,6 +100,8 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: '部署', link: 'deployment/'},
                 {text: '首次登录', link: 'first-login/'},
                 {text: '基础配置', link: 'basic-configuration/'},
+                {text: '重启 & 运维', link: 'operations/'},
+                {text: '升级', link: 'upgrade/'},
             ]
         },
         {
