@@ -1,82 +1,54 @@
 # 升级
 
-本页说明 Docker Compose 生产部署的升级流程。升级时要保留现有 `.env`、`custom/`、`certs/` 和 Docker named volumes，只替换发布包中的编排文件、脚本和镜像版本。
+生产环境升级优先走简单流程：**备份数据、更新镜像版本、执行升级脚本、检查状态**。不要重新初始化，也不要删除 Docker 数据卷。
+
+> 除非发布说明明确要求替换 `compose.yaml` 或 `scripts/`，否则通常只需要更新 `.env` 中的镜像版本并执行 `./scripts/upgrade.sh`。
 
 ## 1. 升级前备份
 
-升级前至少备份 `.env`、`custom/`、`certs/` 和 PostgreSQL 数据：
+升级前先按 [备份 & 恢复](../backup-restore/) 完成一次停机全量备份。
 
-```bash
-mkdir -p backups
-set -a
-. ./.env
-set +a
+## 2. 更新镜像版本
 
-tar -czf "backups/asp-config-$(date +%Y%m%d%H%M%S).tar.gz" .env custom certs
-docker compose exec -T postgres pg_dump -U "$POSTGRES_USER" "$POSTGRES_DB" > "backups/postgres-$(date +%Y%m%d%H%M%S).sql"
-```
-
-> RustFS、Redis 和 PostgreSQL 都使用 Docker named volumes。生产环境如果依赖 Redis Stream 中的未处理消息，或 RustFS 中已有附件文件，应结合宿主机快照、云盘快照或 Docker volume 备份策略一起保护这些数据。
-
-## 2. 下载并准备新发布包
-
-```bash
-cd ..
-rm -rf /tmp/asp-compose
-curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.0/asp-compose-0.4.0.tar.gz
-tar -xzf asp-compose-0.4.0.tar.gz -C /tmp
-```
-
-把新发布包中的编排文件和脚本同步到当前部署目录，保留现有 `.env`、`custom/`、`certs/` 和 Docker named volumes：
-
-```bash
-cp /tmp/asp-compose/compose.yaml ./asp-compose/compose.yaml
-rm -rf ./asp-compose/scripts
-cp -a /tmp/asp-compose/scripts ./asp-compose/
-cp /tmp/asp-compose/.env.example ./asp-compose/.env.example
-cd asp-compose
-```
-
-> 默认 Compose project name 来自目录名。生产升级时建议继续使用同一个 `asp-compose/` 目录，避免 Docker named volumes 名称变化导致服务看不到原有数据。
-
-## 3. 更新镜像版本
-
-升级包的 `.env.example` 会包含新版本镜像。将现有 `.env` 中的镜像地址更新到目标版本：
-
-```bash
-grep '^ASP_.*_IMAGE=' .env.example
-grep '^ASP_.*_IMAGE=' .env
-```
-
-然后编辑 `.env`：
+编辑 `.env`，把后端和前端镜像标签改成目标版本：
 
 ```text
 ASP_BACKEND_IMAGE=ghcr.io/funnywolf/agentic-soc-platform/asp-backend:<version>
 ASP_FRONTEND_IMAGE=ghcr.io/funnywolf/agentic-soc-platform/asp-frontend:<version>
 ```
 
-## 4. 执行升级
+`<version>` 使用目标 Release 的版本号，例如 `0.4.1`。
+
+## 3. 执行升级
 
 ```bash
 ./scripts/upgrade.sh
 ```
 
-`upgrade.sh` 会执行：
+脚本会拉取镜像、执行数据库迁移、启动服务，并运行 `./scripts/doctor.sh`。
 
-```text
-docker compose pull
-docker compose run --rm asp-migrate
-docker compose up -d
-./scripts/doctor.sh
-```
-
-## 5. 升级后检查
+## 4. 升级后检查
 
 ```bash
 docker compose ps
 ./scripts/doctor.sh
+```
+
+如果服务异常，再查看对应日志：
+
+```bash
 docker compose logs --tail=100 asp-web
 docker compose logs --tail=100 asp-frontend
 ```
 
-如果升级后修改了 `.env` 中的端口、域名或管理界面绑定地址，请确认防火墙、安全组和反向代理配置也同步更新。
+## 5. 需要替换发布包文件时
+
+只有当发布说明明确要求更新 Docker Compose 编排或脚本时，才需要从新发布包中替换这些文件。保留当前目录中的 `.env`、`custom/`、`certs/` 和 Docker named volumes，只替换：
+
+- `compose.yaml`
+- `scripts/`
+- `.env.example`
+
+替换后回到第 2 步，更新 `.env` 中的镜像版本并执行升级。
+
+> 生产环境建议继续使用同一个 `asp-compose/` 目录。默认 Compose project name 来自目录名，换目录可能导致 Docker named volumes 名称变化，从而看不到原有数据。

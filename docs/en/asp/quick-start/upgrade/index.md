@@ -1,82 +1,54 @@
 # Upgrade
 
-This page covers the production upgrade flow for Docker Compose deployments. Keep the existing `.env`, `custom/`, `certs/`, and Docker named volumes; only replace release package Compose files, scripts, and image versions.
+For production upgrades, use the simple path first: **back up data, update image versions, run the upgrade script, and check status**. Do not reinitialize the deployment, and do not delete Docker volumes.
+
+> Unless the release notes explicitly require replacing `compose.yaml` or `scripts/`, you usually only need to update image versions in `.env` and run `./scripts/upgrade.sh`.
 
 ## 1. Back up before upgrading
 
-Before upgrading, back up at least `.env`, `custom/`, `certs/`, and PostgreSQL data:
+Before upgrading, complete one stopped full backup using [Backup & Restore](../backup-restore/).
 
-```bash
-mkdir -p backups
-set -a
-. ./.env
-set +a
+## 2. Update image versions
 
-tar -czf "backups/asp-config-$(date +%Y%m%d%H%M%S).tar.gz" .env custom certs
-docker compose exec -T postgres pg_dump -U "$POSTGRES_USER" "$POSTGRES_DB" > "backups/postgres-$(date +%Y%m%d%H%M%S).sql"
-```
-
-> RustFS, Redis, and PostgreSQL use Docker named volumes. In production, if you rely on pending Redis Stream messages or RustFS attachment files, protect those volumes with host snapshots, cloud disk snapshots, or a Docker volume backup strategy.
-
-## 2. Download and prepare the new package
-
-```bash
-cd ..
-rm -rf /tmp/asp-compose
-curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.0/asp-compose-0.4.0.tar.gz
-tar -xzf asp-compose-0.4.0.tar.gz -C /tmp
-```
-
-Copy the new Compose files and scripts into the current deployment directory while keeping the existing `.env`, `custom/`, `certs/`, and Docker named volumes:
-
-```bash
-cp /tmp/asp-compose/compose.yaml ./asp-compose/compose.yaml
-rm -rf ./asp-compose/scripts
-cp -a /tmp/asp-compose/scripts ./asp-compose/
-cp /tmp/asp-compose/.env.example ./asp-compose/.env.example
-cd asp-compose
-```
-
-> The default Compose project name comes from the directory name. For production upgrades, keep using the same `asp-compose/` directory so Docker named volume names continue to point to the existing data.
-
-## 3. Update image versions
-
-The new package's `.env.example` contains the target image versions. Update the image values in your existing `.env`:
-
-```bash
-grep '^ASP_.*_IMAGE=' .env.example
-grep '^ASP_.*_IMAGE=' .env
-```
-
-Then edit `.env`:
+Edit `.env` and change the backend and frontend image tags to the target version:
 
 ```text
 ASP_BACKEND_IMAGE=ghcr.io/funnywolf/agentic-soc-platform/asp-backend:<version>
 ASP_FRONTEND_IMAGE=ghcr.io/funnywolf/agentic-soc-platform/asp-frontend:<version>
 ```
 
-## 4. Run the upgrade
+Use the target Release version for `<version>`, for example `0.4.1`.
+
+## 3. Run the upgrade
 
 ```bash
 ./scripts/upgrade.sh
 ```
 
-`upgrade.sh` runs:
+The script pulls images, runs database migrations, starts services, and runs `./scripts/doctor.sh`.
 
-```text
-docker compose pull
-docker compose run --rm asp-migrate
-docker compose up -d
-./scripts/doctor.sh
-```
-
-## 5. Check after upgrading
+## 4. Check after upgrading
 
 ```bash
 docker compose ps
 ./scripts/doctor.sh
+```
+
+If a service looks unhealthy, check its logs:
+
+```bash
 docker compose logs --tail=100 asp-web
 docker compose logs --tail=100 asp-frontend
 ```
 
-If you changed ports, domains, or management UI bind addresses in `.env`, also update firewall, security group, and reverse proxy configuration.
+## 5. When package files must be replaced
+
+Only replace package files when the release notes explicitly require Docker Compose or script updates. Keep the current `.env`, `custom/`, `certs/`, and Docker named volumes, and replace only:
+
+- `compose.yaml`
+- `scripts/`
+- `.env.example`
+
+After replacing them, return to step 2, update image versions in `.env`, and run the upgrade.
+
+> In production, keep using the same `asp-compose/` directory. The default Compose project name comes from the directory name; changing directories can change Docker named volume names and make existing data appear missing.
