@@ -2,7 +2,7 @@
 
 定制开发用于说明如何根据自己的安全运营场景扩展 ASP。
 
-当前开放给用户自定义开发的主要扩展点是 Module、Playbook 和 SIEM YAML。
+当前开放给用户自定义开发的主要扩展点是告警接入、SIEM YAML、Module 和 Playbook。源码仓库中的 [Custom Examples](custom-examples/) 还提供了一套可联动的示例资产，用于理解 Mock SIEM 日志、告警接入、SIEM YAML、Module 和 Playbook 如何配合。
 
 ## 适用读者
 
@@ -14,24 +14,25 @@
 
 | 扩展点 | 位置 | 用途 |
 | --- | --- | --- |
+| 告警接入 | Webhook / ELK Index Action | 将 SIEM 告警写入 Redis Stream，作为 Module 的输入。 |
+| SIEM YAML | `custom\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
 | Module | `custom\modules\*.py` | 消费 Redis Stream 中的原始告警，生成 Case / Alert / Artifact。 |
 | Playbook | `custom\playbooks\*.py` / `backend\playbooks\*.py` | 从 Case 触发用户主动执行的自动化任务。 |
-| SIEM YAML | `custom\data\siem\*.yaml` | 描述 Splunk / ELK 索引、字段和默认聚合字段，供 Agent / MCP 查询使用。 |
 
 生产运行时默认只从 `custom/` 加载 Module 和 SIEM YAML。源码仓库中的 `backend\custom\` 可作为本地开发样例；发布包中的 `custom/` 默认是空模板。Playbook 保留产品内置能力，也允许通过 `custom\playbooks\*.py` 追加或覆盖。
 
 ## 数据流
 
 ```text
-SIEM Rule
-  → Webhook / ELK Index Action
+Mock Data / SIEM Rule
+  → 告警接入（Webhook / ELK Index Action）
   → Redis Stream
   → Module
   → Case / Alert / Artifact
   → Playbook / Enrichment / Knowledge
 ```
 
-Module 负责把原始告警降噪和标准化，让分析师围绕 Case 工作；Playbook 负责在 Case 上推进调查、富化、知识提取或其他自动化动作；SIEM YAML 让 Agent 能理解和查询外部日志。
+告警接入负责把 SIEM 侧的检测结果写入 Stream；Module 负责把原始告警降噪和标准化，让分析师围绕 Case 工作；Playbook 负责在 Case 上推进调查、富化、知识提取或其他自动化动作；SIEM YAML 让 Agent 能理解和查询外部日志。
 
 ## 刷新与依赖
 
@@ -63,9 +64,12 @@ docker compose run --rm asp-custom-deps --index-url https://pypi.org/simple
 ## 推荐阅读顺序
 
 1. [开发环境搭建](environment-setup/)：准备源码开发环境和 custom 目录。
-2. [Custom Console](custom-console/)：了解如何查看和校验当前环境加载的定制定义。
-3. [Module 开发](module-examples/)：了解如何把 Stream 告警转换为 ASP 资源。
-4. [Playbook 开发](playbook/)：了解如何编写 Case 触发的自动化任务。
-5. [SIEM YAML](siem-yaml/)：了解如何为 Agent / MCP 查询维护索引配置。
+2. [Mock 数据](mock-data/)：生成工作台数据或 SIEM 测试日志。
+3. [告警接入](alert-ingestion/)：了解如何通过 Webhook / ELK Index Action 将 SIEM 告警写入 Redis Stream。
+4. [SIEM YAML](siem-yaml/)：了解如何为 Agent / MCP 查询维护索引配置。
+5. [Module 开发](module-examples/)：了解如何把 Stream 告警转换为 ASP 资源。
+6. [Playbook 开发](playbook/)：了解如何编写 Case 触发的自动化任务。
+7. [Custom Console](custom-console/)：了解如何查看和校验当前环境加载的定制定义。
+8. [Custom Examples](custom-examples/)：通过一套组合示例理解 Mock 数据、告警接入、SIEM YAML、Module 和 Playbook 的联动关系。
 
 ClaudeCode 插件中的 [Module Creator](../integrations/claude-code/skills/module-creator/) 和 [Playbook Creator](../integrations/claude-code/skills/playbook-creator/) 可以辅助生成代码草案。

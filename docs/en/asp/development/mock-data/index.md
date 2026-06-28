@@ -2,6 +2,8 @@
 
 Mock data is used to experience the ASP workspace, verify Module / Playbook flows, or write simulated logs to SIEM when there are no real alert sources.
 
+> SIEM Mock logs can be used with [Alert Ingestion](../alert-ingestion/), example SIEM YAML, Splunk SPL / ELK ES|QL queries, and Modules in [Custom Examples](../custom-examples/) to demonstrate the full log-to-Case flow.
+
 The backend currently provides two types of Mock:
 
 | Type | Location | Purpose |

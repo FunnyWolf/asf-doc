@@ -2,6 +2,8 @@
 
 Mock 数据用于在没有真实告警源时体验 ASP 工作台、验证 Module / Playbook 流程，或向 SIEM 写入模拟日志。
 
+> SIEM Mock 日志可以和 [告警接入](../alert-ingestion/)、[Custom Examples](../custom-examples/) 中的示例 SIEM YAML、Splunk SPL / ELK ES|QL 查询和 Module 配合，用于演示从日志到 Case 的完整链路。
+
 当前后端提供两类 Mock：
 
 | 类型 | 位置 | 用途 |

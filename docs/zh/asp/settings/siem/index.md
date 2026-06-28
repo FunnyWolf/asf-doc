@@ -62,11 +62,11 @@ YAML 索引配置用于描述可搜索索引、后端类型、字段含义和默
 
 读取到的 action 会转换为 Kibana webhook 告警处理流程，继续进入 ASP 的告警接入和 Case / Alert / Artifact 生成流程。
 
-完整接入流程、Kibana action 内容和 worker 运行方式见 [ELK Index Action](../../integrations/elk-index-action/)。
+完整接入流程、Kibana action 内容和 worker 运行方式见 [ELK Index Action](../../development/alert-ingestion/elk-index-action/)。
 
 ## 使用建议
 
 - 保存后先执行 Test，确认网络、账号、证书和密钥配置正确。
 - 只在需要从 Kibana action index 拉取告警时启用 ELK Index Action。
 - 为 Agent / MCP 查询维护 `custom\data\siem\*.yaml` 索引配置，避免让 LLM 在未知索引中盲查。
-- Webhook 接入请参考集成章节，不在 SIEM 设置页配置。
+- Webhook 接入请参考 [告警接入](../../development/alert-ingestion/)，不在 SIEM 设置页配置。

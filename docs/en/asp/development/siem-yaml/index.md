@@ -2,6 +2,8 @@
 
 SIEM YAML is used to describe the index structure in Splunk / ELK that can be queried by Agent and MCP.
 
+> To see how SIEM YAML works with alert queries and Module examples, read [Custom Module Examples](../custom-examples/modules/).
+
 ## Configuration Location
 
 User-defined SIEM YAML is placed in:

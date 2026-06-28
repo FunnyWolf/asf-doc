@@ -2,6 +2,8 @@
 
 SIEM YAML 用于描述 Splunk / ELK 中可供 Agent 和 MCP 查询的索引结构。
 
+> 如果想看 SIEM YAML 如何和查询规则、Module 示例配合使用，请参考 [Custom Module 示例](../custom-examples/modules/)。
+
 ## 配置位置
 
 用户自定义 SIEM YAML 放在：

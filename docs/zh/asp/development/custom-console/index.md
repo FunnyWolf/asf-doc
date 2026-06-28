@@ -3,6 +3,8 @@
 Custom Console 是 ASP 定制开发的运行时观察和校验页面，用于确认当前环境中 Module、Playbook 和 SIEM YAML 是否被正确加载。它不替代代码编辑器，也不负责在线创建复杂定义；创建和修改仍建议通过代码仓库、Claude
 Code 或对应 Skill 完成。
 
+> 如果想了解源码仓库中的 Mock 数据、SIEM YAML、Module 和 Playbook 示例如何配合运行，可以先阅读 [Custom Examples](../custom-examples/)。
+
 ## 入口
 
 Custom Console 位于左侧导航栏的 `Custom`，只有管理员可以访问。
@@ -115,4 +117,5 @@ SIEM YAML Tab 展示每个 YAML 定义的 index、后端、字段数量、关键
 - [Module 开发](../module-examples/)：编写 Redis Stream 消费逻辑。
 - [Playbook 开发](../playbook/)：编写 Case 触发的自动化任务。
 - [SIEM YAML](../siem-yaml/)：维护 Agent / MCP 可查询的索引字段定义。
+- [Custom Examples](../custom-examples/)：了解源码示例如何组合成端到端链路。
 - [部署：定制目录](../../quick-start/deployment/#定制目录)：了解部署包中 `custom/` 的目录结构和依赖安装方式。

@@ -1,6 +1,6 @@
-# ELK / Kibana Webhook
+# Kibana Webhook
 
-ELK / Kibana Webhook 用于把 Kibana Rule 的命中结果直接发送到 ASP。
+Kibana Webhook 用于把 Kibana Rule 的命中结果直接发送到 ASP，并写入 Redis Stream 供 Module 消费。
 
 ## 端点
 
@@ -68,13 +68,14 @@ Rule 触发后，Kibana 会向 ASP Webhook 发送请求。ASP 会提取每个 hi
 
 ![Kibana Webhook 触发](img_13.png)
 
-可以在 Redis 中查看写入的消息，确认后续 Module 能够消费。
+可以在 Redis 或 [Custom Console](../../custom-console/) 中查看写入的消息，确认后续 Module 能够消费。
 
 ![Kibana Stream 消息](img_14.png)
 
 ## 使用建议
 
 - Webhook 方式要求 Kibana 能直接访问 ASP 后端。
-- 如果网络不允许直接 POST 到 ASP 或者 ELK 使用的 **社区版**，可以改用 [ELK Index Action](../../elk-index-action/)。
+- 如果网络不允许直接 POST 到 ASP，或 ELK 使用的是社区版，可以改用 [ELK Index Action](../elk-index-action/)。
 - 保持 Rule 名称与后端 Module 期望消费的 Stream 名称一致。
 - 保留 `_source` 中用于 Case、Alert、Artifact 映射的关键字段。
+- 需要完整示例时，参考 [Custom Module 示例](../../custom-examples/modules/)。

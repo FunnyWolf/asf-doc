@@ -2,6 +2,8 @@
 
 Playbook 是 ASP 中面向 Case 的自动化任务。
 
+> 如果想看源码仓库中的 Case Summary 和 CMDB Enrichment 两个 custom Playbook 示例，请参考 [Custom Playbook 示例](../custom-examples/playbooks/)。
+
 ## 脚本位置
 
 Compose 部署时，用户自定义 Playbook 放在：

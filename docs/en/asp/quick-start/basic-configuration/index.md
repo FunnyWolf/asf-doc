@@ -35,7 +35,7 @@ Configure [Runtime](../../settings/runtime/) based on team language and operatio
 
 Choose alert ingestion method:
 
-- SIEM can directly access ASP: use [Webhook](../../integrations/webhook/).
-- Kibana can only write to Elasticsearch index: use [ELK Index Action](../../integrations/elk-index-action/) and start `run_elk_action_worker`.
+- SIEM can directly access ASP: use [Webhook](../../development/alert-ingestion/).
+- Kibana can only write to Elasticsearch index: use [ELK Index Action](../../development/alert-ingestion/elk-index-action/) and start `run_elk_action_worker`.
 
 After ingestion, confirm that the corresponding [Module](../../development/module-examples/)'s `STREAM_NAME` matches the alert Stream name.

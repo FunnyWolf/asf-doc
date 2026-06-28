@@ -143,17 +143,6 @@ function sidebarASP(rootBase = '/asp/'): DefaultTheme.SidebarItem[] {
                 {text: 'Overview', link: 'index/'},
                 {text: 'MCP', link: 'mcp/'},
                 {
-                    text: 'Webhook',
-                    collapsed: false,
-                    base: `${rootBase}integrations/webhook/`,
-                    items: [
-                        {text: 'Overview', link: 'index/'},
-                        {text: 'Splunk', link: 'splunk/'},
-                        {text: 'ELK / Kibana', link: 'elk/'},
-                    ]
-                },
-                {text: 'ELK Index Action', link: 'elk-index-action/'},
-                {
                     text: 'ClaudeCode Plugin',
                     collapsed: false,
                     base: `${rootBase}integrations/claude-code/`,
@@ -201,11 +190,32 @@ function sidebarASP(rootBase = '/asp/'): DefaultTheme.SidebarItem[] {
             items: [
                 {text: 'Overview', link: 'index/'},
                 {text: 'Environment Setup', link: 'environment-setup/'},
-                {text: 'Custom Console', link: 'custom-console/'},
+                {text: 'Mock Data', link: 'mock-data/'},
+                {
+                    text: 'Alert Ingestion',
+                    collapsed: false,
+                    base: `${rootBase}development/alert-ingestion/`,
+                    items: [
+                        {text: 'Overview', link: 'index/'},
+                        {text: 'Splunk Webhook', link: 'splunk-webhook/'},
+                        {text: 'Kibana Webhook', link: 'kibana-webhook/'},
+                        {text: 'ELK Index Action', link: 'elk-index-action/'},
+                    ]
+                },
+                {text: 'SIEM YAML', link: 'siem-yaml/'},
                 {text: 'Module Development', link: 'module-examples/'},
                 {text: 'Playbook Development', link: 'playbook/'},
-                {text: 'SIEM YAML', link: 'siem-yaml/'},
-                {text: 'Mock Data', link: 'mock-data/'},
+                {text: 'Custom Console', link: 'custom-console/'},
+                {
+                    text: 'Custom Examples',
+                    collapsed: false,
+                    base: `${rootBase}development/custom-examples/`,
+                    items: [
+                        {text: 'Overview', link: 'index/'},
+                        {text: 'Custom Modules', link: 'modules/'},
+                        {text: 'Custom Playbooks', link: 'playbooks/'},
+                    ]
+                },
             ]
         }
     ]

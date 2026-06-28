@@ -4,7 +4,7 @@ ASP currently provides Splunk and ELK connection configurations for log queries,
 
 ## Entry
 
-SIEM settings are located in the `SIEM` Tab of System Settings,包含 Splunk 和 ELK 两个子 Tab。
+SIEM settings are located in the `SIEM` tab of System Settings and include Splunk and ELK subtabs.
 
 ![SIEM Settings](img.png)
 
@@ -46,9 +46,9 @@ ELK configuration is used to connect to Elasticsearch for SIEM query capabilitie
 
 Both Splunk and ELK support Test. Splunk test connects to Splunk and reads service info; ELK test connects to Elasticsearch and reads cluster info.
 
-Saving configuration, testing connection, and revealing keys are all written to Audit Log. Splunk Password and ELK API Key are hidden by default, audit records only记录是否 changed 或 reveal，不写入明文。
+Saving configuration, testing connection, and revealing keys are all written to Audit Log. Splunk Password and ELK API Key are hidden by default; audit records only record whether a value changed or was revealed, and never store plaintext secrets.
 
-After saving SIEM configuration, the backend刷新 SIEM 客户端缓存，后续查询使用最新连接信息。
+After saving SIEM configuration, the backend refreshes the SIEM client cache so later queries use the latest connection information.
 
 ## SIEM Query and Index Configuration
 
@@ -60,13 +60,13 @@ YAML index configuration is used to describe searchable indexes, backend types, 
 
 After enabling `Process Alert From Index Enabled`, the background worker will read Kibana action documents from Elasticsearch according to configured Action Index, Poll Interval, and Action Size.
 
-Read actions will be converted to Kibana webhook alert processing flow,继续进入 ASP 的告警接入和 Case / Alert / Artifact 生成流程。
+Read actions are converted to the Kibana webhook alert processing flow, then continue through ASP alert ingestion and Case / Alert / Artifact generation.
 
-For complete ingestion flow, Kibana action content, and worker execution, see [ELK Index Action](../../integrations/elk-index-action/).
+For complete ingestion flow, Kibana action content, and worker execution, see [ELK Index Action](../../development/alert-ingestion/elk-index-action/).
 
 ## Usage Recommendations
 
 - After saving, first execute Test to confirm network, account, certificate, and key configuration are correct.
-- Only enable ELK Index Action when需要从 Kibana action index 拉取告警时。
-- Maintain `custom\data\siem\*.yaml` index configuration for Agent / MCP queries,避免让 LLM 在未知索引中盲查。
-- Webhook ingestion请参考集成章节，不在 SIEM 设置页配置。
+- Only enable ELK Index Action when ASP needs to pull alerts from a Kibana action index.
+- Maintain `custom\data\siem\*.yaml` index configuration for Agent / MCP queries, so LLMs do not blindly search unknown indexes.
+- For Webhook ingestion, see [Alert Ingestion](../../development/alert-ingestion/). It is not configured on the SIEM settings page.

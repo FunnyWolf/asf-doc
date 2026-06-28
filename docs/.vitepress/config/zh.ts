@@ -142,17 +142,6 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: '总览', link: 'index/'},
                 {text: 'MCP', link: 'mcp/'},
                 {
-                    text: 'Webhook',
-                    collapsed: false,
-                    base: '/zh/asp/integrations/webhook/',
-                    items: [
-                        {text: '总览', link: 'index/'},
-                        {text: 'Splunk', link: 'splunk/'},
-                        {text: 'ELK / Kibana', link: 'elk/'},
-                    ]
-                },
-                {text: 'ELK Index Action', link: 'elk-index-action/'},
-                {
                     text: 'ClaudeCode 插件',
                     collapsed: false,
                     base: '/zh/asp/integrations/claude-code/',
@@ -200,11 +189,32 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '总览', link: 'index/'},
                 {text: '开发环境搭建', link: 'environment-setup/'},
-                {text: 'Custom Console', link: 'custom-console/'},
+                {text: 'Mock 数据', link: 'mock-data/'},
+                {
+                    text: '告警接入',
+                    collapsed: false,
+                    base: '/zh/asp/development/alert-ingestion/',
+                    items: [
+                        {text: '总览', link: 'index/'},
+                        {text: 'Splunk Webhook', link: 'splunk-webhook/'},
+                        {text: 'Kibana Webhook', link: 'kibana-webhook/'},
+                        {text: 'ELK Index Action', link: 'elk-index-action/'},
+                    ]
+                },
+                {text: 'SIEM YAML', link: 'siem-yaml/'},
                 {text: 'Module 开发', link: 'module-examples/'},
                 {text: 'Playbook 开发', link: 'playbook/'},
-                {text: 'SIEM YAML', link: 'siem-yaml/'},
-                {text: 'Mock 数据', link: 'mock-data/'},
+                {text: 'Custom Console', link: 'custom-console/'},
+                {
+                    text: 'Custom Examples',
+                    collapsed: false,
+                    base: '/zh/asp/development/custom-examples/',
+                    items: [
+                        {text: '总览', link: 'index/'},
+                        {text: 'Custom Modules', link: 'modules/'},
+                        {text: 'Custom Playbooks', link: 'playbooks/'},
+                    ]
+                },
             ]
         }
     ]

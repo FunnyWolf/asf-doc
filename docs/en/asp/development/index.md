@@ -2,7 +2,7 @@
 
 Custom development explains how to extend ASP based on your own security operations scenarios.
 
-The main extension points currently open for user custom development are Module, Playbook, and SIEM YAML.
+The main extension points currently open for user custom development are Alert Ingestion, SIEM YAML, Module, and Playbook. The source repository also includes [Custom Examples](custom-examples/) that show how Mock SIEM logs, Alert Ingestion, SIEM YAML, Modules, and Playbooks work together.
 
 ## Target Audience
 
@@ -14,24 +14,25 @@ The main extension points currently open for user custom development are Module,
 
 | Extension Point | Location | Purpose |
 | --- | --- | --- |
+| Alert Ingestion | Webhook / ELK Index Action | Writes SIEM alerts into Redis Stream as Module input. |
+| SIEM YAML | `custom\data\siem\*.yaml` | Describes Splunk / ELK indexes, fields, and default aggregation fields for Agent / MCP queries. |
 | Module | `custom\modules\*.py` | Consumes raw alerts from Redis Stream, generates Case / Alert / Artifact. |
 | Playbook | `custom\playbooks\*.py` / `backend\playbooks\*.py` | Triggers user-initiated automation tasks from Case. |
-| SIEM YAML | `custom\data\siem\*.yaml` | Describes Splunk / ELK indexes, fields, and default aggregation fields for Agent / MCP queries. |
 
 In production, only `custom/` is loaded by default for Module and SIEM YAML. The `backend\custom\` in the source repository can serve as local development examples; the `custom/` in the release package is an empty template by default. Playbook preserves built-in product capabilities and also allows appending or overriding through `custom\playbooks\*.py`.
 
 ## Data Flow
 
 ```text
-SIEM Rule
-  → Webhook / ELK Index Action
+Mock Data / SIEM Rule
+  → Alert Ingestion (Webhook / ELK Index Action)
   → Redis Stream
   → Module
   → Case / Alert / Artifact
   → Playbook / Enrichment / Knowledge
 ```
 
-Module is responsible for noise reduction and standardization of raw alerts, allowing analysts to work around Case; Playbook is responsible for advancing investigation, enrichment, knowledge extraction, or other automation actions on Case; SIEM YAML enables Agent to understand and query external logs.
+Alert Ingestion writes SIEM detections into Streams; Module reduces noise and standardizes raw alerts so analysts can work around Cases; Playbook advances investigation, enrichment, knowledge extraction, or other automation on Cases; SIEM YAML enables Agents to understand and query external logs.
 
 ## Refresh and Dependencies
 
@@ -63,9 +64,12 @@ The backend currently includes the following Playbook examples:
 ## Recommended Reading Order
 
 1. [Environment Setup](environment-setup/): Prepare source development environment and custom directory.
-2. [Custom Console](custom-console/): Learn how to inspect and validate definitions loaded in the current environment.
-3. [Module Development](module-examples/): Learn how to convert Stream alerts into ASP resources.
-4. [Playbook Development](playbook/): Learn how to write Case-triggered automation tasks.
-5. [SIEM YAML](siem-yaml/): Learn how to maintain index configuration for Agent / MCP queries.
+2. [Mock Data](mock-data/): Generate workspace data or SIEM test logs.
+3. [Alert Ingestion](alert-ingestion/): Learn how Webhook / ELK Index Action writes SIEM alerts into Redis Stream.
+4. [SIEM YAML](siem-yaml/): Learn how to maintain index configuration for Agent / MCP queries.
+5. [Module Development](module-examples/): Learn how to convert Stream alerts into ASP resources.
+6. [Playbook Development](playbook/): Learn how to write Case-triggered automation tasks.
+7. [Custom Console](custom-console/): Learn how to inspect and validate definitions loaded in the current environment.
+8. [Custom Examples](custom-examples/): Understand how Mock Data, Alert Ingestion, SIEM YAML, Modules, and Playbooks connect through runnable examples.
 
 The [Module Creator](../integrations/claude-code/skills/module-creator/) and [Playbook Creator](../integrations/claude-code/skills/playbook-creator/) Skills in the ClaudeCode plugin can assist in generating code drafts.

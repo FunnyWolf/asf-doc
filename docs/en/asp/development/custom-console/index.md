@@ -2,6 +2,8 @@
 
 Custom Console is ASP's runtime inspection and validation page for custom development. It helps confirm whether Modules, Playbooks, and SIEM YAML files are loaded correctly in the current environment. It does not replace an editor and does not create complex definitions online; creation and updates should still be done through the code repository, Claude Code, or related Skills.
 
+> To understand how source-tree Mock Data, SIEM YAML, Modules, and Playbook examples work together, start with [Custom Examples](../custom-examples/).
+
 ## Entry
 
 Custom Console is located in the left navigation as `Custom` and is available only to administrators.
@@ -117,4 +119,5 @@ Creating or substantially updating YAML usually requires understanding log struc
 - [Module Development](../module-examples/): Write Redis Stream consumption logic.
 - [Playbook Development](../playbook/): Write Case-triggered automation tasks.
 - [SIEM YAML](../siem-yaml/): Maintain index field definitions queryable by Agent / MCP.
+- [Custom Examples](../custom-examples/): Learn how source examples connect into end-to-end flows.
 - [Deployment: Custom Directory](../../quick-start/deployment/#custom-directory): Learn the `custom/` directory structure and dependency installation workflow in deployment packages.

@@ -2,6 +2,8 @@
 
 Module is used to automatically consume raw alerts from Redis Stream and convert them into Case / Alert / Artifact in the ASP workspace.
 
+> A Module usually consumes Redis Streams written by [Alert Ingestion](../alert-ingestion/). To see complete raw alert → Module → Case / Alert / Artifact examples, read [Custom Module Examples](../custom-examples/modules/).
+
 ## Script Location
 
 User-defined Modules are placed in:

@@ -35,7 +35,7 @@ Tags 可用于区分 `fast`、`powerful`、`tool_calling`、`structured_output` 
 
 选择告警接入方式：
 
-- SIEM 可以直接访问 ASP：使用 [Webhook](../../integrations/webhook/)。
-- Kibana 只能写入 Elasticsearch 索引：使用 [ELK Index Action](../../integrations/elk-index-action/)，并启动 `run_elk_action_worker`。
+- SIEM 可以直接访问 ASP：使用 [Webhook](../../development/alert-ingestion/)。
+- Kibana 只能写入 Elasticsearch 索引：使用 [ELK Index Action](../../development/alert-ingestion/elk-index-action/)，并启动 `run_elk_action_worker`。
 
 接入后，需要确认对应 [Module](../../development/module-examples/) 的 `STREAM_NAME` 与告警 Stream 名称一致。

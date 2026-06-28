@@ -2,6 +2,8 @@
 
 Playbook is a Case-oriented automation task in ASP.
 
+> To see the source-tree Case Summary and CMDB Enrichment custom Playbook examples, read [Custom Playbook Examples](../custom-examples/playbooks/).
+
 ## Script Location
 
 When deploying with Compose, user-defined Playbooks are placed in:

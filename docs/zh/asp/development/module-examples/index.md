@@ -2,6 +2,8 @@
 
 Module 用于自动消费 Redis Stream 中的原始告警，并把它们转换为 ASP 工作台中的 Case / Alert / Artifact。
 
+> Module 的上游通常是 [告警接入](../alert-ingestion/) 写入的 Redis Stream。如果想看完整的 raw alert → Module → Case / Alert / Artifact 示例，请参考 [Custom Module 示例](../custom-examples/modules/)。
+
 ## 脚本位置
 
 用户自定义 Module 放在：
