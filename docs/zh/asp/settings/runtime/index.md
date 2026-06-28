@@ -1,6 +1,6 @@
 # Runtime
 
-Runtime 保存 ASP 的 Agentic 运行配置，当前包含提示词语言、Webhook Stream 保留长度，以及自定义定义的刷新/校验入口。
+Runtime 保存 ASP 的 Agentic 运行配置，当前包含提示词语言和 Webhook Stream 保留长度。
 
 ## 入口
 
@@ -39,18 +39,6 @@ Stream Maxlen 用于控制 Splunk / Kibana Webhook 告警写入 Redis Stream 时
 保存 Runtime 配置后，后端会刷新 Runtime cache，后续读取 Runtime 配置的流程会使用新值。
 
 Runtime 配置更新会写入 Audit Log。
-
-## Custom Definitions
-
-`Refresh / Validate` 用于手动刷新和校验自定义 Module、Playbook、SIEM YAML 和自定义 Playbook Prompt。
-
-执行后页面会显示：
-
-- 已加载的 Module、Playbook、SIEM YAML、Prompt 数量。
-- 每个定义的名称、来源和文件路径。
-- 加载失败的文件路径和异常信息。
-
-该操作会写入 Audit Log。单纯脚本定义或 YAML 变更可以通过刷新/校验确认；如果变更了 `custom\requirements.txt`、第三方 Python 包或公共 helper module，需要重新安装依赖并重启相关容器。
 
 ## 使用建议
 

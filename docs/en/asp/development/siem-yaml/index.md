@@ -20,7 +20,7 @@ Each YAML file describes a queryable index.
 
 The backend currently only loads configuration from `custom\data\siem\*.yaml`. Only indexes written to YAML will appear in `siem_explore_schema`.
 
-After modifying YAML, you can click `Refresh / Validate` in `System Settings` → `Runtime` to rescan.
+After modifying YAML, click `Refresh / Validate` in `Custom` → `SIEM YAML` to rescan.
 
 The `custom\data\siem\` in the release package is an empty template by default and does not include test YAML.
 

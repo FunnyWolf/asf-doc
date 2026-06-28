@@ -1,6 +1,6 @@
 # Runtime
 
-Runtime stores ASP's Agentic runtime configuration, currently including prompt language, Webhook Stream retention length, and refresh/validate entry for custom definitions.
+Runtime stores ASP's Agentic runtime configuration, currently including prompt language and Webhook Stream retention length.
 
 ## Entry
 
@@ -32,28 +32,16 @@ This configuration affects Case AI investigation, knowledge keyword extraction, 
 
 Stream Maxlen is used to control the retention length when Splunk / Kibana Webhook alerts are written to Redis Stream.
 
-It is an approximate maximum length, used to avoid alert Stream无限增长。Default value is `10000`.
+It is an approximate maximum length used to prevent alert Streams from growing without bound. The default value is `10000`.
 
 ## Save and Audit
 
-After saving Runtime configuration, the backend刷新 Runtime cache，后续读取 Runtime 配置的流程会使用新值。
+After saving Runtime configuration, the backend refreshes the Runtime cache, and subsequent Runtime reads use the new value.
 
 Runtime configuration updates are written to Audit Log.
 
-## Custom Definitions
-
-`Refresh / Validate` is used to manually refresh and validate custom Module, Playbook, SIEM YAML, and custom Playbook Prompt.
-
-After execution, the page displays:
-
-- Number of loaded Modules, Playbooks, SIEM YAML, and Prompts.
-- Name, source, and file path of each definition.
-- File paths and exception information of loading failures.
-
-This operation writes to Audit Log. Simple script definition or YAML changes can be confirmed through refresh/validate; if `custom\requirements.txt`、third-party Python packages, or common helper modules are changed, dependencies need to be reinstalled and related containers restarted.
-
 ## Usage Recommendations
 
-- Chinese teams can set Prompt Language to `zh`，让调查和知识提取使用中文提示词。
-- Stream Maxlen should be adjusted based on alert volume; the larger the alert volume, the retention length can适当增大。
-- After modifying Runtime,建议从新的 Case 或新的 Webhook 告警开始观察效果。
+- Chinese teams can set Prompt Language to `zh` so investigation and knowledge extraction use Chinese prompts.
+- Stream Maxlen should be adjusted based on alert volume; larger alert volume may require a larger retention length.
+- After modifying Runtime, observe the effect from new Cases or new Webhook alerts.

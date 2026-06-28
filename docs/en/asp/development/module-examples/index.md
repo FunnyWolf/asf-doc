@@ -46,7 +46,7 @@ python manage.py run_agentic_module_worker
 
 The default consumer group is `agentic-modules`. The Stream names written by Webhook and ELK Index Action need to correspond to the Module's `STREAM_NAME`.
 
-After modifying a Module, you can click `Refresh / Validate` in `System Settings` → `Runtime` to view loading results. If the Module引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
+After modifying a Module, click `Refresh / Validate` in `Custom` → `Modules` to view loading results. If the Module introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
 
 ## Processing Flow
 

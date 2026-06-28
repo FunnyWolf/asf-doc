@@ -46,7 +46,7 @@ python manage.py run_agentic_module_worker
 
 默认 consumer group 为 `agentic-modules`。Webhook 和 ELK Index Action 写入的 Stream 名称需要与 Module 的 `STREAM_NAME` 对应。
 
-修改 Module 后，可以在 `System Settings` → `Runtime` 中点击 `Refresh / Validate` 查看加载结果。若 Module 引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
+修改 Module 后，可以在 `Custom` → `Modules` 中点击 `Refresh / Validate` 查看加载结果。若 Module 引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
 
 ## 处理流程
 

@@ -35,7 +35,7 @@ Module is responsible for noise reduction and standardization of raw alerts, all
 
 ## Refresh and Dependencies
 
-After modifying Module, Playbook, or SIEM YAML, you can click `Refresh / Validate` in `System Settings` → `Runtime` to rescan and view loading results. Loading failures will display file path and exception information, and write to Audit Log.
+After modifying Module, Playbook, or SIEM YAML, click `Refresh / Validate` in the corresponding `Custom` tab to rescan and view loading results. Loading failures display file path and exception information, and write to Audit Log.
 
 If new or upgraded Python dependencies are added, first update `custom\requirements.txt`, then execute:
 

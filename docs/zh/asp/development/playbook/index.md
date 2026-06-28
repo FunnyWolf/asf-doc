@@ -48,7 +48,7 @@ python manage.py run_agentic_playbook_worker
 
 执行成功后，返回值会写入 Playbook 的 `Remark`；执行失败时，异常信息会写入失败记录。
 
-修改 Playbook 后，可以在 `System Settings` → `Runtime` 中点击 `Refresh / Validate` 查看加载结果。若 Playbook 引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
+修改 Playbook 后，可以在 `Custom` → `Playbooks` 中点击 `Refresh / Validate` 查看加载结果。若 Playbook 引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
 
 ## 当前示例
 

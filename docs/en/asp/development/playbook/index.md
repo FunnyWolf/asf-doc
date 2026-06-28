@@ -48,7 +48,7 @@ python manage.py run_agentic_playbook_worker
 
 After successful execution, the return value is written to the Playbook's `Remark`; on failure, exception information is written to the failure record.
 
-After modifying a Playbook, you can click `Refresh / Validate` in `System Settings` → `Runtime` to view loading results. If the Playbook引入了新的第三方包，需要先更新 `custom\requirements.txt` 并重新安装依赖。
+After modifying a Playbook, click `Refresh / Validate` in `Custom` → `Playbooks` to view loading results. If the Playbook introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
 
 ## Current Examples
 

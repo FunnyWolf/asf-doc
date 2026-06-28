@@ -98,7 +98,7 @@ ASP_RUSTFS_CONSOLE_PORT=9001
 | `custom/data/playbooks/<playbook_slug>/*.md` | 自定义 Playbook Prompt。 |
 | `custom/requirements.txt` | Module / Playbook 需要的额外 Python 包。 |
 
-修改脚本或 YAML 后，可以在 `System Settings` → `Runtime` 中执行 `Refresh / Validate`。如果变更了 Python 依赖或公共 helper module，需要重新执行 `asp-custom-deps` 并重启相关容器。
+修改脚本或 YAML 后，可以在 `Custom` 页面对应 Tab 中执行 `Refresh / Validate`。如果变更了 Python 依赖或公共 helper module，需要重新执行 `asp-custom-deps` 并重启相关容器。
 
 ## 日志
 
@@ -114,4 +114,3 @@ logs/elk-action-worker.log
 ```
 
 容器标准输出和标准错误仍可通过 `docker compose logs` 查看。
-

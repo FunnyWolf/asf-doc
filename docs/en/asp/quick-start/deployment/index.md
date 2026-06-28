@@ -98,7 +98,7 @@ The `custom/` in the deployment package is used to place user customizations:
 | `custom/data/playbooks/<playbook_slug>/*.md` | Custom Playbook Prompt. |
 | `custom/requirements.txt` | Additional Python packages needed by Module / Playbook. |
 
-After modifying scripts or YAML, you can execute `Refresh / Validate` in `System Settings` → `Runtime`. If Python dependencies or common helper modules are changed, you need to re-execute `asp-custom-deps` and restart related containers.
+After modifying scripts or YAML, execute `Refresh / Validate` in the corresponding `Custom` tab. If Python dependencies or common helper modules are changed, re-execute `asp-custom-deps` and restart related containers.
 
 ## Logs
 

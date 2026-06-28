@@ -130,6 +130,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'SIEM', link: 'siem/'},
                 {text: '威胁情报', link: 'threat-intelligence/'},
                 {text: 'LDAP', link: 'ldap/'},
+                {text: 'Custom', link: 'custom/'},
                 {text: 'Runtime', link: 'runtime/'},
             ]
         },

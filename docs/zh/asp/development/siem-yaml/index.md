@@ -20,7 +20,7 @@ backend\custom\data\siem\*.yaml
 
 当前后端只从 `custom\data\siem\*.yaml` 加载配置。只有写入 YAML 的索引才会出现在 `siem_explore_schema` 中。
 
-修改 YAML 后，可以在 `System Settings` → `Runtime` 中点击 `Refresh / Validate` 重新扫描。
+修改 YAML 后，可以在 `Custom` → `SIEM YAML` 中点击 `Refresh / Validate` 重新扫描。
 
 发布包中的 `custom\data\siem\` 默认是空模板，不会自带测试 YAML。
 
