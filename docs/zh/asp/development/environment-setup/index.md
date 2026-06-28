@@ -1,50 +1,66 @@
 # 开发环境搭建
 
-本页用于源码开发和本地调试。生产或单机私有化部署请优先使用 [部署](../../quick-start/deployment/) 中的 Docker Compose 分发包。
+本页用于源码开发和本地调试。生产或单机私有化部署请优先使用 [部署](../../quick-start/deployment/) 中的 Docker Compose 发布包。
 
-## 架构概览
+> 本文默认使用 Linux/macOS shell。开发环境建议拆开运行：依赖服务用 Docker Compose，后端和前端在本机直接启动。这样方便调试代码、看日志、改前端和单独启动某个 Worker。
 
-ASP 后端由三类进程组成：
+## 1. 进程和端口
 
-| 进程 | 技术 | 端口 | 职责 |
-|------|------|------|------|
-| WSGI | gunicorn / runserver | 8000 | Django REST API，处理所有 `/api/` 请求 |
-| ASGI | uvicorn | 8001 | MCP Server，处理 `/api/mcp` 请求 |
-| Workers | manage.py 命令 | — | 后台任务：Module 消费、Case 分析、Playbook 执行、ELK 轮询 |
+ASP 本地开发会涉及三类后端进程：
 
-路由规则：
+| 进程 | 默认端口 | 职责 |
+| --- | --- | --- |
+| WSGI / Django | `8000` | Django REST API，处理 `/api/`。 |
+| ASGI / MCP | `8002` | MCP Server，开发环境建议使用 `8002`，避免和 Redis Stack UI 的 `8001` 冲突。 |
+| Workers | — | 后台任务：Module 消费、Case 分析、Playbook 执行、ELK 轮询。 |
+
+路由关系：
 
 ```text
-/api/mcp  → ASGI (Starlette → FastMCP)
-/api/*    → WSGI (Django REST Framework)
-/admin/*  → WSGI (Django Admin)
+/api/*    -> WSGI / Django
+/api/mcp  -> ASGI / MCP
 ```
 
-前端通过 Vite 代理（开发环境）或 Nginx（生产环境）统一访问后端。
+> 生产环境中 ASGI 容器内部仍使用 `8001`。这里的 `8002` 只是本地开发建议端口。
 
-## 开发依赖服务
+## 2. 启动依赖服务
 
-开发环境可以使用 `development/docker` 启动后端依赖服务：
+开发环境的 PostgreSQL、Redis Stack 和 RustFS 可以用 `development/docker` 启动：
 
-```powershell
-Set-Location D:\Code\git\agentic-soc-platform\development\docker
-Copy-Item .env.example .env
+```bash
+cd /path/to/agentic-soc-platform/development/docker
+cp .env.example .env
 docker compose up -d
 ```
 
-该 Compose 会启动 PostgreSQL、Redis Stack 和 RustFS：
+启动后可用服务：
 
-| 服务 | 地址 | 说明 |
-|------|------|------|
+| 服务 | 地址 | 用途 |
+| --- | --- | --- |
 | PostgreSQL | `localhost:5432` | 后端数据库。 |
 | Redis | `localhost:6379` | Cache 和 Redis Stream。 |
 | Redis Stack UI | `http://localhost:8001` | Redis Web 管理界面。 |
 | RustFS S3 API | `http://localhost:9000` | 附件和头像使用的 S3 兼容接口。 |
 | RustFS Console | `http://localhost:9001` | RustFS Web 管理界面。 |
 
-对应后端 `.env` 示例：
+> 如果端口被占用，优先调整 `development/docker/.env` 或 Compose 端口映射，再启动依赖服务。
+
+## 3. 配置后端 `.env`
+
+进入 `backend`，从示例文件创建本地 `.env`：
+
+```bash
+cd /path/to/agentic-soc-platform/backend
+cp .env.example .env
+```
+
+至少确认这些配置和 `development/docker/.env` 一致：
 
 ```text
+DJANGO_SECRET_KEY=dev-secret-key
+DJANGO_DEBUG=true
+DJANGO_ALLOWED_HOSTS=*
+
 POSTGRES_DB=asp
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=asp-dev-postgres-password
@@ -63,134 +79,145 @@ RUSTFS_BUCKET=asp
 RUSTFS_REGION=us-east-1
 ```
 
-## 后端
+> 这些值只适合本地开发。生产环境必须使用随机密钥和受控密码。
 
-进入 `backend` 目录后使用项目内虚拟环境运行管理命令。
+## 4. 初始化后端
 
-安装依赖：
+安装依赖、执行迁移并创建管理员：
 
-```powershell
+```bash
 uv sync
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py createsuperuser
 ```
 
-配置 `.env`，至少确认以下运行依赖：
+常用检查：
 
-| 配置 | 说明 |
-|------|------|
-| `POSTGRES_DB` / `POSTGRES_USER` / `POSTGRES_PASSWORD` / `POSTGRES_HOST` / `POSTGRES_PORT` | PostgreSQL 连接。 |
-| `REDIS_HOST` / `REDIS_PORT` / `REDIS_DB` / `REDIS_PASSWORD` | Redis 连接。 |
-| `RUSTFS_ENDPOINT_URL` / `RUSTFS_ACCESS_KEY` / `RUSTFS_SECRET_KEY` / `RUSTFS_BUCKET` | RustFS / S3 兼容对象存储。 |
-| `DJANGO_SECRET_KEY` | 本地开发可使用测试值，生产必须设置为随机密钥。 |
-| `DJANGO_ALLOWED_HOSTS` | 允许访问的主机名。 |
-
-执行数据库迁移并创建管理员账号：
-
-```powershell
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe manage.py createsuperuser
+```bash
+.venv/bin/python manage.py check
+.venv/bin/python manage.py test
 ```
 
-## 启动 WSGI（API 服务）
+> 后端依赖由 `uv` 管理。运行管理命令时优先使用 `backend/.venv/bin/python`。
 
-```powershell
-# 方式 1：Django 开发服务器（简单，自动重载）
-.\.venv\Scripts\python.exe manage.py runserver
+## 5. 启动后端 API
 
-# 方式 2：Gunicorn（更接近生产环境，需安装 gunicorn）
-.\.venv\Scripts\gunicorn asp.wsgi:application --bind 0.0.0.0:8000 --reload
+最常用方式是 Django 开发服务器：
+
+```bash
+.venv/bin/python manage.py runserver 0.0.0.0:8000
 ```
 
-启动后 API 可通过 `http://localhost:8000/api/` 访问。
+启动后：
 
-## 启动 ASGI（MCP 服务）
+- API: `http://localhost:8000/api/`
 
-```powershell
-.\.venv\Scripts\uvicorn asp.asgi:application --host 0.0.0.0 --port 8001 --reload
+如果需要更接近生产环境，可以使用 Gunicorn：
+
+```bash
+.venv/bin/gunicorn asp.wsgi:application --bind 0.0.0.0:8000 --reload
 ```
 
-ASGI 应用使用 Starlette 路由：
+## 6. 启动 MCP / ASGI
+
+如果要调试 MCP，单独启动 ASGI：
+
+```bash
+.venv/bin/uvicorn asp.asgi:application --host 0.0.0.0 --port 8002 --reload
+```
+
+ASGI 路由：
 
 ```text
-/api/mcp  → FastMCP Server（MCP 协议端点）
-/         → Django 应用（兜底路由）
+/api/mcp  -> FastMCP Server
+/         -> Django fallback
 ```
 
-启动后 MCP 端点可通过 `http://localhost:8001/api/mcp` 访问。
+验证 MCP 初始化：
 
-验证 ASGI 是否正常：
-
-```powershell
-curl http://localhost:8001/api/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+```bash
+curl http://localhost:8002/api/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 ```
 
-## 启动 Workers
+> 只有需要调试 MCP 时才必须启动 ASGI。普通前端和 REST API 开发只启动 Django API 即可。
 
-开发时根据需要启动对应 worker：
+## 7. 启动 Workers
 
-```powershell
-.\.venv\Scripts\python.exe manage.py run_agentic_module_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_case_analysis_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_playbook_worker
-.\.venv\Scripts\python.exe manage.py run_elk_action_worker
+按需启动后台进程：
+
+```bash
+.venv/bin/python manage.py run_agentic_module_worker
+.venv/bin/python manage.py run_agentic_case_analysis_worker
+.venv/bin/python manage.py run_agentic_playbook_worker
+.venv/bin/python manage.py run_elk_action_worker
 ```
 
 | Worker | 作用 |
-|--------|------|
+| --- | --- |
 | `run_agentic_module_worker` | 消费 Redis Stream，运行 Module 生成 Case / Alert / Artifact。 |
 | `run_agentic_case_analysis_worker` | 执行 Case AI 分析任务。 |
 | `run_agentic_playbook_worker` | 执行用户触发的 Playbook。 |
 | `run_elk_action_worker` | 从 ELK Action Index 轮询告警。 |
 
-## 前端
+> 不需要相关功能时可以不启动对应 Worker。例如只开发前端列表页时，通常只需要 Django API。
 
-进入 `frontend` 目录安装依赖并启动开发服务：
+## 8. 启动前端
 
-```powershell
+进入 `frontend` 安装依赖并启动 Vite：
+
+```bash
+cd /path/to/agentic-soc-platform/frontend
 pnpm install
 pnpm dev
 ```
 
-前端默认通过 Vite 代理访问后端 API：
+默认访问：
 
 ```text
-http://localhost:5173/api/*  →  http://localhost:8000/api/*
+http://localhost:5173
 ```
 
-如果需要在开发环境测试 MCP，前端需要额外代理 `/api/mcp` 到 ASGI 服务。可以在 `vite.config.ts` 中添加：
+默认 Vite 代理：
+
+```text
+http://localhost:5173/api/*  ->  http://localhost:8000/api/*
+```
+
+如果需要在前端调试 MCP，可以在 `vite.config.ts` 增加更具体的 `/api/mcp` 代理，并放在 `/api` 前面：
 
 ```typescript
 server: {
   proxy: {
-    '/api/mcp': { target: 'http://localhost:8001', changeOrigin: true },
+    '/api/mcp': { target: 'http://localhost:8002', changeOrigin: true },
     '/api': { target: 'http://localhost:8000', changeOrigin: true },
   },
 }
 ```
 
-## 前后端对接
+> 前端修改不需要主动执行 `npm build`，除非明确要求验证构建。
 
-### 开发环境
+## 9. 前后端请求链路
 
-```text
-浏览器 (localhost:5173)
-  → Vite 代理
-    → /api/mcp  → ASGI (localhost:8001)  [如果配置了代理]
-    → /api/*    → WSGI (localhost:8000)
-```
-
-### 生产环境
+开发环境：
 
 ```text
-浏览器 (443)
-  → Nginx
-    → /api/mcp  → ASGI (asp-asgi:8001)
-    → /api/*    → WSGI (asp-web:8000)
-    → /*        → 静态文件（前端）
+Browser (localhost:5173)
+  -> Vite proxy
+    -> /api/mcp  -> ASGI (localhost:8002)  [可选]
+    -> /api/*    -> WSGI / Django (localhost:8000)
 ```
 
-生产环境中 Nginx 负责路由分发，将 MCP 请求转发到 ASGI，其他 API 请求转发到 WSGI。
+生产环境：
 
-## Custom 目录
+```text
+Browser (443)
+  -> Nginx
+    -> /api/mcp  -> ASGI (asp-asgi:8001)
+    -> /api/*    -> WSGI / Django (asp-web:8000)
+    -> /*        -> Frontend static files
+```
+
+## 10. Custom 目录
 
 源码开发时，`backend/custom/` 与 Compose 发布包中的 `custom/` 目录结构保持一致：
 
@@ -205,16 +232,18 @@ backend/custom/
   requirements.txt
 ```
 
-如需测试额外 Python 包，可以安装到本地 custom package 目录，并把它加入 `PYTHONPATH`：
+- `backend/custom/modules/`：自定义 Module。
+- `backend/custom/playbooks/`：自定义 Playbook。
+- `backend/custom/data/siem/`：自定义 SIEM YAML。
+- `backend/custom/data/playbooks/`：自定义 Playbook Prompt。
+- `backend/custom/requirements.txt`：自定义代码需要的额外 Python 包。
 
-```powershell
-New-Item -ItemType Directory -Force .\.custom-packages
-uv pip install --python .\.venv\Scripts\python.exe --target .\.custom-packages -r .\custom\requirements.txt
-$env:PYTHONPATH = "$(Resolve-Path .\.custom-packages);$(Resolve-Path .\custom)"
+测试自定义依赖时，可以安装到本地 custom package 目录，并加入 `PYTHONPATH`：
+
+```bash
+mkdir -p .custom-packages
+uv pip install --python .venv/bin/python --target .custom-packages -r custom/requirements.txt
+export PYTHONPATH="$(pwd)/.custom-packages:$(pwd)/custom"
 ```
 
-刷新并校验 custom 定义：
-
-```powershell
-.\.venv\Scripts\python.exe manage.py shell -c "from apps.agentic.services.custom_scripts import refresh_custom_definitions; import json; print(json.dumps(refresh_custom_definitions(), ensure_ascii=False, indent=2))"
-```
+> 修改脚本或 YAML 后，可以在 ASP 前端的 [Custom Console](../custom-console/) 中执行 `Refresh / Validate`。

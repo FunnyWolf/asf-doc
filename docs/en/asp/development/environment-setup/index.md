@@ -1,50 +1,66 @@
 # Environment Setup
 
-This page is for source code development and local debugging. For production or standalone private deployment, please prioritize using the Docker Compose distribution package in [Deployment](../../quick-start/deployment/).
+This page is for source development and local debugging. For production or single-host private deployment, use the Docker Compose release package in [Deployment](../../quick-start/deployment/).
 
-## Architecture Overview
+> This guide assumes a Linux/macOS shell by default. The recommended development setup is split: run dependency services with Docker Compose, then run backend and frontend processes directly on the host. This makes code debugging, log inspection, frontend changes, and individual Worker processes easier.
 
-The ASP backend consists of three types of processes:
+## 1. Processes and ports
 
-| Process | Technology | Port | Responsibility |
-|---------|------------|------|----------------|
-| WSGI | gunicorn / runserver | 8000 | Django REST API, handles all `/api/` requests |
-| ASGI | uvicorn | 8001 | MCP Server, handles `/api/mcp` requests |
-| Workers | manage.py commands | — | Background tasks: Module consumption, Case analysis, Playbook execution, ELK polling |
+Local ASP development involves three backend process types:
 
-Routing rules:
+| Process | Default Port | Responsibility |
+| --- | --- | --- |
+| WSGI / Django | `8000` | Django REST API for `/api/`. |
+| ASGI / MCP | `8002` | MCP Server. Use `8002` in development to avoid conflicting with Redis Stack UI on `8001`. |
+| Workers | — | Background tasks: Module consumption, Case analysis, Playbook execution, ELK polling. |
+
+Routing:
 
 ```text
-/api/mcp  → ASGI (Starlette → FastMCP)
-/api/*    → WSGI (Django REST Framework)
-/admin/*  → WSGI (Django Admin)
+/api/*    -> WSGI / Django
+/api/mcp  -> ASGI / MCP
 ```
 
-The frontend accesses the backend through Vite proxy (development) or Nginx (production).
+> In production, the ASGI container still uses internal port `8001`. The `8002` port here is only the recommended local development port.
 
-## Development Dependency Services
+## 2. Start dependency services
 
-The development environment can use `development/docker` to start backend dependency services:
+Use `development/docker` to start PostgreSQL, Redis Stack, and RustFS:
 
-```powershell
-Set-Location D:\Code\git\agentic-soc-platform\development\docker
-Copy-Item .env.example .env
+```bash
+cd /path/to/agentic-soc-platform/development/docker
+cp .env.example .env
 docker compose up -d
 ```
 
-This Compose will start PostgreSQL, Redis Stack, and RustFS:
+Available services:
 
-| Service | Address | Description |
-|---------|---------|-------------|
+| Service | Address | Purpose |
+| --- | --- | --- |
 | PostgreSQL | `localhost:5432` | Backend database. |
 | Redis | `localhost:6379` | Cache and Redis Stream. |
-| Redis Stack UI | `http://localhost:8001` | Redis web management interface. |
-| RustFS S3 API | `http://localhost:9000` | S3-compatible interface used for attachments and avatars. |
-| RustFS Console | `http://localhost:9001` | RustFS web management interface. |
+| Redis Stack UI | `http://localhost:8001` | Redis web management UI. |
+| RustFS S3 API | `http://localhost:9000` | S3-compatible API for attachments and avatars. |
+| RustFS Console | `http://localhost:9001` | RustFS web console. |
 
-Corresponding backend `.env` example:
+> If a port is already in use, adjust `development/docker/.env` or the Compose port mapping before starting dependency services.
+
+## 3. Configure backend `.env`
+
+Enter `backend` and create a local `.env` from the example:
+
+```bash
+cd /path/to/agentic-soc-platform/backend
+cp .env.example .env
+```
+
+At minimum, make sure these values match `development/docker/.env`:
 
 ```text
+DJANGO_SECRET_KEY=dev-secret-key
+DJANGO_DEBUG=true
+DJANGO_ALLOWED_HOSTS=*
+
 POSTGRES_DB=asp
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=asp-dev-postgres-password
@@ -63,136 +79,147 @@ RUSTFS_BUCKET=asp
 RUSTFS_REGION=us-east-1
 ```
 
-## Backend
+> These values are for local development only. Production must use random secrets and controlled passwords.
 
-Enter the `backend` directory and use the project's virtual environment to run management commands.
+## 4. Initialize backend
 
-Install dependencies:
+Install dependencies, apply migrations, and create an administrator:
 
-```powershell
+```bash
 uv sync
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py createsuperuser
 ```
 
-Configure `.env`, at least confirm the following runtime dependencies:
+Common checks:
 
-| Configuration | Description |
-|---------------|-------------|
-| `POSTGRES_DB` / `POSTGRES_USER` / `POSTGRES_PASSWORD` / `POSTGRES_HOST` / `POSTGRES_PORT` | PostgreSQL connection. |
-| `REDIS_HOST` / `REDIS_PORT` / `REDIS_DB` / `REDIS_PASSWORD` | Redis connection. |
-| `RUSTFS_ENDPOINT_URL` / `RUSTFS_ACCESS_KEY` / `RUSTFS_SECRET_KEY` / `RUSTFS_BUCKET` | RustFS / S3-compatible object storage. |
-| `DJANGO_SECRET_KEY` | Can use test value for local development, must be set to random key in production. |
-| `DJANGO_ALLOWED_HOSTS` | Allowed hostnames. |
-
-Execute database migration and create admin account:
-
-```powershell
-.\.venv\Scripts\python.exe manage.py migrate
-.\.venv\Scripts\python.exe manage.py createsuperuser
+```bash
+.venv/bin/python manage.py check
+.venv/bin/python manage.py test
 ```
 
-## Start WSGI (API Service)
+> Backend dependencies are managed by `uv`. Prefer `backend/.venv/bin/python` for management commands.
 
-```powershell
-# Option 1: Django development server (simple, auto-reload)
-.\.venv\Scripts\python.exe manage.py runserver
+## 5. Start backend API
 
-# Option 2: Gunicorn (closer to production, requires gunicorn)
-.\.venv\Scripts\gunicorn asp.wsgi:application --bind 0.0.0.0:8000 --reload
+The common option is Django development server:
+
+```bash
+.venv/bin/python manage.py runserver 0.0.0.0:8000
 ```
 
-After startup, the API is accessible at `http://localhost:8000/api/`.
+After startup:
 
-## Start ASGI (MCP Service)
+- API: `http://localhost:8000/api/`
 
-```powershell
-.\.venv\Scripts\uvicorn asp.asgi:application --host 0.0.0.0 --port 8001 --reload
+For a setup closer to production, use Gunicorn:
+
+```bash
+.venv/bin/gunicorn asp.wsgi:application --bind 0.0.0.0:8000 --reload
 ```
 
-The ASGI application uses Starlette routing:
+## 6. Start MCP / ASGI
+
+To debug MCP, start ASGI separately:
+
+```bash
+.venv/bin/uvicorn asp.asgi:application --host 0.0.0.0 --port 8002 --reload
+```
+
+ASGI routes:
 
 ```text
-/api/mcp  → FastMCP Server (MCP protocol endpoint)
-/         → Django application (fallback route)
+/api/mcp  -> FastMCP Server
+/         -> Django fallback
 ```
 
-After startup, the MCP endpoint is accessible at `http://localhost:8001/api/mcp`.
+Verify MCP initialization:
 
-Verify ASGI is running:
-
-```powershell
-curl http://localhost:8001/api/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+```bash
+curl http://localhost:8002/api/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 ```
 
-## Start Workers
+> ASGI is only required when debugging MCP. Regular frontend and REST API development only needs the Django API process.
 
-Start corresponding workers as needed during development:
+## 7. Start Workers
 
-```powershell
-.\.venv\Scripts\python.exe manage.py run_agentic_module_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_case_analysis_worker
-.\.venv\Scripts\python.exe manage.py run_agentic_playbook_worker
-.\.venv\Scripts\python.exe manage.py run_elk_action_worker
+Start background processes as needed:
+
+```bash
+.venv/bin/python manage.py run_agentic_module_worker
+.venv/bin/python manage.py run_agentic_case_analysis_worker
+.venv/bin/python manage.py run_agentic_playbook_worker
+.venv/bin/python manage.py run_elk_action_worker
 ```
 
-| Worker | Function |
-|--------|----------|
-| `run_agentic_module_worker` | Consumes Redis Stream, runs Module to generate Case / Alert / Artifact. |
-| `run_agentic_case_analysis_worker` | Executes Case AI analysis tasks. |
-| `run_agentic_playbook_worker` | Executes user-triggered Playbooks. |
-| `run_elk_action_worker` | Polls alerts from ELK Action Index. |
+| Worker | Purpose |
+| --- | --- |
+| `run_agentic_module_worker` | Consumes Redis Stream and runs Modules to generate Cases / Alerts / Artifacts. |
+| `run_agentic_case_analysis_worker` | Runs Case AI analysis tasks. |
+| `run_agentic_playbook_worker` | Runs user-triggered Playbooks. |
+| `run_elk_action_worker` | Polls alerts from the ELK Action Index. |
 
-## Frontend
+> If you do not need a feature, you do not need its Worker. For example, frontend list-page work usually only needs the Django API.
 
-Enter the `frontend` directory to install dependencies and start development server:
+## 8. Start frontend
 
-```powershell
+Enter `frontend`, install dependencies, and start Vite:
+
+```bash
+cd /path/to/agentic-soc-platform/frontend
 pnpm install
 pnpm dev
 ```
 
-The frontend accesses backend API through Vite proxy by default:
+Default URL:
 
 ```text
-http://localhost:5173/api/*  →  http://localhost:8000/api/*
+http://localhost:5173
 ```
 
-If you need to test MCP in the development environment, the frontend needs to proxy `/api/mcp` to the ASGI service. Add the following to `vite.config.ts`:
+Default Vite proxy:
+
+```text
+http://localhost:5173/api/*  ->  http://localhost:8000/api/*
+```
+
+To debug MCP from the frontend, add a more specific `/api/mcp` proxy before `/api` in `vite.config.ts`:
 
 ```typescript
 server: {
   proxy: {
-    '/api/mcp': { target: 'http://localhost:8001', changeOrigin: true },
+    '/api/mcp': { target: 'http://localhost:8002', changeOrigin: true },
     '/api': { target: 'http://localhost:8000', changeOrigin: true },
   },
 }
 ```
 
-## Frontend-Backend Integration
+> Frontend changes do not need `npm build` unless build validation is explicitly requested.
 
-### Development Environment
+## 9. Frontend-backend request flow
+
+Development:
 
 ```text
 Browser (localhost:5173)
-  → Vite Proxy
-    → /api/mcp  → ASGI (localhost:8001)  [if proxy configured]
-    → /api/*    → WSGI (localhost:8000)
+  -> Vite proxy
+    -> /api/mcp  -> ASGI (localhost:8002)  [optional]
+    -> /api/*    -> WSGI / Django (localhost:8000)
 ```
 
-### Production Environment
+Production:
 
 ```text
 Browser (443)
-  → Nginx
-    → /api/mcp  → ASGI (asp-asgi:8001)
-    → /api/*    → WSGI (asp-web:8000)
-    → /*        → Static files (frontend)
+  -> Nginx
+    -> /api/mcp  -> ASGI (asp-asgi:8001)
+    -> /api/*    -> WSGI / Django (asp-web:8000)
+    -> /*        -> Frontend static files
 ```
 
-In production, Nginx handles routing: MCP requests go to ASGI, other API requests go to WSGI.
+## 10. Custom directory
 
-## Custom Directory
-
-During source code development, `backend/custom/` maintains the same directory structure as the `custom/` in the Compose release package:
+During source development, `backend/custom/` mirrors the `custom/` directory in the Compose release package:
 
 ```text
 backend/custom/
@@ -205,16 +232,18 @@ backend/custom/
   requirements.txt
 ```
 
-If you need to test additional Python packages, install them to a local custom package directory and add it to `PYTHONPATH`:
+- `backend/custom/modules/`: Custom Modules.
+- `backend/custom/playbooks/`: Custom Playbooks.
+- `backend/custom/data/siem/`: Custom SIEM YAML.
+- `backend/custom/data/playbooks/`: Custom Playbook prompts.
+- `backend/custom/requirements.txt`: Extra Python packages required by custom code.
 
-```powershell
-New-Item -ItemType Directory -Force .\.custom-packages
-uv pip install --python .\.venv\Scripts\python.exe --target .\.custom-packages -r .\custom\requirements.txt
-$env:PYTHONPATH = "$(Resolve-Path .\.custom-packages);$(Resolve-Path .\custom)"
+To test custom dependencies, install them into a local custom package directory and add it to `PYTHONPATH`:
+
+```bash
+mkdir -p .custom-packages
+uv pip install --python .venv/bin/python --target .custom-packages -r custom/requirements.txt
+export PYTHONPATH="$(pwd)/.custom-packages:$(pwd)/custom"
 ```
 
-Refresh and validate custom definitions:
-
-```powershell
-.\.venv\Scripts\python.exe manage.py shell -c "from apps.agentic.services.custom_scripts import refresh_custom_definitions; import json; print(json.dumps(refresh_custom_definitions(), ensure_ascii=False, indent=2))"
-```
+> After changing scripts or YAML files, use `Refresh / Validate` in the ASP frontend [Custom Console](../custom-console/).
