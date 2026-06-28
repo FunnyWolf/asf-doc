@@ -55,6 +55,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "更新日志",
             items: [
                 {
+                    text: '0.4.1 - Deployment Patch',
+                    link: '/zh/release/0_4_1_deployment_patch/'
+                },
+                {
                     text: '0.4.0 - I always have a choice',
                     link: '/zh/release/0_4_0_I_always_have_a_choice/'
                 },

@@ -57,6 +57,10 @@ function nav(): DefaultTheme.NavItem[] {
             text: "Changelog",
             items: [
                 {
+                    text: '0.4.1 - Deployment Patch',
+                    link: '/release/0_4_1_deployment_patch/'
+                },
+                {
                     text: '0.4.0 - I always have a choice',
                     link: '/release/0_4_0_I_always_have_a_choice/'
                 },

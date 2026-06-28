@@ -7,11 +7,11 @@ ASP 后端是 Django，前端是 Vite + Ant Design。单机私有化部署推荐
 ## 1. 下载发布包
 
 - GitHub Releases 页面：[https://github.com/FunnyWolf/agentic-soc-platform/releases](https://github.com/FunnyWolf/agentic-soc-platform/releases)
-- 当前版本发布包：`asp-compose-0.4.0.tar.gz`
+- 当前版本发布包：`asp-compose-0.4.1.tar.gz`
 
 ```bash
-curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.0/asp-compose-0.4.0.tar.gz
-tar -xzf asp-compose-0.4.0.tar.gz
+curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.1/asp-compose-0.4.1.tar.gz
+tar -xzf asp-compose-0.4.1.tar.gz
 cd asp-compose
 ```
 

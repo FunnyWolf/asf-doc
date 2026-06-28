@@ -7,11 +7,11 @@ ASP backend is Django, and the frontend is Vite + Ant Design. For single-host pr
 ## 1. Download the package
 
 - GitHub Releases: [https://github.com/FunnyWolf/agentic-soc-platform/releases](https://github.com/FunnyWolf/agentic-soc-platform/releases)
-- Current release package: `asp-compose-0.4.0.tar.gz`
+- Current release package: `asp-compose-0.4.1.tar.gz`
 
 ```bash
-curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.0/asp-compose-0.4.0.tar.gz
-tar -xzf asp-compose-0.4.0.tar.gz
+curl -fL -O https://github.com/FunnyWolf/agentic-soc-platform/releases/download/v0.4.1/asp-compose-0.4.1.tar.gz
+tar -xzf asp-compose-0.4.1.tar.gz
 cd asp-compose
 ```
 
