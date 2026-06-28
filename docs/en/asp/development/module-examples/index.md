@@ -46,14 +46,14 @@ python manage.py run_agentic_module_worker
 
 The default consumer group is `agentic-modules`. The Stream names written by Webhook and ELK Index Action need to correspond to the Module's `STREAM_NAME`.
 
-After modifying a Module, click `Refresh / Validate` in `Custom` → `Modules` to view loading results. If the Module introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
+After modifying a Module, click `Refresh / Validate` in [Custom Console](../custom-console/) → `Modules` to view loading results and inspect the related Redis Stream status. If the Module introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
 
 ## Processing Flow
 
 1. Read raw alert.
-2. Parse event time,建议使用 `parse_event_time()`。
+2. Parse event time; prefer `parse_event_time()`.
 3. Extract key fields and Artifact, such as IP, domain, account, host, file, process.
-4. Design `correlation_uid`,建议使用 `generate_correlation_uid()`。
+4. Design `correlation_uid`; prefer `generate_correlation_uid()`.
 5. Use `create_alert_with_context()` to create or associate Case, Alert, Artifact, and Enrichment.
 6. Trigger Case AI analysis when necessary.
 
@@ -73,7 +73,7 @@ Example scripts in the source repository are located at `backend\custom\modules\
 
 ## Recommended Data Destinations
 
-Module should尽量输出或关联：
+Module should output or associate as much useful context as possible:
 
 - Case: Disposition entry for the same incident.
 - Alert: Detection context and raw logs.
@@ -85,6 +85,6 @@ Module should尽量输出或关联：
 - Keep `STREAM_NAME` consistent with SIEM Rule / Redis Stream name.
 - Do not use random fields as aggregation keys, such as request id, session id, exact timestamps.
 - One Case should represent one investigatable, disponsable security incident, not a single log.
-- Artifact should尽量拆成可调查的原子实体。
-- Raw alert原文应保存在 Alert 的 `raw_data` 中，未映射但有价值的字段放入 `unmapped`。
-- 可以使用 [Module Creator](../../integrations/claude-code/skills/module-creator/) Skill 辅助生成 Module 草案。
+- Split Artifacts into investigable atomic entities where possible.
+- Store the original raw alert in Alert `raw_data`, and put valuable unmapped fields into `unmapped`.
+- Use the [Module Creator](../../integrations/claude-code/skills/module-creator/) Skill to help draft Modules.

@@ -20,7 +20,7 @@ Each YAML file describes a queryable index.
 
 The backend currently only loads configuration from `custom\data\siem\*.yaml`. Only indexes written to YAML will appear in `siem_explore_schema`.
 
-After modifying YAML, click `Refresh / Validate` in `Custom` → `SIEM YAML` to rescan.
+After modifying YAML, click `Refresh / Validate` in [Custom Console](../custom-console/) → `SIEM YAML` to rescan and review the field table and key fields.
 
 The `custom\data\siem\` in the release package is an empty template by default and does not include test YAML.
 
@@ -75,4 +75,4 @@ YAML does not store log data, only index and field descriptions.
 - Only create YAML for indexes that need to be queried by Agent.
 - Write clear business meanings for key fields, not just field names.
 - Mark high-value fields as `is_key_field: true`, such as user, host, IP, domain, process, cloud account, etc.
-- 可以使用 [SIEM Index YAML](../../integrations/claude-code/skills/siem-index-yaml/) Skill 辅助生成。
+- Use the [SIEM Index YAML](../../integrations/claude-code/skills/siem-index-yaml/) Skill to help generate YAML.

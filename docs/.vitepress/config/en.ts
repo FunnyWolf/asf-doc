@@ -9,7 +9,8 @@ export const en = defineConfig({
         nav: nav(),
 
         sidebar: {
-            '/asp/': {base: '/asp/', items: sidebarASP()},
+            '/asp/': {base: '/asp/', items: sidebarASP('/asp/')},
+            '/en/asp/': {base: '/en/asp/', items: sidebarASP('/en/asp/')},
         },
 
         footer: {
@@ -80,12 +81,12 @@ function nav(): DefaultTheme.NavItem[] {
     ]
 }
 
-function sidebarASP(): DefaultTheme.SidebarItem[] {
+function sidebarASP(rootBase = '/asp/'): DefaultTheme.SidebarItem[] {
     return [
         {
             text: 'Overview',
             collapsed: false,
-            base: '/asp/overview/',
+            base: `${rootBase}overview/`,
             items: [
                 {text: 'What is ASP', link: 'index/'},
                 {text: 'Architecture', link: 'architecture/'},
@@ -95,7 +96,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Quick Start',
             collapsed: false,
-            base: '/asp/quick-start/',
+            base: `${rootBase}quick-start/`,
             items: [
                 {text: 'Deployment', link: 'deployment/'},
                 {text: 'First Login', link: 'first-login/'},
@@ -105,7 +106,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Workspace',
             collapsed: false,
-            base: '/asp/workspace/',
+            base: `${rootBase}workspace/`,
             items: [
                 {text: 'Dashboard', link: 'dashboard/'},
                 {text: 'Case', link: 'case/'},
@@ -122,7 +123,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Settings',
             collapsed: false,
-            base: '/asp/settings/',
+            base: `${rootBase}settings/`,
             items: [
                 {text: 'Overview', link: 'index/'},
                 {text: 'User Management', link: 'users/'},
@@ -130,21 +131,21 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'SIEM', link: 'siem/'},
                 {text: 'Threat Intelligence', link: 'threat-intelligence/'},
                 {text: 'LDAP', link: 'ldap/'},
-                {text: 'Custom', link: 'custom/'},
                 {text: 'Runtime', link: 'runtime/'},
+                {text: 'Tags', link: 'tags/'},
             ]
         },
         {
             text: 'Integrations',
             collapsed: false,
-            base: '/asp/integrations/',
+            base: `${rootBase}integrations/`,
             items: [
                 {text: 'Overview', link: 'index/'},
                 {text: 'MCP', link: 'mcp/'},
                 {
                     text: 'Webhook',
                     collapsed: false,
-                    base: '/asp/integrations/webhook/',
+                    base: `${rootBase}integrations/webhook/`,
                     items: [
                         {text: 'Overview', link: 'index/'},
                         {text: 'Splunk', link: 'splunk/'},
@@ -155,13 +156,13 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {
                     text: 'ClaudeCode Plugin',
                     collapsed: false,
-                    base: '/asp/integrations/claude-code/',
+                    base: `${rootBase}integrations/claude-code/`,
                     items: [
                         {text: 'Usage Guide', link: 'index/'},
                         {
                             text: 'Agents',
                             collapsed: true,
-                            base: '/asp/integrations/claude-code/agents/',
+                            base: `${rootBase}integrations/claude-code/agents/`,
                             items: [
                                 {text: 'Case Investigator', link: 'case-investigator/'},
                                 {text: 'Artifact Investigator', link: 'artifact-investigator/'},
@@ -171,7 +172,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                         {
                             text: 'Skills',
                             collapsed: true,
-                            base: '/asp/integrations/claude-code/skills/',
+                            base: `${rootBase}integrations/claude-code/skills/`,
                             items: [
                                 {text: 'Alert', link: 'alert/'},
                                 {text: 'Artifact', link: 'artifact/'},
@@ -196,10 +197,11 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
         {
             text: 'Development',
             collapsed: false,
-            base: '/asp/development/',
+            base: `${rootBase}development/`,
             items: [
                 {text: 'Overview', link: 'index/'},
                 {text: 'Environment Setup', link: 'environment-setup/'},
+                {text: 'Custom Console', link: 'custom-console/'},
                 {text: 'Module Development', link: 'module-examples/'},
                 {text: 'Playbook Development', link: 'playbook/'},
                 {text: 'SIEM YAML', link: 'siem-yaml/'},

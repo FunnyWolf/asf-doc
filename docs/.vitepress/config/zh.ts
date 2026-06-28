@@ -130,8 +130,8 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                 {text: 'SIEM', link: 'siem/'},
                 {text: '威胁情报', link: 'threat-intelligence/'},
                 {text: 'LDAP', link: 'ldap/'},
-                {text: 'Custom', link: 'custom/'},
                 {text: 'Runtime', link: 'runtime/'},
+                {text: 'Tags', link: 'tags/'},
             ]
         },
         {
@@ -200,6 +200,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
             items: [
                 {text: '总览', link: 'index/'},
                 {text: '开发环境搭建', link: 'environment-setup/'},
+                {text: 'Custom Console', link: 'custom-console/'},
                 {text: 'Module 开发', link: 'module-examples/'},
                 {text: 'Playbook 开发', link: 'playbook/'},
                 {text: 'SIEM YAML', link: 'siem-yaml/'},

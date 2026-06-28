@@ -35,7 +35,7 @@ Module is responsible for noise reduction and standardization of raw alerts, all
 
 ## Refresh and Dependencies
 
-After modifying Module, Playbook, or SIEM YAML, click `Refresh / Validate` in the corresponding `Custom` tab to rescan and view loading results. Loading failures display file path and exception information, and write to Audit Log.
+After modifying Module, Playbook, or SIEM YAML, click `Refresh / Validate` in the corresponding [Custom Console](custom-console/) tab to rescan and view loading results. Loading failures display file path and exception information, and write to Audit Log.
 
 If new or upgraded Python dependencies are added, first update `custom\requirements.txt`, then execute:
 
@@ -63,8 +63,9 @@ The backend currently includes the following Playbook examples:
 ## Recommended Reading Order
 
 1. [Environment Setup](environment-setup/): Prepare source development environment and custom directory.
-2. [Module Development](module-examples/): Learn how to convert Stream alerts into ASP resources.
-3. [Playbook Development](playbook/): Learn how to write Case-triggered automation tasks.
-4. [SIEM YAML](siem-yaml/): Learn how to maintain index configuration for Agent / MCP queries.
+2. [Custom Console](custom-console/): Learn how to inspect and validate definitions loaded in the current environment.
+3. [Module Development](module-examples/): Learn how to convert Stream alerts into ASP resources.
+4. [Playbook Development](playbook/): Learn how to write Case-triggered automation tasks.
+5. [SIEM YAML](siem-yaml/): Learn how to maintain index configuration for Agent / MCP queries.
 
 The [Module Creator](../integrations/claude-code/skills/module-creator/) and [Playbook Creator](../integrations/claude-code/skills/playbook-creator/) Skills in the ClaudeCode plugin can assist in generating code drafts.

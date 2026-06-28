@@ -1,6 +1,6 @@
 # System Settings
 
-System settings are used to manage ASP's user, authentication, LLM, SIEM, Threat Intelligence, and Runtime configurations. Custom is an independent navigation entry, and its documentation is grouped with configuration docs.
+System settings are used to manage ASP's user, authentication, LLM, SIEM, Threat Intelligence, Runtime, and frontend Tag preview pages. Custom is an independent navigation entry, and its documentation is grouped under [Custom Development](../development/custom-console/).
 
 ## Entry and Permissions
 
@@ -17,11 +17,11 @@ System settings entry is located at the frontend `/system`. Only admins can ente
 | Threat Intelligence | Configure AlienVault OTX threat intelligence. |
 | SIEM | Configure Splunk and ELK connections. |
 | LDAP | Configure LDAP login. |
-| Custom | View and validate Module, Playbook, and SIEM YAML custom definitions. |
 | Runtime | Configure Agentic runtime parameters. |
+| Tags | Read-only preview of frontend Tag fields, enums, and colors. |
 
 ## API and Audit
 
-Runtime configuration APIs are mainly located under `/api/settings/`; Custom Definition APIs are under `/api/custom/`; user management is at `/api/auth/users/`.
+Runtime configuration APIs are mainly located under `/api/settings/`; user management is at `/api/auth/users/`. Custom Console uses `/api/custom/`; see [Custom Console](../development/custom-console/).
 
-LLM, Threat Intelligence, SIEM, and LDAP configurations all support testing connections. Settings updates, connection tests, and key reveals are written to Audit Log; key fields in audit records only记录是否发生变化或 reveal，不直接写入明文。
+LLM, Threat Intelligence, SIEM, and LDAP configurations all support connection tests. Settings updates, connection tests, and key reveals are written to Audit Log; key fields record only whether a value changed or was revealed, not plaintext secrets.

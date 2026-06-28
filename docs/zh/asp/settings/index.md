@@ -1,6 +1,6 @@
 # 系统设置
 
-系统设置用于管理 ASP 的用户、认证、LLM、SIEM、威胁情报和 Runtime 等运行配置。Custom 是独立导航入口，文档也归入配置章节。
+系统设置用于管理 ASP 的用户、认证、LLM、SIEM、威胁情报、Runtime 和前端 Tag 预览等配置与管理页面。Custom 是独立导航入口，文档归入 [定制开发](../development/custom-console/)。
 
 ## 入口与权限
 
@@ -17,11 +17,11 @@
 | Threat Intelligence | 配置 AlienVault OTX 威胁情报。                    |
 | SIEM                | 配置 Splunk 和 ELK 连接。                        |
 | LDAP                | 配置 LDAP 登录。                                |
-| Custom              | 查看和校验 Module、Playbook、SIEM YAML 自定义定义。 |
 | Runtime             | 配置 Agentic 运行参数。                           |
+| Tags                | 只读预览前端 Tag 字段、枚举和颜色效果。 |
 
 ## 接口与审计
 
-运行配置接口主要位于 `/api/settings/` 下；Custom Definition 接口位于 `/api/custom/` 下；用户管理位于 `/api/auth/users/`。
+运行配置接口主要位于 `/api/settings/` 下；用户管理位于 `/api/auth/users/`。Custom Console 使用 `/api/custom/` 接口，详见 [Custom Console](../development/custom-console/)。
 
 LLM、威胁情报、SIEM 和 LDAP 配置都支持测试连接。设置更新、测试连接和密钥 reveal 会写入 Audit Log；密钥字段在审计记录中只记录是否发生变化或 reveal，不直接写入明文。

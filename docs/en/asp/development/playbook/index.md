@@ -1,6 +1,6 @@
 # Playbook Development
 
-Playbook is an automation task面向 Case in ASP.
+Playbook is a Case-oriented automation task in ASP.
 
 ## Script Location
 
@@ -48,7 +48,7 @@ python manage.py run_agentic_playbook_worker
 
 After successful execution, the return value is written to the Playbook's `Remark`; on failure, exception information is written to the failure record.
 
-After modifying a Playbook, click `Refresh / Validate` in `Custom` → `Playbooks` to view loading results. If the Playbook introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
+After modifying a Playbook, click `Refresh / Validate` in [Custom Console](../custom-console/) → `Playbooks` to view loading results. If the Playbook introduces new third-party packages, update `custom\requirements.txt` and reinstall dependencies first.
 
 ## Current Examples
 
@@ -85,9 +85,9 @@ Playbook reads the corresponding file via `self.read_prompt("System")` based on 
 
 ## Design Recommendations
 
-- Input围绕 Case。
-- Output结构化。
-- Failure原因写入任务记录。
-- External query results写入 Enrichment，便于后续审计和复用。
-- When需要生成报告或结构化判断时，优先写回 Case 或 Knowledge。
-- 可以使用 [Playbook Creator](../../integrations/claude-code/skills/playbook-creator/) Skill 辅助生成 Playbook 草案。
+- Keep input centered on the Case.
+- Produce structured output.
+- Write failure reasons to the task record.
+- Write external query results to Enrichment for later audit and reuse.
+- When generating reports or structured judgments, prefer writing them back to Case or Knowledge.
+- Use the [Playbook Creator](../../integrations/claude-code/skills/playbook-creator/) Skill to help draft Playbooks.
