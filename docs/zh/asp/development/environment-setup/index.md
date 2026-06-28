@@ -210,8 +210,7 @@ backend/custom/
 ```powershell
 New-Item -ItemType Directory -Force .\.custom-packages
 uv pip install --python .\.venv\Scripts\python.exe --target .\.custom-packages -r .\custom\requirements.txt
-$env:ASP_CUSTOM_DIR = (Resolve-Path .\custom).Path
-$env:PYTHONPATH = "$(Resolve-Path .\.custom-packages);$env:ASP_CUSTOM_DIR"
+$env:PYTHONPATH = "$(Resolve-Path .\.custom-packages);$(Resolve-Path .\custom)"
 ```
 
 刷新并校验 custom 定义：
