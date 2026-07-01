@@ -20,6 +20,7 @@ Playbook Skill is used to view runnable Playbook Definitions, execute Playbooks,
 | `name` | Playbook name. |
 | `user_input` | Optional natural language supplementary requirements. |
 | `playbook_id` | Playbook Run ID. |
+| `include_comments` | Optional, explicitly fetch recent Playbook Run comments and attachment metadata. |
 
 ## Output
 
@@ -27,4 +28,4 @@ Runnable Playbook list, created Playbook Run, or execution details.
 
 ## Dependencies
 
-MCP tools: `list_playbook_definitions`、`execute_playbook`、`list_playbooks`.
+MCP tools: `list_playbook_templates`、`execute_playbook`、`list_playbooks`.

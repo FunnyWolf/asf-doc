@@ -21,10 +21,11 @@ Alert Skill 用于查看 ASP 告警并进行分诊分析。
 | `severity` | 严重级别。 |
 | `confidence` | 置信度。 |
 | `correlation_uid` | 关联 ID。 |
+| `include_comments` | 可选，显式读取最近评论和附件元数据。 |
 
 ## 输出
 
-告警摘要、关键上下文、关联 Case / Artifact / Enrichment，以及分诊判断。
+告警摘要、关键上下文、关联 Case / Artifact / Enrichment、可选评论，以及分诊判断。
 
 ## 依赖
 

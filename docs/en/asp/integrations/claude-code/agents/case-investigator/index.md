@@ -34,6 +34,7 @@ Case Investigator is an investigation orchestration Agent主导 by Case, used to
 - `asp-knowledge`
 - `asp-enrichment`
 - `asp-comment`
+- `asp-file`
 - `asp-cmdb`
 - `asp-playbook`
 - ASP MCP Server: `/api/mcp`

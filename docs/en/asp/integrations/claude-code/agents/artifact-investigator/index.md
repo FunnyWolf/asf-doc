@@ -32,6 +32,8 @@ Artifact Investigator is an investigation Agent主导 by IOC / Artifact, used to
 - `asp-alert`
 - `asp-case`
 - `asp-enrichment`
+- `asp-comment`
+- `asp-file`
 - `asp-threat-intelligence`
 - `asp-cmdb`
 - `asp-siem-search`

@@ -14,7 +14,7 @@ Playbook Creator Skill 用于创建 ASP 后端 Playbook 脚本。
 | --- | --- |
 | Playbook 类型 | LLM 分析类或 SOAR 自动化类。 |
 | 目标 | 需要完成的自动化任务。 |
-| 输入上下文 | Case、Artifact、Enrichment 或外部系统需求。 |
+| 输入上下文 | Case、Artifact、Comment、Comment 附件、Enrichment 或外部系统需求。 |
 
 ## 输出
 
@@ -24,4 +24,5 @@ Playbook Creator Skill 用于创建 ASP 后端 Playbook 脚本。
 
 - `backend/playbooks/`
 - `BasePlaybook`
+- `apps.comments.models.Comment`
 - 现有 Playbook 示例

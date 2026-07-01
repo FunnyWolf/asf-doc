@@ -72,7 +72,35 @@ Playbook should not only output temporary text. It is recommended to write resul
 - Case: Investigation reports, AI assessments, summaries.
 - Knowledge: Reusable knowledge extracted from cases.
 - Enrichment: Threat intelligence, assets, identity, or historical context.
+- Comment: Natural-language execution summaries, handoff notes, or information that should remain in the resource discussion.
 - Playbook: Task status, remarks, and background task ID.
+
+## Reading Comment Attachments
+
+Custom Playbooks run inside the backend process, so they do not need MCP `get_file` to read comment attachments. Use Django ORM to fetch Comments on the target resource, then read any file type with `attachment.file.open("rb")`:
+
+```python
+from django.contrib.contenttypes.models import ContentType
+
+from apps.comments.models import Comment
+
+
+content_type = ContentType.objects.get_for_model(self.case, for_concrete_model=False)
+comments = (
+    Comment.objects
+    .filter(content_type=content_type, object_id=str(self.case.pk))
+    .prefetch_related("attachments")
+)
+
+for comment in comments:
+    for attachment in comment.attachments.all():
+        with attachment.file.open("rb") as file_obj:
+            content = file_obj.read()
+        filename = attachment.filename
+        size = attachment.size
+```
+
+Attachments are not restricted by file type. The Playbook should choose parsing logic based on filename, size, and actual content instead of assuming text, image, or JSON.
 
 ## Custom Prompts
 

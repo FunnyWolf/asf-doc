@@ -64,7 +64,7 @@ ASP MCP Server provides the following Tools:
 |------|-------------|
 | `list_cases` | Query Case list, supports filtering by status, severity, verdict, etc. |
 | `update_case` | Update Case manual assessment fields (severity, confidence, impact, priority, verdict, summary) |
-| `add_comment` | Add comments to Case, Alert, Artifact, and other resources |
+| `add_comment` | Add comments to Case, Alert, Artifact, and other resources, with attachments, replies, and @mentions |
 
 ### Alert
 
@@ -95,7 +95,7 @@ ASP MCP Server provides the following Tools:
 
 | Tool | Description |
 |------|-------------|
-| `list_playbook_definitions` | List runnable Playbook definitions |
+| `list_playbook_templates` | List runnable Playbook definitions |
 | `execute_playbook` | Execute Playbook from Case |
 | `list_playbooks` | Query Playbook run records |
 
@@ -116,6 +116,30 @@ ASP MCP Server provides the following Tools:
 |------|-------------|
 | `ti_query` | Query threat intelligence for IOC |
 | `cmdb_lookup` | Query asset and identity context for Artifact |
+| `get_file` | Get file metadata and a download URL by `file_key` |
+
+## Comments and Files
+
+By default, MCP list tools do not return comment content, so Agents do not receive oversized context accidentally. To include comments, pass `include_comments=True` to `list_cases`, `list_alerts`, `list_artifacts`, `list_playbooks`, or `search_knowledge`; `comments_limit` defaults to 20 and is capped at 50. `include_related` controls related records only and does not implicitly include comments.
+
+Returned comments include `id`, `body`, `author`, `created_at`, `updated_at`, `parent_id`, and `attachments`. Attachments contain metadata only: `file_key`, `filename`, `size`, `content_type`, and `download_url`. File content is not inlined.
+
+`get_file(file_key)` is the unified MCP file lookup entry point. It returns metadata and `download_url`; it does not return text, bytes, or base64. Agents or user code should download the file from `download_url` and process it according to the file type.
+
+To upload a file, first call the REST attachment endpoint with the same API Key, then pass the returned `access_key` as `file_key` to `add_comment`:
+
+```bash
+curl -sS "https://asp.example.com/api/attachments/" \
+  -H "Authorization: Api-Key $ASP_MCP_API_KEY" \
+  -F "file=@./evidence.bin"
+```
+
+`add_comment(target_id, body="", file_keys=None, parent_id=None, mentions=None)` supports:
+
+- `file_keys`: one or more attachment `access_key` / `file_key` values.
+- `parent_id`: reply to an existing comment on the same resource.
+- `mentions`: username list, with numeric user ID compatibility.
+- `body`: may be empty only when at least one `file_key` is provided.
 
 ## Troubleshooting
 

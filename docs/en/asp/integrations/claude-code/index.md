@@ -9,9 +9,9 @@ ClaudeCode Plugin enables Agents and Skills in Claude Code to use ASP capabiliti
   - [Artifact Investigator](agents/artifact-investigator/): Performs context analysis, scope determination, and threat hunting around IOC / Artifact.
   - [Threat Hunting](agents/threat-hunting/): For hypothesis-driven proactive threat hunting.
 
-- **14 Skills**
+- **15 Skills**
   - [Alert](skills/alert/) / [Artifact](skills/artifact/) / [Case](skills/case/) / [Enrichment](skills/enrichment/) / [Knowledge](skills/knowledge/)
-  - [Comment](skills/comment/) / [CMDB](skills/cmdb/)
+  - [Comment](skills/comment/) / [File](skills/file/) / [CMDB](skills/cmdb/)
   - [Module Creator](skills/module-creator/)
   - [Playbook](skills/playbook/) / [Playbook Creator](skills/playbook-creator/)
   - [SIEM Index YAML](skills/siem-index-yaml/) / [SIEM Search](skills/siem-search/) / [SIEM Rule](skills/siem-rule/)

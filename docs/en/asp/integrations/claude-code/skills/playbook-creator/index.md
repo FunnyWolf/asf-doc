@@ -14,7 +14,7 @@ Playbook Creator Skill is used to create ASP backend Playbook scripts.
 |-------|-------------|
 | Playbook type | LLM analysis type or SOAR automation type. |
 | Target | Automation task to be completed. |
-| Input context | Case, Artifact, Enrichment, or external system requirements. |
+| Input context | Case, Artifact, Comment, comment attachments, Enrichment, or external system requirements. |
 
 ## Output
 
@@ -24,4 +24,5 @@ Recommended Playbook file, implementation approach, registration and execution i
 
 - `backend/playbooks/`
 - `BasePlaybook`
+- `apps.comments.models.Comment`
 - Existing Playbook examples

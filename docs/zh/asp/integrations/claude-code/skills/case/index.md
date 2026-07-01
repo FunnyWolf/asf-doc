@@ -22,10 +22,11 @@ Case Skill 用于查看、更新和审查 ASP 安全案件。
 | `status` | 案件状态。 |
 | `severity` / `confidence` / `impact` / `priority` | 人工评估字段。 |
 | `verdict` | 人工判定。 |
+| `include_comments` | 可选，显式读取最近评论；附件只返回文件名、`file_key` 和下载地址。 |
 
 ## 输出
 
-Case 摘要、关键证据、AI 分析、评论、时间线和可执行下一步。
+Case 摘要、关键证据、AI 分析、可选评论、时间线和可执行下一步。`include_related` 不会隐式返回评论，需要评论时使用 `include_comments`。
 
 ## 依赖
 

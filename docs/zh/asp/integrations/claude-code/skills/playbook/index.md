@@ -20,6 +20,7 @@ Playbook Skill 用于查看可运行的 Playbook Definition、执行 Playbook，
 | `name` | Playbook 名称。 |
 | `user_input` | 可选的自然语言补充要求。 |
 | `playbook_id` | Playbook Run ID。 |
+| `include_comments` | 可选，显式读取 Playbook Run 的最近评论和附件元数据。 |
 
 ## 输出
 
@@ -27,4 +28,4 @@ Playbook Skill 用于查看可运行的 Playbook Definition、执行 Playbook，
 
 ## 依赖
 
-MCP 工具：`list_playbook_definitions`、`execute_playbook`、`list_playbooks`。
+MCP 工具：`list_playbook_templates`、`execute_playbook`、`list_playbooks`。

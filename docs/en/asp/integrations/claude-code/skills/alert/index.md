@@ -21,10 +21,11 @@ Alert Skill is used to view ASP alerts and perform triage analysis.
 | `severity` | Severity level. |
 | `confidence` | Confidence level. |
 | `correlation_uid` | Correlation ID. |
+| `include_comments` | Optional, explicitly fetch recent comments and attachment metadata. |
 
 ## Output
 
-Alert summary, key context, associated Case / Artifact / Enrichment, and triage judgment.
+Alert summary, key context, associated Case / Artifact / Enrichment, optional comments, and triage judgment.
 
 ## Dependencies
 

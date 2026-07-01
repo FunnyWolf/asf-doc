@@ -72,7 +72,35 @@ Playbook 不应只输出临时文本。推荐把结果写回：
 - Case：调查报告、AI 评估、摘要。
 - Knowledge：从案件提取的可复用知识。
 - Enrichment：威胁情报、资产、身份或历史上下文。
+- Comment：自然语言执行摘要、交接说明或需要保留在资源讨论区的信息。
 - Playbook：任务状态、备注和后台任务 ID。
+
+## 读取评论附件
+
+自定义 Playbook 在后端进程内运行，不需要通过 MCP `get_file` 读取评论附件。可以直接使用 Django ORM 获取目标资源的 Comments，再用 `attachment.file.open("rb")` 读取任意类型文件：
+
+```python
+from django.contrib.contenttypes.models import ContentType
+
+from apps.comments.models import Comment
+
+
+content_type = ContentType.objects.get_for_model(self.case, for_concrete_model=False)
+comments = (
+    Comment.objects
+    .filter(content_type=content_type, object_id=str(self.case.pk))
+    .prefetch_related("attachments")
+)
+
+for comment in comments:
+    for attachment in comment.attachments.all():
+        with attachment.file.open("rb") as file_obj:
+            content = file_obj.read()
+        filename = attachment.filename
+        size = attachment.size
+```
+
+附件不限制文件类型。Playbook 应根据文件名、大小和实际内容自行决定解析方式，不要默认把附件当作文本、图片或 JSON。
 
 ## 自定义 Prompt
 

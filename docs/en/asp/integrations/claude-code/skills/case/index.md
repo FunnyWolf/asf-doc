@@ -22,10 +22,11 @@ Case Skill is used to view, update, and review ASP security cases.
 | `status` | Case status. |
 | `severity` / `confidence` / `impact` / `priority` | Manual assessment fields. |
 | `verdict` | Manual disposition. |
+| `include_comments` | Optional, explicitly fetch recent comments. Attachments return filename, `file_key`, and download URL only. |
 
 ## Output
 
-Case summary, key evidence, AI analysis, comments, timeline, and actionable next steps.
+Case summary, key evidence, AI analysis, optional comments, timeline, and actionable next steps. `include_related` does not implicitly return comments; use `include_comments` when comments are needed.
 
 ## Dependencies
 

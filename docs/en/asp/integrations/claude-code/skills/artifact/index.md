@@ -20,10 +20,11 @@ Artifact Skill is used to find entity records in the platform by IOC value, type
 | `value` | Entity value. |
 | `type` | Entity type. |
 | `role` | Entity role in incident. |
+| `include_comments` | Optional, explicitly fetch recent comments and attachment metadata. |
 
 ## Output
 
-Artifact list or single entity details, including associated alerts and enrichment count.
+Artifact list or single entity details, including associated alerts, enrichment count, and optional comments.
 
 ## Dependencies
 

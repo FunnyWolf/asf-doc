@@ -19,10 +19,11 @@ Knowledge Skill is used to search and maintain ASP knowledge base.
 | `keyword` | Search keyword, matches title, body, or tags. |
 | `knowledge_id` | Readable knowledge ID. |
 | Update fields | `title`、`body`、`expires_at`、`tags`。 |
+| `include_comments` | Optional, explicitly fetch recent comments and attachment metadata. |
 
 ## Output
 
-Knowledge entry list or updated knowledge record.
+Knowledge entry list or updated knowledge record. Comment context can be included explicitly when needed.
 
 ## Dependencies
 

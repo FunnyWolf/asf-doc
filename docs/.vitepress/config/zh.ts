@@ -175,6 +175,7 @@ function sidebarASP(): DefaultTheme.SidebarItem[] {
                                 {text: 'Enrichment', link: 'enrichment/'},
                                 {text: 'Knowledge', link: 'knowledge/'},
                                 {text: 'Comment', link: 'comment/'},
+                                {text: 'File', link: 'file/'},
                                 {text: 'CMDB', link: 'cmdb/'},
                                 {text: 'Module Creator', link: 'module-creator/'},
                                 {text: 'Playbook', link: 'playbook/'},
