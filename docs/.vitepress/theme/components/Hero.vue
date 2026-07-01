@@ -32,6 +32,11 @@
 
       <div class="hero-visual">
         <div class="preview">
+          <div class="window-chrome" aria-hidden="true">
+            <span class="window-dot close"></span>
+            <span class="window-dot minimize"></span>
+            <span class="window-dot maximize"></span>
+          </div>
           <img :src="config.image" :alt="config.imageAlt || config.name" loading="lazy" />
         </div>
       </div>
@@ -95,10 +100,10 @@ function richTextParts(text, terms) {
 
 .hero-shell {
   display: grid;
-  grid-template-columns: minmax(360px, 0.88fr) minmax(520px, 1.12fr);
-  gap: clamp(2.5rem, 4.5vw, 4rem);
+  grid-template-columns: minmax(360px, 0.8fr) minmax(600px, 1.2fr);
+  gap: clamp(2rem, 3.8vw, 3.5rem);
   align-items: center;
-  max-width: 1240px;
+  max-width: 1360px;
   width: 100%;
   margin: 0 auto;
 }
@@ -236,34 +241,100 @@ function richTextParts(text, terms) {
   position: relative;
   justify-self: end;
   width: 100%;
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 12% -8% -8% 8%;
-  border-radius: 40px;
+  inset: -12% -14% -18% -8%;
+  border-radius: 48px;
   background:
-    radial-gradient(circle at 24% 20%, rgba(66, 126, 210, 0.12), transparent 38%),
-    radial-gradient(circle at 82% 82%, rgba(47, 216, 164, 0.08), transparent 40%);
-  filter: blur(22px);
-  z-index: -1;
+    radial-gradient(circle at 20% 18%, rgba(46, 196, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 82% 74%, rgba(47, 216, 164, 0.14), transparent 38%),
+    linear-gradient(135deg, rgba(93, 136, 255, 0.08), transparent 60%);
+  filter: blur(30px);
+  opacity: 0.92;
+  z-index: -2;
 }
 
 .preview {
+  position: relative;
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(132, 168, 205, 0.12);
-  background: rgba(10, 16, 34, 0.56);
+  border: 1px solid rgba(132, 168, 205, 0.18);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 26%),
+    rgba(10, 16, 34, 0.62);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.045),
-    0 24px 78px rgba(0, 0, 0, 0.44);
+    inset 0 1px 0 rgba(255, 255, 255, 0.075),
+    0 28px 86px rgba(0, 0, 0, 0.5),
+    0 0 44px rgba(46, 196, 255, 0.08);
+  backdrop-filter: blur(18px);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  will-change: transform;
+}
+
+.preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%);
+  opacity: 0.72;
+  z-index: 2;
+}
+
+.window-chrome {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.36rem;
+  height: 22px;
+  padding: 0 0.62rem;
+  border-bottom: 1px solid rgba(132, 168, 205, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent),
+    rgba(14, 22, 44, 0.72);
   backdrop-filter: blur(18px);
 }
 
+.window-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+}
+
+.window-dot.close {
+  background: #ff5f57;
+}
+
+.window-dot.minimize {
+  background: #ffbd2e;
+}
+
+.window-dot.maximize {
+  background: #28c840;
+}
+
+.preview:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(132, 168, 205, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 34px 96px rgba(0, 0, 0, 0.54),
+    0 0 58px rgba(47, 216, 164, 0.1);
+}
+
 .preview img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   display: block;
@@ -278,6 +349,7 @@ function richTextParts(text, terms) {
   .hero-shell {
     grid-template-columns: 1fr;
     gap: 2.75rem;
+    max-width: 760px;
   }
 
   .hero-copy {
@@ -287,6 +359,10 @@ function richTextParts(text, terms) {
   .hero-visual {
     justify-self: stretch;
     max-width: none;
+  }
+
+  .preview:hover {
+    transform: none;
   }
 }
 

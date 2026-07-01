@@ -125,7 +125,6 @@ function stepDetails(step) {
 }
 
 .section-heading {
-  max-width: 980px;
   margin-bottom: 2rem;
 }
 
@@ -139,6 +138,7 @@ function stepDetails(step) {
 }
 
 .section-title {
+  max-width: 980px;
   margin: 0;
   color: rgba(248, 251, 255, 0.96);
   font-size: clamp(2rem, 4vw, 3.4rem);
@@ -155,6 +155,7 @@ function stepDetails(step) {
 }
 
 .section-subtitle {
+  max-width: 980px;
   margin: 1.25rem 0 0;
   color: rgba(214, 224, 235, 0.56);
   font-size: 1.08rem;
